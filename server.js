@@ -20,6 +20,8 @@ const flash = require('express-flash')
 
 const MongoDbStore = require('connect-mongo');
 
+const passport = require('passport')
+
 
 //Database connection
 
@@ -29,6 +31,8 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log ('Database connected....');
 });
+
+
 
 
 //Session config
@@ -41,12 +45,21 @@ app.use(session({
     cookie: {maxAge: 1000 * 60 * 60* 24} // 24 hours
 }))
 
+//Passport config
+
+const passportInit = require ('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 //Global middleware
 app.use((req, res, next) => {
      res.locals.session = req.session
+     res.locals.user = req.user
      next()
 })
+
 
 
 app.use(flash())
@@ -54,7 +67,12 @@ app.use(flash())
 //Assests
 app.use(express.static('public'))
 
+app.use(express.urlencoded( { extended: false }))
+
 app.use(express.json())
+
+
+
 
 app.use(expressLayout)
 
