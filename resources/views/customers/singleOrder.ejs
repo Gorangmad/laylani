@@ -1,0 +1,77 @@
+<section class="status">
+    <div class="container mx-auto">
+        <div class="status-box w-full lg:w-2/3 mx-auto">
+            <div class="flex items-center justify-between mb-12">
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6">
+                      <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        Ihre <%= order.lieferType%>
+                      </h3>
+                      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                      <%= order._id%>
+                      </p>
+                    </div>
+                    <div class="border-t border-gray-200">
+                      <dl>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                          <dt class="text-sm font-medium text-gray-500">
+                            Full Name
+                          </dt>
+                          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <%= order.name%>
+                          </dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                          <dt class="text-sm font-medium text-gray-500">
+                            Address
+                          </dt>
+                          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <%= order.address%>
+                          </dd>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                          <dt class="text-sm font-medium text-gray-500">
+                            Telefonnummer
+                          </dt>
+                          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <%= order.phone%>
+                          </dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                          <dt class="text-sm font-medium text-gray-500">
+                            Total
+                          </dt>
+                          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <%= order.totalPrice%>
+                          </dd>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                          <dt class="text-sm font-medium text-gray-500">
+                            Items
+                          </dt>
+                          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <% for(let pizza of Object.values(order.items)) {%>
+                                <div class="flex items-center my-8">
+                                    <img class="w-24" src="/img/<%= pizza.item.image%>" alt="">
+                                    <div class="flex-1 ml-4">
+                                       <h1><%= pizza.item.name%></h1>
+                                       <span><%= pizza.item.size%></span>
+                                    </div>
+                                <% } %>
+                          </dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                          <dt class="text-sm font-medium text-gray-500">
+                            Payment
+                          </dt>
+                          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                          <strong><%= order.paymentStatus%></strong>
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>

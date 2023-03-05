@@ -1,0 +1,26 @@
+[{
+    "_id": {
+      "$oid": "5eee651f739f8c674fd736ee"
+    },
+    "name": "Pommes",
+    "image": "R.png",
+    "price": "250",
+    "size": "small"
+  },{
+    "_id": {
+      "$oid": "5eee6671a27a66807cf2bea3"
+    },
+    "name": "Pommes",
+    "image": "R.png",
+    "price": "300",
+    "size": "medium"
+  },{
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea4"
+    },
+    "name": "Pommes",
+    "image": "R.png",
+    "price": "200",
+    "size": "small"
+  }
+]

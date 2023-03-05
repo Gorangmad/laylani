@@ -3,6 +3,11 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 
 function authController() {
+    const _getRedirectUrl = (req) => {
+        return req.user.role === 'admin' ? '/admin/orders' : '/cart'
+    }
+
+
     return {
         login(req, res) {
             res.render('auth/login')
@@ -28,8 +33,8 @@ function authController() {
                         req.flash('error', info.message)
                         return next(err)
                       }
-
-                      return res.redirect('/')
+                      
+                      return res.redirect(_getRedirectUrl(req))
                  })
            })(req, res, next)
         },
@@ -49,14 +54,14 @@ function authController() {
          }
 
          // Check if email exists 
-         User.exists({ email: email }, (err, result) => {
-             if(result) {
-                req.flash('error', 'Email already taken')
+         User.exists({ email: email }, (result) => {
+            if(result) {
+                req.flash('error','Email already taken')
                 req.flash('name', name)
                 req.flash('email', email) 
                 return res.redirect('/register')
-             }
-         })
+            }
+        })
 
          // Hash password 
          const hashedPassword = await bcrypt.hash(password, 10)
@@ -71,7 +76,7 @@ function authController() {
             // Login
             return res.redirect('/')
          }).catch(err => {
-            req.flash('error', 'Something went wrong')
+            req.flash('error', 'Email already taken')
                 return res.redirect('/register')
          })
         },
