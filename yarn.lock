@@ -3402,6 +3402,11 @@
   "resolved" "https://registry.npmjs.org/express-ejs-layouts/-/express-ejs-layouts-2.5.1.tgz"
   "version" "2.5.1"
 
+"express-flash-message@^2.1.0":
+  "integrity" "sha512-oR/cwzt7CfjSUt7XwEZCCyOegylHuTF8/by6+jAshZh2TzREqDIjfU0JU5M6usurSk/ep3lUxxyaCbujyERyTQ=="
+  "resolved" "https://registry.npmjs.org/express-flash-message/-/express-flash-message-2.1.0.tgz"
+  "version" "2.1.0"
+
 "express-session@^1.17.3":
   "integrity" "sha512-4+otWXlShYlG1Ma+2Jnn+xgKUZTMJ5QD3YvfilX3AcocOAbIkVylSWEklzALe/+Pu4qV6TYBj5GwOBFfdKqLBw=="
   "resolved" "https://registry.npmjs.org/express-session/-/express-session-1.17.3.tgz"
