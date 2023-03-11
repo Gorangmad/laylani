@@ -2367,6 +2367,11 @@
     "write-file-atomic" "^3.0.0"
     "xdg-basedir" "^4.0.0"
 
+"connect-flash@0.1.x":
+  "integrity" "sha512-2rcfELQt/ZMP+SM/pG8PyhJRaLKp+6Hk2IUBNkEit09X+vwn3QsAL3ZbYtxUn7NVPzbMTSLRDhqe0B/eh30RYA=="
+  "resolved" "https://registry.npmjs.org/connect-flash/-/connect-flash-0.1.1.tgz"
+  "version" "0.1.1"
+
 "connect-history-api-fallback@^1.6.0":
   "integrity" "sha512-e54B99q/OUoH64zYYRf3HBP5z24G38h5D3qXu23JGRoigpX5Ss4r9ZnDk3g0Z8uQC2x2lPaJ+UlWBc1ZWBWdLg=="
   "resolved" "https://registry.npmjs.org/connect-history-api-fallback/-/connect-history-api-fallback-1.6.0.tgz"
@@ -3406,6 +3411,12 @@
   "integrity" "sha512-oR/cwzt7CfjSUt7XwEZCCyOegylHuTF8/by6+jAshZh2TzREqDIjfU0JU5M6usurSk/ep3lUxxyaCbujyERyTQ=="
   "resolved" "https://registry.npmjs.org/express-flash-message/-/express-flash-message-2.1.0.tgz"
   "version" "2.1.0"
+
+"express-flash@github:RGBboy/express-flash":
+  "resolved" "git+ssh://git@github.com/RGBboy/express-flash.git#4639761a3dbed98be9a9f6994dc719836d26b4ff"
+  "version" "0.0.2"
+  dependencies:
+    "connect-flash" "0.1.x"
 
 "express-session@^1.17.3":
   "integrity" "sha512-4+otWXlShYlG1Ma+2Jnn+xgKUZTMJ5QD3YvfilX3AcocOAbIkVylSWEklzALe/+Pu4qV6TYBj5GwOBFfdKqLBw=="
