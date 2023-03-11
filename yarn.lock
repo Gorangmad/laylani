@@ -2377,6 +2377,11 @@
   "resolved" "https://registry.npmjs.org/connect-history-api-fallback/-/connect-history-api-fallback-1.6.0.tgz"
   "version" "1.6.0"
 
+"connect-mongoose@^0.0.2":
+  "integrity" "sha512-aLtnWRh6cz8dPKr3vzTJUBWoa9AHZ8S+tqZcBQAeanz51iwXlXslBle3lhegvjt/ilm5CCYJbTBqdwLLO0u9LA=="
+  "resolved" "https://registry.npmjs.org/connect-mongoose/-/connect-mongoose-0.0.2.tgz"
+  "version" "0.0.2"
+
 "console-browserify@^1.1.0":
   "integrity" "sha512-ZMkYO/LkF17QvCPqM0gxw8yUzigAOZOSWSHg91FH6orS7vcEj5dVZTidN2fQ14yBSdg97RqhSNwLUXInd52OTA=="
   "resolved" "https://registry.npmjs.org/console-browserify/-/console-browserify-1.2.0.tgz"
