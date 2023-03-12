@@ -40,7 +40,7 @@ connection.once('open', () => {
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    store: MongoDbStore.create({ mongoUrl: 'mongodb://localhost/pizza' }),
+    store: MongoDbStore.create({ mongoUrl: 'mongodb://127.0.0.1/pizza' }),
     saveUninitialized: false,
     cookie: {maxAge: 1000 * 60 * 60* 48} // 24 hours
 }))
