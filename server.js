@@ -27,7 +27,7 @@ const passport = require('passport')
 
 //Database connection
 
-const url = 'mongodb://localhost/pizza';
+const url = 'mongodb://127.0.0.1/pizza';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 const connection = mongoose.connection;
 connection.once('open', () => {
