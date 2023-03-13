@@ -27,7 +27,7 @@ const passport = require('passport')
 
 //Database connection
 
-const url = 'mongodb://db-mongodb-fra1-31755-570f56f2.mongo.ondigitalocean.com:27017/pizza';
+const url = 'mongodb+srv://doadmin:9pt07K4P5f3MBy26@db-mongodb-fra1-31755-3c7d155a.mongo.ondigitalocean.com/admin?authSource=admin&replicaSet=db-mongodb-fra1-31755&tls=true/pizza';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, family: 4});
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -40,7 +40,7 @@ connection.once('open', () => {
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    store: MongoDbStore.create({ mongoUrl: 'mongodb://db-mongodb-fra1-31755-570f56f2.mongo.ondigitalocean.com:27017/pizza' }),
+    store: MongoDbStore.create({ mongoUrl: 'mongodb+srv://doadmin:9pt07K4P5f3MBy26@db-mongodb-fra1-31755-3c7d155a.mongo.ondigitalocean.com/admin?authSource=admin&replicaSet=db-mongodb-fra1-31755&tls=true/pizza' }),
     saveUninitialized: false,
     cookie: {maxAge: 1000 * 60 * 60* 48} // 24 hours
 }))
