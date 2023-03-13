@@ -27,7 +27,7 @@ const passport = require('passport')
 
 //Database connection
 
-const url = 'mongodb+srv://doadmin:9pt07K4P5f3MBy26@db-mongodb-fra1-31755-3c7d155a.mongo.ondigitalocean.com/admin?authSource=admin&replicaSet=db-mongodb-fra1-31755&tls=true/pizza';
+const url = "mongodb+srv://doadmin:9pt07K4P5f3MBy26@db-mongodb-fra1-31755-3c7d155a.mongo.ondigitalocean.com/admin?authSource=admin&replicaSet=db-mongodb-fra1-31755&tls=true/pizza";
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, family: 4});
 const connection = mongoose.connection;
 connection.once('open', () => {
