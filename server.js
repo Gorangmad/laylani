@@ -40,7 +40,7 @@ connection.once('open', () => {
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    store: MongoDbStore.create({ mongoUrl: 'mongodb+srv://doadmin:9pt07K4P5f3MBy26@db-mongodb-fra1-31755-3c7d155a.mongo.ondigitalocean.com/pizza?authSource=admin&replicaSet=db-mongodb-fra1-31755&tls=true' }),
+    store: MongoDbStore.create({ mongoUrl: 'mongodb+srv://doadmin:9pt07K4P5f3MBy26@db-mongodb-fra1-31755-3c7d155a.mongo.ondigitalocean.com/pizza?authSource=admin&replicaSet=db-mongodb-fra1-31755&tls=true'}),
     saveUninitialized: false,
     cookie: {maxAge: 1000 * 60 * 60* 48} // 24 hours
 }))
