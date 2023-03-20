@@ -30,12 +30,8 @@
         <hr>
         <div class="text-right py-4">
             <div>
-                <span class="text-lg font-bold">Lieferkosten</span>
-                <span class="amount text-2xl font-bold ml-2">1</span>
-            </div>
-            <div>
                 <span class="text-lg font-bold">Total Amount</span>
-                <span class="amount text-2xl font-bold ml-2"><%= session.cart.totalPrice %></span>
+                <span class="amount text-2xl font-bold ml-2"><%= session.cart.totalPrice %>$</span>
             </div>
             <% if (user) {%>
             <div>
