@@ -1,23 +1,55 @@
 <section class="menu container mx-auto py-8">
-    <h1 class="text-xl font-bold mb-8">All Pizzas</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16">
-        <% pizzas.forEach(function(pizza) { %>
-        <div class="w-full md:w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/<%= pizza.image %>" alt="">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg"><%= pizza.name %></h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= pizza.size %></span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bold text-lg"><%= pizza.price %>$</span>
-                    <button data-pizza="<%= JSON.stringify(pizza) %>"
-                        class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <% }) %>
-
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Pizza Name</th>
+                <th>Order 1</th>
+            </tr>
+        </thead>
+        <tbody id="pizza-table-body">
+            <% pizzas.forEach(function(pizza) { %>
+                <tr>
+                    <td><%= pizza.name %></td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="1">
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    
+    <button id="add-to-cart">Add to Cart</button>
+    
 </section>
+
+<style>
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+th, td {
+    padding: 0.5em;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.quantity-input {
+    width: 80px;
+}
+
+#add-to-cart {
+    background-color: #ddd;
+    color: #333;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+</style>

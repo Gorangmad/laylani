@@ -8,13 +8,12 @@ const auth = require('../app/http/middleware/auth')
 const admin = require('../app/http/middleware/admin')
 const adminOrderController = require('../app/http/controllers/admin/orderController')
 const statusController = require('../app/http/controllers/admin/statusController')
-
+const adminController = require('../app/http/controllers/adminController');
 
 
 function initRoutes(app) {
 
-    app.get('/', homeController().index)
-    app.get('/menu', menuController().index)
+    app.get('/', menuController().index)
 
     app.get('/login',guest, authController().login)
     app.post('/login', authController().postLogin)
@@ -43,6 +42,8 @@ function initRoutes(app) {
     app.get('/admin/orders/archiv',admin , adminOrderController().threedex)
     app.get('/admin/orders/:id',admin , adminOrderController().show)
     app.post('/admin/order/status',admin , statusController().update)
+    app.put('/admin/orders/:orderId/items/:itemId', adminController().index);
+
     
 }
 

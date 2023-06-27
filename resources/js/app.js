@@ -12,6 +12,7 @@ let removeToCart = document.querySelectorAll(".remove-to-cart");
 let cartCounter = document.querySelector('#cartCounter')
 
 function updateCart(pizza, url, msg) {
+
   axios.post(url, pizza).then(res => {
       cartCounter.innerText = res.data.totalQty
       new Noty({
@@ -60,6 +61,8 @@ if(alertMsg) {
  }, 2000)
 }
 
+
+
 initSingleOrder()
 initTotal()
 initArchiv()
@@ -93,13 +96,10 @@ statuses.forEach((status) => {
 })
 }
 
-
-initStripe()
-initAdmin()
 updateStatus(order);
 
 // Socket
-let socket = io()
+const socket = io()
 
 // Join
 if(order) {
@@ -113,15 +113,15 @@ if(adminAreaPath.includes('admin')) {
 
 
 socket.on('orderUpdated', (data) => {
-   const updatedOrder = { ...order }
-   updatedOrder.updatedAt = moment().format()
-   updatedOrder.status = data.status
-   updateStatus(updatedOrder)
-   new Noty({
-       type: 'success',
-       timeout: 1000,
-       text: 'Order updated',
-       progressBar: false,
-   }).show();
+    const updatedOrder = { ...order }
+    updatedOrder.updatedAt = moment().format()
+    updatedOrder.status = data.status
+    updateStatus(updatedOrder)
+    new Noty({
+        type: 'success',
+        timeout: 1000,
+        text: 'Order updated',
+        progressBar: false,
+    }).show();
 })
 

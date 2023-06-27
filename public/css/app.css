@@ -300,15 +300,15 @@
 body {
   font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
-  color: #232323;
+  color: #ff6600;
 }
 
 nav li:last-child a {
-  background: #ff6200;
+  background: #ff6600;
 }
 
 nav li:last-child a:hover {
-  background: #009933;
+  background: #ffaa00;
 }
 
 nav li a {
@@ -316,11 +316,11 @@ nav li a {
 }
 
 nav li a:hover {
-  color: #ff6200;
+  color: #ff6600;
 }
 
 section.hero {
-  background: #ff6200;
+  background: #ff6600;
 }
 
 .size {
@@ -328,13 +328,13 @@ section.hero {
 }
 
 .add-to-cart {
-  border: 2px solid #ff6200;
-  color: #ff6200;
+  border: 2px solid #ff6600;
+  color: #ff6600;
   transition: all 0.3s ease-in-out;
 }
 
 .add-to-cart:hover {
-  background: #ff6200;
+  background: #ff6600;
   border-color: #fff;
   color: #fff;
 }
@@ -350,7 +350,7 @@ section.hero {
 }
 
 .main:hover {
-  background: #ff6200;
+  background: #ff6600;
   border-color: #fff;
   color: #fff;
 }
@@ -364,13 +364,13 @@ section.hero {
 }
 
 .remove-to-cart {
-  border: 2px solid #ff6200;
-  color: #ff6200;
+  border: 2px solid #ff6600;
+  color: #ff6600;
   transition: all 0.3s ease-in-out;
 }
 
 .remove-to-cart:hover {
-  background: #ff6200;
+  background: #ff6600;
   border-color: #fff;
   color: #fff;
 }
@@ -380,12 +380,12 @@ section.hero {
 }
 
 .btn-primary {
-  background: #ff6200;
+  background: #ff6600;
   transition: all 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background: #009933;
+  background: #ffaa00;
 }
 
 section.cart {
@@ -393,7 +393,7 @@ section.cart {
 }
 
 section.cart .amount {
-  color: #ff6200;
+  color: #ff6600;
 }
 
 section.login {
@@ -402,11 +402,11 @@ section.login {
 }
 
 section.login a {
-  color: #ff6200;
+  color: #ff6600;
 }
 
 section.login a:hover {
-  color: #009933;
+  color: #ffaa00;
 }
 
 .noty_theme__mint {
@@ -415,7 +415,7 @@ section.login a:hover {
 }
 
 a.link {
-  color: #ff6200;
+  color: #ff6600;
 }
 
 section.status {
@@ -512,11 +512,11 @@ section.status {
 }
 
 .status-box ul li.current span {
-  color: #ff6200;
+  color: #ff6600;
 }
 
 .status-box ul li.current span:after {
-  background: #ff6200;
+  background: #ff6600;
 }
 
 .status-box ul li small {

@@ -29,7 +29,7 @@ export function initAdmin(socket) {
             if(order.status !== "completed"){
             return `
                 <tr>
-                <td class="border px-4 py-2 text-green-900">
+                <td class="border px-4 py-2 text-900">
                 <a class="link" href="/admin/orders/${ order._id }">${order._id}</a>
                 </td>
                 <td class="border px-4 py-2">${ order.address }</td>
@@ -78,7 +78,8 @@ export function initAdmin(socket) {
     }
     
     // Socket
-    socket.on('orderPlace', (order) => {
+    socket.on('orderPlaced', (order) => {
+        console.log(order)
         new Noty({
             type: 'success',
             timeout: 1000,
