@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ezeep/ezeep-js": "^1.0.224",
+    "@ezeep/ezeep-js": "^1.0.225",
     "@googlemaps/google-maps-services-js": "^3.3.5",
     "@stripe/stripe-js": "^1.22.0",
     "bcrypt": "^5.0.1",

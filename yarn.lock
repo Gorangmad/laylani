@@ -1743,10 +1743,10 @@
   dependencies:
     sass "^1.49.9"
 
-"@ezeep/ezeep-js@^1.0.224":
-  version "1.0.224"
-  resolved "https://registry.npmjs.org/@ezeep/ezeep-js/-/ezeep-js-1.0.224.tgz"
-  integrity sha512-PM54yg9NKPEw3GB058r3EuZo+GtRACoWh1iPp4NEuWFctF884+7VH//9i/bPbzI+SciS+Jj0Mscl+QtkMTsmnQ==
+"@ezeep/ezeep-js@^1.0.225":
+  version "1.0.225"
+  resolved "https://registry.npmjs.org/@ezeep/ezeep-js/-/ezeep-js-1.0.225.tgz"
+  integrity sha512-eOb8c9b4XfpNAq8r8/HK2M4L1QrAvgT+mFLWu+8oe2W4zC6eQQQD5rBbjvPMCGG5wEpQ5D1+MTRzuCgwUcHVAg==
   dependencies:
     "@azure/storage-blob" "^12.8.0"
     "@cortado-holding/colors" "^1.1.6"

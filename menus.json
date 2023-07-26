@@ -1,65 +1,180 @@
 [{
-    "_id": {
-      "$oid": "5eee651f739f8c674fd736ee"
-    },
-    "name": "Margherita",
-    "image": "9.png",
-    "price": "250",
-    "size": "small"
-  },{
-    "_id": {
-      "$oid": "5eee6671a27a66807cf2bea3"
-    },
-    "name": "Marinara",
-    "image": "pizza.png",
-    "price": "300",
-    "size": "medium"
-  },{
-    "_id": {
-      "$oid": "5eee6692a27a66807cf2bea4"
-    },
-    "name": "Carbonara",
-    "image": "pizza.png",
-    "price": "200",
-    "size": "small"
-  },{
-    "_id": {
-      "$oid": "5eee66a5a27a66807cf2bea5"
-    },
-    "name": "Americana",
-    "image": "pizza.png",
-    "price": "500",
-    "size": "large"
-  },{
-    "_id": {
-      "$oid": "5eee66c4a27a66807cf2bea6"
-    },
-    "name": "Chicken Mushroom",
-    "image": "pizza.png",
-    "price": "350",
-    "size": "medium"
-  },{
-    "_id": {
-      "$oid": "5eee66cfa27a66807cf2bea7"
-    },
-    "name": "Paneer pizza",
-    "image": "pizza.png",
-    "price": "200",
-    "size": "small"
-  },{
-    "_id": {
-      "$oid": "5eee66eea27a66807cf2bea8"
-    },
-    "name": "Vegies pizza",
-    "image": "pizza.png",
-    "price": "600",
-    "size": "large"
-  },{
-    "_id": {
-      "$oid": "5eee6717a27a66807cf2bea9"
-    },
-    "name": "Pepperoni",
-    "image": "pizza.png",
-    "price": "500",
-    "size": "medium"
-  }]
+  "_id": {
+    "$oid": "5eee651f739f8c674fd736ee"
+  },
+  "name": "Mix",
+  "image": "9.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "5eee6671a27a66807cf2bea3"
+  },
+  "name": "Barfi",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "5eee6692a27a66807cf2bea4"
+  },
+  "name": "Gulab Jamun",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "5eee66a5a27a66807cf2bea5"
+  },
+  "name": "Black Gulab Jamun",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "5eee66c4a27a66807cf2bea6"
+  },
+  "name": "Cream Gulab Jamun",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "5eee66cfa27a66807cf2bea7"
+  },
+  "name": "Rasgula",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "5eee66eea27a66807cf2bea8"
+  },
+  "name": "Chum-Chum",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "5eee6717a27a66807cf2bea9"
+  },
+  "name": "Ladoo",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd57c4aee1f50386d8a62b"
+  },
+  "name": "Ladoo",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd57c4aee1f50386d8a62a"
+  },
+  "name": "Gajar Halwa",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd5841aee1f50386d8a62e"
+  },
+  "name": "Gajar Halwa",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd5863aee1f50386d8a62f"
+  },
+  "name": "Besan Barfi",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd5876aee1f50386d8a630"
+  },
+  "name": "Milk Cake",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd588aaee1f50386d8a631"
+  },
+  "name": "Peda",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd589baee1f50386d8a632"
+  },
+  "name": "Jalebi",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd58acaee1f50386d8a633"
+  },
+  "name": "Patisa",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd58bbaee1f50386d8a634"
+  },
+  "name": "Matri",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd58cbaee1f50386d8a635"
+  },
+  "name": "Samosa",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd58d9aee1f50386d8a636"
+  },
+  "name": "Sakar Pare",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+},
+{
+  "_id": {
+    "$oid": "64bd58edaee1f50386d8a637"
+  },
+  "name": "Bhujia Badana",
+  "image": "pizza.png",
+  "price": "0",
+  "size": "s"
+}]
