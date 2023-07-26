@@ -115,7 +115,7 @@ export function initSingleOrder() {
     }
 
     function updateItemQuantity(orderId, itemId, newQty) {
-      axios.put(`/admin/orders/${orderId}/items/${itemId}`, { qty: newQty })
+      axios.put(`https://starfish-app-nki4g.ondigitalocean.app/admin/orders/${orderId}/items/${itemId}`, { qty: newQty })
         .then(res => {
           new Noty({
             type: 'success',
