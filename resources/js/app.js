@@ -2,7 +2,6 @@ import axios from 'axios'
 import Noty from 'noty'
 import { initAdmin } from './admin'
 import moment from 'moment'
-import { initStripe } from './stripe'
 import { initSingleOrder } from './singleOrder'
 import { initTotal } from './total'
 import { initArchiv } from './archiv'
@@ -51,6 +50,74 @@ addToCart.forEach((btn) => {
      updateCart(pizza.item, url, "Item removed from cart, please refresh site");
  })
 })
+
+const createOrderBtn = document.getElementById('create-order');
+if (createOrderBtn) {
+  createOrderBtn.addEventListener('click', () => {
+    const items = [];
+
+    // Iterate through each item row in the table body
+    const itemRows = document.querySelectorAll('#pizza-table-body tr');
+    itemRows.forEach((row) => {
+      const quantityInput = row.querySelector('.quantity-input');
+      const pizzaData = JSON.parse(quantityInput.dataset.pizza);
+      const quantity = parseInt(quantityInput.value);
+
+      // Add the selected item and quantity to the items array
+      if (quantity >= 0) {
+        items.push({ pizza: pizzaData, quantity });
+      }
+    });
+
+    // Retrieve the user data from the server
+    axios.get('/user')
+      .then(res => {
+        // Handle successful response
+        const user = res.data; // Assuming the response data contains the user object
+
+        // Extract the user ID and name
+        const userId = user._id;
+        const userName = user.name;
+
+        // Extract additional order information from the form fields
+        const phone = '1234567890'; // Replace with the desired phone number
+        const lieferType = 'abholung'; // Replace with the desired delivery type ('abholung' or 'lieferung')
+        const paymentType = 'bar'; // Replace with the desired payment type ('card' or 'bar')
+
+        // Send the order creation request with the required parameters
+        axios.post('/orders', { user: { _id: userId, name: userName }, items, name: userName, phone, lieferType, paymentType })
+          .then(res => {
+            // Handle successful order creation
+            console.log('Order created:', res.data);
+
+            // Clear the selected item quantities
+            const itemRows = document.querySelectorAll('#pizza-table-body tr');
+            itemRows.forEach(row => {
+              const quantityInput = row.querySelector('.quantity-input');
+              quantityInput.value = 0;
+            });
+
+            // Show success message to the customer using Noty
+            new Noty({
+              type: 'success',
+              text: 'Order placed successfully',
+              timeout: 1000, // Adjust the timeout duration as needed
+              progressBar: true
+            }).show();
+          })
+          .catch(err => {
+            // Handle order creation error
+            console.error('Order creation failed:', err);
+          });
+      })
+      .catch(err => {
+        // Handle error
+        console.error('Error requesting user:', err);
+      });
+  });
+}
+
+
 
 
 // Remove alert message after X seconds

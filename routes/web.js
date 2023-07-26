@@ -42,7 +42,7 @@ function initRoutes(app) {
     app.get('/admin/orders/archiv',admin , adminOrderController().threedex)
     app.get('/admin/orders/:id',admin , adminOrderController().show)
     app.post('/admin/order/status',admin , statusController().update)
-    app.put('/admin/orders/:orderId/items/:itemId', adminController().index);
+    app.put('/admin/orders/:orderId/items/:itemId',admin,  adminController().index)
 
     
 }

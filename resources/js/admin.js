@@ -79,7 +79,6 @@ export function initAdmin(socket) {
     
     // Socket
     socket.on('orderPlaced', (order) => {
-        console.log(order)
         new Noty({
             type: 'success',
             timeout: 1000,

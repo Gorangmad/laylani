@@ -8,25 +8,27 @@ function updateItemQuantity() {
         const itemId = req.params.itemId.toString();
         const newQty = req.body.qty;
 
-       console.log(orderId)
-
         const order = await Order.findById(orderId);
         if (!order) {
           return res.status(404).json({ message: 'Order not found' });
         }
       
-        // Update the item quantity
-        if (order.items && order.items[itemId]) {
-          order.items[itemId].qty = newQty;
-          order.markModified('items'); 
+        if (order.items && order.items.length > 0) {
+          const itemToUpdate = order.items.find(item => item.pizza._id === itemId);
+        
+          if (itemToUpdate) {
+            itemToUpdate.quantity = newQty;
+            order.markModified('items');
+          } else {
+            return res.status(404).json({ message: 'Item not found in order' });
+          }
         } else {
-          return res.status(404).json({ message: 'Item not found in order' });
+          return res.status(404).json({ message: 'No items found in order' });
         }
         
         // Save the updated order
         try {
           const updatedOrder = await order.save();
-          console.log(order._id)
           res.status(200).json({ message: 'Item quantity updated successfully', order: updatedOrder });
         } catch (err) {
           console.log('Error updating item quantity:', err);

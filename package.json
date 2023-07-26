@@ -1,5 +1,5 @@
 {
-  "name": "OW",
+  "name": "ow",
   "version": "1.0.0",
   "description": "Food order app",
   "main": "index.js",
@@ -9,10 +9,12 @@
     "dev": "nodemon server.js",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "start": "node server.js"
   },
   "license": "MIT",
   "dependencies": {
+    "@ezeep/ezeep-js": "^1.0.224",
     "@googlemaps/google-maps-services-js": "^3.3.5",
     "@stripe/stripe-js": "^1.22.0",
     "bcrypt": "^5.0.1",
@@ -43,7 +45,6 @@
     "cross-env": "^7.0.3",
     "laravel-mix": "^5.0.4",
     "node": "^16.0.0",
-    "nodemon": "^2.0.15",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.44.0",
     "sass-loader": "^8.0.2",

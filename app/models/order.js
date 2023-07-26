@@ -11,7 +11,7 @@ const orderSchema = new Schema({
         required: true
     },
     items: { type: Object, required:true },
-    totalPrice: { type: String, required:true },
+    totalPrice: { type: String, required:false },
     name: {type: String, required:true},
     phone: {type: String, required:true},
     address: {type: String, default: 'Abholung'},

@@ -29,6 +29,9 @@ const Emitter = require('events')
 const Order = require('./app/models/order')
 
 
+
+
+
 //Database connection
 
 const url ='mongodb://127.0.0.1:27017/?readPreference=primary&directConnection=true&ssl=false';
@@ -44,9 +47,9 @@ connection.once('open', () => {
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    store: MongoDbStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/?readPreference=primary&directConnection=true&ssl=false'}),
+    store: MongoDbStore.create({ mongoUrl: 'mongodb://localhost:27017'}),
     saveUninitialized: false,
-    cookie: {maxAge: 1000 * 60 * 60* 48} // 24 hours
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 } // One month
 }))
 
 
@@ -61,6 +64,10 @@ const { Socket } = require('socket.io')
 passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
+
+
+//Cloud Printing
+
 
 
 //Assests
@@ -88,6 +95,12 @@ app.use((req, res, next) => {
     next()
 })
 
+app.get('/user', (req, res) => {
+  // Retrieve the user information from the session or database
+  const user = req.user; // Assuming the user information is stored in the `req.user` object
+  // Return the user information as a response
+  res.json(user);
+});
 
 
 app.use(flash())
@@ -126,7 +139,6 @@ eventEmitter.on('orderUpdated', async (data) => {
       // Fetch the order details from the database based on the data.id
       const order = await Order.findById(data.id);
 
-      console.log(order)
 
       // Check if the order exists
       if (!order) {
@@ -182,5 +194,4 @@ eventEmitter.on('orderUpdated', async (data) => {
   // Usage example
   eventEmitter.on('orderPlaced', (data) => {
     io.to('adminRoom').emit('orderPlaced', data)
-    console.log('server.js')
 })

@@ -18,12 +18,17 @@
         </tbody>
     </table>
     
-    <button id="add-to-cart">Add to Cart</button>
+    <% if(user) { %>
+        <button id="create-order">Create Order</button>
+    <% } else {%> 
+        <p>Bitte anmelden um ihre Bestellung abzulegen</p>
+    <% }%>
+
     
 </section>
 
 <style>
-    table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1em;

@@ -9,7 +9,7 @@ function orderController () {
             // Validate request
             const { phone, paymentType, name, lieferType } = req.body
 
-            let totalPrice = req.session.cart.totalPrice
+            // let totalPrice = req.session.cart.totalPrice
 
             if(lieferType == 'abholung'){
                 if(!phone || !name) {
@@ -21,20 +21,13 @@ function orderController () {
                 }
             }
 
-            if(req.body.postCode === '65929'){
-                totalPrice = req.session.cart.totalPrice + 0
-            }
-            if(req.body.postCode === '65936'){
-                totalPrice = req.session.cart.totalPrice + 1
-            }
 
             const order = new Order({
                 customerId: req.user._id,
-                items: req.session.cart.items,
+                items: req.body.items,
                 name,
                 phone,
-                lieferType,
-                totalPrice
+                lieferType
             })
 
             order.save()
@@ -44,7 +37,6 @@ function orderController () {
                 .then(placedOrder => {
                     // Stripe payment
                     if (paymentType !== 'card') {
-                        console.log('bar payment');
                         
                         placedOrder.paymentStatus = true;
                         placedOrder.paymentType = paymentType;
