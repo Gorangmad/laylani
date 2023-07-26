@@ -30690,8 +30690,7 @@ function initSingleOrder() {
     var orderTableBody = document.querySelector('#orderBody');
     var url = window.location.pathname;
     var orderId = url.split('\\').pop().split('/').pop();
-    console.log(url);
-    console.log("https://starfish-app-nki4g.ondigitalocean.app".concat(url));
+    var data = "https://starfish-app-nki4g.ondigitalocean.app".concat(url);
     var orders = [];
     var markup;
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/admin/orders', {
@@ -30718,9 +30717,11 @@ function initSingleOrder() {
       var qrCode = '';
       return orders.map(function (order) {
         if (order && order._id === orderId) {
-          qrcode__WEBPACK_IMPORTED_MODULE_1___default.a.toDataURL(url, function (err, dataURI) {
+          qrcode__WEBPACK_IMPORTED_MODULE_1___default.a.toDataURL(data, function (err, dataURI) {
             if (err) throw err;
-            qrCode = "<img src=\"".concat(dataURI, "\" />");
+            console.log(dataURI);
+            console.log(data);
+            qrCode = "<img src=\"".concat(dataURI, "\"/>");
           });
           return "\n            <div id=\"order\" class=\"bg-white shadow overflow-hidden sm:rounded-lg\">\n              <div class=\"px-4 py-5 sm:px-6\">\n                <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n                  Neue ".concat(order.lieferType, "\n                </h3>\n                <p class=\"mt-1 max-w-2xl text-sm text-gray-500\">\n                  ").concat(order._id, "\n                </p>\n              </div>\n              <div class=\"border-t border-gray-200\">\n                <dl>\n                  <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                    <dt class=\"text-sm font-medium text-gray-500\">\n                      Full Name\n                    </dt>\n                    <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                      ").concat(order.name, "\n                    </dd>\n                  </div>\n                  <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                    <dt class=\"text-sm font-medium text-gray-500\">\n                      Items\n                    </dt>\n                    <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                      ").concat(renderItems(order.items), "\n                    </dd>\n                  </div>\n                  <div class=\"bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                    <dt class=\"text-sm font-medium text-gray-500\">\n                      Payment\n                    </dt>\n                    <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                      <strong>").concat(order.paymentStatus ? 'paid' : 'Not paid', "</strong>\n                    </dd>\n                  </div>\n                  <div class=\"bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                    <dt class=\"text-sm font-medium text-gray-500\">\n                      qrCode\n                    </dt>\n                    <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                      <strong>").concat(qrCode, "</strong>\n                    </dd>\n                  </div>\n                </dl>\n              </div>\n            </div>\n          ");
         }

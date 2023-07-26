@@ -8,9 +8,8 @@ export function initSingleOrder() {
     const url = window.location.pathname
     const orderId = url.split('\\').pop().split('/').pop()
 
+    const data =`https://starfish-app-nki4g.ondigitalocean.app${url}`
 
-    console.log(url)
-    console.log(`https://starfish-app-nki4g.ondigitalocean.app${url}`)
 
     let orders = []
     let markup
@@ -42,9 +41,12 @@ export function initSingleOrder() {
 
       return orders.map(order => {
         if (order && order._id === orderId) {
-          QRCode.toDataURL(url, (err, dataURI) => {
+          QRCode.toDataURL(data, (err, dataURI) => {
             if (err) throw err;
-            qrCode = `<img src="${dataURI}" />`;
+            console.log(dataURI)
+            console.log(data)
+            qrCode = `<img src="${dataURI}"/>`;
+            
           });
 
           return `
