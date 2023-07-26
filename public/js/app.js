@@ -30690,6 +30690,8 @@ function initSingleOrder() {
     var orderTableBody = document.querySelector('#orderBody');
     var url = window.location.pathname;
     var orderId = url.split('\\').pop().split('/').pop();
+    console.log(url);
+    console.log("https://starfish-app-nki4g.ondigitalocean.app".concat(url));
     var orders = [];
     var markup;
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/admin/orders', {
@@ -30734,7 +30736,7 @@ function initSingleOrder() {
     }
 
     function updateItemQuantity(orderId, itemId, newQty) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("https://starfish-app-nki4g.ondigitalocean.app/admin/orders/".concat(orderId, "/items/").concat(itemId), {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/admin/orders/".concat(orderId, "/items/").concat(itemId), {
         qty: newQty
       }).then(function (res) {
         new noty__WEBPACK_IMPORTED_MODULE_2___default.a({

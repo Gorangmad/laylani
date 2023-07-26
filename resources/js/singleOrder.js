@@ -8,6 +8,10 @@ export function initSingleOrder() {
     const url = window.location.pathname
     const orderId = url.split('\\').pop().split('/').pop()
 
+
+    console.log(url)
+    console.log(`https://starfish-app-nki4g.ondigitalocean.app${url}`)
+
     let orders = []
     let markup
 
@@ -115,7 +119,7 @@ export function initSingleOrder() {
     }
 
     function updateItemQuantity(orderId, itemId, newQty) {
-      axios.put(`https://starfish-app-nki4g.ondigitalocean.app/admin/orders/${orderId}/items/${itemId}`, { qty: newQty })
+      axios.put(`/admin/orders/${orderId}/items/${itemId}`, { qty: newQty })
         .then(res => {
           new Noty({
             type: 'success',
