@@ -14,9 +14,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ezeep/ezeep-js": "^1.0.225",
     "@googlemaps/google-maps-services-js": "^3.3.5",
     "@stripe/stripe-js": "^1.22.0",
+    "axios": "^1.4.0",
     "bcrypt": "^5.0.1",
     "child_process": "^1.0.2",
     "connect-mongo": "^4.6.0",

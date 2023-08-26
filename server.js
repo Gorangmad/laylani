@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+const axios = require ('axios')
+
 const express = require ('express')
 
 const app = express()
@@ -28,7 +30,7 @@ const Emitter = require('events')
 
 const Order = require('./app/models/order')
 
-
+const QRCode = require('qrcode'); 
 
 
 
@@ -172,7 +174,7 @@ eventEmitter.on('orderUpdated', async (data) => {
 
       const mailOptions = {
         from: 'ggorangmadaan@gmail.com',
-        to: 'ggorangmadaan@gmail.com',
+        to: data.name,
         subject: 'Order Completed',
         text: emailBody,
       };
@@ -192,6 +194,58 @@ eventEmitter.on('orderUpdated', async (data) => {
 
 
   // Usage example
-  eventEmitter.on('orderPlaced', (data) => {
-    io.to('adminRoom').emit('orderPlaced', data)
-})
+// ...
+
+// Usage example
+eventEmitter.on('orderPlaced', async (data) => {
+  io.to('adminRoom').emit('orderPlaced', data);
+
+  const apiKey = process.env.NODE_API_KEY; // Replace with your actual API key
+
+  const headers = {
+    Authorization: `Basic ${Buffer.from(apiKey).toString('base64')}`,
+  };
+
+
+
+
+const printJobOptions = {
+  printerId: '72568099', // Replace with the printer ID
+  title: 'Print Job Title',
+  contentType: 'pdf_uri',
+  content: generatePDF(data),
+};
+
+axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
+  .then(response => {
+    console.log('Print job created:', response.data);
+  })
+  .catch(error => {
+    console.error('Error creating print job:', error);
+  });
+
+
+  function generatePDF(data) {
+    let content = `
+      Name: ${data.name}
+      Order ID: ${data._id}
+        
+      Items:
+    `;
+  
+    for (const itemId in data.items) {
+      if (data.items.hasOwnProperty(itemId)) {
+        const item = data.items[itemId];
+        content += `
+          Item: ${item.pizza.name}
+          Quantity: ${item.quantity}
+        `;
+      }
+    }
+  
+  
+    return Buffer.from(content).toString('base64');
+  }
+
+});
+

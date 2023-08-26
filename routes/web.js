@@ -40,7 +40,7 @@ function initRoutes(app) {
     app.get('/admin/orders/',admin , adminOrderController().index)
     app.get('/admin/orders/total',admin , adminOrderController().twodex)
     app.get('/admin/orders/archiv',admin , adminOrderController().threedex)
-    app.get('/admin/orders/:id',admin , adminOrderController().show)
+    app.get('/admin/orders/:id', adminOrderController().show)
     app.post('/admin/order/status',admin , statusController().update)
     app.put('/admin/orders/:orderId/items/:itemId',admin,  adminController().index)
 
