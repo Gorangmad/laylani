@@ -68,9 +68,6 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
-//Cloud Printing
-
-
 
 //Assests
 app.use(express.static('public'))
@@ -114,6 +111,11 @@ app.use(expressLayout)
 app.set('views', path.join(__dirname, '/resources/views'))
 
 app.set('view engine', 'ejs')
+
+app.get('/service-worker.js', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'service-worker.js'));
+});
+
 
 
 //Routes

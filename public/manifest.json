@@ -6,7 +6,7 @@
     "display": "standalone",
     "orientation": "portrait",
     "scope": "/",
-    "start_url": "https://starfish-app-nki4g.ondigitalocean.app/",
+    "start_url": "/",
     "icons":[
         {
 

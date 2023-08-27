@@ -10,7 +10,6 @@ const adminOrderController = require('../app/http/controllers/admin/orderControl
 const statusController = require('../app/http/controllers/admin/statusController')
 const adminController = require('../app/http/controllers/adminController');
 
-
 function initRoutes(app) {
 
     app.get('/', menuController().index)
@@ -26,7 +25,7 @@ function initRoutes(app) {
     app.get('/cart', cartController().index)
     app.post('/update-cart', cartController().update)
     app.post('/remove-cart', cartController().remove)
-
+    
     //Customer routes
 
     app.post('/orders',auth, orderController().store)
