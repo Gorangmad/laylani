@@ -32,6 +32,10 @@ const Order = require('./app/models/order')
 
 const QRCode = require('qrcode'); 
 
+const admin = require('firebase-admin');
+
+
+
 
 
 //Database connection
@@ -42,6 +46,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log ('Database connected....');
 });
+
+
+
+
 
 
 //Session config
@@ -76,6 +84,8 @@ app.use(express.urlencoded( { extended: false }))
 
 app.use(express.json())
 
+
+// Your Firebase configuration
 
 // Nodemailer
 
@@ -160,7 +170,7 @@ eventEmitter.on('orderUpdated', async (data) => {
       for (const itemId in order.items) {
         if (order.items.hasOwnProperty(itemId)) {
           const item = order.items[itemId];
-          const itemName = item.item.name;
+          const itemName = item.pizza.name;
           const itemQty = item.qty;
       
           orderDetails.Produkte.push(itemName, itemQty);
@@ -188,15 +198,13 @@ eventEmitter.on('orderUpdated', async (data) => {
           console.log('Email sent: ' + info.response);
         }
       });
+
     } catch (error) {
       console.log('Error fetching order details:', error);
     }
   }
 });
 
-
-  // Usage example
-// ...
 
 // Usage example
 eventEmitter.on('orderPlaced', async (data) => {

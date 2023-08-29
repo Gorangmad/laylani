@@ -34259,6 +34259,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var addToCart = document.querySelectorAll('.add-to-cart');
 var removeToCart = document.querySelectorAll(".remove-to-cart");
 var cartCounter = document.querySelector('#cartCounter');
+var deferredPrompt;
+window.addEventListener('beforeinstallprompt', function (event) {
+  event.preventDefault();
+  deferredPrompt = event;
+  var installButton = document.getElementById('install-button');
+  installButton.style.display = 'block';
+  installButton.addEventListener('click', function () {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function (choiceResult) {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+
+      deferredPrompt = null;
+    });
+  });
+});
 
 function updateCart(pizza, url, msg) {
   axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(url, pizza).then(function (res) {

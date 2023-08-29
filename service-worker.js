@@ -3,10 +3,10 @@ self.addEventListener('install', (event) => {
     caches.open('my-cache').then((cache) => {
       return cache.addAll([
         // Include the URLs of your cached assets here
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/views/home.ejs',
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/css/styles.css',   // Example CSS file
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/js/app.js',       // Example JavaScript file
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/img/logo.png',    // Example image file
+        'http://localhost:3400/resources/views/home.ejs',
+        'http://localhost:3400/resources/css/styles.css',   // Example CSS file
+        'http://localhost:3400/resources/js/app.js',       // Example JavaScript file
+        'http://localhost:3400/resources/img/logo.png',    // Example image file
         // Add more URLs as needed
       ])
       .catch((error) => {
