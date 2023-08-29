@@ -36,8 +36,6 @@ const admin = require('firebase-admin');
 
 
 
-
-
 //Database connection
 
 const url ='mongodb+srv://doadmin:5m20E4kM61Pq3s7R@db-mongodb-fra1-52094-5d3c473d.mongo.ondigitalocean.com/admin?tls=true&authSource=admin';
@@ -46,7 +44,6 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log ('Database connected....');
 });
-
 
 
 
@@ -83,9 +80,6 @@ app.use(express.static('public'))
 app.use(express.urlencoded( { extended: false }))
 
 app.use(express.json())
-
-
-// Your Firebase configuration
 
 // Nodemailer
 
