@@ -38,6 +38,12 @@ const QRCode = require('qrcode');
 
 const { createCanvas } = require('canvas');
 
+const { PDFDocument, rgb } = require('pdf-lib');
+
+const fs = require('fs'); // Required for file reading
+
+
+
 
 let userSubscription;
 
@@ -259,6 +265,7 @@ eventEmitter.on('orderPlaced', async (data) => {
     Authorization: `Basic ${Buffer.from(apiKey).toString('base64')}`,
   };
 
+
   async function generateQRCode(id) {
     return new Promise((resolve, reject) => {
       const url = `https://starfish-app-nki4g.ondigitalocean.app/${id}`;
@@ -272,51 +279,55 @@ eventEmitter.on('orderPlaced', async (data) => {
     });
   }
 
-  async function generatePDF(data) {
+  
+
+  async function generatePdfWithHeader(data) {
     const id = data._id.toHexString();
 
     // Generate the QR code
-    const qrCode = await generateQRCode(id);
+    const qrCode = await generateQRCode(`https://starfish-app-nki4g.ondigitalocean.app/admin/orders/${id}`);
 
-    let content = `
-      Name: ${data.name}
-      
-      QR Code:
-      <img src="${qrCode}" alt="QR Code with ID: ${id}" />
-      
-      Items:
-    `;
+    // Create a new PDF document
+    const pdfDoc = await PDFDocument.create();
 
-    for (const itemId in data.items) {
-      if (data.items.hasOwnProperty(itemId)) {
-        const item = data.items[itemId];
-        content += `
-          Item: ${item.pizza.name}
-          Quantity: ${item.quantity}
-        `;
-      }
-    }
+    // Add a new page to the document
+    const page = pdfDoc.addPage([400, 200]);
 
-    // Convert the entire content to a base64-encoded string
-    const base64Content = Buffer.from(content).toString('base64');
+    // Draw text on the page
+    page.drawText('Name: ' + data.name, {
+      x: 50,
+      y: 50,
+      size: 30,
+      color: rgb(0, 0, 0), // Black color
+    });
 
-    return base64Content;
+    // Embed the QR code as an image in the PDF
+    const qrImage = await pdfDoc.embedPng(qrCode);
+    const qrDims = qrImage.scale(0.2); // Adjust the scale as needed
+    page.drawImage(qrImage, {
+      x: 70,
+      y: 70,
+      width: qrDims.width,
+      height: qrDims.height,
+    });
+
+    // Serialize the PDF to bytes
+    const pdfBytes = await pdfDoc.save();
+
+    // Encode the PDF content in base64
+    const pdfBase64 = Buffer.from(pdfBytes).toString('base64');
+
+    return pdfBase64;
   }
 
-  async function generatePrintJobContent(data) {
-    const base64Content = await generatePDF(data);
-
-    return base64Content;
-  }
-
-  // Generate the print job content
-  generatePrintJobContent(data)
-    .then(printJobContent => {
+  // Generate the PDF with a header
+  generatePdfWithHeader(data)
+    .then(pdfBase64 => {
       const printJobOptions = {
-        printerId: '72568099', // Replace with the printer ID
+        printerId: 72614729, // Replace with the printer ID
         title: 'Print Job Title',
-        contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded content
-        content: printJobContent, // Use the generated PDF content
+        contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded PDF content
+        content: pdfBase64, // Use the generated PDF with header
       };
 
       // Create the print job
