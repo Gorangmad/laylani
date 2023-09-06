@@ -6,8 +6,6 @@ import { initSingleOrder } from './singleOrder'
 import { initTotal } from './total'
 import { initArchiv } from './archiv'
 
-
-
 let addToCart = document.querySelectorAll('.add-to-cart')
 let removeToCart = document.querySelectorAll(".remove-to-cart");
 let cartCounter = document.querySelector('#cartCounter')

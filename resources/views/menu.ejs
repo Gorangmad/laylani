@@ -4,12 +4,16 @@
             <tr>
                 <th>Sweet Name</th>
                 <th>Order 1</th>
+                <th>Order 2</th>
             </tr>
         </thead>
         <tbody id="pizza-table-body">
             <% pizzas.forEach(function(pizza) { %>
                 <tr>
                     <td><%= pizza.name %></td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="1">
+                    </td>
                     <td>
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="1">
                     </td>
@@ -23,9 +27,10 @@
     <% } else {%> 
         <p>Bitte anmelden um ihre Bestellung abzulegen</p>
     <% }%>
-
-    
 </section>
+
+
+
 
 <style>
 table {

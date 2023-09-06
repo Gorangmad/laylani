@@ -303,14 +303,6 @@ body {
   color: #ff6600;
 }
 
-nav li:last-child a {
-  background: #ff6600;
-}
-
-nav li:last-child a:hover {
-  background: #ffaa00;
-}
-
 nav li a {
   transition: all 0.3s ease-in-out;
 }

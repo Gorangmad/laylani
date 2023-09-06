@@ -30,11 +30,27 @@ const Emitter = require('events')
 
 const Order = require('./app/models/order')
 
-const QRCode = require('qrcode'); 
+const push = require('web-push')
 
-const admin = require('firebase-admin');
+const bodyParser = require('body-parser');
+
+const QRCode = require('qrcode');
+
+const { createCanvas } = require('canvas');
 
 
+let userSubscription;
+
+let vapidKeys = {
+    publicKey: 'BHEk6XF74Wog4WnakolRs798bo9Sw0y5gj-5v9fnbRtmyXxXXlFQPWxhObZTp8ppqmtrheM6NUSrHKyNv_fqyAw',
+    privateKey: '7PllFpyRJ1SqXb04v22tEat0J0AzvKRp77SVdjvN11A'
+}
+
+push.setVapidDetails(
+    'mailto:ggorangmadaan@gmail.com',
+    vapidKeys.publicKey,
+    vapidKeys.privateKey
+);
 
 //Database connection
 
@@ -44,10 +60,6 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log ('Database connected....');
 });
-
-
-
-
 
 //Session config
 
@@ -73,7 +85,6 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
-
 //Assests
 app.use(express.static('public'))
 
@@ -81,7 +92,23 @@ app.use(express.urlencoded( { extended: false }))
 
 app.use(express.json())
 
-// Nodemailer
+app.use(bodyParser.json());
+
+// Messaging
+
+app.post('/subscribe', (req, res) => {
+  const { endpoint, keys } = req.body;
+
+  userSubscription ={
+    endpoint,
+    keys,
+  };
+
+  res.status(201).json({});
+});
+
+
+
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -143,6 +170,28 @@ eventEmitter.on('orderUpdated', async (data) => {
   io.to(`order_${data.id}`).emit('orderUpdated', data);
 
   if (data.status === 'completed') {
+
+    const pushPayload = JSON.stringify({
+      title: 'Order Completed',
+      message: `Order ${data.id} has been completed.`,
+      // You can add more data here as needed for your notification
+    });
+
+    let sub = {
+        endpoint: userSubscription.endpoint,
+        expirationTime: null,
+        keys: userSubscription.keys,
+      };
+  
+    push.sendNotification(sub, pushPayload)
+    .then(() => {
+      console.log('Push notification sent for order completion');
+    })
+    .catch((error) => {
+      console.error('Error sending push notification:', error);
+    });
+
+
     try {
       // Fetch the order details from the database based on the data.id
       const order = await Order.findById(data.id);
@@ -180,7 +229,7 @@ eventEmitter.on('orderUpdated', async (data) => {
 
       const mailOptions = {
         from: 'ggorangmadaan@gmail.com',
-        to: data.name,
+        to: order.name,
         subject: 'Order Completed',
         text: emailBody,
       };
@@ -210,33 +259,34 @@ eventEmitter.on('orderPlaced', async (data) => {
     Authorization: `Basic ${Buffer.from(apiKey).toString('base64')}`,
   };
 
+  async function generateQRCode(id) {
+    return new Promise((resolve, reject) => {
+      const url = `https://starfish-app-nki4g.ondigitalocean.app/${id}`;
+      QRCode.toDataURL(url, (err, dataURI) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(dataURI);
+        }
+      });
+    });
+  }
 
+  async function generatePDF(data) {
+    const id = data._id.toHexString();
 
+    // Generate the QR code
+    const qrCode = await generateQRCode(id);
 
-const printJobOptions = {
-  printerId: '72568099', // Replace with the printer ID
-  title: 'Print Job Title',
-  contentType: 'pdf_uri',
-  content: generatePDF(data),
-};
-
-axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
-  .then(response => {
-    console.log('Print job created:', response.data);
-  })
-  .catch(error => {
-    console.error('Error creating print job:', error);
-  });
-
-
-  function generatePDF(data) {
     let content = `
       Name: ${data.name}
-      Order ID: ${data._id}
-        
+      
+      QR Code:
+      <img src="${qrCode}" alt="QR Code with ID: ${id}" />
+      
       Items:
     `;
-  
+
     for (const itemId in data.items) {
       if (data.items.hasOwnProperty(itemId)) {
         const item = data.items[itemId];
@@ -246,10 +296,46 @@ axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
         `;
       }
     }
-  
-  
-    return Buffer.from(content).toString('base64');
+
+    // Convert the entire content to a base64-encoded string
+    const base64Content = Buffer.from(content).toString('base64');
+
+    return base64Content;
   }
 
+  async function generatePrintJobContent(data) {
+    const base64Content = await generatePDF(data);
+
+    return base64Content;
+  }
+
+  // Generate the print job content
+  generatePrintJobContent(data)
+    .then(printJobContent => {
+      const printJobOptions = {
+        printerId: '72568099', // Replace with the printer ID
+        title: 'Print Job Title',
+        contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded content
+        content: printJobContent, // Use the generated PDF content
+      };
+
+      // Create the print job
+      axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
+        .then(response => {
+          console.log('Print job created:', response.data);
+        })
+        .catch(error => {
+          console.error('Error creating print job:', error);
+        });
+    })
+    .catch(err => {
+      console.error('Error generating print job content:', err);
+    });
 });
+
+
+
+
+
+
 

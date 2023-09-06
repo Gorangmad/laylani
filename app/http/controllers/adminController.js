@@ -8,6 +8,8 @@ function updateItemQuantity() {
         const itemId = req.params.itemId.toString();
         const newQty = req.body.qty;
 
+        console.log(req.body)
+
         const order = await Order.findById(orderId);
         if (!order) {
           return res.status(404).json({ message: 'Order not found' });

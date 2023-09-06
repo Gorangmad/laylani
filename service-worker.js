@@ -3,10 +3,10 @@ self.addEventListener('install', (event) => {
     caches.open('my-cache').then((cache) => {
       return cache.addAll([
         // Include the URLs of your cached assets here
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/views/home.ejs',
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/css/styles.css',   // Example CSS file
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/js/app.js',       // Example JavaScript file
-        'https://starfish-app-nki4g.ondigitalocean.app/resources/img/logo.png',    // Example image file
+        'http://localhost:3400/resources/views/home.ejs',
+        'http://localhost:3400/resources/css/styles.css',   // Example CSS file
+        'http://localhost:3400/resources/js/app.js',       // Example JavaScript file
+        'http://localhost:3400/resources/img/logo.png',    // Example image file
         // Add more URLs as needed
       ])
       .catch((error) => {
@@ -23,4 +23,23 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
+// Service worker code for handling push notifications and caching
+self.addEventListener("push", (event) => {
+  if (event.data) {
+    const options = {
+      body: event.data.text(), // Extract the notification message from the event data
+      icon: 'icon.png', // Replace with the path to your notification icon
+      badge: 'badge.png', // Replace with the path to your notification badge (optional)
+    };
+
+    event.waitUntil(
+      self.registration.showNotification('Push Notification Title', options)
+    );
+  }
+});
+
+
+// Other service worker code for caching, etc.
+
 
