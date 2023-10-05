@@ -34325,14 +34325,59 @@ if (createOrderBtn) {
 
     var itemRows = document.querySelectorAll('#pizza-table-body tr');
     itemRows.forEach(function (row) {
-      var quantityInput = row.querySelector('.quantity-input');
-      var pizzaData = JSON.parse(quantityInput.dataset.pizza);
-      var quantity = parseInt(quantityInput.value); // Add the selected item and quantity to the items array
+      var pizzaData = JSON.parse(row.querySelector('.quantity-input').dataset.pizza);
+      var quantity1 = parseInt(row.querySelector('[data-order="1"]').value);
+      var quantity2 = parseInt(row.querySelector('[data-order="2"]').value);
+      var quantity3 = parseInt(row.querySelector('[data-order="3"]').value);
+      var quantity4 = parseInt(row.querySelector('[data-order="4"]').value);
+      var quantity5 = parseInt(row.querySelector('[data-order="5"]').value);
+      var quantity6 = parseInt(row.querySelector('[data-order="6"]').value);
+      var quantity7 = parseInt(row.querySelector('[data-order="7"]').value);
+      var quantity8 = parseInt(row.querySelector('[data-order="8"]').value);
+      var quantity9 = parseInt(row.querySelector('[data-order="9"]').value);
+      var quantity10 = parseInt(row.querySelector('[data-order="10"]').value);
+      var quantity11 = parseInt(row.querySelector('[data-order="11"]').value);
+      var quantity12 = parseInt(row.querySelector('[data-order="12"]').value);
+      var quantity13 = parseInt(row.querySelector('[data-order="13"]').value);
+      var quantity14 = parseInt(row.querySelector('[data-order="14"]').value);
+      var quantity15 = parseInt(row.querySelector('[data-order="15"]').value);
+      var quantity16 = parseInt(row.querySelector('[data-order="16"]').value);
+      var quantity17 = parseInt(row.querySelector('[data-order="17"]').value);
+      var quantity18 = parseInt(row.querySelector('[data-order="18"]').value);
+      var quantity19 = parseInt(row.querySelector('[data-order="19"]').value);
+      var quantity20 = parseInt(row.querySelector('[data-order="20"]').value);
+      var quantity21 = parseInt(row.querySelector('[data-order="21"]').value);
+      var quantity22 = parseInt(row.querySelector('[data-order="22"]').value);
+      var quantity23 = parseInt(row.querySelector('[data-order="23"]').value);
+      var quantity24 = parseInt(row.querySelector('[data-order="24"]').value); // Add the selected item and quantities to the items array
 
-      if (quantity >= 0) {
+      if (quantity1 >= 0 || quantity2 >= 0 || quantity3 >= 0 || quantity4 >= 0 || quantity5 >= 0 || quantity6 >= 0 || quantity7 >= 0 || quantity8 >= 0 || quantity9 >= 0 || quantity10 >= 0 || quantity11 >= 0 || quantity12 >= 0 || quantity13 >= 0 || quantity14 >= 0 || quantity15 >= 0 || quantity16 >= 0 || quantity17 >= 0 || quantity18 >= 0 || quantity19 >= 0 || quantity20 >= 0 || quantity21 >= 0 || quantity22 >= 0 || quantity23 >= 0 || quantity24 >= 0) {
         items.push({
           pizza: pizzaData,
-          quantity: quantity
+          quantity1: quantity1,
+          quantity2: quantity2,
+          quantity3: quantity3,
+          quantity4: quantity4,
+          quantity5: quantity5,
+          quantity6: quantity6,
+          quantity7: quantity7,
+          quantity8: quantity8,
+          quantity9: quantity9,
+          quantity10: quantity10,
+          quantity11: quantity11,
+          quantity12: quantity12,
+          quantity13: quantity13,
+          quantity14: quantity14,
+          quantity15: quantity15,
+          quantity16: quantity16,
+          quantity17: quantity17,
+          quantity18: quantity18,
+          quantity19: quantity19,
+          quantity20: quantity20,
+          quantity21: quantity21,
+          quantity22: quantity22,
+          quantity23: quantity23,
+          quantity24: quantity24
         });
       }
     }); // Retrieve the user data from the server
@@ -34364,7 +34409,8 @@ if (createOrderBtn) {
         paymentType: paymentType
       }).then(function (res) {
         // Handle successful order creation
-        console.log('Order created:', res.data); // Clear the selected item quantities
+        console.log('Order created:', res.data);
+        console.log(items); // Clear the selected item quantities
 
         var itemRows = document.querySelectorAll('#pizza-table-body tr');
         itemRows.forEach(function (row) {
@@ -34520,6 +34566,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(qrcode__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_2__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -34533,7 +34581,7 @@ function initSingleOrder() {
     var markup;
     axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/admin/orders', {
       headers: {
-        "X-Requested-With": "XMLHttpRequest"
+        'X-Requested-With': 'XMLHttpRequest'
       }
     }).then(function (res) {
       orders = res.data;
@@ -34541,15 +34589,7 @@ function initSingleOrder() {
       orderTableBody.innerHTML = markup;
     })["catch"](function (err) {
       console.log(err);
-    }); // function renderItems(items) {
-    //   console.log(items)
-    //   let parsedItems = Object.values(items)
-    //   return parsedItems.map((menuItem) => {
-    //     return `
-    //       <p>${menuItem.item.name} - ${menuItem.qty} pcs</p>
-    //     `
-    //   }).join('')
-    // }
+    });
 
     function generateMarkup(orders) {
       var qrCode = '';
@@ -34559,7 +34599,7 @@ function initSingleOrder() {
             if (err) throw err;
             qrCode = "<img src=\"".concat(dataURI, "\"/>");
           });
-          return "\n            <div id=\"order\" class=\"bg-white shadow overflow-hidden sm:rounded-lg\">\n              <div class=\"px-4 py-5 sm:px-6\">\n                <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n                  Neue ".concat(order.lieferType, "\n                </h3>\n                <p class=\"mt-1 max-w-2xl text-sm text-gray-500\">\n                  ").concat(order._id, "\n                </p>\n              </div>\n              <div class=\"border-t border-gray-200\">\n                <dl>\n                  <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                    <dt class=\"text-sm font-medium text-gray-500\">\n                      Full Name\n                    </dt>\n                    <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                      ").concat(order.name, "\n                    </dd>\n                  </div>\n                  <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                    <dt class=\"text-sm font-medium text-gray-500\">\n                      Items\n                    </dt>\n                    <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                      ").concat(renderItems(order.items), "\n                    </dd>\n                  </div>\n                  <div class=\"bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                    <dt class=\"text-sm font-medium text-gray-500\">\n                      qrCode\n                    </dt>\n                    <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                      <strong>").concat(qrCode, "</strong>\n                    </dd>\n                  </div>\n                </dl>\n              </div>\n            </div>\n          ");
+          return "\n              <div id=\"order\" class=\"bg-white shadow overflow-hidden sm:rounded-lg\">\n                <div class=\"px-4 py-5 sm:px-6\">\n                  <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n                    Neue ".concat(order.lieferType, "\n                  </h3>\n                  <p class=\"mt-1 max-w-2xl text-sm text-gray-500\">\n                    ").concat(order._id, "\n                  </p>\n                </div>\n                <div class=\"border-t border-gray-200\">\n                  <dl>\n                    <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                        ").concat(order.name, "\n                      </dd>\n                    </div>\n                    <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dt class=\"text-sm font-medium text-gray-500\">\n                        Items\n                      </dt>\n                      <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                        <table>\n                          <thead>\n                            <tr>\n                              <th class=\"bg-gray-50 sticky left-0\">Sweet Name</th>\n                              <th>Order 1</th>\n                <th>Order 2</th>\n                <th>Order 3\n                </th>\n                <th>Order 4</th>\n                <th>Order 5</th>\n                <th>Order 6</th>\n                <th>Order 7</th>\n                <th>Order 8</th>\n                <th>Order 9</th>\n                <th>Order 10</th>\n                <th>Order 11</th>\n                <th>Order 12</th>\n                <th>Order 13</th>\n                <th>Order 14</th>\n                <th>Order 15</th>\n                <th>Order 16</th>\n                <th>Order 17</th>\n                <th>Order 18</th>\n                <th>Order 19</th>\n                <th>Order 20</th>\n                <th>Order 21</th>\n                <th>Order 22</th>\n                <th>Order 23</th>\n                <th>Order 24</th>\n                            </tr>\n                          </thead>\n                          <tbody>\n                            ").concat(renderItems(order.items), "\n                          </tbody>\n                        </table>\n                      </dd>\n                    </div>\n                    <div class=\"bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dt class=\"text-sm font-medium text-gray-500\">\n                        qrCode\n                      </dt>\n                      <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                        <strong>").concat(qrCode, "</strong>\n                      </dd>\n                    </div>\n                  </dl>\n                </div>\n              </div>\n            ");
         }
       }).join('');
     }
@@ -34567,15 +34607,13 @@ function initSingleOrder() {
     function renderItems(items) {
       var parsedItems = Object.values(items);
       return parsedItems.map(function (menuItem) {
-        console.log(menuItem.quantities);
-        return "\n          <div class=\"flex items-center mb-2\">\n            <p class=\"mr-2\">".concat(menuItem.pizza.name, "</p>\n            <input\n              type=\"number\"\n              class=\"quantity-input\"\n              value=\"").concat(menuItem.quantity, "\"\n              data-order-id=\"").concat(orderId, "\"\n              data-item-id=\"").concat(menuItem.pizza._id, "\"\n            />\n          </div>\n        ");
+        return "\n            <tr>\n              <td class=\"bg-gray-50 sticky left-0\">".concat(menuItem.pizza.name, "</td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity1, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity1\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity2, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"    \n                  data-quantity=\"quantity2\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity3, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"    \n                  data-quantity=\"quantity3\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity4, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity4\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity5, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity5\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity6, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity6\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity7, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity7\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity8, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity8\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity9, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity9\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity10, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity10\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity11, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity11\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity12, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity12\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity13, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity13\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity14, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity14\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity15, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity15\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity16, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity16\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity17, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity17\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity18, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity18\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity19, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity19\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity20, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity20\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity21, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity21\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity22, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity22\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity23, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity23\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity24, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity24\"\n                />\n              </td>\n            </tr>\n          ");
       }).join('');
     }
 
-    function updateItemQuantity(orderId, itemId, newQty) {
-      axios__WEBPACK_IMPORTED_MODULE_0__["default"].put("/admin/orders/".concat(orderId, "/items/").concat(itemId), {
-        qty: newQty
-      }).then(function (res) {
+    function updateItemQuantity(orderId, itemId, newQty, quantityType) {
+      axios__WEBPACK_IMPORTED_MODULE_0__["default"].put("/admin/orders/".concat(orderId, "/items/").concat(itemId), _defineProperty({}, quantityType, newQty)) // Use dynamic property name based on quantityType
+      .then(function (res) {
         new noty__WEBPACK_IMPORTED_MODULE_2___default.a({
           type: 'success',
           text: 'Item quantity updated successfully',
@@ -34591,10 +34629,15 @@ function initSingleOrder() {
       var target = event.target;
 
       if (target.classList.contains('quantity-input')) {
+        console.log(target.dataset.itemId);
         var _orderId = target.dataset.orderId;
         var itemId = target.dataset.itemId;
         var newQty = target.value;
-        updateItemQuantity(_orderId, itemId, newQty);
+        var quantityType = target.dataset.quantity; // Get the quantity type (quantity1, quantity2, etc.)
+
+        console.log(newQty, itemId); // Update the appropriate quantity based on quantityType
+
+        updateItemQuantity(_orderId, itemId, newQty, quantityType);
       }
     });
   });

@@ -80,13 +80,37 @@ if (createOrderBtn) {
     // Iterate through each item row in the table body
     const itemRows = document.querySelectorAll('#pizza-table-body tr');
     itemRows.forEach((row) => {
-      const quantityInput = row.querySelector('.quantity-input');
-      const pizzaData = JSON.parse(quantityInput.dataset.pizza);
-      const quantity = parseInt(quantityInput.value);
+      const pizzaData = JSON.parse(row.querySelector('.quantity-input').dataset.pizza);
 
-      // Add the selected item and quantity to the items array
-      if (quantity >= 0) {
-        items.push({ pizza: pizzaData, quantity });
+    
+      const quantity1 = parseInt(row.querySelector('[data-order="1"]').value);
+      const quantity2 = parseInt(row.querySelector('[data-order="2"]').value);
+      const quantity3 = parseInt(row.querySelector('[data-order="3"]').value);
+      const quantity4 = parseInt(row.querySelector('[data-order="4"]').value);
+      const quantity5 = parseInt(row.querySelector('[data-order="5"]').value);
+      const quantity6 = parseInt(row.querySelector('[data-order="6"]').value);
+      const quantity7 = parseInt(row.querySelector('[data-order="7"]').value);
+      const quantity8 = parseInt(row.querySelector('[data-order="8"]').value);
+      const quantity9 = parseInt(row.querySelector('[data-order="9"]').value);
+      const quantity10 = parseInt(row.querySelector('[data-order="10"]').value);
+      const quantity11 = parseInt(row.querySelector('[data-order="11"]').value);
+      const quantity12 = parseInt(row.querySelector('[data-order="12"]').value);
+      const quantity13 = parseInt(row.querySelector('[data-order="13"]').value);
+      const quantity14 = parseInt(row.querySelector('[data-order="14"]').value);
+      const quantity15= parseInt(row.querySelector('[data-order="15"]').value);
+      const quantity16 = parseInt(row.querySelector('[data-order="16"]').value);
+      const quantity17 = parseInt(row.querySelector('[data-order="17"]').value);
+      const quantity18 = parseInt(row.querySelector('[data-order="18"]').value);
+      const quantity19 = parseInt(row.querySelector('[data-order="19"]').value);
+      const quantity20 = parseInt(row.querySelector('[data-order="20"]').value);
+      const quantity21 = parseInt(row.querySelector('[data-order="21"]').value);
+      const quantity22 = parseInt(row.querySelector('[data-order="22"]').value);
+      const quantity23 = parseInt(row.querySelector('[data-order="23"]').value);
+      const quantity24 = parseInt(row.querySelector('[data-order="24"]').value);
+    
+      // Add the selected item and quantities to the items array
+      if (quantity1 >= 0 || quantity2 >= 0|| quantity3 >= 0|| quantity4 >= 0|| quantity5 >= 0|| quantity6 >= 0|| quantity7 >= 0|| quantity8 >= 0|| quantity9 >= 0|| quantity10 >= 0|| quantity11 >= 0|| quantity12 >= 0|| quantity13 >= 0|| quantity14 >= 0|| quantity15 >= 0|| quantity16 >= 0|| quantity17 >= 0|| quantity18 >= 0|| quantity19 >= 0|| quantity20 >= 0|| quantity21 >= 0|| quantity22 >= 0|| quantity23 >= 0|| quantity24 >= 0) {
+        items.push({ pizza: pizzaData, quantity1, quantity2, quantity3, quantity4, quantity5, quantity6, quantity7, quantity8, quantity9, quantity10, quantity11, quantity12, quantity13, quantity14, quantity15, quantity16, quantity17, quantity18, quantity19, quantity20, quantity21, quantity22, quantity23, quantity24});
       }
     });
 
@@ -110,6 +134,8 @@ if (createOrderBtn) {
           .then(res => {
             // Handle successful order creation
             console.log('Order created:', res.data);
+            console.log(items);
+
 
             // Clear the selected item quantities
             const itemRows = document.querySelectorAll('#pizza-table-body tr');

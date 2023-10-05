@@ -268,7 +268,7 @@ eventEmitter.on('orderPlaced', async (data) => {
 
   async function generateQRCode(id) {
     return new Promise((resolve, reject) => {
-      const url = `https://starfish-app-nki4g.ondigitalocean.app/${id}`;
+      const url = `https://starfish-app-nki4g.ondigitalocean.app/admin/orders/${id}`;
       QRCode.toDataURL(url, (err, dataURI) => {
         if (err) {
           reject(err);
@@ -285,7 +285,7 @@ eventEmitter.on('orderPlaced', async (data) => {
     const id = data._id.toHexString();
 
     // Generate the QR code
-    const qrCode = await generateQRCode(`https://starfish-app-nki4g.ondigitalocean.app/admin/orders/${id}`);
+    const qrCode = await generateQRCode();
 
     // Create a new PDF document
     const pdfDoc = await PDFDocument.create();
@@ -320,28 +320,28 @@ eventEmitter.on('orderPlaced', async (data) => {
     return pdfBase64;
   }
 
-  // Generate the PDF with a header
-  generatePdfWithHeader(data)
-    .then(pdfBase64 => {
-      const printJobOptions = {
-        printerId: 72614729, // Replace with the printer ID
-        title: 'Print Job Title',
-        contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded PDF content
-        content: pdfBase64, // Use the generated PDF with header
-      };
+  // // Generate the PDF with a header
+  // generatePdfWithHeader(data)
+  //   .then(pdfBase64 => {
+  //     const printJobOptions = {
+  //       printerId: 72568099, // Replace with the printer ID
+  //       title: 'Print Job Title',
+  //       contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded PDF content
+  //       content: pdfBase64, // Use the generated PDF with header
+  //     };
 
-      // Create the print job
-      axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
-        .then(response => {
-          console.log('Print job created:', response.data);
-        })
-        .catch(error => {
-          console.error('Error creating print job:', error);
-        });
-    })
-    .catch(err => {
-      console.error('Error generating print job content:', err);
-    });
+  //     // Create the print job
+  //     axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
+  //       .then(response => {
+  //         console.log('Print job created:', response.data);
+  //       })
+  //       .catch(error => {
+  //         console.error('Error creating print job:', error);
+  //       });
+  //   })
+  //   .catch(err => {
+  //     console.error('Error generating print job content:', err);
+  //   });
 });
 
 

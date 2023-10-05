@@ -1,26 +1,122 @@
 <section class="menu container mx-auto py-8">
+    <div class="table-container">
     <table>
         <thead>
             <tr>
                 <th>Sweet Name</th>
                 <th>Order 1</th>
                 <th>Order 2</th>
+                <th>Order 3
+                </th>
+                <th>Order 4</th>
+                <th>Order 5</th>
+                <th>Order 6</th>
+                <th>Order 7</th>
+                <th>Order 8</th>
+                <th>Order 9</th>
+                <th>Order 10</th>
+                <th>Order 11</th>
+                <th>Order 12</th>
+                <th>Order 13</th>
+                <th>Order 14</th>
+                <th>Order 15</th>
+                <th>Order 16</th>
+                <th>Order 17</th>
+                <th>Order 18</th>
+                <th>Order 19</th>
+                <th>Order 20</th>
+                <th>Order 21</th>
+                <th>Order 22</th>
+                <th>Order 23</th>
+                <th>Order 24</th>
+                <th>Order 25</th>
+                <th>Order 26</th>
             </tr>
         </thead>
         <tbody id="pizza-table-body">
             <% pizzas.forEach(function(pizza) { %>
                 <tr>
-                    <td><%= pizza.name %></td>
+                    <td class="fixed-column"><%= pizza.name %></td>
                     <td>
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="1">
                     </td>
                     <td>
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="1">
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="2">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="3">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="4">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="5">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="6">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="7">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="8">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="9">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="10">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="11">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="12">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="13">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="14">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="15">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="16">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="17">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="18">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="19">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="20">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="21">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="22">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="23">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="24">
+                    </td>
+                    <td>
+                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="25">
                     </td>
                 </tr>
             <% }) %>
         </tbody>
     </table>
+</div>
     
     <% if(user) { %>
         <button id="create-order">Create Order</button>
@@ -33,33 +129,46 @@
 
 
 <style>
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1em;
-}
-
-th, td {
-    padding: 0.5em;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-.quantity-input {
-    width: 80px;
-}
-
-#add-to-cart {
-    background-color: #ddd;
-    color: #333;
-    padding: 0.5em 1em;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-}
-</style>
+    .table-container {
+      overflow-x: auto; /* Enable horizontal scrolling */
+    }
+  
+    table {
+      width: auto; /* Set the width as needed */
+      border-collapse: collapse;
+      margin-bottom: 1em;
+    }
+  
+    th, td {
+      padding: 0.5em;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  
+    .quantity-input {
+      width: 80px;
+    }
+  
+    #add-to-cart {
+      background-color: #ddd;
+      color: #333;
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  
+    /* Style the fixed column (item names) */
+    .fixed-column {
+      position: sticky;
+      left: 0;
+      background-color: #f2f2f2;
+      z-index: 1;
+    }
+  </style>
+  
