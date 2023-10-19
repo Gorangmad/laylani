@@ -228,9 +228,9 @@ eventEmitter.on('orderUpdated', async (data) => {
 
       
 
-      let emailBody = `Order ${data.id} has been completed.\n\nOrder Details:\n`;
+      let emailBody = `Ihre Bestellung ${data.id} ist fertig und auf dem Weg zu Ihnen`;
       Object.entries(orderDetails).forEach(([key, value]) => {
-      emailBody += `${key}: ${value}\n`;
+      emailBody += `Ihre Bestellung ist fertig und auf dem Weg zu ihnen`;
       });
 
       const mailOptions = {
@@ -264,6 +264,60 @@ eventEmitter.on('orderPlaced', async (data) => {
   const headers = {
     Authorization: `Basic ${Buffer.from(apiKey).toString('base64')}`,
   };
+
+  try {
+    // Fetch the order details from the database based on the data.id
+    const order = await Order.findById(data.id);
+
+
+    // Check if the order exists
+    if (!order) {
+      console.log('Order not found');
+      return;
+    }
+
+    const orderDetails = {
+      orderId: order._id,
+      Produkte: [],
+    
+      // Include other order details as needed
+    };
+    
+    for (const itemId in order.items) {
+      if (order.items.hasOwnProperty(itemId)) {
+        const item = order.items[itemId];
+        const itemName = item.pizza.name;
+        const itemQty = item.qty;
+    
+        orderDetails.Produkte.push(itemName, itemQty);
+      }
+    }
+
+    
+
+    let emailBody = `Ihre Bestellung ${data.id} wurde empfangen.\n\nOrder Details:\n`;
+    Object.entries(orderDetails).forEach(([key, value]) => {
+    emailBody += `Wir haben Ihre Bestellung erhalten`
+    });
+
+    const mailOptions = {
+      from: 'ggorangmadaan@gmail.com',
+      to: order.name,
+      subject: 'Order Placed',
+      text: emailBody,
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+  } catch (error) {
+    console.log('Error fetching order details:', error);
+  }
 
 
   async function generateQRCode(id) {
@@ -320,6 +374,16 @@ eventEmitter.on('orderPlaced', async (data) => {
     return pdfBase64;
   }
 
+  axios.get('https://api.printnode.com/printers', { headers })
+  .then(response => {
+    const printers = response.data;
+    
+    console.log(printers)
+  })
+  .catch(error => {
+    console.error('Error fetching printers:', error);
+  });
+
   // // Generate the PDF with a header
   // generatePdfWithHeader(data)
   //   .then(pdfBase64 => {
@@ -341,7 +405,6 @@ eventEmitter.on('orderPlaced', async (data) => {
   //   })
   //   .catch(err => {
   //     console.error('Error generating print job content:', err);
-  //   });
 });
 
 

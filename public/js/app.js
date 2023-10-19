@@ -34434,8 +34434,35 @@ if (createOrderBtn) {
       console.error('Error requesting user:', err);
     });
   });
-} // Remove alert message after X seconds
+}
 
+document.addEventListener('DOMContentLoaded', function () {
+  var cameraIcon = document.getElementById('camera-icon');
+
+  if (cameraIcon) {
+    cameraIcon.addEventListener('click', function () {
+      // Open a new window/tab to access the camera
+      var cameraWindow = window.open('about:blank', '_blank');
+
+      if (cameraWindow) {
+        // Use the camera in the new window/tab
+        navigator.mediaDevices.getUserMedia({
+          video: true
+        }).then(function (stream) {
+          var videoElement = document.createElement('video');
+          videoElement.srcObject = stream;
+          videoElement.autoplay = true; // Append the video element to the new window/tab
+
+          cameraWindow.document.body.appendChild(videoElement);
+        })["catch"](function (error) {
+          console.error('Error accessing camera:', error);
+        });
+      } else {
+        console.error('Failed to open a new window/tab.');
+      }
+    });
+  }
+}); // Remove alert message after X seconds
 
 var alertMsg = document.querySelector('#success-alert');
 
