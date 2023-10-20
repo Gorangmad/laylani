@@ -228,7 +228,7 @@ eventEmitter.on('orderUpdated', async (data) => {
 
       
 
-      let emailBody = `Ihre Bestellung ${data.id} ist fertig und auf dem Weg zu Ihnen`;
+      let emailBody = `Ihre Bestellung ${data.id} ist fertig und auf dem Weg zu`;
       Object.entries(orderDetails).forEach(([key, value]) => {
       emailBody += `Ihre Bestellung ist fertig und auf dem Weg zu ihnen`;
       });
@@ -384,27 +384,28 @@ eventEmitter.on('orderPlaced', async (data) => {
     console.error('Error fetching printers:', error);
   });
 
-  // // Generate the PDF with a header
-  // generatePdfWithHeader(data)
-  //   .then(pdfBase64 => {
-  //     const printJobOptions = {
-  //       printerId: 72568099, // Replace with the printer ID
-  //       title: 'Print Job Title',
-  //       contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded PDF content
-  //       content: pdfBase64, // Use the generated PDF with header
-  //     };
+  // Generate the PDF with a header
+  generatePdfWithHeader(data)
+    .then(pdfBase64 => {
+      const printJobOptions = {
+        printerId: 72568099, // Replace with the printer ID
+        title: 'Print Job Title',
+        contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded PDF content
+        content: pdfBase64, // Use the generated PDF with header
+      };
 
-  //     // Create the print job
-  //     axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
-  //       .then(response => {
-  //         console.log('Print job created:', response.data);
-  //       })
-  //       .catch(error => {
-  //         console.error('Error creating print job:', error);
-  //       });
-  //   })
-  //   .catch(err => {
-  //     console.error('Error generating print job content:', err);
+      // Create the print job
+      axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
+        .then(response => {
+          console.log('Print job created:', response.data);
+        })
+        .catch(error => {
+          console.error('Error creating print job:', error);
+        });
+    })
+    .catch(err => {
+      console.error('Error generating print job content:', err);
+    });       
 });
 
 
