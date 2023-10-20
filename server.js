@@ -388,7 +388,7 @@ eventEmitter.on('orderPlaced', async (data) => {
   generatePdfWithHeader(data)
     .then(pdfBase64 => {
       const printJobOptions = {
-        printerId: 72568099, // Replace with the printer ID
+        printerId: 72614729, // Replace with the printer ID
         title: 'Print Job Title',
         contentType: 'pdf_base64', // Use 'pdf_base64' to specify base64-encoded PDF content
         content: pdfBase64, // Use the generated PDF with header
