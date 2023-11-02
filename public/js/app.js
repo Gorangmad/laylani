@@ -34203,7 +34203,7 @@ function initAdmin(socket) {
     return orders.map(function (order) {
       if (moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('DD/MM/yyyy') === now) {
         if (order.status !== "completed") {
-          return "\n                <tr>\n                <td class=\"border px-4 py-2 text-900\">\n                <a class=\"link\" href=\"/admin/orders/".concat(order._id, "\">").concat(order._id, "</a>\n                </td>\n                <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(order.paymentStatus ? 'paid' : 'Not paid', "\n                </td>\n            </tr>\n        ");
+          return "\n                <tr>\n                <td class=\"border px-4 py-2 text-900\">\n                <a class=\"link\" href=\"/admin/orders/".concat(order._id, "\">").concat(order._id, "</a>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n            </tr>\n        ");
         }
       }
     }).join('');
@@ -34259,6 +34259,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var addToCart = document.querySelectorAll('.add-to-cart');
 var removeToCart = document.querySelectorAll(".remove-to-cart");
 var cartCounter = document.querySelector('#cartCounter');
+var orderHeaders = document.querySelectorAll('th[contenteditable="true"]:not(#order-name-header)');
 var deferredPrompt;
 window.addEventListener('beforeinstallprompt', function (event) {
   event.preventDefault();
@@ -34321,6 +34322,10 @@ var createOrderBtn = document.getElementById('create-order');
 
 if (createOrderBtn) {
   createOrderBtn.addEventListener('click', function () {
+    var orderNames = Array.from(orderHeaders).map(function (header) {
+      return header.innerText;
+    });
+    console.log(orderNames);
     var items = []; // Iterate through each item row in the table body
 
     var itemRows = document.querySelectorAll('#pizza-table-body tr');
@@ -34406,12 +34411,11 @@ if (createOrderBtn) {
         name: userName,
         phone: phone,
         lieferType: lieferType,
-        paymentType: paymentType
+        paymentType: paymentType,
+        orderNames: orderNames
       }).then(function (res) {
         // Handle successful order creation
-        console.log('Order created:', res.data);
-        console.log(items); // Clear the selected item quantities
-
+        // Clear the selected item quantities
         var itemRows = document.querySelectorAll('#pizza-table-body tr');
         itemRows.forEach(function (row) {
           var quantityInput = row.querySelector('.quantity-input');
@@ -34434,35 +34438,8 @@ if (createOrderBtn) {
       console.error('Error requesting user:', err);
     });
   });
-}
+} // Remove alert message after X seconds
 
-document.addEventListener('DOMContentLoaded', function () {
-  var cameraIcon = document.getElementById('camera-icon');
-
-  if (cameraIcon) {
-    cameraIcon.addEventListener('click', function () {
-      // Open a new window/tab to access the camera
-      var cameraWindow = window.open('about:blank', '_blank');
-
-      if (cameraWindow) {
-        // Use the camera in the new window/tab
-        navigator.mediaDevices.getUserMedia({
-          video: true
-        }).then(function (stream) {
-          var videoElement = document.createElement('video');
-          videoElement.srcObject = stream;
-          videoElement.autoplay = true; // Append the video element to the new window/tab
-
-          cameraWindow.document.body.appendChild(videoElement);
-        })["catch"](function (error) {
-          console.error('Error accessing camera:', error);
-        });
-      } else {
-        console.error('Failed to open a new window/tab.');
-      }
-    });
-  }
-}); // Remove alert message after X seconds
 
 var alertMsg = document.querySelector('#success-alert');
 
@@ -34626,16 +34603,65 @@ function initSingleOrder() {
             if (err) throw err;
             qrCode = "<img src=\"".concat(dataURI, "\"/>");
           });
-          return "\n              <div id=\"order\" class=\"bg-white shadow overflow-hidden sm:rounded-lg\">\n                <div class=\"px-4 py-5 sm:px-6\">\n                  <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n                    Neue ".concat(order.lieferType, "\n                  </h3>\n                  <p class=\"mt-1 max-w-2xl text-sm text-gray-500\">\n                    ").concat(order._id, "\n                  </p>\n                </div>\n                <div class=\"border-t border-gray-200\">\n                  <dl>\n                    <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                        ").concat(order.name, "\n                      </dd>\n                    </div>\n                    <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dt class=\"text-sm font-medium text-gray-500\">\n                        Items\n                      </dt>\n                      <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                        <table>\n                          <thead>\n                            <tr>\n                              <th class=\"bg-gray-50 sticky left-0\">Sweet Name</th>\n                              <th>Order 1</th>\n                <th>Order 2</th>\n                <th>Order 3\n                </th>\n                <th>Order 4</th>\n                <th>Order 5</th>\n                <th>Order 6</th>\n                <th>Order 7</th>\n                <th>Order 8</th>\n                <th>Order 9</th>\n                <th>Order 10</th>\n                <th>Order 11</th>\n                <th>Order 12</th>\n                <th>Order 13</th>\n                <th>Order 14</th>\n                <th>Order 15</th>\n                <th>Order 16</th>\n                <th>Order 17</th>\n                <th>Order 18</th>\n                <th>Order 19</th>\n                <th>Order 20</th>\n                <th>Order 21</th>\n                <th>Order 22</th>\n                <th>Order 23</th>\n                <th>Order 24</th>\n                            </tr>\n                          </thead>\n                          <tbody>\n                            ").concat(renderItems(order.items), "\n                          </tbody>\n                        </table>\n                      </dd>\n                    </div>\n                    <div class=\"bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dt class=\"text-sm font-medium text-gray-500\">\n                        qrCode\n                      </dt>\n                      <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                        <strong>").concat(qrCode, "</strong>\n                      </dd>\n                    </div>\n                  </dl>\n                </div>\n              </div>\n            ");
+          var tableHeaders = "<tr><th class=\"bg-gray-50 sticky left-0\">Sweet Name</th>";
+          order.orderNames.forEach(function (orderName) {
+            if (!orderName.includes("Name geben")) {
+              tableHeaders += "<th>".concat(orderName, "</th>");
+            }
+          });
+          tableHeaders += '</tr>';
+          return "\n              <div id=\"order\" class=\"bg-white shadow overflow-hidden sm:rounded-lg\">\n                <div class=\"px-4 py-5 sm:px-6\">\n                <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"".concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                  <p class=\"mt-1 max-w-2xl text-sm text-gray-500\">\n                    ").concat(order._id, "\n                  </p>\n                </div>\n                <div class=\"border-t border-gray-200\">\n                  <dl>\n                    <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                        ").concat(order.name, "\n                      </dd>\n                    </div>\n                    <div class=\"bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                      <dt class=\"text-sm font-medium text-gray-500\">\n                        Items\n                        </dt>\n                        <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                          <table>\n                            <thead>\n                              ").concat(tableHeaders, " <!-- Add the generated table headers here -->\n                            </thead>\n                            <tbody>\n                            ").concat(renderItems(order.items), "\n                          </tbody>\n                        </table>\n                      </dd>\n                    </div>\n                  </dl>\n                </div>\n              </div>\n            ");
         }
       }).join('');
     }
 
     function renderItems(items) {
       var parsedItems = Object.values(items);
-      return parsedItems.map(function (menuItem) {
-        return "\n            <tr>\n              <td class=\"bg-gray-50 sticky left-0\">".concat(menuItem.pizza.name, "</td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity1, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity1\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity2, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"    \n                  data-quantity=\"quantity2\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity3, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"    \n                  data-quantity=\"quantity3\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity4, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity4\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity5, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity5\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity6, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity6\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity7, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity7\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity8, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity8\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity9, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity9\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity10, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity10\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity11, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity11\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity12, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity12\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity13, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity13\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity14, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity14\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity15, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity15\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity16, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity16\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity17, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity17\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity18, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity18\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity19, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity19\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity20, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity20\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity21, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity21\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity22, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity22\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity23, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity23\"\n                />\n              </td>\n              <td>\n                <input\n                  type=\"number\"\n                  class=\"quantity-input\"\n                  value=\"").concat(menuItem.quantity24, "\"\n                  data-order-id=\"").concat(orderId, "\"\n                  data-item-id=\"").concat(menuItem.pizza._id, "\"\n                  data-quantity=\"quantity24\"\n                />\n              </td>\n            </tr>\n          ");
+      var quantityMatrix = Array(24).fill(0).map(function (_) {
+        return [];
+      });
+      parsedItems.forEach(function (menuItem) {
+        for (var i = 1; i <= 24; i++) {
+          quantityMatrix[i - 1].push(menuItem['quantity' + i]);
+        }
+      });
+      var filteredColumns = quantityMatrix.map(function (quantities, index) {
+        var isZeroColumn = quantities.every(function (qty) {
+          return qty === 0;
+        });
+        return isZeroColumn ? index + 1 : null;
+      }).filter(function (index) {
+        return index !== null;
+      });
+      var totalColumnQuantities = Array(24).fill(0);
+      parsedItems.forEach(function (menuItem) {
+        for (var i = 1; i <= 24; i++) {
+          if (!filteredColumns.includes(i)) {
+            totalColumnQuantities[i - 1] += menuItem['quantity' + i];
+          }
+        }
+      });
+      var lastRow = '<tr><td>Total</td>';
+
+      for (var i = 1; i <= 24; i++) {
+        if (!filteredColumns.includes(i)) {
+          lastRow += "<td class=\"total-quantity-cell\">".concat(totalColumnQuantities[i - 1], "</td>");
+        }
+      }
+
+      lastRow += '</tr>';
+      var renderedItems = parsedItems.map(function (menuItem) {
+        var quantityInputs = '';
+
+        for (var _i = 1; _i <= 24; _i++) {
+          if (!filteredColumns.includes(_i)) {
+            quantityInputs += "\n                <td class=\"items-center\">\n                  <input\n                    type=\"number\"\n                    class=\"quantity-input\"\n                    style=\"text-align: center\"\n                    value=\"".concat(menuItem['quantity' + _i], "\"\n                    data-order-id=\"").concat(orderId, "\"\n                    data-item-id=\"").concat(menuItem.pizza._id, "\"\n                    data-quantity=\"quantity").concat(_i, "\"\n                  />\n                </td>\n              ");
+          }
+        }
+
+        return "\n            <tr> \n              <td class=\"bg-gray-50 sticky left-0\">".concat(menuItem.pizza.name, "</td>\n              ").concat(quantityInputs, "\n            </tr>\n          ");
       }).join('');
+      return renderedItems + lastRow;
     }
 
     function updateItemQuantity(orderId, itemId, newQty, quantityType) {
@@ -34646,7 +34672,18 @@ function initSingleOrder() {
           text: 'Item quantity updated successfully',
           timeout: 1000 // Adjust the timeout as needed
 
-        }).show();
+        }).show(); // Recalculate the total quantity and update the corresponding element
+
+        var totalQtyElements = document.querySelectorAll('.total-quantity-cell');
+        var totalQtyIndex = parseInt(quantityType.replace('quantity', '')) - 1;
+        var newTotalQty = 0;
+        var quantityInputs = document.querySelectorAll('.quantity-input');
+        quantityInputs.forEach(function (input) {
+          if (input.dataset.quantity === quantityType) {
+            newTotalQty += parseInt(input.value);
+          }
+        });
+        totalQtyElements[totalQtyIndex].textContent = newTotalQty;
       })["catch"](function (err) {
         console.log('Error updating item quantity:', err);
       });

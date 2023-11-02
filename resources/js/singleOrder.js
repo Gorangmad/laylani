@@ -28,6 +28,8 @@ export function initSingleOrder() {
         console.log(err);
       });
 
+
+
     function generateMarkup(orders) { 
       let qrCode = '';
 
@@ -39,12 +41,44 @@ export function initSingleOrder() {
               qrCode = `<img src="${dataURI}"/>`;
             });
 
+            let tableHeaders = `<tr><th class="bg-gray-50 sticky left-0">Sweet Name</th>`;
+            order.orderNames.forEach((orderName) => {
+              if (!orderName.includes("Name geben")) {
+                tableHeaders += `<th>${orderName}</th>`;
+              }
+            });
+            tableHeaders += '</tr>';
+
             return `
               <div id="order" class="bg-white shadow overflow-hidden sm:rounded-lg">
                 <div class="px-4 py-5 sm:px-6">
-                  <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    Neue ${order.lieferType}
-                  </h3>
+                <form action="/admin/order/status" method="POST">
+                            <input type="hidden" name="orderId" value="${ order._id }">
+                            <select name="status" onchange="this.form.submit()"
+                                class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="order_placed"
+                                    ${ order.status === 'order_placed' ? 'selected' : '' }>
+                                    Placed</option>
+                                <option value="confirmed" ${ order.status === 'confirmed' ? 'selected' : '' }>
+                                    Confirmed</option>
+                                <option value="prepared" ${ order.status === 'prepared' ? 'selected' : '' }>
+                                    Prepared</option>
+                                <option value="delivered" ${ order.status === 'delivered' ? 'selected' : '' }>
+                                    Delivered
+                                </option>
+                                <option value="completed" ${ order.status === 'completed' ? 'selected' : '' }>
+                                    Completed
+                                </option>
+                            </select>
+                        </form>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                        </div>
                   <p class="mt-1 max-w-2xl text-sm text-gray-500">
                     ${order._id}
                   </p>
@@ -59,51 +93,16 @@ export function initSingleOrder() {
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt class="text-sm font-medium text-gray-500">
                         Items
-                      </dt>
-                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <table>
-                          <thead>
-                            <tr>
-                              <th class="bg-gray-50 sticky left-0">Sweet Name</th>
-                              <th>Order 1</th>
-                <th>Order 2</th>
-                <th>Order 3
-                </th>
-                <th>Order 4</th>
-                <th>Order 5</th>
-                <th>Order 6</th>
-                <th>Order 7</th>
-                <th>Order 8</th>
-                <th>Order 9</th>
-                <th>Order 10</th>
-                <th>Order 11</th>
-                <th>Order 12</th>
-                <th>Order 13</th>
-                <th>Order 14</th>
-                <th>Order 15</th>
-                <th>Order 16</th>
-                <th>Order 17</th>
-                <th>Order 18</th>
-                <th>Order 19</th>
-                <th>Order 20</th>
-                <th>Order 21</th>
-                <th>Order 22</th>
-                <th>Order 23</th>
-                <th>Order 24</th>
-                            </tr>
-                          </thead>
-                          <tbody>
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                          <table>
+                            <thead>
+                              ${tableHeaders} <!-- Add the generated table headers here -->
+                            </thead>
+                            <tbody>
                             ${renderItems(order.items)}
                           </tbody>
                         </table>
-                      </dd>
-                    </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                      <dt class="text-sm font-medium text-gray-500">
-                        qrCode
-                      </dt>
-                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <strong>${qrCode}</strong>
                       </dd>
                     </div>
                   </dl>
@@ -117,256 +116,73 @@ export function initSingleOrder() {
 
     function renderItems(items) {
       let parsedItems = Object.values(items);
-      return parsedItems
+      let quantityMatrix = Array(24).fill(0).map(_ => []);
+    
+      parsedItems.forEach((menuItem) => {
+        for (let i = 1; i <= 24; i++) {
+          quantityMatrix[i - 1].push(menuItem['quantity' + i]);
+        }
+      });
+    
+      let filteredColumns = quantityMatrix.map((quantities, index) => {
+        const isZeroColumn = quantities.every(qty => qty === 0);
+        return isZeroColumn ? index + 1 : null;
+      }).filter((index) => index !== null);
+    
+      let totalColumnQuantities = Array(24).fill(0);
+    
+      parsedItems.forEach((menuItem) => {
+        for (let i = 1; i <= 24; i++) {
+          if (!filteredColumns.includes(i)) {
+            totalColumnQuantities[i - 1] += menuItem['quantity' + i];
+          }
+        }
+      });
+    
+      let lastRow = '<tr><td>Total</td>';
+      for (let i = 1; i <= 24; i++) {
+        if (!filteredColumns.includes(i)) {
+          lastRow += `<td class="total-quantity-cell">${totalColumnQuantities[i - 1]}</td>`;
+        }
+      }
+      lastRow += '</tr>';
+    
+      let renderedItems = parsedItems
         .map((menuItem) => {
+          let quantityInputs = '';
+          for (let i = 1; i <= 24; i++) {
+            if (!filteredColumns.includes(i)) {
+              quantityInputs += `
+                <td class="items-center">
+                  <input
+                    type="number"
+                    class="quantity-input"
+                    style="text-align: center"
+                    value="${menuItem['quantity' + i]}"
+                    data-order-id="${orderId}"
+                    data-item-id="${menuItem.pizza._id}"
+                    data-quantity="quantity${i}"
+                  />
+                </td>
+              `;
+            }
+          }
           return `
-            <tr>
+            <tr> 
               <td class="bg-gray-50 sticky left-0">${menuItem.pizza.name}</td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity1}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity1"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity2}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"    
-                  data-quantity="quantity2"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity3}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"    
-                  data-quantity="quantity3"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity4}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity4"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity5}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity5"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity6}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity6"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity7}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity7"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity8}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity8"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity9}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity9"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity10}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity10"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity11}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity11"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity12}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity12"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity13}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity13"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity14}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity14"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity15}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity15"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity16}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity16"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity17}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity17"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity18}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity18"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity19}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity19"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity20}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity20"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity21}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity21"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity22}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity22"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity23}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity23"
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  class="quantity-input"
-                  value="${menuItem.quantity24}"
-                  data-order-id="${orderId}"
-                  data-item-id="${menuItem.pizza._id}"
-                  data-quantity="quantity24"
-                />
-              </td>
+              ${quantityInputs}
             </tr>
           `;
         })
         .join('');
+    
+      return renderedItems + lastRow;
+
     }
+    
+    
+    
+    
 
     function updateItemQuantity(orderId, itemId, newQty, quantityType) {
       axios
@@ -377,6 +193,20 @@ export function initSingleOrder() {
             text: 'Item quantity updated successfully',
             timeout: 1000, // Adjust the timeout as needed
           }).show();
+          
+      // Recalculate the total quantity and update the corresponding element
+      const totalQtyElements = document.querySelectorAll('.total-quantity-cell');
+      const totalQtyIndex = parseInt(quantityType.replace('quantity', '')) - 1;
+      let newTotalQty = 0;
+
+      const quantityInputs = document.querySelectorAll('.quantity-input');
+      quantityInputs.forEach((input) => {
+        if (input.dataset.quantity === quantityType) {
+          newTotalQty += parseInt(input.value);
+        }
+      });
+
+      totalQtyElements[totalQtyIndex].textContent = newTotalQty;
         })
         .catch((err) => {
           console.log('Error updating item quantity:', err);
@@ -400,4 +230,3 @@ export function initSingleOrder() {
     });
   });
 }
-

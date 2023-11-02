@@ -32,7 +32,6 @@ export function initAdmin(socket) {
                 <td class="border px-4 py-2 text-900">
                 <a class="link" href="/admin/orders/${ order._id }">${order._id}</a>
                 </td>
-                <td class="border px-4 py-2">${ order.address }</td>
                 <td class="border px-4 py-2">
                     <div class="inline-block relative w-64">
                         <form action="/admin/order/status" method="POST">
@@ -66,9 +65,6 @@ export function initAdmin(socket) {
                 </td>
                 <td class="border px-4 py-2">
                     ${ moment(order.createdAt).format('hh:mm A') }
-                </td>
-                <td class="border px-4 py-2">
-                    ${ order.paymentStatus ? 'paid' : 'Not paid' }
                 </td>
             </tr>
         `

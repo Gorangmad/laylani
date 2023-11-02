@@ -1,130 +1,159 @@
 <section class="menu container mx-auto py-8">
     <div class="table-container">
     <table>
+        <button onclick="showColumns()">Bestelungen Hinzufügen</button>
         <thead>
             <tr>
                 <th>Sweet Name</th>
-                <th>Order 1</th>
-                <th>Order 2</th>
-                <th>Order 3
-                </th>
-                <th>Order 4</th>
-                <th>Order 5</th>
-                <th>Order 6</th>
-                <th>Order 7</th>
-                <th>Order 8</th>
-                <th>Order 9</th>
-                <th>Order 10</th>
-                <th>Order 11</th>
-                <th>Order 12</th>
-                <th>Order 13</th>
-                <th>Order 14</th>
-                <th>Order 15</th>
-                <th>Order 16</th>
-                <th>Order 17</th>
-                <th>Order 18</th>
-                <th>Order 19</th>
-                <th>Order 20</th>
-                <th>Order 21</th>
-                <th>Order 22</th>
-                <th>Order 23</th>
-                <th>Order 24</th>
-                <th>Order 25</th>
+                <th contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
+                <th class="hidden-columns" contenteditable="true">Name geben</th>
             </tr>
         </thead>
         <tbody id="pizza-table-body">
             <% pizzas.forEach(function(pizza) { %>
                 <tr>
                     <td class="fixed-column"><%= pizza.name %></td>
-                    <td>
+                    <td class="order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="1">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="2">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="3">
-                    </td>
-                    <td>
+                    </td >
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="4">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="5">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="6">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="7">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="8">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="9">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="10">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="11">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="12">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="13">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="14">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="15">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="16">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="17">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="18">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="19">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="20">
                     </td>
-                    <td>
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="21">
+                    <td class="hidden-columns order-columns">
+                        <input type="number" min="0" class="quantity-input " value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="21">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="22">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="23">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="24">
                     </td>
-                    <td>
+                    <td class="hidden-columns order-columns">
                         <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="25">
                     </td>
                 </tr>
             <% }) %>
         </tbody>
+        <tfoot id="pizza-table-footer">
+            <tr>
+                <td class="fixed-column">Total Qty</td>
+                <td id="total-qty-column-1" class="total-columns"></td>
+                <td id="total-qty-column-2" class="total-columns"></td>
+                <td id="total-qty-column-3" class="total-columns"></td>
+                <td id="total-qty-column-4" class="total-columns"></td>
+                <td id="total-qty-column-5" class="total-columns"></td>
+                <td id="total-qty-column-6" class="total-columns"></td>
+                <td id="total-qty-column-7" class="total-columns"></td>
+                <td id="total-qty-column-8" class="total-columns"></td>
+                <td id="total-qty-column-9" class="total-columns"></td>
+                <td id="total-qty-column-10" class="total-columns"></td>
+                <td id="total-qty-column-11" class="total-columns"></td>
+                <td id="total-qty-column-12" class="total-columns"></td>
+                <td id="total-qty-column-13" class="total-columns"></td>
+                <td id="total-qty-column-14" class="total-columns"></td>
+                <td id="total-qty-column-15" class="total-columns"></td>
+                <td id="total-qty-column-16" class="total-columns"></td>
+                <td id="total-qty-column-17" class="total-columns"></td>
+                <td id="total-qty-column-18" class="total-columns"></td>
+                <td id="total-qty-column-19" class="total-columns"></td>
+                <td id="total-qty-column-20" class="total-columns"></td>
+                <td id="total-qty-column-21" class="total-columns"></td>
+                <td id="total-qty-column-22" class="total-columns"></td>
+                <td id="total-qty-column-23" class="total-columns"></td>
+                <td id="total-qty-column-24" class="total-columns"></td>
+                <td id="total-qty-column-25" class="total-columns"></td>
+                <!-- Add similar elements for other columns -->
+            </tr>
+        </tfoot>
     </table>
 </div>
-    
+
     <% if(user) { %>
         <button id="create-order">Create Order</button>
     <% } else {%> 
         <p>Bitte anmelden um ihre Bestellung abzulegen</p>
     <% }%>
 </section>
-
-
 
 
 <style>
@@ -169,5 +198,98 @@
       background-color: #f2f2f2;
       z-index: 1;
     }
-  </style>
-  
+
+    .hidden-columns {
+      display: none;
+    }
+</style>
+
+
+
+<script>
+
+function showColumns() {
+        var numColumns = parseInt(prompt("How many columns do you want to display?", "1"));
+        var thCells = document.querySelectorAll("th.hidden-columns");
+        var tdRows = document.querySelectorAll("#pizza-table-body tr");
+
+        for (var i = 0; i < thCells.length; i++) {
+            if (i < numColumns) {
+                thCells[i].style.display = "table-cell";
+            } else {
+                thCells[i].style.display = "none";
+            }
+        }
+
+        for (var i = 0; i < tdRows.length; i++) {
+            var tdCells = tdRows[i].querySelectorAll("td.hidden-columns");
+            for (var j = 0; j < tdCells.length; j++) {
+                if (j < numColumns) {
+                    tdCells[j].style.display = "table-cell";
+                } else {
+                    tdCells[j].style.display = "none";
+                }
+            }
+        }
+
+
+    var totalQtyCells = document.querySelectorAll(".total-columns");
+    totalQtyCells.forEach(function (cell, index) {
+        if (index < numColumns || index === totalQtyCells.length - 1) {
+            cell.style.display = "table-cell";
+        } else {
+            cell.style.display = "none";
+        }
+    });
+    }
+
+document.addEventListener('DOMContentLoaded', function () {
+        const tableBody = document.getElementById('pizza-table-body');
+    const allInputs = tableBody.querySelectorAll('input');
+    allInputs.forEach(input => {
+        input.addEventListener('input', showTotalQuantities);
+    });
+
+    // Function to calculate and display total quantities
+    function showTotalQuantities() {
+        for (var i = 0; i <= 23; i++) {
+            calculateTotalForColumn(i);
+        }
+    }
+
+    function calculateTotalForColumn(columnNumber) {
+    var tdRows = document.querySelectorAll("#pizza-table-body tr");
+    var totalQty = 0;
+
+    for (var i = 0; i < tdRows.length; i++) {
+        var td = tdRows[i].querySelectorAll("td.order-columns")[columnNumber].querySelector("input");
+        if (td) {
+            totalQty += parseInt(td.value) || 0;
+        }
+    }
+    displayTotalQty(columnNumber, totalQty);
+}
+
+function displayTotalQty(columnNumber, totalQty) {
+    var totalQtyCell = document.getElementById(`total-qty-column-${columnNumber + 1}`);
+    if (totalQtyCell) {
+        if (columnNumber === 24 || totalQty > 0) {
+            totalQtyCell.style.display = "table-cell";
+            totalQtyCell.textContent = totalQty;
+        } else {
+            totalQtyCell.style.display = "none";
+            totalQtyCell.textContent = '';
+        }
+    } else {
+        console.error(`Element with ID total-qty-column-${columnNumber + 1} not found.`);
+    }
+}
+
+});
+
+</script>
+
+
+
+
+

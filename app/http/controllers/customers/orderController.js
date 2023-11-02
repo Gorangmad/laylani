@@ -7,7 +7,7 @@ function orderController () {
     return {
         store(req, res) {
             // Validate request
-            const { phone, paymentType, name, lieferType } = req.body
+            const { phone, paymentType, name, lieferType, orderNames } = req.body
 
             // let totalPrice = req.session.cart.totalPrice
 
@@ -27,7 +27,8 @@ function orderController () {
                 items: req.body.items,
                 name,
                 phone,
-                lieferType
+                lieferType,
+                orderNames
             })
 
             order.save()

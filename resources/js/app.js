@@ -9,6 +9,9 @@ import { initArchiv } from './archiv'
 let addToCart = document.querySelectorAll('.add-to-cart')
 let removeToCart = document.querySelectorAll(".remove-to-cart");
 let cartCounter = document.querySelector('#cartCounter')
+const orderHeaders = document.querySelectorAll('th[contenteditable="true"]:not(#order-name-header)');
+
+
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (event) => {
@@ -51,6 +54,7 @@ function updateCart(pizza, url, msg) {
   })
 }
 
+
 addToCart.forEach((btn) => {
 
  btn.addEventListener('click', (e) => {
@@ -75,6 +79,8 @@ addToCart.forEach((btn) => {
 const createOrderBtn = document.getElementById('create-order');
 if (createOrderBtn) {
   createOrderBtn.addEventListener('click', () => {
+    const orderNames = Array.from(orderHeaders).map(header => header.innerText);
+    console.log(orderNames)
     const items = [];
 
     // Iterate through each item row in the table body
@@ -130,12 +136,9 @@ if (createOrderBtn) {
         const paymentType = 'bar'; // Replace with the desired payment type ('card' or 'bar')
 
         // Send the order creation request with the required parameters
-        axios.post('/orders', { user: { _id: userId, name: userName }, items, name: userName, phone, lieferType, paymentType })
+        axios.post('/orders', { user: { _id: userId, name: userName }, items, name: userName, phone, lieferType, paymentType,orderNames: orderNames })
           .then(res => {
             // Handle successful order creation
-            console.log('Order created:', res.data);
-            console.log(items);
-
 
             // Clear the selected item quantities
             const itemRows = document.querySelectorAll('#pizza-table-body tr');
@@ -165,34 +168,7 @@ if (createOrderBtn) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const cameraIcon = document.getElementById('camera-icon');
-  
-  if (cameraIcon) {
-      cameraIcon.addEventListener('click', () => {
-          // Open a new window/tab to access the camera
-          const cameraWindow = window.open('about:blank', '_blank');
-          
-          if (cameraWindow) {
-              // Use the camera in the new window/tab
-              navigator.mediaDevices.getUserMedia({ video: true })
-                  .then((stream) => {
-                      const videoElement = document.createElement('video');
-                      videoElement.srcObject = stream;
-                      videoElement.autoplay = true;
-                      
-                      // Append the video element to the new window/tab
-                      cameraWindow.document.body.appendChild(videoElement);
-                  })
-                  .catch((error) => {
-                      console.error('Error accessing camera:', error);
-                  });
-          } else {
-              console.error('Failed to open a new window/tab.');
-          }
-      });
-  }
-});
+
 
 
 
