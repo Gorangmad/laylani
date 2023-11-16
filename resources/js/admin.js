@@ -25,7 +25,6 @@ export function initAdmin(socket) {
 
     function generateMarkup(orders) {
         return orders.map(order => {
-            if(moment(order.createdAt).format('DD/MM/yyyy') === now){
             if(order.status !== "completed"){
             return `
                 <tr>
@@ -68,7 +67,6 @@ export function initAdmin(socket) {
                 </td>
             </tr>
         `
-        }
         }
         }).join('')
     }

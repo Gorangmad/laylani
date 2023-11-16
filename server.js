@@ -46,8 +46,6 @@ const PdfPrinter = require('pdfmake');
 
 
 
-
-
 let userSubscription;
 
 let vapidKeys = {
@@ -337,10 +335,6 @@ eventEmitter.on('orderPlaced', async (data) => {
     });
   }
 
-  
-
-  const PdfPrinter = require('pdfmake');
-
 async function generatePdfWithHeader(data) {
   const id = data._id.toHexString();
 
@@ -365,202 +359,101 @@ async function generatePdfWithHeader(data) {
       }
     });
 
-  const docDefinition = {
-    content: [
-      {
-        columns: [
-          {
-            width: '*',
-            text: 'Name: ' + data.name,
-            fontSize: 8,
-            alignment: 'center', // Align the text to the center
-            margin: [0, 0, 0, 20]
-          },
-        ]
-      },
-      {
-        table: {
-          headerRows: 1,
-          widths: Array(5).fill('auto'), // Adjust the widths of the table columns as needed
-          body: [
-            // Add headers
-            [
-              { text: 'Product', style: 'tableHeader' },
-              { text: data.orderNames[0], style: 'tableHeader' },
-              { text: data.orderNames[1], style: 'tableHeader' },
-              { text: data.orderNames[2], style: 'tableHeader' },
-              { text: data.orderNames[3], style: 'tableHeader' }
-            ],
-            // Add rows for each product
-            ...(data.items || []).slice(0, 19).map((items) => {
-              const quantities = Object.values(items)
-                .filter((value, index) => typeof value === 'number' && index < 5)
-                .map((value) => value.toString());
-              return [
-                { text: items.pizza.name, style: 'tableBody' },
-                ...quantities.map(quantity => ({ text: quantity, style: 'tableBody' }))
-              ];
-            }),
-          ],
-        }
-      },
-      {
-        margin: [0, 50, 0, 0],
-        width: 'auto',
-        image: qrCode,
-        width: 60, // Adjust the width of the QR code as needed
-        height: 60, // Adjust the height of the QR code as needed
-        alignment: 'center' // Align the QR code to the center
-      },
-      { text: 'Continued on the next page...', fontSize: 8, margin: [0, 50, 0, 0], pageBreak: 'after' },
+  const chunk = (array, size) =>
+  Array.from({ length: Math.ceil(array.length / size) }, (v, i) =>
+    array.slice(i * size, i * size + size)
+  );
 
-      {
+  console.log(chunk)
+
+const filteredOrderNames = data.orderNames.filter(header => header !== 'Name geben');
+const chunkedOrderNames = chunk(filteredOrderNames, 5);
+
+console.log(chunkedOrderNames[0]);
+
+const docDefinition = {
+  pageSize: 'A5',
+  content: [
+    {
+      columns: [
+        {
+          margin: [0, 20, 0, 0],
+          width: 'auto',
+          image: qrCode,
+          width: 30,
+          height: 30,
+          alignment: 'center'
+        },
+        {
+          margin: [0, 20, 0, 0],
+          width: 'auto',
+          text: data.name,
+          width: 200, // Adjusted width to fit on A5
+          height: 5,
+          alignment: 'center'
+        },
+      ]
+    },
+    ...chunkedOrderNames.slice(0, 5).map((chunk, chunkIndex) => {
+      const previousChunkLength = chunkIndex > 0 ? chunkedOrderNames[chunkIndex - 1].length : 0;
+    
+      const widths = [55, ...Array(chunk.length).fill(20)];
+    
+      return {
         table: {
           headerRows: 1,
-          widths: Array(5).fill('auto'), // Adjust the widths of the table columns as needed
+          height: 5,
+          widths: widths,
           body: [
-            // Add headers
             [
               { text: 'Product', style: 'tableHeader' },
-              { text: data.orderNames[4], style: 'tableHeader' },
-              { text: data.orderNames[5], style: 'tableHeader' },
-              { text: data.orderNames[6], style: 'tableHeader' },
-              { text: data.orderNames[7], style: 'tableHeader' }
+              ...chunk.map(header => ({ text: header, style: 'tableHeader' }))
             ],
-            // Add rows for each product
-            ...(data.items || []).slice(0, 19).map((items) => {
+            ...(data.items || []).map((items, index) => {
               const quantities = Object.values(items)
-                .filter((value, index) => typeof value === 'number' && index >= 5 && index < 9)
-                .map((value) => value.toString());
-              return [
-                { text: items.pizza.name, style: 'tableBody' },
-                ...quantities.map(quantity => ({ text: quantity, style: 'tableBody' }))
+                .filter((value, i) => typeof value === 'number' && i >= previousChunkLength + 1 && i < chunk.length + previousChunkLength + 1)
+                .map(value => (value === 0 ? '' : value.toString()));
+    
+              const rowStyle = index % 2 === 0 ? 'tableBody' : 'tableBodyGray';
+    
+              // Manually loop through the necessary length to populate the array
+              const paddedQuantities = [];
+              for (let i = 0; i < Math.min(chunk.length, Number.MAX_SAFE_INTEGER - 1); i++) {
+                paddedQuantities.push(i < quantities.length ? quantities[i] : '');
+              }
+    
+              const rowContent = [
+                { text: items.pizza.name, style: rowStyle },
+                ...paddedQuantities.map(quantity => ({ text: quantity, style: rowStyle })),
               ];
-            }),
-          ],
-        }
-      },
-      { text: 'Continued on the next page...', fontSize: 8, margin: [0, 50, 0, 0], pageBreak: 'after' },
-      {
-        table: {
-          headerRows: 1,
-          widths: Array(5).fill('auto'), // Adjust the widths of the table columns as needed
-          body: [
-            // Add headers
-            [
-              { text: 'Product', style: 'tableHeader' },
-              { text: data.orderNames[8], style: 'tableHeader' },
-              { text: data.orderNames[9], style: 'tableHeader' },
-              { text: data.orderNames[10], style: 'tableHeader' },
-              { text: data.orderNames[11], style: 'tableHeader' }
-            ],
-            // Add rows for each product
-            ...(data.items || []).slice(0, 19).map((items) => {
-              const quantities = Object.values(items)
-                .filter((value, index) => typeof value === 'number' && index >= 9 && index < 13)
-                .map((value) => value.toString());
-              return [
-                { text: items.pizza.name, style: 'tableBody' },
-                ...quantities.map(quantity => ({ text: quantity, style: 'tableBody' }))
-              ];
-            }),
-          ],
-        }
-      },
-      { text: 'Continued on the next page...', fontSize: 8, margin: [0, 50, 0, 0], pageBreak: 'after' },
-      {
-        table: {
-          headerRows: 1,
-          widths: Array(5).fill('auto'), // Adjust the widths of the table columns as needed
-          body: [
-            // Add headers
-            [
-              { text: 'Product', style: 'tableHeader' },
-              { text: data.orderNames[12], style: 'tableHeader' },
-              { text: data.orderNames[13], style: 'tableHeader' },
-              { text: data.orderNames[14], style: 'tableHeader' },
-              { text: data.orderNames[15], style: 'tableHeader' }
-            ],
-            // Add rows for each product
-            ...(data.items || []).slice(0, 19).map((items) => {
-              const quantities = Object.values(items)
-                .filter((value, index) => typeof value === 'number' && index >= 13 && index < 17)
-                .map((value) => value.toString());
-              return [
-                { text: items.pizza.name, style: 'tableBody' },
-                ...quantities.map(quantity => ({ text: quantity, style: 'tableBody' }))
-              ];
-            }),
-          ],
-        }
-      },
-      { text: 'Continued on the next page...', fontSize: 8, margin: [0, 50, 0, 0], pageBreak: 'after' },
-      {
-        table: {
-          headerRows: 1,
-          widths: Array(5).fill('auto'), // Adjust the widths of the table columns as needed
-          body: [
-            // Add headers
-            [
-              { text: 'Product', style: 'tableHeader' },
-              { text: data.orderNames[16], style: 'tableHeader' },
-              { text: data.orderNames[17], style: 'tableHeader' },
-              { text: data.orderNames[18], style: 'tableHeader' },
-              { text: data.orderNames[19], style: 'tableHeader' }
-            ],
-            // Add rows for each product
-            ...(data.items || []).slice(0, 19).map((items) => {
-              const quantities = Object.values(items)
-                .filter((value, index) => typeof value === 'number' && index >= 17 && index < 21)
-                .map((value) => value.toString());
-              return [
-                { text: items.pizza.name, style: 'tableBody' },
-                ...quantities.map(quantity => ({ text: quantity, style: 'tableBody' }))
-              ];
-            }),
-          ],
-        }
-      },
-      { text: 'Continued on the next page...', fontSize: 8, margin: [0, 50, 0, 0], pageBreak: 'after' },
-      {
-        table: {
-          headerRows: 1,
-          widths: Array(5).fill('auto'), // Adjust the widths of the table columns as needed
-          body: [
-            // Add headers
-            [
-              { text: 'Product', style: 'tableHeader' },
-              { text: data.orderNames[20], style: 'tableHeader' },
-              { text: data.orderNames[21], style: 'tableHeader' },
-              { text: data.orderNames[22], style: 'tableHeader' },
-              { text: data.orderNames[23], style: 'tableHeader' },
-            ],
-            // Add rows for each product
-            ...(data.items || []).slice(0, 19).map((items) => {
-              const quantities = Object.values(items)
-                .filter((value, index) => typeof value === 'number' && index >= 21 && index < 25)
-                .map((value) => value.toString());
-              return [
-                { text: items.pizza.name, style: 'tableBody' },
-                ...quantities.map(quantity => ({ text: quantity, style: 'tableBody' }))
-              ];
-            }),
-          ],
-        }
-      },
-    ],
-    styles: {
-      tableHeader: {
-        bold: true,
-        fontSize: 10,
-        fillColor: '#CCCCCC',
-        alignment: 'center'
-      },
-      tableBody: {
-        fontSize: 9,
-      }
+              return rowContent;
+            })
+          ]
+        },
+        pageBreak: 'after'  // Add page break for the first 4 chunks
+      };
+    }),
+    
+  ],
+  styles: {
+    tableHeader: {
+      bold: true,
+      fontSize: 8,
+      fillColor: '#CCCCCC',
+      alignment: 'center'
+    },
+    tableBody: {
+      fontSize: 8,
+      alignment: 'center'
+    },
+    tableBodyGray: {
+      fontSize: 8,
+      fillColor: '#F0F0F0',
+      alignment: 'center'
     }
-  };
+  }
+};
+
 
 
   const pdfDoc = printer.createPdfKitDocument(docDefinition);
@@ -569,6 +462,7 @@ async function generatePdfWithHeader(data) {
   return new Promise((resolve, reject) => {
     pdfDoc.on('data', (chunk) => chunks.push(chunk));
     pdfDoc.on('end', () => resolve(Buffer.concat(chunks).toString('base64')));
+    pdfDoc.pipe(fs.createWriteStream('document.pdf'));
     pdfDoc.end();
   });
 }
@@ -582,7 +476,7 @@ async function generatePdfWithHeader(data) {
         title: 'Print Job Title',
         contentType: 'pdf_base64',
         content: pdfBase64, // Use the generated PDF with header
-      };
+        };
 
       // Create the print job
       axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
