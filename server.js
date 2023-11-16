@@ -120,8 +120,8 @@ app.post('/subscribe', (req, res) => {
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'ggorangmadaan@gmail.com',
-      pass: 'olbjpelutqeykilo'
+      user: 'nichtantwortenbb@gmail.com',
+      pass: 'ahsyptlxsejgdyra'
     }
   });
 
@@ -235,7 +235,7 @@ eventEmitter.on('orderUpdated', async (data) => {
       });
 
       const mailOptions = {
-        from: 'ggorangmadaan@gmail.com',
+        from: 'nichtantwortenbb@gmail.com',
         to: order.name,
         subject: 'Order Completed',
         text: emailBody,
@@ -302,7 +302,7 @@ eventEmitter.on('orderPlaced', async (data) => {
     });
 
     const mailOptions = {
-      from: 'ggorangmadaan@gmail.com',
+      from: 'nichtantwortenbb@gmail.com',
       to: order.name,
       subject: 'Order Placed',
       text: emailBody,
