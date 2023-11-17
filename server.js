@@ -316,6 +316,7 @@ eventEmitter.on('orderPlaced', async (data) => {
       }
     });
 
+
   } catch (error) {
     console.log('Error fetching order details:', error);
   }
@@ -373,9 +374,12 @@ console.log(chunkedOrderNames[0]);
 
 const docDefinition = {
   pageSize: 'A5',
+  pageMargins: [100, 20, 40, 60], // Adjust margins as needed
+
   content: [
     {
       columns: [
+        { width: '*', text: '' }, // Left empty column for margin
         {
           margin: [0, 20, 0, 0],
           width: 'auto',
@@ -392,18 +396,21 @@ const docDefinition = {
           height: 5,
           alignment: 'center'
         },
+        { width: '*', text: '' },
       ]
     },
+    { width: '*', text: '' }, // Left empty column for margin
     ...chunkedOrderNames.slice(0, 5).map((chunk, chunkIndex) => {
       const previousChunkLength = chunkIndex > 0 ? chunkedOrderNames[chunkIndex - 1].length : 0;
-    
+
       const widths = [55, ...Array(chunk.length).fill(20)];
-    
+
       return {
         table: {
           headerRows: 1,
           height: 5,
           widths: widths,
+
           body: [
             [
               { text: 'Product', style: 'tableHeader' },
@@ -413,15 +420,15 @@ const docDefinition = {
               const quantities = Object.values(items)
                 .filter((value, i) => typeof value === 'number' && i >= previousChunkLength + 1 && i < chunk.length + previousChunkLength + 1)
                 .map(value => (value === 0 ? '' : value.toString()));
-    
+
               const rowStyle = index % 2 === 0 ? 'tableBody' : 'tableBodyGray';
-    
+
               // Manually loop through the necessary length to populate the array
               const paddedQuantities = [];
               for (let i = 0; i < Math.min(chunk.length, Number.MAX_SAFE_INTEGER - 1); i++) {
                 paddedQuantities.push(i < quantities.length ? quantities[i] : '');
               }
-    
+
               const rowContent = [
                 { text: items.pizza.name, style: rowStyle },
                 ...paddedQuantities.map(quantity => ({ text: quantity, style: rowStyle })),
@@ -433,18 +440,22 @@ const docDefinition = {
         pageBreak: 'after'  // Add page break for the first 4 chunks
       };
     }),
-    
+
   ],
   styles: {
+    table:{
+      alignment: 'center'
+    },
     tableHeader: {
       bold: true,
       fontSize: 8,
       fillColor: '#CCCCCC',
       alignment: 'center'
     },
+
     tableBody: {
       fontSize: 8,
-      alignment: 'center'
+      alignment: "center"
     },
     tableBodyGray: {
       fontSize: 8,
@@ -453,7 +464,6 @@ const docDefinition = {
     }
   }
 };
-
 
 
   const pdfDoc = printer.createPdfKitDocument(docDefinition);
@@ -472,7 +482,7 @@ const docDefinition = {
   generatePdfWithHeader(data)
     .then(pdfBase64 => {
       const printJobOptions = {
-        printerId: 72568099, // Replace with the printer ID 
+        printerId: 72780288, // Replace with the printer ID 
         title: 'Print Job Title',
         contentType: 'pdf_base64',
         content: pdfBase64, // Use the generated PDF with header
