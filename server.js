@@ -34,15 +34,9 @@ const push = require('web-push')
 
 const bodyParser = require('body-parser');
 
-const QRCode = require('qrcode');
+const Category = require('./app/models/categories')
 
-const { createCanvas } = require('canvas');
 
-const { PDFDocument, rgb } = require('pdf-lib');
-
-const fs = require('fs'); // Required for file reading
-
-const PdfPrinter = require('pdfmake');
 
 
 
@@ -164,6 +158,25 @@ const server = app.listen(PORT , () =>{
     console.log('listening on port 3400')
 })
 
+
+//Subcategories add
+
+// const newCategory = new Category({
+//   No: "27",
+//   Parent_Category: "Collier(Necklaces)",
+//   Global_Rank: "9",
+//   Visibility: "2",
+//   subcategories: [
+//     { name: "Colliers mit Stein/Perle (Necklaces with Stones) NS-NBD", No: "29", Visibility: "1", Global_Rank: "9.1" },
+//     { name: "Colliers ohne Stein (Necklaces without Stones) NP", No: "28", Visibility: "0", Global_Rank: "9.2" },
+//   ]
+// });
+
+// newCategory.save()
+//   .then(doc => console.log("New category added:", doc))
+//   .catch(err => console.error("Error adding category:", err));
+
+
 // Socket
 const io = require('socket.io')(server);
 
@@ -177,32 +190,9 @@ eventEmitter.on('orderUpdated', async (data) => {
   io.to(`order_${data.id}`).emit('orderUpdated', data);
 
   if (data.status === 'completed') {
-
-    const pushPayload = JSON.stringify({
-      title: 'Order Completed',
-      message: `Order ${data.id} has been completed.`,
-      // You can add more data here as needed for your notification
-    });
-
-    let sub = {
-        endpoint: userSubscription.endpoint,
-        expirationTime: null,
-        keys: userSubscription.keys,
-      };
-  
-    push.sendNotification(sub, pushPayload)
-    .then(() => {
-      console.log('Push notification sent for order completion');
-    })
-    .catch((error) => {
-      console.error('Error sending push notification:', error);
-    });
-
-
     try {
       // Fetch the order details from the database based on the data.id
       const order = await Order.findById(data.id);
-
 
       // Check if the order exists
       if (!order) {
@@ -213,45 +203,63 @@ eventEmitter.on('orderUpdated', async (data) => {
       const orderDetails = {
         orderId: order._id,
         Produkte: [],
-      
         // Include other order details as needed
       };
-      
+
       for (const itemId in order.items) {
         if (order.items.hasOwnProperty(itemId)) {
           const item = order.items[itemId];
           const itemName = item.pizza.name;
           const itemQty = item.qty;
-      
-          orderDetails.Produkte.push(itemName, itemQty);
+
+          orderDetails.Produkte.push({ name: itemName, quantity: itemQty });
         }
       }
 
-      
+      let emailBody = `Ihre Bestellung ${orderDetails.orderId} ist fertig und auf dem Weg zu Ihnen. `;
+      emailBody += 'Bestellte Produkte:\n';
 
-      let emailBody = `Ihre Bestellung ${data.id} ist fertig und auf dem Weg zu`;
-      Object.entries(orderDetails).forEach(([key, value]) => {
-      emailBody += `Ihre Bestellung ist fertig und auf dem Weg zu ihnen`;
+      orderDetails.Produkte.forEach((product) => {
+        emailBody += `${product.name}: ${product.quantity}\n`;
       });
 
       const mailOptions = {
         from: 'nichtantwortenbb@gmail.com',
-        to: order.name,
+        to: order.name, // Assuming order.name is the customer's email
         subject: 'Order Completed',
         text: emailBody,
       };
 
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          console.log(error);
+          console.log('Error sending email:', error);
         } else {
           console.log('Email sent: ' + info.response);
         }
       });
-
     } catch (error) {
       console.log('Error fetching order details:', error);
     }
+  } else if (data.status === 'delivered') {
+
+    const order = await Order.findById(data.id);
+    // If order status is 'delivered', send an email
+    const deliveredEmailBody = `Ihre Bestellung ${data.id} ist jetzt auf dem Weg zu Ihnen.`;
+
+    const deliveredMailOptions = {
+      from: 'nichtantwortenbb@gmail.com',
+      to: order.name, // Assuming order.name is the customer's email
+      subject: 'Order Delivered',
+      text: deliveredEmailBody,
+    };
+
+    transporter.sendMail(deliveredMailOptions, function (error, info) {
+      if (error) {
+        console.log('Error sending delivered email:', error);
+      } else {
+        console.log('Delivered email sent: ' + info.response);
+      }
+    });
   }
 });
 
@@ -287,7 +295,7 @@ eventEmitter.on('orderPlaced', async (data) => {
     for (const itemId in order.items) {
       if (order.items.hasOwnProperty(itemId)) {
         const item = order.items[itemId];
-        const itemName = item.pizza.name;
+        const itemName = item.name;
         const itemQty = item.qty;
     
         orderDetails.Produkte.push(itemName, itemQty);
@@ -302,8 +310,8 @@ eventEmitter.on('orderPlaced', async (data) => {
     });
 
     const mailOptions = {
-      from: 'nichtantwortenbb@gmail.com',
-      to: order.name,
+      from: 'ggorangmadaan@gmail.com',
+      to: 'ggorangmadaan@gmail.com',
       subject: 'Order Placed',
       text: emailBody,
     };
@@ -319,187 +327,7 @@ eventEmitter.on('orderPlaced', async (data) => {
 
   } catch (error) {
     console.log('Error fetching order details:', error);
-  }
-
-
-  async function generateQRCode(id) {
-    console.log(id)
-    return new Promise((resolve, reject) => {
-      const url = `https://starfish-app-nki4g.ondigitalocean.app/admin/orders/${id}`;
-      QRCode.toDataURL(url, (err, dataURI) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(dataURI);
-        }
-      });
-    });
-  }
-
-async function generatePdfWithHeader(data) {
-  const id = data._id.toHexString();
-
-  // Generate the QR code
-  const qrCode = await generateQRCode(id);
-  const printer = new PdfPrinter({
-    Roboto: {
-      normal: './Roboto/Roboto-Regular.ttf',
-      bold: './Roboto/Roboto-Medium.ttf',
-      italics: './Roboto/Roboto-Italic.ttf',
-      bolditalics: './Roboto/Roboto-MediumItalic.ttf',
-    },
-  });
-
-    // Calculate the total quantities for each column
-    const totalQuantities = Array(24).fill(0);
-    (data.items || []).forEach((item) => {
-      for (let i = 1; i <= 24; i++) {
-        if (item.hasOwnProperty('quantity' + i)) {
-          totalQuantities[i - 1] += item['quantity' + i];
-        }
-      }
-    });
-
-  const chunk = (array, size) =>
-  Array.from({ length: Math.ceil(array.length / size) }, (v, i) =>
-    array.slice(i * size, i * size + size)
-  );
-
-  console.log(chunk)
-
-const filteredOrderNames = data.orderNames.filter(header => header !== 'Name geben');
-const chunkedOrderNames = chunk(filteredOrderNames, 5);
-
-console.log(chunkedOrderNames[0]);
-
-const docDefinition = {
-  pageSize: 'A5',
-  pageMargins: [100, 20, 40, 60], // Adjust margins as needed
-
-  content: [
-    {
-      columns: [
-        { width: '*', text: '' }, // Left empty column for margin
-        {
-          margin: [0, 20, 0, 0],
-          width: 'auto',
-          image: qrCode,
-          width: 30,
-          height: 30,
-          alignment: 'center'
-        },
-        {
-          margin: [0, 20, 0, 0],
-          width: 'auto',
-          text: data.name,
-          width: 200, // Adjusted width to fit on A5
-          height: 5,
-          alignment: 'center'
-        },
-        { width: '*', text: '' },
-      ]
-    },
-    { width: '*', text: '' }, // Left empty column for margin
-    ...chunkedOrderNames.slice(0, 5).map((chunk, chunkIndex) => {
-      const previousChunkLength = chunkIndex > 0 ? chunkedOrderNames[chunkIndex - 1].length : 0;
-
-      const widths = [55, ...Array(chunk.length).fill(20)];
-
-      return {
-        table: {
-          headerRows: 1,
-          height: 5,
-          widths: widths,
-
-          body: [
-            [
-              { text: 'Product', style: 'tableHeader' },
-              ...chunk.map(header => ({ text: header, style: 'tableHeader' }))
-            ],
-            ...(data.items || []).map((items, index) => {
-              const quantities = Object.values(items)
-                .filter((value, i) => typeof value === 'number' && i >= previousChunkLength + 1 && i < chunk.length + previousChunkLength + 1)
-                .map(value => (value === 0 ? '' : value.toString()));
-
-              const rowStyle = index % 2 === 0 ? 'tableBody' : 'tableBodyGray';
-
-              // Manually loop through the necessary length to populate the array
-              const paddedQuantities = [];
-              for (let i = 0; i < Math.min(chunk.length, Number.MAX_SAFE_INTEGER - 1); i++) {
-                paddedQuantities.push(i < quantities.length ? quantities[i] : '');
-              }
-
-              const rowContent = [
-                { text: items.pizza.name, style: rowStyle },
-                ...paddedQuantities.map(quantity => ({ text: quantity, style: rowStyle })),
-              ];
-              return rowContent;
-            })
-          ]
-        },
-        pageBreak: 'after'  // Add page break for the first 4 chunks
-      };
-    }),
-
-  ],
-  styles: {
-    table:{
-      alignment: 'center'
-    },
-    tableHeader: {
-      bold: true,
-      fontSize: 8,
-      fillColor: '#CCCCCC',
-      alignment: 'center'
-    },
-
-    tableBody: {
-      fontSize: 8,
-      alignment: "center"
-    },
-    tableBodyGray: {
-      fontSize: 8,
-      fillColor: '#F0F0F0',
-      alignment: 'center'
-    }
-  }
-};
-
-
-  const pdfDoc = printer.createPdfKitDocument(docDefinition);
-  let chunks = [];
-
-  return new Promise((resolve, reject) => {
-    pdfDoc.on('data', (chunk) => chunks.push(chunk));
-    pdfDoc.on('end', () => resolve(Buffer.concat(chunks).toString('base64')));
-    pdfDoc.pipe(fs.createWriteStream('document.pdf'));
-    pdfDoc.end();
-  });
-}
-
-
-  // Generate the PDF with a header
-  generatePdfWithHeader(data)
-    .then(pdfBase64 => {
-      const printJobOptions = {
-        printerId: 72780288, // Replace with the printer ID 
-        title: 'Print Job Title',
-        contentType: 'pdf_base64',
-        content: pdfBase64, // Use the generated PDF with header
-        };
-
-      // Create the print job
-      axios.post(`https://api.printnode.com/printjobs`, printJobOptions, { headers })
-        .then(response => {
-          console.log('Print job created:', response.data);
-        })
-        .catch(error => {
-          console.error('Error creating print job:', error);
-        });
-    })
-    .catch(err => {
-      console.error('Error generating print job content:', err);
-    });       
+  }    
 });
 
 

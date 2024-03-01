@@ -1,14 +1,14 @@
 import axios from 'axios';
-import QRCode from 'qrcode';
-import Noty from 'noty';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export function initSingleOrder() {
   document.addEventListener('DOMContentLoaded', () => {
     const orderTableBody = document.querySelector('#orderBody');
     const url = window.location.pathname;
     const orderId = url.split('\\').pop().split('/').pop();
-
-    const data = `https://starfish-app-nki4g.ondigitalocean.app${url}`;
 
     let orders = [];
     let markup;
@@ -23,90 +23,42 @@ export function initSingleOrder() {
         orders = res.data;
         markup = generateMarkup(orders);
         orderTableBody.innerHTML = markup;
+
+        // Add event listener for the print button
+        const printButton = document.createElement('button');
+        printButton.innerText = 'Print Order';
+        printButton.style.position = 'absolute';
+        printButton.style.top = '325px'; // Adjust the top position as needed
+        printButton.style.right = '300px'; // Adjust the right position as needed
+        printButton.style.padding = '10px';
+        printButton.style.border = '1px solid #ccc';
+        printButton.style.borderRadius = '5px';
+        printButton.style.cursor = 'pointer';
+        printButton.addEventListener('click', () => {
+          printOrder();
+        });
+
+        // Append the print button to the document body or a specific container
+        document.body.appendChild(printButton);
       })
       .catch((err) => {
         console.log(err);
       });
 
-
-
-    function generateMarkup(orders) { 
-      let qrCode = '';
-
+    function generateMarkup(orders) {
       return orders
         .map((order) => {
-          if (order && order._id === orderId) {
-            QRCode.toDataURL(data, (err, dataURI) => {
-              if (err) throw err;
-              qrCode = `<img src="${dataURI}"/>`;
-            });
-
-            let tableHeaders = `<tr><th class="bg-gray-50 sticky left-0">Sweet Name</th>`;
-            order.orderNames.forEach((orderName) => {
-              if (!orderName.includes("Name geben")) {
-                tableHeaders += `<th>${orderName}</th>`;
-              }
-            });
-            tableHeaders += '</tr>';
-
+          if (order._id === orderId) {
             return `
-              <div id="order" class="bg-white shadow overflow-hidden sm:rounded-lg">
-                <div class="px-4 py-5 sm:px-6">
-                <form action="/admin/order/status" method="POST">
-                            <input type="hidden" name="orderId" value="${ order._id }">
-                            <select name="status" onchange="this.form.submit()"
-                                class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                                <option value="order_placed"
-                                    ${ order.status === 'order_placed' ? 'selected' : '' }>
-                                    Placed</option>
-                                <option value="confirmed" ${ order.status === 'confirmed' ? 'selected' : '' }>
-                                    Confirmed</option>
-                                <option value="prepared" ${ order.status === 'prepared' ? 'selected' : '' }>
-                                    Prepared</option>
-                                <option value="delivered" ${ order.status === 'delivered' ? 'selected' : '' }>
-                                    Delivered
-                                </option>
-                                <option value="completed" ${ order.status === 'completed' ? 'selected' : '' }>
-                                    Completed
-                                </option>
-                            </select>
-                        </form>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20">
-                                <path
-                                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
-                        </div>
-                  <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    ${order._id}
-                  </p>
-                </div>
-                <div class="border-t border-gray-200">
-                  <dl>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        ${order.name}
-                      </dd>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                      <dt class="text-sm font-medium text-gray-500">
-                        Items
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          <table>
-                            <thead>
-                              ${tableHeaders} <!-- Add the generated table headers here -->
-                            </thead>
-                            <tbody>
-                            ${renderItems(order.items)}
-                          </tbody>
-                        </table>
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
+              <div style="margin: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+                <h2 style="color: #333; margin-bottom: 10px">Order ID: ${order._id}</h2>
+                <p style="margin-bottom: 10px;">Name: ${order.name}</p>
+                <p style="margin-bottom: 10px;">Total Price: ${order.totalPrice}</p>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                  <tbody>
+                    ${renderItems(order.items)}
+                  </tbody>
+                </table>
               </div>
             `;
           }
@@ -116,117 +68,152 @@ export function initSingleOrder() {
 
     function renderItems(items) {
       let parsedItems = Object.values(items);
-      let quantityMatrix = Array(24).fill(0).map(_ => []);
-    
-      parsedItems.forEach((menuItem) => {
-        for (let i = 1; i <= 24; i++) {
-          quantityMatrix[i - 1].push(menuItem['quantity' + i]);
-        }
-      });
-    
-      let filteredColumns = quantityMatrix.map((quantities, index) => {
-        const isZeroColumn = quantities.every(qty => qty === 0);
-        return isZeroColumn ? index + 1 : null;
-      }).filter((index) => index !== null);
-    
-      let totalColumnQuantities = Array(24).fill(0);
-    
-      parsedItems.forEach((menuItem) => {
-        for (let i = 1; i <= 24; i++) {
-          if (!filteredColumns.includes(i)) {
-            totalColumnQuantities[i - 1] += menuItem['quantity' + i];
-          }
-        }
-      });
-    
-      let lastRow = '<tr><td>Total</td>';
-      for (let i = 1; i <= 24; i++) {
-        if (!filteredColumns.includes(i)) {
-          lastRow += `<td class="total-quantity-cell">${totalColumnQuantities[i - 1]}</td>`;
-        }
-      }
-      lastRow += '</tr>';
-    
-      let renderedItems = parsedItems
-        .map((menuItem) => {
-          let quantityInputs = '';
-          for (let i = 1; i <= 24; i++) {
-            if (!filteredColumns.includes(i)) {
-              quantityInputs += `
-                <td class="items-center">
-                  <input
-                    type="number"
-                    class="quantity-input"
-                    style="text-align: center"
-                    value="${menuItem['quantity' + i]}"
-                    data-order-id="${orderId}"
-                    data-item-id="${menuItem.pizza._id}"
-                    data-quantity="quantity${i}"
-                  />
-                </td>
-              `;
-            }
-          }
-          return `
-            <tr> 
-              <td class="bg-gray-50 sticky left-0">${menuItem.pizza.name}</td>
-              ${quantityInputs}
+      return `
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Bild
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Produkt
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Comment
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Größe
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Quantität
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Preis
+              </th>
+              <th scope="col" class="relative px-6 py-3">
+                <span class="sr-only">Actions</span>
+              </th>
             </tr>
-          `;
-        })
-        .join('');
-    
-      return renderedItems + lastRow;
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            ${parsedItems.map((menuItem, index) => {
+              return `
+                <tr class="${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}">
+                  <td class="px-6 py-4 whitespace-nowrap w-8">
+                   <img src="/img/${menuItem.item.image}" alt="${menuItem.item.name}" class="h-8 w-8 object-cover ">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="text-sm font-medium text-gray-900">
+                        ${menuItem.item.name}
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="text-sm font-medium text-gray-900">
+                        ${menuItem.item.comment}
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-500">
+                      ${menuItem.item.sizes}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-500">
+                      ${menuItem.qty}
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-500">
+                      ${menuItem.item.price}
+                    </div>
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      `;
+    }
 
+    function printOrder() {
+      // Get the order details
+      const orderDetails = getOrderDetails();
+
+
+      // Define the document definition using pdfmake syntax
+      const documentDefinition = {
+        content: [
+          { text: 'Order Details', style: 'header' },
+          { text: `Order ID: ${orderDetails._id}`, margin: [0, 5] },
+          { text: `Name: ${orderDetails.name}`, margin: [0, 5] },
+          { text: `Total Price: ${orderDetails.totalPrice}`, margin: [0, 10] },
+          { text: `Email: ${orderDetails.email}`, margin: [0, 10] },
+          { text: `Telefonnummer: ${orderDetails.phone}`, margin: [0, 10] },
+          { text: 'Items:', style: 'subheader' },
+          renderItemsPDF(orderDetails.items),
+
+        ],
+        styles: {
+          header: {
+            fontSize: 18,
+            bold: true,
+            margin: [0, 0, 0, 10],
+          },
+          subheader: {
+            fontSize: 16,
+            bold: true,
+            margin: [0, 5, 0, 5],
+          },
+        },
+      };
+
+      // Generate and open the PDF
+      pdfMake.createPdf(documentDefinition).open();
+    }
+
+    function renderItemsPDF(items) {
+      let parsedItems = Object.values(items);
+      const body = parsedItems.map((menuItem, index) =>  [
+        menuItem.item.name,
+        menuItem.item.comment,
+        menuItem.item.sizes,
+        menuItem.qty,
+        menuItem.item.price,
+      ]);
+    
+      const table = {
+        table: {
+          headerRows: 1,
+          widths: ['auto', 'auto', 'auto', 'auto', 'auto'],
+          body: [
+            [
+              { text: 'Produkt', width: 'auto' },
+              'Comment', // Adjust the width as needed
+              'Größe',
+              'Quantität',
+              'Preis',
+            ],
+            ...body,
+          ],
+        },
+        layout: {
+          fillColor: function (rowIndex, node, columnIndex) {
+            return rowIndex % 2 === 0 ? '#FFFFFF' : '#F0F0F0';
+          },
+        },
+      };
+    
+      return table;
     }
     
-    
-    
-    
 
-    function updateItemQuantity(orderId, itemId, newQty, quantityType) {
-      axios
-        .put(`/admin/orders/${orderId}/items/${itemId}`, { [quantityType]: newQty }) // Use dynamic property name based on quantityType
-        .then((res) => {
-          new Noty({
-            type: 'success',
-            text: 'Item quantity updated successfully',
-            timeout: 1000, // Adjust the timeout as needed
-          }).show();
-          
-      // Recalculate the total quantity and update the corresponding element
-      const totalQtyElements = document.querySelectorAll('.total-quantity-cell');
-      const totalQtyIndex = parseInt(quantityType.replace('quantity', '')) - 1;
-      let newTotalQty = 0;
-
-      const quantityInputs = document.querySelectorAll('.quantity-input');
-      quantityInputs.forEach((input) => {
-        if (input.dataset.quantity === quantityType) {
-          newTotalQty += parseInt(input.value);
-        }
-      });
-
-      totalQtyElements[totalQtyIndex].textContent = newTotalQty;
-        })
-        .catch((err) => {
-          console.log('Error updating item quantity:', err);
-        });
+    function getOrderDetails() {
+      // Find the order with the specified orderId
+      return orders.find((order) => order._id === orderId) || {};
     }
-
-    orderTableBody.addEventListener('change', function (event) {
-      const target = event.target;
-      if (target.classList.contains('quantity-input')) {
-        console.log(target.dataset.itemId)
-        const orderId = target.dataset.orderId;
-        const itemId = target.dataset.itemId;
-        const newQty = target.value;
-        const quantityType = target.dataset.quantity; // Get the quantity type (quantity1, quantity2, etc.)
-
-        console.log(newQty, itemId);
-
-        // Update the appropriate quantity based on quantityType
-        updateItemQuantity(orderId, itemId, newQty, quantityType);
-      }
-    });
   });
 }

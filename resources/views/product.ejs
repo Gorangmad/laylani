@@ -1,0 +1,164 @@
+<div class="product-container">
+    <img src="/img/real_pictures<%= product.image %>.jpg" alt="<%= product.name %> Image" class="product-image">
+    <div class="product-details">
+        <div>
+            <div class="product-name"><%= product.name %></div>
+            <div class="product-price mt-10">Preis: <span class="darker-price"><%= product.price %></span></div> <!-- Added "Preis" and darker price -->
+            <p class="size-instruction mt-10">Wählen Sie Ihre Größe aus:</p> <!-- New line for size instruction -->
+            <div class="product-sizes">
+                <% 
+                    const sizesArray = product.sizes.split(',');
+                    sizesArray.forEach(size => {
+                        // Try to split the size into text and number parts
+                        const sizeParts = size.match(/(\D*)(\d+)(\D*)/);
+                        let sizeText = '';
+                        let sizeNumber = size; // Default to the whole size if no match is found
+                        let sizeUnit = '';
+                        
+                        if (sizeParts) {
+                            // If match is found, separate the text and number
+                            [, sizeText, sizeNumber, sizeUnit] = sizeParts;
+                        }
+                %>
+                <div class="size-option">
+                    <% if (sizeText) { %>
+                        <div class="size-text"><%= sizeText.trim() %></div>
+                    <% } %>
+                    <div class="size-circle" data-size="<%= sizeNumber %>" onclick="handleSizeClick(this)">
+                        <div class="size-number"><%= sizeNumber %></div>
+                    </div>
+                    <% if (sizeUnit) { %>
+                        <div class="size-unit"><%= sizeUnit.trim() %></div>
+                    <% } %>
+                </div>
+                <% }); %>
+            </div>
+            <div class="availability mt-10">Availability: <%= product.availability ? 'In Stock' : 'Out of Stock' %></div>
+        </div>
+        <button class="add-to-cart-button" data-pizza='<%= JSON.stringify(product) %>'>
+            <img src="/img/cart.png" alt="Shopping Cart" class="shopping-cart-icon">
+            Zum Warenkorb hinzufügen
+        </button>
+    </div>
+</div>
+
+
+<script>
+  function handleSizeClick(element) {
+    const selectedSize = element.getAttribute('data-size');
+    const productData = JSON.parse(document.querySelector('.add-to-cart-button').getAttribute('data-pizza'));
+    
+
+    productData.sizes = selectedSize;
+
+    document.querySelector('.add-to-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
+
+
+    const allSizeCircles = document.querySelectorAll('.size-circle');
+    allSizeCircles.forEach(circle => circle.classList.remove('selected-size'));
+    element.classList.add('selected-size');
+  }
+</script>                                 
+
+
+
+
+
+<style>
+
+/* Add the following CSS styles */
+
+.size-instruction {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Increased margin for separation */
+    color: #333; /* Darker color for the instruction */
+}
+
+.darker-price {
+    font-weight: bold;
+    color: #333; /* Darker color for the price */
+}
+
+.selected-size {
+    background-color: black;
+    color: white;
+}
+
+.product-container {
+    display: flex;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    flex: 1;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.product-details {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.availability {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-button {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.shopping-cart-icon {
+    margin-right: 8px;
+}
+
+.product-sizes {
+    display: flex;
+    margin-top: 10px; /* Add margin between Preis and Size */
+    margin-bottom: 10px; /* Add margin between Size and Availability */
+}
+
+.size-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.size-number {
+    font-size: 14px;
+}
+
+
+</style>
+

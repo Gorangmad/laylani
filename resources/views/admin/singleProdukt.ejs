@@ -1,0 +1,227 @@
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .product-info {
+        margin-top: 20%;
+        width: 50%;
+    }
+    .categorien {
+        margin-top: 5%;
+        width: 100%;
+
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var tabs = document.querySelectorAll('.nav-link');
+    
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            var activeTab = document.querySelector('.nav-link.active');
+            var activeContent = document.querySelector('.tab-content:not([style="display: none;"])');
+            
+            // Remove active class from currently active tab and hide its content
+            if (activeTab) {
+                activeTab.classList.remove('active');
+                if (activeContent) {
+                    activeContent.style.display = 'none';
+                }
+            }
+            
+            // Add active class to clicked tab and show its content
+            this.classList.add('active');
+            var targetContent = document.querySelector(this.getAttribute('data-bs-target'));
+            if (targetContent) {
+                targetContent.style.display = 'block';
+            }
+        });
+    });
+
+    document.getElementById('similarProductsResults').addEventListener('click', function(event) {
+        // Check if the clicked element is a button with the 'add-btn' class
+        if (event.target && event.target.nodeName === "BUTTON" && event.target.classList.contains('add-btn')) {
+            const relatedProductId = event.target.getAttribute('data-product-id');
+            const currentProductId = window.location.pathname.split('/').pop();
+
+            fetch(`/admin/products/link/${currentProductId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ relatedProductId: relatedProductId })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Produkt erfolgreich verknüpft');
+                // Optionally, refresh the page or update the UI to reflect the new related product
+            })
+            .catch(error => {
+                console.error('Error linking products:', error);
+            });
+        }
+    });
+
+    document.getElementById('saveCategories').addEventListener('click', function() {
+    // Select all checked category checkboxes
+
+    const currentProductId = window.location.pathname.split('/').pop();
+
+    const checkedCategories = document.querySelectorAll('.category-checkbox:checked');
+
+    const checkedCategoryValues = Array.from(checkedCategories).map(checkbox => checkbox.value);
+
+    const checkedSubcategories = Array.from(document.querySelectorAll('.subcategory-checkbox:checked'));
+
+    const checkedSubcategoryValues = Array.from(checkedSubcategories).map(checkbox => checkbox.value);
+
+
+    // Combine the values of checked categories and subcategories
+    const allCheckedNos = checkedCategoryValues.concat(checkedSubcategoryValues)
+                              .join(',');
+
+    
+
+    console.log('All Checked Nos:', allCheckedNos);
+
+    // Example of sending this data to the server (adjust as necessary)
+    fetch('/admin/update/categories', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ categories: allCheckedNos , currentProductId: currentProductId})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        alert('Categories saved successfully!');
+    })
+    .catch(error => {
+        console.error('Error saving categories:', error);
+        alert('Failed to save categories.');
+    });
+  });
+
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("searchSimilarProducts").addEventListener("keyup", function() {
+            var query = this.value; // Get the current value of the input field
+            
+            fetch('/admin/products/search/similiar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Add any other headers your API requires
+                },
+                body: JSON.stringify({ query: query }) // Convert the JavaScript object to a JSON string
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the response body as JSON
+            })
+            .then(data => {
+                const resultsContainer = document.getElementById('similarProductsResults');
+                resultsContainer.innerHTML = ''; // Clear previous results
+    
+                // Assuming the API returns an array of products in `data.products`
+                data.products.slice(0, 20).forEach(product => {
+                    // Create HTML for each product
+                    const productElement = document.createElement('div');
+                    productElement.classList.add('product-result');
+                    productElement.innerHTML = `
+                        <div class="product-photo">
+                            <h5>${product.name}</h5>
+                            <img src="/img/real_pictures${product.image}.jpg" alt="${product.name}" style="width: 100px; height: auto;">
+                            <button type="button" class="btn btn-primary add-btn" data-product-id="${product._id}">Produkt Verknüpfen</button>
+                            </div>
+                    `;
+    
+                    resultsContainer.appendChild(productElement);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        });
+    });
+    </script>
+    
+    
+    
+
+
+<div class="container">
+    <div class="product-info">
+        <img src="/img/real_pictures<%= product.image %>.jpg" alt="<%= product.name %> Image" class="product-image">
+        <h1><%= product.name %></h1>
+        <p><%= product.description %></p>
+        <p>Preis: <%= product.price %></p>
+        <p>Görßen: <%= product.sizes %></p>
+        <p>Verfügbarkeit: <%= product.availability %></p>
+        <p>Ablauf Datum: <%= product.expiry ? product.expiry.toLocaleDateString('en-GB') : 'N/A' %></p>
+        <p>Categorien: <%= productCategoryName %></p>
+        <p>Ähnliche Produkte:<% relatedMenuNames.forEach(function(name) { %>
+            <p><%= name %></p>
+        <% }); %></p>
+    </div>
+
+
+    <div class="categorien overflow-auto p-3 mb-3 border rounded" style="max-height: 800px;">
+    <button type="button" id="saveCategories" class="btn btn-success">Save Categories</button>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="form1-tab" data-bs-toggle="tab" data-bs-target="#form1" type="button" role="tab" aria-controls="form1" aria-selected="true">Categories</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="form2-tab" data-bs-toggle="tab" data-bs-target="#form2" type="button" role="tab" aria-controls="form2" aria-selected="false">Ähnliche Produkte</button>
+        </li>
+    </ul>
+    
+    <!-- Tab content for Categories -->
+    <div class="tab-content" id="form1">
+        <form class="bg-light">
+            <% categories.forEach(function(category) { %>
+                <div class="form-check">
+                  
+                  <input class="form-check-input category-checkbox" type="checkbox" id="category-<%= category.No %>" name="categories" value="<%= category.No %>" <%= productCategoryName.includes(category.Parent_Category) ? 'checked' : '' %>>
+                  <label class="form-check-label" for="category-<%= category.No %>"><%= category.Parent_Category %></label>
+                </div>
+                <% if(category.subcategories && category.subcategories.length > 0) { %>
+                  <% category.subcategories.forEach(function(subcategory) { %>
+                    <div class="form-check ml-3">
+                      <input class="form-check-input subcategory-checkbox" type="checkbox" id="subcategory-<%= subcategory.No %>" name="subcategories" value="<%= subcategory.No %>" data-parent-no="category-<%= category.No %>" <%= productCategoryName.includes(subcategory.name) ? 'checked' : '' %>>
+                      <label class="form-check-label" for="subcategory-<%= subcategory.No %>"><%= subcategory.name %></label>
+                    </div>
+                  <% }); %>
+                <% } %>
+              <% }); %>              
+        </form>
+    </div>
+    
+    <!-- Tab content for Ähnliche Produkte -->
+    <div class="tab-content" id="form2" style="display: none;">
+        <form class="bg-light">
+            <div class="form-group">
+                <input type="text" class="form-control" id="searchSimilarProducts" placeholder="Produkt suchen...">
+            </div>
+            <div id="similarProductsResults" class="results">
+                
+            </div>
+        </form>
+    </div>
+
+
+</div>

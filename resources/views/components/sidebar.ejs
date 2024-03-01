@@ -1,0 +1,150 @@
+<!-- sidebar.ejs -->
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <span class="fs-4">Bahl Collection Dashboard</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="/admin" class="nav-link active" aria-current="page">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#adminSubmenu" data-bs-toggle="collapse" class="nav-link link-dark">
+                <span class="right-icon">&#9662;</span> <!-- Downward arrow -->
+                <i class="fas fa-file-alt"></i>
+                Orders
+            </a>
+            <ul class="collapse nav flex-column ms-3" id="adminSubmenu" style="font-size: 0.7rem;"> <!-- ms-3 for margin start -->
+                <li class="nav-item">
+                    <a href="/admin/orders" class="nav-link link-dark">
+                        Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/delivery" class="nav-link link-dark">
+                        Orders out for delivery
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/archiv" class="nav-link link-dark">
+                        Orders finished
+                    </a>
+                </li>
+                <!-- More sub-menu items here -->
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="/admin/products" class="nav-link link-dark">
+                <i class="fas fa-box"></i>
+                Products
+            </a>
+        </li>
+        <li>
+            <a href="/admin/users" class="nav-link link-dark">
+                <i class="fas fa-users"></i>
+                Customers
+            </a>
+        </li>
+
+        <li class="nav-item mt-auto"> <!-- mt-auto will push the logout to the bottom if the sidebar is taller than the content -->
+            <a href="/logout" class="nav-link link-dark">
+                <i class="fas fa-sign-out-alt"></i>
+                Log Out
+            </a>
+        </li>
+        
+        <!-- Add more links as needed -->
+    </ul>
+</div>
+
+<style>
+.sidebar .nav-item.mt-auto {
+    position: fixed;
+    bottom: 0;
+    width: 280px; /* Match the width of the sidebar */
+    border-top: 2px solid #ffffff; /* This sets a thick white line */
+}
+
+
+.sidebar .nav-item:last-child,
+.sidebar .nav-item.mt-auto {
+    border-bottom: none;
+}
+
+    /* Style for the arrow icon */
+.sidebar .right-icon {
+    float: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Style for the submenu */
+.nav .collapse .nav-item {
+    padding-left: 15px; /* or as much as you want to indent */
+}
+
+/* Rotate the arrow icon when the submenu is open */
+.nav-link.collapsed .right-icon {
+    transform: rotate(-90deg);
+}
+
+/* Add borders between nav items */
+.nav-pills .nav-item {
+    border-bottom: 1px solid #6c757d; /* This sets a gray line */
+}
+
+/* Remove bottom border from the last nav item */
+.nav-pills .nav-item:last-child {
+    border-bottom: none;
+}
+
+
+/* Optional: change the arrow icon when hovering over the nav item */
+.nav-item:hover .right-icon {
+    transform: translateY(-2px);
+}
+
+    .nav .collapse {
+        display: none;
+    }
+    
+    .nav .collapse.show {
+        display: block;
+    }
+    .sidebar {
+        min-height: 100vh;
+        position: fixed;
+        background-color: #4B5563;
+    }
+    .nav-pills .nav-link {
+        color: #ffffff;
+    }
+    .nav-pills .nav-link.active {
+        color: #fff;
+        background-color: #00c3ff;
+    }
+    .sidebar .fas {
+        margin-right: 10px;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+    var navLinks = document.querySelectorAll('.nav-link[data-bs-toggle="collapse"]');
+
+    navLinks.forEach(function (link) {
+        var collapseId = link.getAttribute('href');
+        var collapseElement = document.querySelector(collapseId);
+
+        link.addEventListener('click', function () {
+            this.classList.toggle('collapsed');
+            collapseElement.classList.toggle('show');
+        });
+    });
+});
+
+</script>
+
+

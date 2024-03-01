@@ -11,12 +11,15 @@ const orderSchema = new Schema({
         required: true
     },
     items: { type: Object, required:true },
-    totalPrice: { type: String, required:false },
+    email: {type:String, required: true},
+    totalPrice: { type: String, required:true },
     name: {type: String, required:true},
     phone: {type: String, required:true},
-    orderNames: {type: Object, required: false},
+    straße: {type: String, required:true},
+    postleitzahl: {type: String, required:false},
+    land: {type: String, required:true},
+    firmenname: {type: String, required:true},
     paymentType: { type: String, default: 'COD'},
-    paymentStatus: { type: Boolean, default: false},
     status: { type: String, default: 'order_placed'},
     archiv: { type: Boolean, default: true}
 }, { timestamps: true})

@@ -1,0 +1,229 @@
+<%- include('components/sidebar') %>
+
+<div class="main-content">
+    <h1>Admin Panel</h1>
+
+<div class="container"> <!-- Ensures the row is within a container -->
+    <div class="row">
+    
+    <div class="col-md-3">
+    <div class="card text-white bg-primary mb-3" >
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="header-icon">
+                <!-- Use an image or icon here -->
+                <i class="fas fa-clipboard-list fa-2x"></i>
+            </div>
+            <div class="header-status">
+                <!-- Status text -->
+                <span>+ 12%</span>
+                <!-- Arrow icon -->
+                <i class="fas fa-arrow-up"></i>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">ORDERS</h5>
+            <p class="card-text" style="font-size: 2.5rem;">1,685</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+            <small>Since last month</small>
+            <a href="#" class="stretched-link"></a> <!-- stretched-link makes the whole card clickable -->
+        </div>
+    </div>
+    </div>
+
+
+    <div class="col-md-3">
+    <div class="card text-white bg-primary mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="header-icon">
+                <i class="fas fa-clipboard-list fa-2x"></i>
+            </div>
+            <div class="header-status">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Users</h5>
+            <p class="card-text" style="font-size: 2.5rem;">130</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+            <small>All time Customers</small>
+            <a href="#" class="stretched-link"></a>
+        </div>
+    </div> 
+    </div>
+
+    <div class="col-md-3">
+    <div class="card text-white bg-primary mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="header-icon">
+                <!-- Use an image or icon here -->
+                <i class="fas fa-cubes fa-2x"></i>
+            </div>
+            <div class="header-status">
+                <i class="fa fa-cubes" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Products</h5>
+            <p class="card-text" style="font-size: 2.5rem;">9456</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+            <small>all time Products</small>
+            <a href="#" class="stretched-link"></a> <!-- stretched-link makes the whole card clickable -->
+        </div>
+    </div>
+    </div>
+</div>
+
+
+    
+
+
+
+    <!-- Donut Chart Card Container -->
+<div class="row">
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            Sales Overview
+        </div>
+        <div class="card-body">
+            <canvas id="donutChart"></canvas>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Number of Sales $86,400</small>
+        </div>
+    </div>
+</div>
+
+<!-- Line Chart Card Container -->
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            Earnings Over Time
+        </div>
+        <div class="card-body">
+            <canvas id="lineChart"></canvas>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Monthly Earnings Report</small>
+        </div>
+    </div>
+</div>
+</div>
+
+
+    <script>
+// Earnings Line Chart
+const earningsCtx = document.getElementById('lineChart').getContext('2d');
+const earningsChart = new Chart(earningsCtx, {
+    type: 'line',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+            label: 'Monthly Earnings',
+            data: [0, 10000, 5000, 15000, 10000, 20000],
+            backgroundColor: 'rgba(78, 115, 223, 0.05)',
+            borderColor: 'rgba(78, 115, 223, 1)',
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+const donutCtx = document.getElementById('donutChart').getContext('2d');
+
+// This plugin will create the text in the center of the Donut chart
+const centerTextPlugin = {
+  afterDraw: function(chart) {
+    const width = chart.width,
+          height = chart.height,
+          ctx = chart.ctx;
+    
+    ctx.restore();
+    const fontSize = (height / 114).toFixed(2);
+    ctx.font = fontSize + "em sans-serif";
+    ctx.textBaseline = "middle";
+    
+    const text = "102k",
+          textX = Math.round((width - ctx.measureText(text).width) / 2),
+          textY = height / 2;
+    
+    ctx.fillText(text, textX, textY);
+    ctx.save();
+  }
+};
+
+const donutChart = new Chart(donutCtx, {
+    type: 'doughnut',
+    plugins: [centerTextPlugin], // Register the plugin
+    data: {
+        labels: ['Ringe', 'Kette', 'Anhänger', 'Other Sales'],
+        datasets: [{
+            data: [12150, 24900, 12750, 50200],
+            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e'],
+            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#f4b619'],
+            hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }],
+    },
+    options: {
+        maintainAspectRatio: false,
+        cutoutPercentage: 80,
+        legend: {
+            position: 'right',
+            labels: {
+                boxWidth: 10
+            }
+        },
+        tooltips: {
+            enabled: true,
+            mode: 'index',
+            intersect: false,
+        }
+    }
+});
+
+
+    </script>
+</div>
+</div>
+
+<!-- Add to your existing style block or CSS file -->
+<style>
+
+    @media (min-width: 768px) { /* Adjust based on your sidebar's breakpoint */
+        body {
+            flex-direction: row; /* Use row layout on larger screens */
+        }
+    }
+
+    .main-content {
+        margin-left: 280px; /* Should match the width of the sidebar */
+        flex-grow: 1; /* Takes up the remaining width */
+        padding: 20px;
+        overflow: hidden; /* Prevents horizontal scrolling */
+    }
+        /* Make sure the canvas takes the full width of the container */
+        .chart-container canvas {
+        width: 100% !important;
+        height: 40vh !important;
+    }
+
+    /* Responsive adjustments if necessary */
+    @media (max-width: 991px) {
+        .main-content {
+            margin-left: 0; /* Sidebar is likely collapsed or overlayed on smaller screens */
+        }
+
+        .chart-container {
+            margin-bottom: 20px; /* Add spacing between stacked charts on smaller screens */
+        }
+    }
+</style>
+

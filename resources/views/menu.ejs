@@ -1,294 +1,257 @@
-<section class="menu container mx-auto py-8">
-    <div class="table-container">
-    <table>
-        <button onclick="showColumns()">Bestelungen Hinzufügen</button>
-        <thead>
-            <tr>
-                <th>Sweet Name</th>
-                <th contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-                <th class="hidden-columns" contenteditable="true">Name geben</th>
-            </tr>
-        </thead>
-        <tbody id="pizza-table-body">
-            <% pizzas.forEach(function(pizza) { %>
-                <tr>
-                    <td class="fixed-column"><%= pizza.name %></td>
-                    <td class="order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="1">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="2">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="3">
-                    </td >
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="4">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="5">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="6">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="7">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="8">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="9">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="10">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="11">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="12">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="13">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="14">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="15">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="16">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="17">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="18">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="19">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="20">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input " value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="21">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="22">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="23">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="24">
-                    </td>
-                    <td class="hidden-columns order-columns">
-                        <input type="number" min="0" class="quantity-input" value="0" data-pizza="<%= JSON.stringify(pizza) %>" data-order="25">
-                    </td>
-                </tr>
-            <% }) %>
-        </tbody>
-        <tfoot id="pizza-table-footer">
-            <tr>
-                <td class="fixed-column">Total Qty</td>
-                <td id="total-qty-column-1" class="total-columns"></td>
-                <td id="total-qty-column-2" class="total-columns"></td>
-                <td id="total-qty-column-3" class="total-columns"></td>
-                <td id="total-qty-column-4" class="total-columns"></td>
-                <td id="total-qty-column-5" class="total-columns"></td>
-                <td id="total-qty-column-6" class="total-columns"></td>
-                <td id="total-qty-column-7" class="total-columns"></td>
-                <td id="total-qty-column-8" class="total-columns"></td>
-                <td id="total-qty-column-9" class="total-columns"></td>
-                <td id="total-qty-column-10" class="total-columns"></td>
-                <td id="total-qty-column-11" class="total-columns"></td>
-                <td id="total-qty-column-12" class="total-columns"></td>
-                <td id="total-qty-column-13" class="total-columns"></td>
-                <td id="total-qty-column-14" class="total-columns"></td>
-                <td id="total-qty-column-15" class="total-columns"></td>
-                <td id="total-qty-column-16" class="total-columns"></td>
-                <td id="total-qty-column-17" class="total-columns"></td>
-                <td id="total-qty-column-18" class="total-columns"></td>
-                <td id="total-qty-column-19" class="total-columns"></td>
-                <td id="total-qty-column-20" class="total-columns"></td>
-                <td id="total-qty-column-21" class="total-columns"></td>
-                <td id="total-qty-column-22" class="total-columns"></td>
-                <td id="total-qty-column-23" class="total-columns"></td>
-                <td id="total-qty-column-24" class="total-columns"></td>
-                <td id="total-qty-column-25" class="total-columns"></td>
-                <!-- Add similar elements for other columns -->
-            </tr>
-        </tfoot>
-    </table>
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="/img/slide1.png" style="width:100%"> <!-- Replace with your image path -->
+        <div class="text">Caption Text</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="/img/bg.png" style="width:100%"> <!-- Replace with your image path -->
+        <div class="text">Caption Text</div>
+    </div>
+
+    <!-- Add more slides as needed -->
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <!-- Add more dots as needed -->
 </div>
 
-    <% if(user) { %>
-        <button id="create-order">Create Order</button>
-    <% } else {%> 
-        <p>Bitte anmelden um ihre Bestellung abzulegen</p>
-    <% }%>
+<section class="menu container mx-auto py-8">
+    <div class="filters-container">
+        <form action="/menu-filtered" method="GET">
+            <div class="form-row"> <!-- Bootstrap row for your form elements -->
+                <div class="col-md-3"> <!-- Adjust the size of each filter element -->
+                    <select class="custom-select" name="category">
+                        <option value="">Frauen</option>
+                        <option value="237">Männerschmuck</option>
+                        <option value="217">Kinderschmuck</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="custom-select" name="Kollektion">
+                        <option value="">Kollektion</option>
+                        <option value="9">Charm</option>
+                        <option value="222">Bernstein</option>
+                        <option value="26">Italienische Ketten</option>
+                        <option value="317">Perlen</option>
+                        <option value="223">Opal</option>
+                        <option value="313">Wechselsystem Platten</option>
+                        <option value="306">indische Halb-/Edelsteine</option>
+                        <option value="319">Geometrische Formen</option>
+                        <option value="314">Oktober Fest / Bayern</option>
+                        <option value="181">Weinachten</option>
+                        <option value="321">Kreuze und Religionen</option>
+                        <option value="323">Meer</option>
+                        <option value="359">Totenköpfe/Drachen/Hexen/Fee</option>
+                        <option value="366">Münze</option>
+                        <option value="382">Zeilos/Evergreen</option>
+                        <option value="388">Silberpflege</option>
+                        <option value="389">Glücksbringer</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="custom-select" name="arten">
+                        <option value="">Schmuckarten</option>
+                        <option value="1">Anhänger</option>
+                        <option value="6">Armbänder</option>
+                        <option value="27">Colier(Necklaces)</option>
+                        <option value="315">Ohranhänger zum durchziehen</option>
+                        <option value="14">Ohrschmuck(Earrings)</option>
+                        <option value="22">Ringe</option>
+                        <option value="363">Fußschmuck</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="custom-select" name="symbole">
+                        <option value="">Symbole</option>
+                        <option value="322">Kronen</option>
+                        <option value="335">Herzen</option>
+                        <option value="329">Lebensblumen, Lebensbäume, Mandala, Orientalisch</option>
+                        <option value="341">Sterne/Sonne/Mond</option>
+                        <option value="347">Tiere</option>
+                        <option value="351">Ewigkeitszeichen</option>
+                        <option value="367">Blumen/Natur</option>
+                        <option value="373">Spiralen/Wirbel</option>
+                    </select>
+                </div>
+                <div class="col-auto"> <!-- For the button, to ensure it aligns properly -->
+                    <button type="submit" class="btn btn-primary mb-2">Filtern</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+        
+
+        <div class="search-container">
+            <form action="/menu" method="GET">
+                <div class="search-input-container">
+                    <input
+                        type="text"
+                        name="search"
+                        class="search-input"
+                        placeholder="Suchen"
+                    />
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>    
+
+  <div class="pagination-container">
+    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
+
+    <%
+       let pageStart = Math.max(currentPage - 2, 1);
+       let pageEnd = Math.min(currentPage + 2, totalPages);
+
+       // Show the first page and ellipsis if necessary
+       if (pageStart > 1) { %>
+           <a href="menu/?page=1<%= searchQuery ? '&search=' + searchQuery : '' %>" class="page-number">1</a>
+           <% if (pageStart > 2) { %>
+               <span class="ellipsis">...</span>
+           <% } %>
+    <% }
+
+       for(let i = pageStart; i <= pageEnd; i++) { %>
+           <a href="/menu/?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %>" 
+              class="page-number <%= i === currentPage ? 'active' : '' %>"> 
+              <%= i %> 
+           </a>
+    <% }
+
+       if (pageEnd < totalPages) {
+           if (pageEnd < totalPages - 1) { %>
+               <span class="ellipsis">...</span>
+           <% } %>
+           <a href="/menu/?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %>" class="page-number"><%= totalPages %></a>
+    <% } %>
+
+    <a href="<%= currentPage < totalPages ? `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}` : '#' %>" class="pagination-next">&#10095;</a>
+
+  </div>
+
+  <div class="row">
+    <% pizzas.forEach(function(pizza) { %>
+        <div class="col-md-3">
+            <a href="/product/<%= pizza._id %>" class="card-link">
+                <div class="card product-card">
+                    <img src="/img/real_pictures<%= pizza.image %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= pizza.name %></h5>
+                        <p class="card-text"><%= pizza.price %>€</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <% }) %>
+</div>
+
+
+
 </section>
 
 
-<style>
-    .table-container {
-      overflow-x: auto; /* Enable horizontal scrolling */
-    }
-  
-    table {
-      width: auto; /* Set the width as needed */
-      border-collapse: collapse;
-      margin-bottom: 1em;
-    }
-  
-    th, td {
-      padding: 0.5em;
-      text-align: left;
-      border-bottom: 1px solid #ccc;
-    }
-  
-    th {
-      background-color: #f2f2f2;
-    }
-  
-    .quantity-input {
-      width: 80px;
-    }
-  
-    #add-to-cart {
-      background-color: #ddd;
-      color: #333;
-      padding: 0.5em 1em;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  
-    /* Style the fixed column (item names) */
-    .fixed-column {
-      position: sticky;
-      left: 0;
-      background-color: #f2f2f2;
-      z-index: 1;
-    }
-
-    .hidden-columns {
-      display: none;
-    }
-</style>
-
-
-
 <script>
+let slideIndex = 0;
+showSlides();
 
-function showColumns() {
-        var numColumns = parseInt(prompt("How many columns do you want to display?", "1"));
-        var thCells = document.querySelectorAll("th.hidden-columns");
-        var tdRows = document.querySelectorAll("#pizza-table-body tr");
-
-        for (var i = 0; i < thCells.length; i++) {
-            if (i < numColumns) {
-                thCells[i].style.display = "table-cell";
-            } else {
-                thCells[i].style.display = "none";
-            }
-        }
-
-        for (var i = 0; i < tdRows.length; i++) {
-            var tdCells = tdRows[i].querySelectorAll("td.hidden-columns");
-            for (var j = 0; j < tdCells.length; j++) {
-                if (j < numColumns) {
-                    tdCells[j].style.display = "table-cell";
-                } else {
-                    tdCells[j].style.display = "none";
-                }
-            }
-        }
-
-
-    var totalQtyCells = document.querySelectorAll(".total-columns");
-    totalQtyCells.forEach(function (cell, index) {
-        if (index < numColumns || index === totalQtyCells.length - 1) {
-            cell.style.display = "table-cell";
-        } else {
-            cell.style.display = "none";
-        }
-    });
-    }
-
-document.addEventListener('DOMContentLoaded', function () {
-        const tableBody = document.getElementById('pizza-table-body');
-    const allInputs = tableBody.querySelectorAll('input');
-    allInputs.forEach(input => {
-        input.addEventListener('input', showTotalQuantities);
-    });
-
-    // Function to calculate and display total quantities
-    function showTotalQuantities() {
-        for (var i = 0; i <= 23; i++) {
-            calculateTotalForColumn(i);
-        }
-    }
-
-    function calculateTotalForColumn(columnNumber) {
-    var tdRows = document.querySelectorAll("#pizza-table-body tr");
-    var totalQty = 0;
-
-    for (var i = 0; i < tdRows.length; i++) {
-        var td = tdRows[i].querySelectorAll("td.order-columns")[columnNumber].querySelector("input");
-        if (td) {
-            totalQty += parseInt(td.value) || 0;
-        }
-    }
-    displayTotalQty(columnNumber, totalQty);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-function displayTotalQty(columnNumber, totalQty) {
-    var totalQtyCell = document.getElementById(`total-qty-column-${columnNumber + 1}`);
-    if (totalQtyCell) {
-        if (columnNumber === 24 || totalQty > 0) {
-            totalQtyCell.style.display = "table-cell";
-            totalQtyCell.textContent = totalQty;
-        } else {
-            totalQtyCell.style.display = "none";
-            totalQtyCell.textContent = '';
-        }
-    } else {
-        console.error(`Element with ID total-qty-column-${columnNumber + 1} not found.`);
-    }
+function currentSlide(n) {
+  showSlides(slideIndex = n);
 }
 
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  let currentPage = JSON.stringify(currentPage);
+  let totalPages = JSON.stringify(totalPages);
+  let searchQuery = JSON.stringify(searchQuery);
+
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 10000); // Change image every 4 seconds
+}
+
+document.querySelector('.pagination-prev').addEventListener('click', function(e) {
+    e.preventDefault();
+    if (currentPage > 1) {
+        window.location.href = `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}`;
+    }
 });
 
+document.querySelector('.pagination-next').addEventListener('click', function(e) {
+    e.preventDefault();
+    if (currentPage < totalPages) {
+        window.location.href = `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}`;
+    }
+});
 </script>
 
+<style>
+    .card-link {
+        text-decoration: none; /* Removes underline from links */
+        color: inherit; /* Inherits text color to prevent color changes */
+        display: block; /* Makes the entire area clickable */
+    }
+
+    .product-card {
+        margin-bottom: 20px; /* Adds some space below each card */
+        transition: transform 0.3s ease, background-color 0.3s; /* Smooth transition for transform and background color */
+        border: 1px solid #ddd; /* Optional: adds a border */
+    }
+
+    .product-card:hover {
+        transform: scale(1.03); /* Slightly enlarges the card on hover */
+        background-color: black; /* Changes background to black on hover */
+        color: white; /* Changes text color to white for readability */
+    }
+
+    .product-card:hover .product-image {
+        transform: scale(1.05); /* Slightly enlarges the image on hover */
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Spreads content inside the card body */
+    }
+
+    .card-title, .card-text {
+        color: inherit; /* Ensures text color inherits from the card for proper hover effect */
+    }
+
+    .card-title {
+        font-size: 1.25rem; /* Adjust title size */
+        margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+        font-size: 1rem; /* Adjust text size for consistency */
+        margin-bottom: 1.25rem; /* Adds some space above the bottom of the card */
+    }
+</style>
 
 
 

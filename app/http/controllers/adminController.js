@@ -9,9 +9,6 @@ function updateItemQuantity() {
       const quantityType = Object.keys(req.body)[0]; // Get the first (and only) key in req.body
       const newQty = req.body[quantityType]; // Access the quantity value based on the key
 
-      console.log(quantityType)
-      console.log(newQty)
-
       const order = await Order.findById(orderId);
       if (!order) {
         return res.status(404).json({ message: 'Order not found' });

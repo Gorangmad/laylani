@@ -1,15 +1,49 @@
+ <!-- Assuming you have an array of products passed to the EJS template as 'products' -->
+
+ <style>
+    .table-container {
+        border: 1px solid #ddd; /* Border for the entire table */
+    }
+
+    th {
+        background-color: lightblue; /* Background color for the header cells */
+    }
+
+    tr:nth-child(even) {
+        background-color: lightgrey; /* Background color for every second row */
+    }
+
+    td, th {
+        border: 1px solid #ddd; /* Border for each cell */
+        padding: 8px; /* Adjust the padding as needed */
+        text-align: left;
+    }
+    .editable {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+</style>
+
+<%- include('../components/sidebar') %>
 
 <section class="orders light-section">
-    <div class="container mx-auto pt-12">
-        <h1 class="font-bold text-lg mb-4">All orders</h1>
+    
+    <div class="container mx-auto pt-12 pb-2">
+        <h1 class="font-bold text-lg mb-4">Alle Fertigen Aufträge</h1>
+        <table class="w-full table-auto bg-white">
+            <thead>
+            </thead>
+            </tbody>
+        </table>
         <table class="w-full table-auto bg-white">
             <thead>
                 <tr>
                     <th class="px-4 py-2 text-left">ID</th>
-                    <th class="px-4 py-2 text-left">Address</th>
+                    <th class="px-4 py-2 text-left">Email</th>
+                    <th class="px-4 py-2 text-left">Preis</th>
                     <th class="px-4 py-2 text-left">status</th>
                     <th class="px-4 py-2 text-left">Placed at</th>
-                    <th class="px-4 py-2 text-left">price</th>
                 </tr>
             </thead>
             <tbody id="archivBody">
@@ -17,3 +51,9 @@
         </table>
     </div>
 </section>
+
+<style>
+    .orders{
+        margin-left: 270px;
+    }
+</style>

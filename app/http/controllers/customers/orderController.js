@@ -1,34 +1,28 @@
 const Order = require('../../../models/order')
 
 const moment = require('moment')
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 
 function orderController () {
     return {
         store(req, res) {
             // Validate request
-            const { phone, paymentType, name, lieferType, orderNames } = req.body
+            const { paymentType } = req.body
 
-            // let totalPrice = req.session.cart.totalPrice
 
-            if(lieferType == 'abholung'){
-                if(!phone || !name) {
-                    return res.status(422).json({ message : 'All fields are required' });
-                }
-            } else {
-                if(!phone || !name) {
-                    return res.status(422).json({ message : 'All fields are required' });
-                }
-            }
+            let totalPrice = req.session.cart.totalPrice
 
 
             const order = new Order({
                 customerId: req.user._id,
-                items: req.body.items,
-                name,
-                phone,
-                lieferType,
-                orderNames
+                items: req.session.cart.items,
+                email: req.user.email,
+                name: req.user.name,
+                phone: req.user.phone,
+                straße: req.user.straße,
+                postleitzahl: req.user.postleizahl,
+                land: req.user.land,
+                firmenname: req.user.firmenname,
+                totalPrice: totalPrice
             })
 
             order.save()
