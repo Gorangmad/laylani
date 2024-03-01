@@ -21,6 +21,7 @@ const path = require("path")
 const storage = multer.diskStorage({
   destination: function(req, file, callback) {
     const targetPath = path.join('./public/img/real_pictures');
+    sysout
     callback(null, targetPath);
   },  
   filename: function (req, file, cb) {

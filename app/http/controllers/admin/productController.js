@@ -45,6 +45,8 @@ function productController() {
                 const { categories } = req.body; // This is the string of 'No' values
                 const productId = req.body.currentProductId;
         
+                console.log(categories)
+
                 // Assuming 'categories' is a field in your product schema where you want to save the string
                 await Menu.findByIdAndUpdate(productId, { category: categories });
         
@@ -66,11 +68,26 @@ function productController() {
                 // Fetch details for each category
                 const categoryPromises = categoryIds.map(id => Category.findOne({ "No": id }));
                 const categoryDetails = await Promise.all(categoryPromises);
-        
-                // Extract and aggregate parent category names
+
+
+                
                 const productCategoryNames = categoryDetails
-                    .filter(details => details != null)
-                    .map(details => details.Parent_Category);
+                  .filter(details => details != null)
+                  .flatMap(details => {
+                    const names = [];
+                    // Check if the category itself is selected
+                    if (categoryIds.includes(details.No)) {
+                      names.push(details.Parent_Category);
+                    }
+                    // Now, check subcategories
+                    details.subcategories.forEach(sub => {
+                      if (categoryIds.includes(sub.No)) {
+                        names.push(sub.name);
+                      }
+                    });
+                    return names;
+                  });
+
         
                 // Fetch related menus if they exist
                 const relatedMenuPromises = productDetails.relatedMenus ? productDetails.relatedMenus.map(id => Menu.findById(id)) : [];
@@ -111,16 +128,20 @@ function productController() {
         
         async relateProduct (req, res) {
             try {
-                const currentProductId = req.params.id;
+                const currentProductId = req.params.currentProductId;
                 const { relatedProductId } = req.body;
 
         
-                // Add the related product ID to the current product's relatedMenus field
-                const menu = await Menu.findOneAndUpdate(currentProductId, {
-                    $addToSet: { relatedMenus: relatedProductId } // Use $addToSet to avoid duplicates
+               // Add the related product ID to the current product's relatedMenus field
+                await Menu.findOneAndUpdate({ _id: currentProductId }, {
+                   $addToSet: { relatedMenus: relatedProductId } // Use $addToSet to avoid duplicates
                 });
+                 
+                 await Menu.findOneAndUpdate({ _id: relatedProductId }, {
+                   $addToSet: { relatedMenus: currentProductId } // Use $addToSet to avoid duplicates
+                });
+  
         
-                console.log(menu)
 
                 res.json({ message: 'Product linked successfully' });
             } catch (error) {

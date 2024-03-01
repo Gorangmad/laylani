@@ -202,7 +202,7 @@
                 <% if(category.subcategories && category.subcategories.length > 0) { %>
                   <% category.subcategories.forEach(function(subcategory) { %>
                     <div class="form-check ml-3">
-                      <input class="form-check-input subcategory-checkbox" type="checkbox" id="subcategory-<%= subcategory.No %>" name="subcategories" value="<%= subcategory.No %>" data-parent-no="category-<%= category.No %>" <%= productCategoryName.includes(subcategory.name) ? 'checked' : '' %>>
+                      <input class="form-check-input subcategory-checkbox" type="checkbox" id="subcategory-<%= subcategory.No %>" name="subcategories" value="<%= subcategory.No %>" <%= productCategoryName.includes(subcategory.name) ? 'checked' : '' %>>
                       <label class="form-check-label" for="subcategory-<%= subcategory.No %>"><%= subcategory.name %></label>
                     </div>
                   <% }); %>
