@@ -139,7 +139,7 @@ function productController() {
               const imagePath = req.file ? req.file.path : null; // Get the path of the uploaded image
           
 
-              const imageName = imagePath.split('\\').pop().split('.')[0];
+              const imageName = imagePath.split('/').pop().split('.')[0];
               const finalImageName = "/"+imageName
               console.log(finalImageName); 
               

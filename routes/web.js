@@ -86,9 +86,9 @@ function initRoutes(app) {
     app.post('/admin/products/link/:currentProductId', admin, adminProductController().relateProduct)
     app.delete('/admin/products/delete/:currentProductId', admin, adminProductController().deleteProdukt)
     app.get('/admin/products/search', admin, adminProductController().productSearch)
-    app.get('/admin/users', adminUserController().getAllUsers)
-    app.get('/user-search', adminUserController().search)
-    app.get('/admin/orders/:id', adminOrderController().show)
+    app.get('/admin/users',admin, adminUserController().getAllUsers)
+    app.get('/user-search',admin,  adminUserController().search)
+    app.get('/admin/orders/:id', admin, adminOrderController().show)
     app.put('/admin/orders/:orderId/items/:itemId',admin,  adminController().index)
 
     //Admin changer routes 
@@ -96,7 +96,7 @@ function initRoutes(app) {
     app.post('/admin/order/status',admin , statusController().update)
     app.post('/change-user-status',admin,  adminUserController().changeUserStatus) 
     app.post('/change-product', admin, adminProductController().productChanger )
-    app.post('/admin/products/add', upload.single('image'), adminProductController().addProduct)
+    app.post('/admin/products/add', upload.single('image'),admin,  adminProductController().addProduct)
 
 
     setInterval(() => {
