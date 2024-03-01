@@ -55,7 +55,7 @@ push.setVapidDetails(
 
 //Database connection
 
-const url ='mongodb://localhost:27017';
+const url ='mongodb+srv://doadmin:2658kXKF7GtD309M@db-mongodb-fra1-68366-638f76d0.mongo.ondigitalocean.com/admin?tls=true&authSource=admin';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, family: 4});
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -67,7 +67,7 @@ connection.once('open', () => {
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    store: MongoDbStore.create({ mongoUrl: 'mongodb://localhost:27017'}),
+    store: MongoDbStore.create({ mongoUrl: 'mongodb+srv://doadmin:2658kXKF7GtD309M@db-mongodb-fra1-68366-638f76d0.mongo.ondigitalocean.com/admin?tls=true&authSource=admin'}),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 } // One month
 }))
