@@ -157,12 +157,10 @@ function productController() {
             try {
                 
               const { name, comment, price, sizes} = req.body;
-              const imagePath = req.file ? req.file.path : null; // Get the path of the uploaded image
+              const imagePath = req.file.originalname
           
-
-              const imageName = imagePath.split('/').pop().split('.')[0];
-              const finalImageName = "/"+imageName
-              console.log(finalImageName); 
+              const originalNameWithoutExtension = req.file.originalname.split('.').slice(0, -1).join('.');
+              const finalName = "/" + originalNameWithoutExtension
               
               // Create a new product instance
               const newProduct = new Menu({
@@ -170,7 +168,7 @@ function productController() {
                 comment,
                 price,
                 sizes,
-                image: finalImageName, // Use the image path saved by Multer
+                image: finalName, 
               });
           
               // Save the product to the database

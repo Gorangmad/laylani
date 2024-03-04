@@ -34,8 +34,17 @@ const push = require('web-push')
 
 const bodyParser = require('body-parser');
 
-const Category = require('./app/models/categories')
+const { S3Client, ListObjectsV2Command, PutObjectAclCommand } = require("@aws-sdk/client-s3");
 
+// Configure the S3 client for DigitalOcean Spaces
+const s3Client = new S3Client({
+  region: "fra1", 
+  credentials: {
+    accessKeyId: process.env.DO_SPACES_ACCESS_KEY,
+    secretAccessKey: process.env.DO_SPACES_SECRET_KEY,
+  },
+  endpoint: "https://fra1.digitaloceanspaces.com", 
+});
 
 
 

@@ -14,23 +14,34 @@ const statusController = require('../app/http/controllers/admin/statusController
 const adminController = require('../app/http/controllers/adminController');
 const productController = require('../app/http/controllers/product/productController')
 const menu = require('../app/models/menu')
-const multer = require('multer');
 const path = require("path")
+const { S3Client } = require("@aws-sdk/client-s3");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
 
-// Configure storage for Multer
-const storage = multer.diskStorage({
-  destination: function(req, file, callback) {
-    const targetPath = path.join('./public/img/real_pictures');
-    sysout
-    callback(null, targetPath);
-  },  
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.originalname);
-  }
+// Configure the S3 client for DigitalOcean Spaces
+const s3Client = new S3Client({
+  region: "fra1", 
+  credentials: {
+    accessKeyId: process.env.DO_SPACES_ACCESS_KEY,
+    secretAccessKey: process.env.DO_SPACES_SECRET_KEY,
+  },
+  endpoint: "https://fra1.digitaloceanspaces.com", 
 });
 
-const upload = multer({ storage: storage });
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3Client,
+    bucket: "bahl", 
+    acl: "public-read",
+    key: function (request, file, cb) {
+      cb(null, file.originalname);
+    },
+  }),
+});
+
+
 
 
 function initRoutes(app) {
