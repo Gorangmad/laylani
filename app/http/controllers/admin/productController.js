@@ -157,7 +157,6 @@ function productController() {
             try {
                 
               const { name, comment, price, sizes} = req.body;
-              const imagePath = req.file.originalname
           
               const originalNameWithoutExtension = req.file.originalname.split('.').slice(0, -1).join('.');
               const finalName = "/" + originalNameWithoutExtension

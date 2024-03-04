@@ -62,8 +62,14 @@
             </div>
             <div class="form-group">
                 <label for="productLabel">Label</label>
-                <input type="text" class="form-control" id="productLabel" required>
-            </div>
+                <select class="form-control" id="productLabel" required>
+                    <option value="available">Available</option>
+                    <option value="sold out">Sold Out</option>
+                    <option value="new">New</option>
+                    <option value="back in">Back In</option>
+                    <option value="wsl">WSL</option>
+                </select>
+            </div>            
             <div class="form-group">
                 <label for="productImages">Bilder</label>
                 <input type="file" class="form-control" id="productImages" name="image" required>
