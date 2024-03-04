@@ -33,13 +33,18 @@ const s3Client = new S3Client({
 const upload = multer({
   storage: multerS3({
     s3: s3Client,
-    bucket: "bahl", 
+    bucket: "bahl",
     acl: "public-read",
     key: function (request, file, cb) {
-      cb(null, file.originalname);
+      // Extract the filename without its extension
+      const filenameWithoutExtension = file.originalname.split('.').slice(0, -1).join('.');
+      // Append '.jpg' to the filename
+      const newFilename = `${filenameWithoutExtension}.jpg`;
+      cb(null, newFilename);
     },
   }),
 });
+
 
 
 
