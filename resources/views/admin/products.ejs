@@ -72,7 +72,7 @@
             </div>            
             <div class="form-group">
                 <label for="productImages">Bilder</label>
-                <input type="file" class="form-control" id="productImages" name="image" required>
+                <input type="file" class="form-control" id="productImages" name="image" multiple required>
             </div>
           </form>
         </div>
@@ -394,7 +394,11 @@ function updateProduct(data) {
   formData.append('label', document.getElementById('productLabel').value);
   formData.append('price', document.getElementById('productPrice').value);
   formData.append('sizes', document.getElementById('productSizes').value);
-  formData.append('image', document.getElementById('productImages').files[0]); // Note the change here
+    // Get the selected files from the file input
+      var files = document.getElementById('productImages').files;
+    for (var i = 0; i < files.length; i++) {
+        formData.append('images', files[i]);
+    }
 
   // Send data to server
   fetch('/admin/products/add', {

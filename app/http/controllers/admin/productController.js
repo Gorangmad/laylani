@@ -156,10 +156,13 @@ function productController() {
         async addProduct(req, res) {
             try {
                 
-              const { name, comment, price, sizes} = req.body;
+              const { name, comment, price, sizes} = req.body;   
           
-              const originalNameWithoutExtension = req.file.originalname.split('.').slice(0, -1).join('.');
-              const finalName = "/" + originalNameWithoutExtension
+              let finalNames = req.files.map(file => {
+                // Process each file to obtain the desired final name
+                const originalNameWithoutExtension = file.originalname.split('.').slice(0, -1).join('.');
+                return "/" + originalNameWithoutExtension; // You might want to store the full path or URL
+               });
               
               // Create a new product instance
               const newProduct = new Menu({
@@ -167,7 +170,7 @@ function productController() {
                 comment,
                 price,
                 sizes,
-                image: finalName, 
+                image: finalNames, 
               });
           
               // Save the product to the database

@@ -107,7 +107,26 @@
 
     </div>    
 
-  <div class="pagination-container">
+    <div class="row">
+        <% pizzas.forEach(function(pizza) { %>
+            <div class="col-md-3">
+                <a href="/product/<%= pizza._id %>" class="card-link">
+                    <div class="card product-card">
+                        <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image%>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= pizza.name %></h5>
+                            <p class="card-text"><%= pizza.price %>€</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <% }) %>
+    </div>
+
+</section>
+
+
+<div class="pagination-container">
     <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
 
     <%
@@ -139,26 +158,6 @@
     <a href="<%= currentPage < totalPages ? `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}` : '#' %>" class="pagination-next">&#10095;</a>
 
   </div>
-
-  <div class="row">
-    <% pizzas.forEach(function(pizza) { %>
-        <div class="col-md-3">
-            <a href="/product/<%= pizza._id %>" class="card-link">
-                <div class="card product-card">
-                    <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image%>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= pizza.name %></h5>
-                        <p class="card-text"><%= pizza.price %>€</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    <% }) %>
-</div>
-
-
-
-</section>
 
 
 <script>

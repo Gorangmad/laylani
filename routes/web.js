@@ -38,7 +38,6 @@ const upload = multer({
     key: function (request, file, cb) {
       // Extract the filename without its extension
       const filenameWithoutExtension = file.originalname.split('.').slice(0, -1).join('.');
-      // Append '.jpg' to the filename
       const newFilename = `${filenameWithoutExtension}.jpg`;
       cb(null, newFilename);
     },
@@ -113,7 +112,7 @@ function initRoutes(app) {
     app.post('/admin/order/status',admin , statusController().update)
     app.post('/change-user-status',admin,  adminUserController().changeUserStatus) 
     app.post('/change-product', admin, adminProductController().productChanger )
-    app.post('/admin/products/add', upload.single('image'),admin,  adminProductController().addProduct)
+    app.post('/admin/products/add', upload.array('images', 5),admin,  adminProductController().addProduct)
 
 
     setInterval(() => {
