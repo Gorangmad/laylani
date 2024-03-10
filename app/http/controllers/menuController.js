@@ -7,30 +7,53 @@ function homeController() {
                 const page = parseInt(req.query.page) || 1;
                 const limit = 50; // Number of items per page
                 const skip = (page - 1) * limit;
-                let pizzas;
-
-                // Fetch total number of pizzas
-                const totalPizzas = await Menu.countDocuments();
-
+        
+                // Base query for filtering
+                let query = {};
+        
                 if (req.query.search) {
                     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-                    pizzas = await Menu.find({ name: regex }).skip(skip).limit(limit);
-                } else {
-                    pizzas = await Menu.find().skip(skip).limit(limit);
+                    query.name = regex;
                 }
-
-
+        
+                // Adding a field to check if timestamps exist
+                const aggregationPipeline = [
+                    {
+                        $addFields: {
+                            hasTimestamp: {
+                                $cond: {
+                                    if: { $or: [{ $ifNull: ["$createdAt", false] }] },
+                                    then: true,
+                                    else: false
+                                }
+                            }
+                        }
+                    },
+                    { $match: query },
+                    { $sort: { hasTimestamp: -1, createdAt: -1 } },
+                    { $skip: skip },
+                    { $limit: limit }
+                ];
+        
+                // Fetch pizzas with priority on timestamps
+                const pizzas = await Menu.aggregate(aggregationPipeline).exec();
+        
+                // Fetch total number of pizzas for pagination
+                // Note: This does not account for the search filter in the count. Adjust if needed.
+                const totalPizzas = await Menu.countDocuments();
+        
                 return res.render('menu', { 
                     pizzas, 
                     currentPage: page,
                     totalPages: Math.ceil(totalPizzas / limit),
-                    searchQuery: req.query.search || '' // Add this line
+                    searchQuery: req.query.search || ''
                 });
             } catch (error) {
                 console.error(error);
                 res.status(500).send('Internal Server Error');
             }
         },
+        
 
         async filter(req, res) {
             try {

@@ -16,17 +16,31 @@ function productController() {
                 const page = req.query.page ? parseInt(req.query.page) : 1; // Current page number, default to 1 if not specified
         
                 // Find the total number of products to calculate total pages
-                const totalProducts = await Menu.countDocuments();
+                const totalProducts = await Menu.countDocuments(query);
         
-                // Fetch the current page of products after updating the availability
-                const updatedProducts = await Menu.find()
-                    .skip((page - 1) * pageSize) // Skip the previous pages' products
-                    .limit(pageSize); // Limit the number of products to the page size
+                // Aggregation pipeline to sort products with timestamps first
+                const aggregationPipeline = [
+                    {
+                        $addFields: {
+                            hasTimestamp: {
+                                $cond: {
+                                    if: { $or: [ { $ifNull: ["$createdAt", false] }] },
+                                    then: true,
+                                    else: false
+                                }
+                            }
+                        }
+                    },
+                    { $sort: { hasTimestamp: -1, createdAt: -1} }, // Sorting by hasTimestamp then by createdAt and updatedAt
+                    { $skip: (page - 1) * pageSize },
+                    { $limit: pageSize }
+                ];
         
+                // Execute the aggregation pipeline
+                const updatedProducts = await Menu.aggregate(aggregationPipeline).exec();
         
                 const totalPages = Math.ceil(totalProducts / pageSize); // Calculate total pages
-
-                
+        
                 // Render the EJS template and pass the 'products' array and pagination data
                 res.render('admin/products', {
                     products: updatedProducts,
@@ -39,6 +53,8 @@ function productController() {
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         },
+        
+        
 
         async updateCategory (req, res) {
             try {
@@ -221,15 +237,19 @@ function productController() {
                     // Assuming 'query' is the field you want to search within your 'Menu' collection
                     // You need to construct your regex search like this
                     searchQuery = {
-                        "comment": { 
+                        "name": { 
                             $regex: req.body.query,
-                            $options: 'i' // Case-insensitive search
+                            $options: "i"  // This makes the search case-insensitive
                         }
                     };
                 }
+
+                console.log(searchQuery)
         
         
                 const products = await Menu.find(searchQuery);
+
+                console.log(products)
         
                 res.status(200).json({ products: products });
             } catch (error) {
@@ -248,10 +268,20 @@ function productController() {
                 // Find the product by ID
             const product = await Menu.findById(productId);
 
+
             product.name = editedValue.name;
             product.comment = editedValue.comment;
             product.price = editedValue.price; // Assuming price is stored as a string
             product.sizes = editedValue.sizes;
+            
+
+            // Check if availability is provided and is one of the enum values
+            if (editedValue.availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL'].includes(editedValue.availability)) {
+                product.availability = editedValue.availability;
+              } else {
+                // If the value is not valid, you can set a default value or handle the error
+                product.availability = 'AVAILABLE'; // Or handle the error accordingly
+              }
 
 
             // Save the updated product
@@ -262,6 +292,24 @@ function productController() {
                 console.error('Error updating product:', error);
                 res.status(500).json({ error: 'Internal Server Error' });
             }
+        },
+
+        async availabilityChanger(req, res) {
+
+            const { productId, rowIndex, columnIndex, availability } = req.body;
+            
+            const product = await Menu.findById(productId);
+
+            // Check if availability is provided and is one of the enum values
+            if (availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL'].includes(availability)) {
+                product.availability = availability;
+              } else {
+                // If the value is not valid, you can set a default value or handle the error
+                product.availability = 'AVAILABLE'; // Or handle the error accordingly
+              }
+
+              await product.save();
+
         }
     };
 }

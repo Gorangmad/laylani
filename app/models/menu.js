@@ -10,11 +10,11 @@ const menuSchema = new Schema({
       },    comment: { type: String, required: true },
     price: { type: String, required: true },
     category: { type: String, required: false },
-    availability: { type: String, enum: ['available', 'sold out', 'new', 'back in', 'WSL'], default: 'available' },
+    availability: { type: String, enum: ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL'], default: 'AVAILABLE' },
     expiry: { type: Date, required: false },
     sizes: { type: String, required: true },
     relatedMenus: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Menu', required: false }] // Multiple related menus
-});
+}, { timestamps: true });
 
 
 module.exports = mongoose.model('Menu', menuSchema);

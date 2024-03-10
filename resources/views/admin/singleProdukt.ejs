@@ -116,14 +116,13 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById("searchSimilarProducts").addEventListener("keyup", function() {
-            var query = this.value; // Get the current value of the input field
+        document.getElementById('searchButton').addEventListener('click', function() {
+            var query = document.getElementById("searchSimilarProducts").value; // Get the current value of the input field
             
             fetch('/admin/products/search/similiar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers your API requires
                 },
                 body: JSON.stringify({ query: query }) // Convert the JavaScript object to a JSON string
             })
@@ -135,9 +134,8 @@
             })
             .then(data => {
                 const resultsContainer = document.getElementById('similarProductsResults');
-                resultsContainer.innerHTML = ''; // Clear previous results
-    
-                // Assuming the API returns an array of products in `data.products`
+                resultsContainer.innerHTML = ''; 
+
                 data.products.slice(0, 20).forEach(product => {
                     // Create HTML for each product
                     const productElement = document.createElement('div');
@@ -237,9 +235,9 @@
         <form class="bg-light">
             <div class="form-group">
                 <input type="text" class="form-control" id="searchSimilarProducts" placeholder="Produkt suchen...">
+                <button type="button" id="searchButton" class="btn btn-primary">Suchen</button> <!-- Search button -->
             </div>
             <div id="similarProductsResults" class="results">
-                
             </div>
         </form>
     </div>

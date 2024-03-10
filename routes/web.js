@@ -112,6 +112,7 @@ function initRoutes(app) {
     app.post('/admin/order/status',admin , statusController().update)
     app.post('/change-user-status',admin,  adminUserController().changeUserStatus) 
     app.post('/change-product', admin, adminProductController().productChanger )
+    app.post('/change-availability', admin, adminProductController().availabilityChanger )
     app.post('/admin/products/add', upload.array('images', 5),admin,  adminProductController().addProduct)
 
 

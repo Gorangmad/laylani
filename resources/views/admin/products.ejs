@@ -129,9 +129,15 @@
                         <td class="editable" contenteditable="false" data-product-id="<%= product._id %>"><%= product.price %></td>
                         <td class="editable" contenteditable="false" data-product-id="<%= product._id %>"><%= product.sizes %></td>
                         <td class="editable" contenteditable="false" data-product-id="<%= product._id %>">
-                            <%= product.availability %>
+                            <select class="availability-select" data-product-id="<%= product._id %>" onchange="updateAvailability(this)">
+                                <option value="AVAILABLE" <%= product.availability === 'AVAILABLE' ? 'selected' : '' %>>AVAILABLE</option>
+                                <option value="SOLDOUT" <%= product.availability === 'SOLDOUT' ? 'selected' : '' %>>SOLD OUT</option>
+                                <option value="NEW" <%= product.availability === 'NEW' ? 'selected' : '' %>>NEW</option>
+                                <option value="BACK IN" <%= product.availability === 'BACK IN' ? 'selected' : '' %>>BACK IN</option>
+                                <option value="WSL" <%= product.availability === 'WSL' ? 'selected' : '' %>>WSL</option>
+                            </select>
                         </td>
-                        <td class="editable" contenteditable="false" data-product-id="<%= product._id %>">    <%= product.expiry ? product.expiry.toLocaleDateString('en-GB') : '' %></td>
+                        <td class="editable" contenteditable="false" data-product-id="<%= product._id %>">    <%= product.expiry %></td>
                         <td>
                             <button class="edit-button" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Edit</button>
                             <button class="delete-button" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
@@ -272,6 +278,14 @@
            const table = document.querySelector('table');
     const searchInput = document.getElementById('search-input');
 
+    document.querySelectorAll('.availability-select').forEach(selectElement => {
+        selectElement.addEventListener('change', function() {
+            const productId = this.getAttribute('data-product-id');
+            const updatedAvailability = this.value;
+            updateProduct(productId, { availability: updatedAvailability });
+        });
+    });
+
     searchInput.addEventListener('input', function () {
         const searchTerm = searchInput.value.trim().toLowerCase();
 
@@ -346,6 +360,40 @@ function toggleRowEdit(rowIndex, button) {
         cells.forEach(cell => cell.setAttribute('contenteditable', 'false'));
         button.textContent = 'Edit';
     }
+}
+
+function updateAvailability(selectElement) {
+    const productId = selectElement.getAttribute('data-product-id');
+    const newAvailability = selectElement.value;
+
+    console.log(newAvailability)
+    // Create the data object to send to the server
+    const dataToSend = {
+        productId: productId,
+        availability: newAvailability,
+    };
+
+    fetch('/change-availability', { // Replace with the actual path to your update endpoint
+        method: 'POST', // Or 'PUT', depending on your server configuration
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Additional actions upon successful update, like notifying the user
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        // Handle the error, possibly by notifying the user
+    });
 }
 
 
