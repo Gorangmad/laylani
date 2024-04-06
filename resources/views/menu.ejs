@@ -1,3 +1,10 @@
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark">
+    <button class="close-sidebar-btn">&times;</button> <!-- X button to close sidebar -->
+    <ul class="categories-list">
+        <!-- Categories will be dynamically added here -->
+    </ul>
+</div>
+
 <div class="slideshow-container">
     <div class="mySlides fade">
         <img src="/img/slide1.png" style="width:100%"> <!-- Replace with your image path -->
@@ -22,97 +29,44 @@
     <!-- Add more dots as needed -->
 </div>
 
-<section class="menu container mx-auto py-8">
-    <div class="filters-container">
-        <form action="/menu-filtered" method="GET">
-            <div class="form-row"> <!-- Bootstrap row for your form elements -->
-                <div class="col-md-3"> <!-- Adjust the size of each filter element -->
-                    <select class="custom-select" name="category">
-                        <option value="">Frauen</option>
-                        <option value="237">Männerschmuck</option>
-                        <option value="217">Kinderschmuck</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="custom-select" name="Kollektion">
-                        <option value="">Kollektion</option>
-                        <option value="9">Charm</option>
-                        <option value="222">Bernstein</option>
-                        <option value="26">Italienische Ketten</option>
-                        <option value="317">Perlen</option>
-                        <option value="223">Opal</option>
-                        <option value="313">Wechselsystem Platten</option>
-                        <option value="306">indische Halb-/Edelsteine</option>
-                        <option value="319">Geometrische Formen</option>
-                        <option value="314">Oktober Fest / Bayern</option>
-                        <option value="181">Weinachten</option>
-                        <option value="321">Kreuze und Religionen</option>
-                        <option value="323">Meer</option>
-                        <option value="359">Totenköpfe/Drachen/Hexen/Fee</option>
-                        <option value="366">Münze</option>
-                        <option value="382">Zeilos/Evergreen</option>
-                        <option value="388">Silberpflege</option>
-                        <option value="389">Glücksbringer</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="custom-select" name="arten">
-                        <option value="">Schmuckarten</option>
-                        <option value="1">Anhänger</option>
-                        <option value="6">Armbänder</option>
-                        <option value="27">Colier(Necklaces)</option>
-                        <option value="315">Ohranhänger zum durchziehen</option>
-                        <option value="14">Ohrschmuck(Earrings)</option>
-                        <option value="22">Ringe</option>
-                        <option value="363">Fußschmuck</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="custom-select" name="symbole">
-                        <option value="">Symbole</option>
-                        <option value="322">Kronen</option>
-                        <option value="335">Herzen</option>
-                        <option value="329">Lebensblumen, Lebensbäume, Mandala, Orientalisch</option>
-                        <option value="341">Sterne/Sonne/Mond</option>
-                        <option value="347">Tiere</option>
-                        <option value="351">Ewigkeitszeichen</option>
-                        <option value="367">Blumen/Natur</option>
-                        <option value="373">Spiralen/Wirbel</option>
-                    </select>
-                </div>
-                <div class="col-auto"> <!-- For the button, to ensure it aligns properly -->
-                    <button type="submit" class="btn btn-primary mb-2">Filtern</button>
-                </div>
-            </div>
-        </form>
-    </div>
 
-        
+<section class="menu container mx-auto py-8">
+      
+    <div class="row">
 
         <div class="search-container">
-            <form action="/menu" method="GET">
-                <div class="search-input-container">
-                    <input
-                        type="text"
-                        name="search"
-                        class="search-input"
-                        placeholder="Suchen"
-                    />
-                    <button type="submit" class="search-button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
+            <button class="sidebar-toggle">&#9776;</button>
 
-    </div>    
+            <form action="/menu" method="GET">
+                   <div class="search-input-container">
+                       <input
+                           type="text"
+                           name="search"
+                           class="search-input"
+                           placeholder="Suchen"
+                       />
+                       <button type="submit" class="search-button">
+                           <i class="fas fa-search"></i>
+                       </button>
+                   </div>
+               </form>
+           </div>
+
+       </div>    
+
+    </div>
 
     <div class="row">
         <% pizzas.forEach(function(pizza) { %>
             <div class="col-md-3">
                 <a href="/product/<%= pizza._id %>" class="card-link">
                     <div class="card product-card">
-                        <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image%>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                        <% if (pizza.image && pizza.image.length > 0) { %>
+                            <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                        <% } else { %>
+                            <!-- Provide a placeholder image or text if no image is available -->
+                            <div class="placeholder-image">No Image Available</div>
+                        <% } %>
                         <div class="card-body">
                             <h5 class="card-title"><%= pizza.name %></h5>
                             <p class="card-text"><%= pizza.price %>€</p>
@@ -122,6 +76,7 @@
             </div>
         <% }) %>
     </div>
+    
 
 </section>
 
@@ -161,6 +116,7 @@
 
 
 <script>
+
 let slideIndex = 0;
 showSlides();
 
@@ -209,6 +165,9 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
 </script>
 
 <style>
+    .sidebar {
+        z-index: 100px;
+    }
     .card-link {
         text-decoration: none; /* Removes underline from links */
         color: inherit; /* Inherits text color to prevent color changes */
@@ -250,7 +209,132 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
         font-size: 1rem; /* Adjust text size for consistency */
         margin-bottom: 1.25rem; /* Adds some space above the bottom of the card */
     }
+    .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Hide sidebar initially */
+    width: 280px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #333;
+    transition: left 0.3s ease; /* Smooth transition for sliding animation */
+    z-index: 1000; /* Ensure sidebar is above other content */
+    }
+    
+    .sidebar.active {
+        left: 0; /* Show sidebar by moving it into view */
+    }
+    
+    .content {
+        margin-left: 280px; /* Adjust content area to accommodate the sidebar */
+        transition: margin-left 0.3s ease; /* Smooth transition for adjusting content area */
+    }
+    
+/* Adjust margin between products and search bar */
+.search-container {
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+/* Position sidebar toggle on the left */
+.sidebar-toggle {
+    margin-right: 800px;
+    background-color: black; /* Set background color to black */
+    border: none; /* Remove border */
+    color: white; /* Set text color to white */
+    padding: 10px; /* Add padding for better appearance */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Add stripes to the toggle button */
+.sidebar-toggle::before, .sidebar-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: white;
+}
+
+/* Position the stripes */
+.sidebar-toggle::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.sidebar-toggle::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+    
+    
+
+
 </style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const closeSidebarBtn = document.querySelector('.close-sidebar-btn');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+    });
+
+    closeSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+    });
+
+    // Fetch categories from the backend and render sidebar
+    fetch('/categories')
+        .then(response => response.json())
+        .then(categories => {
+            renderSidebar(categories);
+            setupSidebarEventListeners(); // Add this line to set up event listeners after rendering sidebar
+        })
+        .catch(error => console.error('Error fetching categories:', error));
+
+    // Function to render categories in the sidebar
+    function renderSidebar(categories) {
+        const categoriesList = document.querySelector('.categories-list');
+
+        categories.forEach(category => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.textContent = category.Parent_Category;
+            link.classList.add('text-white');
+            link.href = '#'; // Add a dummy href
+            listItem.appendChild(link);
+            categoriesList.appendChild(listItem);
+
+            // Check if the category has subcategories
+            if (category.Subcategories && category.Subcategories.length > 0) {
+                const subList = document.createElement('ul');
+                subList.classList.add('list-unstyled', 'ml-3', 'subcategories-list', 'd-none');
+                category.Subcategories.forEach(subcategory => {
+                    const subItem = document.createElement('li');
+                    const subLink = document.createElement('a');
+                    subLink.textContent = subcategory;
+                    subLink.href = '#'; // Add a dummy href
+                    subLink.classList.add('text-white');
+                    subItem.appendChild(subLink);
+                    subList.appendChild(subItem);
+                });
+                listItem.appendChild(subList);
+
+                // Add click event listener to parent category to toggle subcategories
+                link.addEventListener('click', () => {
+                    subList.classList.toggle('d-none');
+                });
+            }
+        });
+    }
+});
+
+
+</script>
 
 
 

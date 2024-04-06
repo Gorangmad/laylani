@@ -7,3 +7,60 @@
             <a href="/login">Anmelden ⇒</a>
         </button>
     </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="image-container">
+                        <img src="/img/slide1.png" class="img-fluid fade-in animate__animated" alt="Image">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-container">
+                        <h2 class="fade-in animate__animated">Über Uns</h2>
+                        <p class="fade-in animate__animated">Your text goes here. This will fade in as well.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <style>
+        .fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
+
+    </style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            // Calculate the position of the about section
+            var aboutSectionPosition = $('.about').offset().top;
+            var topOfScreen = $(window).scrollTop() + $(window).height();
+            
+            // Check if the top of the about section is within the viewport
+            if (aboutSectionPosition < topOfScreen) {
+                // If yes, iterate through each fade-in element within the about section
+                $('.about .fade-in').each(function() {
+                    // Calculate the position of the fade-in element
+                    var position = $(this).offset().top;
+                    // Check if the element is within the viewport
+                    if (position < topOfScreen) {
+                        $(this).addClass("active");
+                    }
+                });
+            }
+        });
+    });
+</script>

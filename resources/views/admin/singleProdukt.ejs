@@ -4,7 +4,7 @@
         justify-content: space-between;
     }
     .product-info {
-        margin-top: 20%;
+        margin-top: 10%;
         margin-right: 20%;
         width: 50%;
     }
@@ -40,6 +40,52 @@
             }
         });
     });
+
+    document.getElementById('addMorePicturesBtn').addEventListener('click', function() {
+        // Create input element for file selection
+        var fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.multiple = true; // Allow multiple file selection
+        fileInput.click(); // Simulate a click event on the file input
+
+        // Event listener for when files are selected
+        fileInput.addEventListener('change', function(event) {
+            var selectedFiles = event.target.files;
+
+            // Create a FormData object to send the files
+            var formData = new FormData();
+            for (var i = 0; i < selectedFiles.length; i++) {
+                formData.append('images', selectedFiles[i]); // Append each selected file to the FormData object
+            }
+
+            const currentUrl = window.location.href;
+            const productId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+
+            formData.append('productId', productId); // Append the productId to the FormData
+
+            // Send the FormData object to the backend
+            fetch('/admin/products/imageReupload', {
+                method: 'POST',
+                body: formData // Set the body of the request to the FormData object
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the response body as JSON
+            })
+            .then(data => {
+                // Handle the response from the backend
+                console.log('Files uploaded successfully:', data);
+                alert('Files uploaded successfully');
+            })
+            .catch(error => {
+                console.error('Error uploading files:', error);
+                alert('Failed to upload files');
+            });
+        });
+    });
+
 
     document.getElementById('similarProductsResults').addEventListener('click', function(event) {
         // Check if the clicked element is a button with the 'add-btn' class
@@ -164,6 +210,7 @@
 
 <div class="container">
     <div class="product-info">
+        <button id="addMorePicturesBtn" class="btn btn-primary mb-5 ml-5">Add More Pictures</button>
         <% if (product.image && product.image.length > 0) { %>
             <div id="productCarousel" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
@@ -199,7 +246,6 @@
 
 
     <div class="categorien overflow-auto p-3 mb-3 border rounded" style="max-height: 800px;">
-    <button type="button" id="saveCategories" class="btn btn-success">Save Categories</button>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="form1-tab" data-bs-toggle="tab" data-bs-target="#form1" type="button" role="tab" aria-controls="form1" aria-selected="true">Categories</button>
@@ -228,6 +274,7 @@
                 <% } %>
               <% }); %>              
         </form>
+        <button type="button" id="saveCategories" class="btn btn-success">Save Categories</button>
     </div>
     
     <!-- Tab content for Ähnliche Produkte -->

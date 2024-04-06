@@ -75,7 +75,7 @@ function initRoutes(app) {
 
     app.get('/cart', auth, cartController().index)
     app.get('/menu', auth, menuController().index)
-    app.get('/menu-filtered', auth, menuController().filter)
+    app.get('/categories', auth, menuController().filter)
     app.post('/update-cart',auth,  cartController().update)
     app.post('/remove-cart',auth, cartController().remove)
     
@@ -114,6 +114,7 @@ function initRoutes(app) {
     app.post('/change-product', admin, adminProductController().productChanger )
     app.post('/change-availability', admin, adminProductController().availabilityChanger )
     app.post('/admin/products/add', upload.array('images', 5),admin,  adminProductController().addProduct)
+    app.post('/admin/products/imageReupload', upload.array('images', 5),admin, adminProductController().addProductImage)
 
 
     setInterval(() => {

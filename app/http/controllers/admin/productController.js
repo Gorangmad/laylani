@@ -198,6 +198,39 @@ function productController() {
               res.status(500).json({ message: 'Failed to add product', error: error.message });
             }
           },
+
+          async addProductImage(req, res) {
+            try {
+                const { productId } = req.body; // Assuming you have the product ID in the request body
+        
+                let finalNames = req.files.map(file => {
+                    // Process each file to obtain the desired final name
+                    const originalNameWithoutExtension = file.originalname.split('.').slice(0, -1).join('.');
+                    return "/" + originalNameWithoutExtension; // You might want to store the full path or URL
+                });
+        
+                // Find the product by ID
+                const product = await Menu.findById(productId);
+        
+                if (!product) {
+                    return res.status(404).json({ message: 'Product not found' });
+                }
+        
+                // Concatenate the existing image array with the new image names
+                product.image = product.image.concat(finalNames);
+        
+                // Save the updated product
+                await product.save();
+        
+                res.status(200).json({ message: 'Product image added successfully', product });
+            } catch (error) {
+                console.error('Failed to add product image:', error);
+                res.status(500).json({ message: 'Failed to add product image', error: error.message });
+            }
+        },
+        
+        
+
           
 
         async productSearch(req, res) {

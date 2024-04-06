@@ -143,6 +143,8 @@ nav {
   }
   
 
+
+
 .btn-primary {
     background: $primary;
     transition: $smooth;
@@ -150,6 +152,8 @@ nav {
         background: $primary-hover;
     }
 }
+
+
 
 section.cart {
     background: $secondary;
@@ -204,6 +208,7 @@ section.status {
     transform: translateY(-50%);
     box-shadow:0 0 1px 10px $secondary;
 }
+
 
 
 // Icons
@@ -288,6 +293,7 @@ section.status {
 
 /* Add this to your existing styles or create a new CSS file */
 
+
 .product-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -338,6 +344,7 @@ section.status {
         align-items: center;
     }
 
+
     /* Adjust the search container to align properly with the filters */
 .search-container {
     padding-left: 8px; /* Add padding to separate from the last filter */
@@ -386,6 +393,7 @@ section.status {
   display: none;
 }
 
+
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -406,6 +414,8 @@ section.status {
   border-radius: 3px 0 0 3px;
 }
 
+
+
 .text {
   color: #f2f2f2;
   font-size: 15px;
@@ -415,6 +425,7 @@ section.status {
   width: 100%;
   text-align: center;
 }
+
 
 
 .dot {
@@ -431,6 +442,7 @@ section.status {
 .active, .dot:hover {
   background-color: #717171;
 }
+
 
 .filter-dropdown {
     padding: 4px 10px; /* Decreased padding to reduce height */
@@ -502,6 +514,7 @@ input:focus + .slider {
     background-color: #f2f2f2; /* Grey background when active/focused */
 }
 
+
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
@@ -529,8 +542,6 @@ input:checked + .slider:before {
     align-items: center;
     margin-bottom: 20px; /* Spacing between pagination and product list */
 }
-
-
 
 .pagination-container a {
     margin: 0 5px;
