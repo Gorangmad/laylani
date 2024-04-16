@@ -9,7 +9,6 @@ export function initAdmin(socket) {
    
     let now = moment().format('DD/MM/yyyy')
 
-    console.log(now)
     
     axios.get('/admin/orders', {
         headers: {

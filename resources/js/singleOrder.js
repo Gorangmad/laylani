@@ -99,8 +99,8 @@ export function initSingleOrder() {
             ${parsedItems.map((menuItem, index) => {
               return `
                 <tr class="${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}">
-                  <td class="px-6 py-4 whitespace-nowrap w-8">
-                   <img src="/img/${menuItem.item.image}" alt="${menuItem.item.name}" class="h-8 w-8 object-cover ">
+                  <td class="px-4 py-2 whitespace-nowrap w-16 h-16">
+                   <img src="https://bahl.fra1.digitaloceanspaces.com${menuItem.item.image[0]}.jpg" alt="${menuItem.item.name}" class="h-8 w-8 object-cover ">
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
@@ -152,6 +152,7 @@ export function initSingleOrder() {
           { text: `Name: ${orderDetails.name}`, margin: [0, 5] },
           { text: `Total Price: ${orderDetails.totalPrice}`, margin: [0, 10] },
           { text: `Email: ${orderDetails.email}`, margin: [0, 10] },
+          { text: `Addresse: ${orderDetails.straße}`, margin: [0, 10] },
           { text: `Telefonnummer: ${orderDetails.phone}`, margin: [0, 10] },
           { text: 'Items:', style: 'subheader' },
           renderItemsPDF(orderDetails.items),

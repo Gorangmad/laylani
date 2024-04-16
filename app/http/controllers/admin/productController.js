@@ -3,7 +3,7 @@ const Category = require('../../../models/categories')
 const path = require('path');
 const moment = require('moment')
 const multer = require('multer');
-
+const ChangeLog = require("../../../models/change")
 
 function productController() {
     return {
@@ -54,7 +54,15 @@ function productController() {
             }
         },
         
-        
+        async changeTracker(req, res) {
+            const totalLogs = await ChangeLog.find();
+
+            // Render the EJS template and pass the 'products' array and pagination data
+            res.render('admin/changeLog', {
+                totalLogs: totalLogs
+            });
+
+        },
 
         async updateCategory (req, res) {
             try {

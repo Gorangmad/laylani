@@ -42,7 +42,7 @@ function orderController () {
                           eventEmitter.emit('orderPlaced', ord);
                           
                           delete req.session.cart;
-                          return res.json({ message: 'Order placed successfully' });
+                          return res.redirect("/success");
                         }).catch(err => {
                           console.log(err);
                           delete req.session.cart;
@@ -50,7 +50,7 @@ function orderController () {
                         });
                       } else {
                         delete req.session.cart;
-                        return res.json({ message: 'Order placed successfully' });
+                        return res.redirect("/success");
                       }
                       
                 })

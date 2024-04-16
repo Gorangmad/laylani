@@ -9,47 +9,71 @@ import { initUsers } from './user'
 
 let addToCart = document.querySelectorAll('.add-to-cart-button');
 let removeToCart = document.querySelectorAll(".remove-to-cart");
-let updateToCart = document.querySelectorAll(".update-to-cart");
-let cartCounter = document.querySelector('#cartCounter')
-const orderHeaders = document.querySelectorAll('th[contenteditable="true"]:not(#order-name-header)');
+
+function updateCartItem(button, pizzaData, totalPrice) {
+    // Update quantity in the UI
+    const quantityElement = button.parentElement.querySelector('.itemQty');
+    const itemPriceElement = button.parentElement.parentElement.querySelector(".itemPrice"); // Select itemPrice related to the button
+
+    console.log("updating", pizzaData)
+
+    if (pizzaData.qty > 0) {
+        quantityElement.textContent = pizzaData.qty + ' Stk.';
+        const itemPrice = pizzaData.qty * Number(pizzaData.item.price);
+        itemPriceElement.textContent = itemPrice.toFixed(2);
+    } else {
+        console.log("removing", button.parentElement)
+        button.parentElement.remove()
+    }
+
+    // Update total amount
+    const totalPriceElement = document.querySelector('.totalPrice');
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+}
 
 
-function updateCart(pizza, url, msg) {
-    axios.post(url, pizza)
+
+
+function updateCart(pizza, url, msg, button) {
+  axios.post(url, pizza)
       .then(res => {  
-        new Noty({
-          type: 'success',
-          timeout: 1000,
-          text: msg,
-          progressBar: false,
-        }).show();
+          // Show success message
+          new Noty({
+              type: 'success',
+              timeout: 1000,
+              text: msg,
+              progressBar: false,
+          }).show();
+          
+          // Update cart counter
+          updateCartCounter(res.data.totalQty);
 
+          updateCartItem(button, res.data.cartItems[pizza._id], res.data.totalPrice);
       })
       .catch(err => {
-        new Noty({
-          type: 'error',
-          timeout: 1000,
-          text: 'Something went wrong',
-          progressBar: false,
-        }).show();
+
       });
+}
+
+function updateCartCounter(totalQty) {
+  const cartCounter = document.getElementById('cartCounter');
+  if (cartCounter) {
+      cartCounter.textContent = totalQty;
   }
-  
-  
+}
+ 
 
 
 addToCart.forEach((btn) => {
 
  btn.addEventListener('click', (e) => {
      let pizza = JSON.parse(btn.dataset.pizza)
-     console.log(pizza)
      // if data fetched from session , there will be have "item object" => (cart.ejs)
      if (pizza.item) {
          pizza = pizza.item;
      }
      let url = "/update-cart";
-     updateCart(pizza, url, "Item added to cart");
-     console.log("added to cart")
+     updateCart(pizza, url, "Item added to cart",btn);
      });
  });
 
@@ -57,7 +81,7 @@ addToCart.forEach((btn) => {
      btn.addEventListener("click", (e) => {
      let pizza = JSON.parse(btn.dataset.pizza);
      let url = "/remove-cart";
-     updateCart(pizza.item, url, "Item removed from cart");
+     updateCart(pizza.item, url, "Item removed from cart",btn);
  })
 })
 

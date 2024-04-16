@@ -25,6 +25,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
     <!-- Include in the <head> section -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="../../public/img/favicon.ico"/>
@@ -87,7 +91,7 @@
                         <a href="/cart" class="nav-link d-flex align-items-center">
                             <img src="/img/cart.png" alt="Cart" style="height: 24px;"> <!-- Adjust height as needed -->
                             <span id="cartCounter" class="font-bold">
-                                <%= session.cart ? session.cart.totalQty : '0' %> <!-- Assuming '0' if no items -->
+                                <%= session.cart ? session.cart.totalQty : '0' %> 
                             </span>
                         </a>
                     </li>                    
@@ -174,5 +178,8 @@
       
   
 </body>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </html>

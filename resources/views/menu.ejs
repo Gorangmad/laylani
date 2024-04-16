@@ -5,29 +5,6 @@
     </ul>
 </div>
 
-<div class="slideshow-container">
-    <div class="mySlides fade">
-        <img src="/img/slide1.png" style="width:100%"> <!-- Replace with your image path -->
-        <div class="text">Caption Text</div>
-    </div>
-
-    <div class="mySlides fade">
-        <img src="/img/bg.png" style="width:100%"> <!-- Replace with your image path -->
-        <div class="text">Caption Text</div>
-    </div>
-
-    <!-- Add more slides as needed -->
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span> 
-    <span class="dot" onclick="currentSlide(2)"></span> 
-    <!-- Add more dots as needed -->
-</div>
 
 
 <section class="menu container mx-auto py-8">
@@ -278,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
     const sidebarToggle = document.querySelector('.sidebar-toggle');
     const closeSidebarBtn = document.querySelector('.close-sidebar-btn');
+    const productList = document.querySelector('.product-list');
 
     sidebarToggle.addEventListener('click', () => {
         sidebar.classList.toggle('active');
@@ -296,42 +274,90 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching categories:', error));
 
+    
     // Function to render categories in the sidebar
-    function renderSidebar(categories) {
-        const categoriesList = document.querySelector('.categories-list');
+function renderSidebar(categories) {
+    const categoriesList = document.querySelector('.categories-list');
 
-        categories.forEach(category => {
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
-            link.textContent = category.Parent_Category;
-            link.classList.add('text-white');
-            link.href = '#'; // Add a dummy href
-            listItem.appendChild(link);
-            categoriesList.appendChild(listItem);
+    categories.forEach(category => {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        const arrow = document.createElement('span'); // Create a span for the arrow
+        arrow.classList.add('arrow'); // Add a class for styling
 
-            // Check if the category has subcategories
-            if (category.Subcategories && category.Subcategories.length > 0) {
-                const subList = document.createElement('ul');
-                subList.classList.add('list-unstyled', 'ml-3', 'subcategories-list', 'd-none');
-                category.Subcategories.forEach(subcategory => {
-                    const subItem = document.createElement('li');
-                    const subLink = document.createElement('a');
-                    subLink.textContent = subcategory;
-                    subLink.href = '#'; // Add a dummy href
-                    subLink.classList.add('text-white');
-                    subItem.appendChild(subLink);
-                    subList.appendChild(subItem);
+        link.textContent = category.Parent_Category;
+        link.classList.add('text-white', 'sidebar-link');
+
+        // Check if the category has subcategories
+        if (category.subcategories && category.subcategories.length > 0) {
+            // Set an empty href for parent categories with subcategories
+            link.href = '#';
+        } else {
+            // Set the href for categories without subcategories
+            link.href = `/products?category=${category.No}`;
+        }
+
+        listItem.appendChild(link);
+        categoriesList.appendChild(listItem);
+
+        // Add white line beneath each category
+        const line = document.createElement('hr');
+        line.classList.add('white-line');
+        listItem.appendChild(line);
+
+        // Check if the category has subcategories
+        if (category.subcategories && category.subcategories.length > 0) {
+            const subList = document.createElement('ul');
+            subList.classList.add('list-unstyled', 'ml-3', 'subcategories-list', 'd-none');
+            category.subcategories.forEach(subcategory => {
+                const subItem = document.createElement('li');
+                const subLink = document.createElement('a');
+                subLink.textContent = subcategory.name;
+                subLink.href = `products?category=${subcategory.No}`; // Add a dummy href
+                subLink.classList.add('text-white');
+                subItem.appendChild(subLink);
+                subList.appendChild(subItem);
+
+                // Add white line between subcategories
+                const subLine = document.createElement('hr');
+                subLine.classList.add('white-line');
+                subList.appendChild(subLine);
+
+                // Event listener for subcategory link
+                subLink.addEventListener('click', () => {
+                    fetchProducts(subcategory.No); // Fetch products based on subcategory ID
                 });
-                listItem.appendChild(subList);
+            });
+            listItem.appendChild(subList);
 
-                // Add click event listener to parent category to toggle subcategories
-                link.addEventListener('click', () => {
-                    subList.classList.toggle('d-none');
-                });
-            }
-        });
+            // Add click event listener to parent category to toggle subcategories
+            link.addEventListener('click', () => {
+                subList.classList.toggle('d-none');
+            });
+
+            // Make the parent category toggleable
+            link.classList.add('toggleable');
+        } else {
+            // Event listener for category link
+            link.addEventListener('click', () => {
+                fetchProducts(category.No); // Fetch products based on category ID
+            });
+        }
+    });
+}
+
+
+
+    // Function to fetch products based on category or subcategory ID
+    function fetchProducts(categoryId) {
+        fetch(`/products?category=${categoryId}`, {
+            method: 'GET',
+        })
+        .catch(error => console.error('Error fetching products:', error));
     }
 });
+
+
 
 
 </script>

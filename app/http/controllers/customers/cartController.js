@@ -2,6 +2,10 @@ const { json } = require("express")
 
 function cartController() {
     return {
+        success(req,res ){
+            res.render('success')
+        },
+
         index(req, res) {
             res.render('customers/cart')
         },
@@ -27,7 +31,6 @@ function cartController() {
                 cart.items[req.body._id] = newItem;
                 cart.totalQty = cart.totalQty + 1;
                 cart.totalPrice = cart.totalPrice + Number(req.body.price);
-                
                 console.log(cart.totalPrice)
             } else {
                 // Check if sizes are the same
@@ -38,7 +41,7 @@ function cartController() {
                     // Update the qty for the existing product
                     cart.items[req.body._id].qty = cart.items[req.body._id].qty + 1;
                     cart.totalQty = cart.totalQty + 1;
-                    cart.totalPrice = cart.totalPrice + req.body.price;
+                    cart.totalPrice = cart.totalPrice + Number(req.body.price);
                 } else {
                     // Sizes are different, create a new entry
                     const newId = req.body._id + newSizes;
@@ -48,7 +51,7 @@ function cartController() {
                 }
             }
         
-            return res.json({ totalQty: req.session.cart.totalQty });
+            return res.json({ totalQty: req.session.cart.totalQty , cartItems: req.session.cart.items, totalPrice: req.session.cart.totalPrice});
         },
         
               
@@ -70,7 +73,7 @@ function cartController() {
               }
             }
             let totalQty = cart ? cart.totalQty : 0;
-            return res.json({ totalQty: totalQty, cartItems: cart.items });
+            return res.json({ totalQty: totalQty, cartItems: cart.items, totalPrice: cart.totalPrice });
         },
     }
 }

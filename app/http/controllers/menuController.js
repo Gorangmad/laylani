@@ -65,9 +65,34 @@ function homeController() {
                 } catch (error) {
                     res.status(500).json({ message: error.message });
                 }
+        },
+
+        async filterMenu(req, res) {
+            try {
+                const categoryId = req.query.category;
+                const page = parseInt(req.query.page) || 1;
+                const limit = 50; // Number of items per page
+                const skip = (page - 1) * limit;
+        
+                // Fetch all products where the category field contains the provided categoryId
+                const pizzas = await Menu.find({ category: { $regex: new RegExp('\\b' + categoryId + '\\b') } }).skip(skip).limit(limit).exec();
+        
+                const totalPizzas = await Menu.countDocuments({ category: { $regex: new RegExp('\\b' + categoryId + '\\b') } });
+        
+                // Render the 'menu' template with the fetched products
+                res.render('menu', {
+                    pizzas,
+                    currentPage: page,
+                    totalPages: Math.ceil(totalPizzas / limit),
+                    searchQuery: req.query.search || ''
+                });
+        
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
         }
         
-        
+             
         
     };
 }

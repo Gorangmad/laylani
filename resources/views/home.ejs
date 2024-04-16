@@ -8,38 +8,40 @@
         </button>
     </section>
 
-    <section class="about">
+    <section class="about text-center" aria-labelledby="about-label" id="about">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="image-container">
-                        <img src="/img/slide1.png" class="img-fluid fade-in animate__animated" alt="Image">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-container">
-                        <h2 class="fade-in animate__animated">Über Uns</h2>
-                        <p class="fade-in animate__animated">Your text goes here. This will fade in as well.</p>
-                    </div>
-                </div>
+
+          <div class="about-content">
+
+            <h2 class="headline-1 section-title">Jedes Stück erzählt eine Geschichte</h2>
+
+            <p class="section-text">
+                In jedem funkelnden Design von Schmuck ruht eine Geschichte, gewoben aus Inspiration, Leidenschaft und Handwerkskunst. Jeder geschliffene Edelstein, jede geschmiedete Kurve und jede filigrane Verzierung erzählt von den Träumen seines Schöpfers, von den Emotionen, die ihn bewegten, und von den Momenten des Glücks oder der Herausforderungen, die ihn geprägt haben. Diese Geschichten werden zu einem Teil des Schmucks selbst, eingebettet in jedes Detail und weitergetragen durch die Menschen, die sie tragen. Von Hand gefertigt oder mit modernster Technologie geschaffen, jedes Schmuckstück birgt eine einzigartige Geschichte, bereit, mit jedem, der es betrachtet oder trägt, geteilt zu werden.
+            </p>
+
+          </div>
+
+          <figure class="about-banner">
+
+            <img src="/img/background.png" width="570" height="570" loading="lazy" alt="about banner"
+              class="w-100" data-parallax-item data-parallax-speed="1">
+
+            <div class="abs-img abs-img-1 has-before" data-parallax-item data-parallax-speed="1.75">
+              <img src="/img/background.png" width="285" height="285" loading="lazy" alt=""
+                class="w-100">
             </div>
+
+            <div class="abs-img abs-img-2 has-before">
+              <img src="/img/slide1.png" width="133" height="134" loading="lazy" alt="">
+            </div>
+
+          </figure>
+
         </div>
-    </section>
+      </section>
     
     
     
-
-    <style>
-        .fade-in {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.fade-in.active {
-    opacity: 1;
-}
-
-    </style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -64,3 +66,60 @@
         });
     });
 </script>
+
+<style>
+
+.about .section-text { margin-block: 30px 60px; }
+
+.about .btn {
+  margin-inline: auto;
+  margin-block-start: 26px;
+}
+
+.about .container {
+  display: grid;
+  gap: 120px;
+}
+
+.about-banner {
+  position: relative;
+  margin-block-end: 120px;
+}
+
+.about-banner > .w-100 { padding-inline-start: 50px; }
+
+.about .abs-img { position: absolute; }
+
+.about .abs-img::before { z-index: -1; }
+
+.about .abs-img-1 {
+  bottom: -120px;
+  left: 0;
+  width: 150px;
+  padding-block: 50px;
+}
+
+.about .abs-img-2 {
+  top: -65px;
+  right: 0;
+  overflow: hidden;
+}
+
+.about .abs-img-1::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  background-image: url('../images/img-pattern.svg');
+  background-repeat: repeat;
+}
+
+.about .abs-img-2::before {
+  inset: 0;
+  background-image: url('../images/badge-2-bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: rotate360 15s linear infinite;
+}
+</style>

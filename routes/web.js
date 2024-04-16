@@ -58,6 +58,7 @@ function initRoutes(app) {
     app.get('/login',guest, authController().login)
     app.post('/login', authController().postLogin)
 
+
     app.get('/register',guest,  authController().register)
     app.post('/register', authController().update)
 
@@ -75,9 +76,11 @@ function initRoutes(app) {
 
     app.get('/cart', auth, cartController().index)
     app.get('/menu', auth, menuController().index)
+    app.get('/products', auth, menuController().filterMenu);
     app.get('/categories', auth, menuController().filter)
     app.post('/update-cart',auth,  cartController().update)
     app.post('/remove-cart',auth, cartController().remove)
+    app.get("/success",auth, cartController().success)
     
     //Customer routes
 
@@ -95,6 +98,7 @@ function initRoutes(app) {
     app.get('/admin/orders/',admin , adminOrderController().index)
     app.get('/admin/delivery',admin , adminOrderController().twodex)
     app.get('/admin/archiv',admin , adminOrderController().threedex)
+
     app.get('/admin/products', admin, adminProductController().index)
     app.get('/admin/product/:id', admin, adminProductController().product)
     app.post('/admin/update/categories', admin, adminProductController().updateCategory)
@@ -102,6 +106,8 @@ function initRoutes(app) {
     app.post('/admin/products/link/:currentProductId', admin, adminProductController().relateProduct)
     app.delete('/admin/products/delete/:currentProductId', admin, adminProductController().deleteProdukt)
     app.get('/admin/products/search', admin, adminProductController().productSearch)
+    app.get('/admin/changes', admin, adminProductController().changeTracker)
+
     app.get('/admin/users',admin, adminUserController().getAllUsers)
     app.get('/user-search',admin,  adminUserController().search)
     app.get('/admin/orders/:id', admin, adminOrderController().show)

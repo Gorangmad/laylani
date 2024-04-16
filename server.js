@@ -34,7 +34,13 @@ const push = require('web-push')
 
 const bodyParser = require('body-parser');
 
-const { S3Client, ListObjectsV2Command, PutObjectAclCommand } = require("@aws-sdk/client-s3");
+const { S3Client } = require("@aws-sdk/client-s3");
+
+const { MongoDbMemoryServer } = require('mongodb-memory-server');
+
+const { MongoClient } = require('mongodb');
+
+
 
 // Configure the S3 client for DigitalOcean Spaces
 const s3Client = new S3Client({
@@ -61,21 +67,53 @@ push.setVapidDetails(
     vapidKeys.privateKey
 );
 
+
+
 //Database connection
 
-const url ='mongodb+srv://doadmin:2658kXKF7GtD309M@db-mongodb-fra1-68366-638f76d0.mongo.ondigitalocean.com/admin?tls=true&authSource=admin';
+const url ='mongodb+srv://doadmin:2658kXKF7GtD309M@db-mongodb-fra1-68366-638f76d0.mongo.ondigitalocean.com/bahlCollection?tls=true&authSource=admin';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, family: 4});
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log ('Database connected....');
 });
 
+// Initialize Change Stream
+const dbName = 'bahlCollection'; // Update with your database name
+
+async function initializeChangeStream(user) {
+  try {
+      const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, family: 4 });
+      const db = client.db(dbName);
+      const collection = db.collection('menus'); // Update with your collection name
+
+      const changeStream = collection.watch();
+
+      changeStream.on('change', async (change) => {
+
+        change.user = user;
+
+        // Store the change event in a dedicated collection
+        const changeLogCollection = db.collection('changelogs');
+        await changeLogCollection.insertOne(change);
+      });
+
+      console.log('Change stream initialized...');
+  } catch (error) {
+      console.error('Error initializing change stream:', error);
+  }
+}
+
+module.exports = initializeChangeStream;
+
+
+
 //Session config
 
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    store: MongoDbStore.create({ mongoUrl: 'mongodb+srv://doadmin:2658kXKF7GtD309M@db-mongodb-fra1-68366-638f76d0.mongo.ondigitalocean.com/admin?tls=true&authSource=admin'}),
+    store: MongoDbStore.create({ mongoUrl: 'mongodb+srv://doadmin:2658kXKF7GtD309M@db-mongodb-fra1-68366-638f76d0.mongo.ondigitalocean.com/bahlCollection?tls=true&authSource=admin'}),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 } // One month
 }))
@@ -136,8 +174,7 @@ app.use((req, res, next) => {
 
 app.get('/user', (req, res) => {
   // Retrieve the user information from the session or database
-  const user = req.user; // Assuming the user information is stored in the `req.user` object
-  // Return the user information as a response
+  const user = req.user;// Return the user information as a response
   res.json(user);
 });
 
@@ -337,10 +374,4 @@ eventEmitter.on('orderPlaced', async (data) => {
     console.log('Error fetching order details:', error);
   }    
 });
-
-
-
-
-
-
 
