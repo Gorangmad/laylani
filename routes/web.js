@@ -122,6 +122,10 @@ function initRoutes(app) {
     app.post('/admin/products/add', upload.array('images', 5),admin,  adminProductController().addProduct)
     app.post('/admin/products/imageReupload', upload.array('images', 5),admin, adminProductController().addProductImage)
 
+    //rechtlich
+
+    app.get('/impressum', homeController().impressum)
+    app.get('/datenschutzerklaerung', homeController().daten)
 
     setInterval(() => {
         app.post('/change-availability', admin, adminProductController().index);

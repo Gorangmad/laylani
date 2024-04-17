@@ -6,6 +6,14 @@ function homeController() {
 
             return res.render('home')
 
+        },
+
+        async impressum(req, res) {
+            return res.render('rechtlich/impressum')
+        }, 
+
+        async daten(req, res) {
+            return res.render('rechtlich/daten')
         }
     }
 }
