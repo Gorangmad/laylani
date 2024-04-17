@@ -176,7 +176,7 @@ function authController() {
                 });
         
                 res.send('Password has been reset successfully.');
-                res.render('/')
+                res.render('home')
             } catch (error) {
                 if (!res.headersSent) {
                     console.log(error)
