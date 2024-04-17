@@ -175,7 +175,6 @@ function authController() {
                     $unset: { resetPasswordToken: "", resetPasswordExpires: "" }
                 });
         
-                res.send('Password has been reset successfully.');
                 res.render('home')
             } catch (error) {
                 if (!res.headersSent) {
