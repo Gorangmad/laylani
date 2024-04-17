@@ -42,6 +42,26 @@
 </head>
 
 <body>
+    <div class="bg-dark w-full">
+        <div class="container mx-auto flex justify-between items-center">
+
+            <div>
+                <ul class="flex items-center space-x-2 text-xs">
+                    <li><a href="/register">Registrieren</a></li>
+                    <% if(user) { %>
+                    <li>
+                        <form id="logout" action="/logout" method="POST">
+                            <a onclick="document.getElementById('logout').submit()" href="#">Ausloggen</a>
+                        </form>
+                    </li>
+                    <% } else { %>
+                    <li><a href="/login">Anmelden</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
     <% if (typeof showNavbar === 'undefined' || showNavbar) { %>
     <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">

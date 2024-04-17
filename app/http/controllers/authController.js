@@ -130,7 +130,7 @@ function authController() {
             const resetToken = generateResetToken(); // Function to generate a unique token
             await storeTokenForUser(user.id, resetToken); // Store the token in the database
         
-            const resetLink = `http://localhost:3400/reset-password?token=${resetToken}`;
+            const resetLink = `https://plankton-app-tj2qs.ondigitalocean.app/reset-password?token=${resetToken}`;
             await sendResetEmail(email, resetLink); // Function to send the email
         
             res.send('Password reset email sent');
