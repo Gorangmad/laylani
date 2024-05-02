@@ -7,12 +7,12 @@ const menuSchema = new Schema({
     image: {
         type: [String], // This specifies an array of strings
         required: true
-      },    comment: { type: String, required: true },
+      },    comment: { type: String, required: false },
     price: { type: String, required: true },
     category: { type: String, required: false },
     availability: { type: String, enum: ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL'], default: 'AVAILABLE' },
     expiry: { type: Date, required: false },
-    sizes: { type: String, required: true },
+    sizes: { type: String, required: false },
     relatedMenus: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Menu', required: false }] // Multiple related menus
 }, { timestamps: true });
 

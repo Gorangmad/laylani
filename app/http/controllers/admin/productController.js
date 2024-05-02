@@ -120,7 +120,7 @@ function productController() {
                 // Extract names of related menus
                 const relatedMenuNames = relatedMenus
                     .filter(menu => menu != null)
-                    .map(menu => menu.name);
+                    .map(menu => menu);
         
                 const categories = await Category.find({});
         
@@ -247,7 +247,10 @@ function productController() {
         
         
                 const searchResult = await Menu.find({ 
-                    name: { $regex: searchQuery, $options: 'i' } // Case-insensitive regex search
+                    $or: [
+                        { name: { $regex: searchQuery, $options: 'i' } }, // Search for name
+                        { comment: { $regex: searchQuery, $options: 'i' } } // Search for comment
+                    ]
                 });
         
 
@@ -275,22 +278,18 @@ function productController() {
                 let searchQuery = {};
         
                 if (req.body && req.body.query) {
-                    // Assuming 'query' is the field you want to search within your 'Menu' collection
-                    // You need to construct your regex search like this
+                    const searchRegex = new RegExp(req.body.query, 'i'); // Creating a case-insensitive regex
+        
+                    // Constructing the search query for both 'name' and 'comment' fields
                     searchQuery = {
-                        "name": { 
-                            $regex: req.body.query,
-                            $options: "i"  // This makes the search case-insensitive
-                        }
+                        $or: [
+                            { name: { $regex: searchRegex } }, // Search for name
+                            { comment: { $regex: searchRegex } } // Search for comment
+                        ]
                     };
                 }
-
-                console.log(searchQuery)
-        
         
                 const products = await Menu.find(searchQuery);
-
-                console.log(products)
         
                 res.status(200).json({ products: products });
             } catch (error) {
@@ -298,6 +297,7 @@ function productController() {
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         },
+        
         
         
         async productChanger(req, res) {
@@ -351,7 +351,40 @@ function productController() {
 
               await product.save();
 
-        }
+        },
+
+        async deleteSimilarProduct(req, res) {
+            try {
+                const currentProductId = req.body.currentProductId;
+                const productId = req.body.productId;
+        
+                // Find the current product by ID
+                const currentProduct = await Menu.findById(currentProductId);
+        
+                // Check if the current product exists
+                if (!currentProduct) {
+                    return res.status(404).json({ error: 'Current product not found' });
+                }
+        
+                // Check if productId exists in the relatedMenus array
+                const index = currentProduct.relatedMenus.indexOf(productId);
+                if (index !== -1) {
+                    // If productId exists, remove it from the relatedMenus array
+                    currentProduct.relatedMenus.splice(index, 1);
+                    // Save the updated document
+                    await currentProduct.save();
+                    // Send success response
+                    return res.status(200).json({ message: 'Product removed from relatedMenus' });
+                } else {
+                    // If productId doesn't exist in relatedMenus, send appropriate response
+                    return res.status(404).json({ error: 'Product not found in relatedMenus' });
+                }
+            } catch (error) {
+                // Handle any errors
+                console.error('Error deleting similar product:', error);
+                res.status(500).json({ error: 'Internal server error' });
+            }
+        }        
     };
 }
 

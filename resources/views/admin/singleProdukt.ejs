@@ -201,6 +201,41 @@
                 console.error('There was a problem with the fetch operation:', error);
             });
         });
+
+           // Add event listener for the delete buttons inside the "Ähnliche Produkte" section
+    const deleteButtons = document.querySelectorAll('.delete-similiar-btn');
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            // Handle the click event for the delete button
+            const productId = button.getAttribute('data-product-id');
+            
+            const currentProductId = window.location.pathname.split('/').pop();
+
+            // Send a request to the backend to delete the product
+            fetch(`/admin/products/${productId}/delete`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ productId: productId , currentProductId: currentProductId}) // Send product name as additional data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle success response from the backend (if needed)
+                alert('Produkt wurde entknüpft!');
+                // Optionally, update the UI or display a success message
+            })
+            .catch(error => {
+                alert('Fehler beim entknüpfen!');
+                // Handle error (e.g., display error message)
+            });
+        });
+    });
     });
     </script>
     
@@ -239,8 +274,12 @@
         <p>Verfügbarkeit: <%= product.availability %></p>
         <p>Ablauf Datum: <%= product.expiry ? product.expiry.toLocaleDateString('en-GB') : 'N/A' %></p>
         <p>Categorien: <%= productCategoryName %></p>
-        <p>Ähnliche Produkte:<% relatedMenuNames.forEach(function(name) { %>
-            <p><%= name %></p>
+
+        <p>Ähnliche Produkte:<%relatedMenuNames.forEach(function(name) { %>
+            <div>
+                <p><%= name.name %></p>
+            <button type="button" class="btn btn-danger delete-similiar-btn" data-product-name="<%= name %>" data-product-id="<%= name._id%>">X</button>
+            </div>
         <% }); %></p>
     </div>
 
