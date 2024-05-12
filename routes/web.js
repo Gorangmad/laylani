@@ -69,6 +69,8 @@ function initRoutes(app) {
     app.get('/reset-password', authController().resetpassword)
     app.get('/reset-password', authController().resetpassword)
     app.post('/neuesPasswort', authController().neuesPasswort)
+    app.get('/set-password', authController().setPasswortScreen)
+    app.post('/passwortSetzen', authController().setPasswort)
 
 
     
@@ -115,6 +117,9 @@ function initRoutes(app) {
     app.get('/user-search',admin,  adminUserController().search)
     app.get('/admin/orders/:id', admin, adminOrderController().show)
     app.put('/admin/orders/:orderId/items/:itemId',admin,  adminController().index)
+    app.get('/user-detail/:id',admin, adminUserController().getOneUser)
+    app.post('/update-user/:id', admin, adminUserController().updateOneUser)
+  
 
     //Admin changer routes 
 

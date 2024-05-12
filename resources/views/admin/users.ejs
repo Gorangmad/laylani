@@ -57,7 +57,11 @@
             <tbody>
                 <% allUsers.forEach(user => { %>
                     <tr>
-                        <td><%= user._id %></td>
+                        <td>
+                            <a href="/user-detail/<%= user._id %>" class="text-blue-500 hover:text-blue-800">
+                                <%= user._id %>
+                            </a>
+                        </td>                        
                         <td><%= user.name %></td>
                         <td><%= user.email %></td>
                         <td>

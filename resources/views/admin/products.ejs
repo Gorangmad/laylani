@@ -366,7 +366,6 @@ function updateAvailability(selectElement) {
     const productId = selectElement.getAttribute('data-product-id');
     const newAvailability = selectElement.value;
 
-    console.log(newAvailability)
     // Create the data object to send to the server
     const dataToSend = {
         productId: productId,

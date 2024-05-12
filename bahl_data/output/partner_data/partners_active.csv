@@ -1,667 +1,663 @@
-sep=;
-No.;Customer Number;Customer Name;Company Name;VAT Number;Postal Code;City;Street;E-Mail;Phone Number;Status
-699;699;;Solid sol;;;;;office@solid-sol.com;+43 3112 36050;active
-700;700;;Unikat Schmuck Gbr;;;;;INFO@UNIKAT-SAARBRUECKEN.DE;+49 681 373313;active
-701;701;;WasserSchnuppe;;;;;sinnfonie@aol.de;+49 6654 7757;active
-710;710;;;;;;;jimikaram@yahoo.de;;active
-1892;1892;;;;;;;service@goldschmiedeschommer.de;;active
-1;1;A & A Schauer;Kunsthandwerk;;;;;info@schmuckampuls.de;+49 8822 6194;active
-2;2;A. Polychronidis;Kinitro;;;;;;+49 7071 256452;active
-3;3;Achim Jörg Schröder;Juwelier Schröder;;;;;info@juwelier-fulda.de;+49 661 25055522;active
-4;4;Achim Reiser;Reiser GmbH;;;;;info@reiser-schwetzingen.de;+49 6202 578910;active
-5;5;Adnan Dasdemir;A & N Accesories;;;;;;+49 7621 589446;active
-6;6;Adrian Büscher;Goldschmiede Büscher;;;;;Goldschmiede-Buescher@t-online.de;+49 5971 50607;active
-776;776;Agi;Silver Hug Ltd.;DE;1089;Budapest;Blathy Otto u.4-8 Felem 6;silverhug@gmail.com;309143295;active
-7;7;Aida Behner-Zlatar;AIDA Silberschmuck;;;;;info@aida-silberschmuck.de;+49 561 474096;active
-8;8;Alexander Dürigen;Silber-Design;;;;;silber-design@web.de;+49 6341 88631;active
-9;9;Alexandra Gruber;Alex Feinwerk;;;;;alex.feinwerk@t-online.de;+49 151 25278652;active
-10;10;Alexandra Kammerlander;Love Sign;;;;;Alexandra-lovesign@hotmail.com;+43 676 4015666;active
-11;11;Alexandra Muelenz;Luxusperle;;;;;mail@luxusperle.de;+49 176 61924791;active
-12;12;Alexandra Schmidt;;;;;;aschmidt0505@icloud.com;+49 176 31200649;active
-2012;2012;Alfons Schmidt;Alfons Schmidt;00;92342;Freystadt;Rohr 26;schmidt.schmuck@web.de;09179 1313;active
-13;13;Ali Ghalandarlakisoltani;Soltani;;;;;Ali.Soltani@gmx.de;+49 241 95472340;active
-2011;2011;Alicia Spinelli;SchönWerk;97331/20374;70619;Stuttgart;Bockelstr. 92c;aliciamertens@gmail.com;+491777158075;active
-14;14;Allen Brown;Allen Brown Jewellery;;;;;allen@allenbrownjewellery.co.uk;+44 1543 481948;active
-15;15;Ana Durao;;;;;;geral.adjoias@gmail.com;+93 31 45030;active
-16;16;Ana Wintgen;Perlentaucher;;;;;info@perlentaucher-leipzig.de;+49 341 2601697;active
-1953;1953;Andrea A. Heuser;Andenken&Mitbringsel;DE815213961;69117;Heidelberg;Hauptstrasse  215;andenkenundmitbringsel@web.de;0174 75 65005;active
-17;17;Andrea Angres;Uhren Pippig;;;;;info@uhren-pippig.de;+49 6261 15857;active
-18;18;Andrea Gassenbauer;Daniel Schmuckwelten;;4202;Kirchschlag bei Linz;Davidschlag 41;info@schmuckwelten.at;+43 660 9206566;active
-19;19;Andrea Graf;Kandis;;;;;info@kandis-natur.de;+7425 21226;active
-2005;2005;Andrea Hecht;A&A Schauer;DE128352060;82487;Oberammergau;Devrientweg 3;hecht.andrea@yahoo.de;08822 6194;active
-20;20;Andrea Küster;Juwelier Küster;;;;;juwelier.kuester.karlsruhe@t-online.de;+49 721 849268;active
-21;21;Andrea Mai;Schmuckliesl;De;86916;Kaufering;Pommernstr. 18;mai.andrea@me.com;+49 8191 4286488;active
-808;808;Andrea Möhle-Remus;Feinschliff-Goldschmiede;DE 242 802 146;44866;Bochum;Voedestraße 1;info@feinschliff-goldschmiede.de;02327548900;active
-23;23;Andrea Panick;Schmuck & Uhren Panick;;;;;info@andreapanick.de;+49 3537 216373;active
-24;24;Andrea Quast;Goldschmiede;;50931;Köln;Landgrafenstraße 67;mail.me@andrea-quast.de;+49 221 2828562;active
-25;25;Andrea Schiechtl;;;;;;info@andreaschiechtl.at;+43 650 9240029;active
-26;26;Andrea Schwydki;silvera925;;;;;silvera925@yahoo.de;+49 6421 4899923;active
-27;27;Andrea Student;Student;082/279/00297;18546;Sassnitz;Böttcherstraße 5;astudent@web.de;+49 162 2117414;active
-28;28;Andrea Thesing-Schenk;miomyfashion;;;;;info@miomyfashion.de;+49 2863 381461;active
-2088;2088;Andrea Thesing-Schenk;Miomyfashion;00;48653;Coesfeld;Kupferstrasse 11;hwschenkcoe@gmail.com;02541-9288930;active
-29;29;Andrea Voklert;Schmuck & Design;;;;;mail@andrea-volkert.info;+49 177 3681103;active
-1999;1999;Andreas Dörre;Uhren Optik Schmuck Dörre;56964807329;51702;Bergneustadt;Kölner Str. 206-208;schmuck@optik-doerre.de;02261/41658;active
-814;814;Andreas Erkalp;Juwelier Zero;DE815278816;22083;Hamburg;Hamburger Straße 31;info@juwelier-zero-meile.de;040 41929661;active
-30;30;Andreas Nees;;;;;;anheraoro@outlook.de;+49 6181 4345586;active
-31;31;Andreas Palm;AFP;;;;;afp@afp-silberschmuck.de;+49 33093 60432;active
-33;33;Andreas Schiestl;Natur Schmückt;;;;;andreas@schiestl.info;+49 7642 45371;active
-34;34;andreas weber;Juwelier A.Weber;213980730;08371;Glauchau;Brüderstr., 13;juwelier-aweber@saxonia.net;037633878;active
-35;35;Andreas Wildner;AW;;;;;awildner@t-online.de;+49 7745 1338;active
-36;36;Anemone Tontsch;Galerie Cebra;;;;;info@galerie-cebra.de;+49 211 323212;active
-38;38;Angela Huber;Goldschmiede Huber;;;;;goldschmiede.huber@gmx.at;+43 676 4866902;active
-2010;2010;angela raschka;goldschmiede raschka;027/859/30022;34454;bad arolsen;schloßstrasse 9;angelaraschka@online.de;05691 8779009       0171 9977783;active
-39;39;Anita Daffner Wölflick;Dein Schmuck Werk;;;;;anita@deinschmuckwerk.de;+49 8039 908855;active
-40;40;Anita Kanelopoulos;;;;;;gangela@gmx.de;+49 7143 33671;active
-41;41;Anita Michel;Liebeswertes;;;;;anita.michel@rentweinsdorf.eu;+49 175 5510198;active
-42;42;Anita Moosmüller;Katarina rembeck;09277141;84140;Gangkofen;Bahnhofstraße 110;anita.moosmueller@web.de;+49 8722910614;active
-2003;2003;Anja Linkis;Mike`s & More;DE174884106;29308;Winsen Aller;Poststraße 5;a-linkis@gmx.de;0160/96206577;active
-43;43;Anja M. Gast;Arizona-Galerie;;;;;arizona-galerie-germany@t-online.de;069 287379;active
-1963;1963;Anja Muth;die Schmuckmanufaktur;DE257319203;74336;Brackenheim;Friedhofstr.3;info@die-schmuckmanufaktur.de;+491639605467;active
-44;44;Anja Schramm;;;;;;anja-schramm.home@t-online.de;+49 151 16789959;active
-45;45;Anje Schliepper-Bracher;Juwelier Schliepper;;;;;schlieperanne@yahoo.de;+49 6772 94163;active
-879;879;Anke Brüdgam;Inselseifen;DE254323139;18546;Sassnitz;Hauptstraße 10;inselseifen@web.de;01705372513;active
-46;46;Anke Junginger;Der kleine Engelladen;DE258621489;85375;NEUFAHRN b. Freising;Liebigweg 9;anke@all-is-one.de;+49114917641247844;active
-47;47;Anke Pryzgoda;Fräulein Punkt Design;;;;;fraeuleinppunkt@gmx.de;+49 177 3264737;active
-48;48;Anna Kühmstedt;;;;;;mail@annaplus.de;+49 40 45 06 06 49;active
-49;49;Anna-Sue Lorenz;Schmuck mal;;;;;schmuckmal@web.de;+49 821 71058072;active
-1981;1981;Anne Demmer;Caja;94219078633;52062;Aachen;Kapuzinergraben 9;caja52064@gmx.de;015119454747;active
-50;50;Anne Gohr;Decoration Dínterior;;;;;anne@annegohr.de;+49 160 97027731;active
-2075;2075;Anne Gohr;Anne Gohr;148 523 81744;80799;München;Schellingstrasse 62;anne@familie-gohr.de;016097027731;active
-51;51;Anne Jalibert Faure;;;;;;lescaillouxdekiyou@aol.com;;active
-52;52;Anne Katrin Merkh;Merkh Unikate;;;;;merkh-schmuck@arcor.de;+49 7121 79363;active
-53;53;Anne-Katrin Windler;Traumkontor;;;;;anne-katrin-windler@t-online.de;+49 4524 7009535;active
-1919;1919;Anne-Katrin Windler;Traumkontor;-;23684;Scharbeutz;Am Bahnhof 8;service@kayamo.eu;015152627376;active
-718;718;Annett Hering;Feng Shui Haus Dresden e.K.;DE813468042;01099;Dresden;Görlitzer Straße. 21;kontakt@fengshuihaus-dresden.de;00493518105498;active
-54;54;Annette Hering;Feng Shui Haus;;;;;kontakt@fengsui-haus-dresden.de;0351-8105498;active
-55;55;Annette Jung;Jung GbR;;;;;info@schaulade-erberstadt.de;+49 6151 5044150;active
-2000;2000;Annette Jung;Annette und Norbert Jung GbR;DE296147713;64297;Darmstadt;Schwanenstr. 45;info@schaulade-eberstadt.de;061515044150;active
-56;56;Annette Lucka;;;;;;info@lucka-schmuck.de;06401-220790;active
-57;57;Annette Weißenfels;Sierra;;;;;Sierra-Schmuck@web.de;+49 621 105111;active
-698;698;Anni Dörre;Schmuckatelier Dörre;DE231645771;82467;Garmisch-Partenkirchen;Bahnhofstr. 41;info@schmuckatelier-doerre.de;08821 - 967 4844;active
-881;881;Annica Nilsson;Pirum HB;SE916673729701;75598;Uppsala;Danmarks Viggeby 2;annica.nilsson@pirum.se;0702585383;active
-58;58;Antje Balzer-Radschuweit;Pünktchen;;;;;info@puenktchen-Geschenke.de;+49 2203 81997;active
-59;59;Antje Borgwardt;LP 13;;;;;mail@lp13.de;+49 4181 9199313;active
-60;60;Antje Jansen;Schmuckimperium;;;;;antje-jansen@freenet.de;+49 251 778309;active
-61;61;Antje Weimert;Weimert;;97816;Lohr;Kapuzinergasse 4;info@weimert-lohr.de;+49 9352 9228;active
-62;62;Antje Willberg;Stage by WE;;;;;info@stage-by-we.de;+49 5151 8090750;active
-713;713;Anton Blechschmidt;Marktredwitzer Goldschmiede;DE260332970;95615;Marktredwitz;Markt 37;info@marktredwitzer-goldschmiede.de;09231/63591;active
-63;63;Artful Teenandel;Inge Eilers;;;;;artful.tea@t-online.de;+49 4488 6587;active
-64;64;Arthur Konnert;KonnArt;;;;;info@goldschmieden.de;+49 8461 1563;active
-65;65;Astrid Lauterbach;My Lovely Stuff;;;;;astrid.lauterbach@emg-network.de;+49 172 3754672;active
-2083;2083;Astrid Liedtke;Astrid Liedtke;DE 119805609;45139;Essen;Wisthoffweg 42;astrid-liedtke@freenet.de;0201-5200116;active
-66;66;Atra Kabakulak;Juwelier Kaba;;;;;schmuck-kaba@live.de;+49 961 4702324;active
-67;67;Axel Schwenn;;;;;;info@go-shining.de;+49 171 6250050;active
-2049;2049;Bader;S Jewelry | Design;N.v.;82287;Jesenwang;Dr. Ottmar Weiß Str. 16;bader.stef@hotmail.de;01739844000;active
-709;709;Bahl Collection;Bahl Collection;000;65934;Frankfurt am Main;Oeserstr. 1;bahl-collection@t-online.de;01703813049;active
-68;68;Barbara Heider-Rauter;Avalon;;;;;barbara@aurasomashop.at;+43 662 871090;active
-69;69;Barbara Hörmann;Enothek Schmuck;;;;;office@ethnothek.at;+43 699 11108090;active
-70;70;Barbara Hörmann;Ethnothek;;;;;office@ethnothek.at;+43 316 830975;active
-71;71;Barbara Hübener;Schmuckwerk Hübener;;;;;anfrage@schmuckwerk-shop.de;+49 341 9615278;active
-72;72;Barbara Kranz;Rio;;;;;rio-schmuck@t-online.de;+49 30 3133152;active
-73;73;Barbara Mehlhorn;Silberschmucksteine;;;;;info@vollerideen.de;+49 8205 1788;active
-812;812;Barbara Murauer-Schadenfroh;BMS Schmuck & Kunstobjekte;DE311040577;94469;Deggendorf;Östlicher Stadtgraben 35;info@bms-schmuck.de;01631744421;active
-74;74;Barbara Rosvaenge;Fourth Dimension;;;;;fourthdimension@t-online.de;+49 89 22801090;active
-75;75;Barbara Sander;;;;;;info@boutique-pepita.de;+49 40 39907129;active
-76;76;Barbara Schaumann;Goldschmiede Ladenburg;;;;;goldschmiede.ladenburg@t-online.de;+49 6203 14485;active
-2061;2061;Barbara Schrauf-Hermann;Silbersachen;DE274041292;94330;Aiterhofen;Aitrachwiese;barbara.schrauf_hermann@outlook.de;01736019146;active
-1962;1962;Barbara Vitiello;GLAM&GLORY Jewels;DE153950289;90762;Fürth;Nürnberger Str.34;info@glamglory.de;0151-11593463;active
-77;77;Bärbel Trebing;Uhrenhaus Otto;;;;;uhrenotto@t-online.de;+49 561 718012;active
-78;78;Bärbel Wassmer;Steinzeit;;;;;alex.wassmer@gmx.de;+49 173 4379681;active
-2052;2052;Baris Gelir;Gold- und Silberschmiede Gelir;DE357499378;81241;Munich;Planegger Str. 47g;info@rileg-muc.de;+491732817970;active
-79;79;Bartbara Hartmann;Blickwinkel Karlstadt GmbH;;;;;kontakt@blickwinkel-karlstadt.de;+49 9353 985366;active
-1946;1946;Bastian Friedrich;Kunst Cafe / Schatzlager;DE255368617;88131;Lindau;Maximilianstr. 48;info@schatzlager.de;015110010346;active
-80;80;Beate Hoessler;Mein Traumring;;;;;beate_höessler@hotmail.com;+49 176 62835261;active
-2053;2053;Beate Hößler;mein-traumring;218/5100/2341;51109;Köln;Anisweg 18;beate_hoessler@hotmail.com;017662835261;active
-81;81;Beate Kaczke;Juwelier Kaczke;;;;;Info@kaczke.de;+49 3831 293998;active
-82;82;Beate Michalik;Carusel;;;;;info@carusel.de;+49 69 825443;active
-86;86;Beckhoff;Topas;;;;;info@topas-schmuckdesign.de;+49 172 9015801;active
-87;87;Benjamin Becher;Binzer Küsteneck;DE;18609;Binz;Hauptstraße 4;benjamin-becher@gmx.de;+49 38393 144140;active
-89;89;Bernadett Rinkenburger;Rinkenburger;;;;;drinkenburger@t-online.de;+49 8261 22121;active
-90;90;Bernd Angerstein;Angerstein Uhren- und Schmuckfachgeschäft;5110102682;38170;Schöppenstedt;Stobenstraße 6;info@juwelier-angerstein.de;+49 5332 90660;active
-423;423;Bernoulli Jacob;Estrella de plata;CHE-115.392.778;4434;Hölstein;Bennwilerstrasse 4;e.deplata@bluewin.ch;0793274545;active
-2006;2006;Berthold Vogelsang;Goldschmiede Vogelsang;DE;64297;Darmstadt Eberstadt;Heidelberger Landstr. 200;info@vogelsang-schmuck.de;06151 943485;active
-2021;2021;bertie hamers;bofb -best of both-;NL814411915B01;1012LB;Amsterdam;Rokin 116M;info@bofb.nl;+31206253078;active
-94;94;Bettina Baysal;Baysal;DE248462276;83555;Gars Bahnhof;Schützenstr. 4;yasminschmuckatelier@aol.com;+49 8073 9165939;active
-1891;1891;Bettina Görbert;Bahl Collection;DE;65934;Frankfurt/main;Oeserstr.1;b.goerbert@web.de;01732137911;active
-843;843;Bianca Fischer;Fischer im Steinreich;DE;55545;Bad Kreuznach;Mannheimerstraße.18;biancafischer7@gmx.de;0671 97087315;active
-97;97;Bianca Fischer;Fischer im Steinreich;DE;55545;Bad Kreuznach;Mannheimer Straße 18;biancafischer7@gmx.com;+49 671 97087315;active
-1887;1887;Bianca Traeger;Asabi, Perlencenter u. Schmuckdesign;DE225949885;12163;Berlin;Holsteinische Strasse 14;asabiperlencenter@gmail.com;03032897082;active
-2042;2042;Birgit Achilles;Schmuckwerkstadt38;14/101/19162;38100;Braunschweig;Handelsweg3/4;info@schmuckwerkstadt38.de;017647333916;active
-100;100;Birgit Eitzenberger;Goldschmiede Eitzenberger;DE286544640;82467;Garmisch-Partenkirchen;Bahnhofstr. 3;info@eitzenberger.net;+49882173664;active
-1910;1910;Birgit Janca;BiJanca Schmuck;00;16833;Protzen;Dorfstrasse 87;bijazi@web.de;01726455045;active
-717;717;Birgit Leo;Leo;ATU;6130;Schwaz;Fuggergasse 9B;birgit.leo@gmx.at;00436506436802;active
-104;104;Björn Nilsson;Guldsmed;;;;;bjornnilsson.ab@hotmail.com;+46 44 124994;active
-396;396;Bormuth Petra;Klügl OhG;DE227913104;64646;Heppenheim;Ludwigstraße 3;pb@kluegl.info;+49 6252 3167;active
-2047;2047;Branka Vukcevic;Cherry Jewells EE;CHE-165.887.556;8046;Zürich;Dora-Staudinger -Strasse 11;elle.epoce@hotmail.com;0764909619;active
-1901;1901;Bredow;Your Design;DE;50171;Kerpen;Lörsfelder Busch 17;your.design@gmx.de;01736541340;active
-1952;1952;Brenda Saavedra;Brenda Saavedra Jewelry;123;83109;Grosskarolinenfeld;Pfaelzerstr. 11A;brendasaavedra.jewelry@gmail.com;016095733657;active
-2002;2002;Brian de Staic;Brian de Staic;4788406m;V92TE81;DINGLE;The Wood;info@briandestaic.com;0669151298;active
-107;107;Brigit Laun;Perlin;DE 207557632;10178;Berlin;Rosenthalerstr. 40/41 Hof IV;info@perlin-berlin.de;+49 30 21230730;active
-1958;1958;Brigitte Bayer;Brigittes Kleine Klunkerwerkstatt;45707861391;86609;Donauwörth;Bschorerstr 1;klunkerwerkstatt@web.de;09067001683;active
-109;109;Brigitte Grunwald;Goldschmiede Grunwald;DE343526927;85614;Kirchseeon;Hochriesstraße 18;brigitte.grunwald@goldschmiede-grunwald.de;+49 8091 5376850;active
-1948;1948;Brigitte Lidl;Brigitte Lidl Schmuckdesignerin;ATU;6112;Wattens;Kreuzbichlstrasse 53;d.lidl@chello.at;06505166136;active
-756;756;Brigitte Schorn;Schmuck & Accessoires;DE167817309;91080;Spardorf;Siedlerstr. 5;Horst.Schorn@t-online.de;09131 52167;active
-114;114;Britta Fahnoe Poulsen;Godkarmashop.dk;DK35718273;7300;Jelling;Ballevej 118;britta@godkarmashop.dk;+45 61 274882;active
-864;864;C. Büchler-Towae;Uhren-Schmuck-Optik Büchler;DE286907665;77723;Gengenbach;Leutkirchstr. 10;mail@uhren-optik-buechler.de;07803-2400;active
-817;817;Cäcilia Mager;Cäcilia Mager GmbH;DE303622492;67373;Dudenhofen;Schillerst.20;caeciliamager@hotmail.com;06232 6518820;active
-2079;2079;Capulet Jewelry;Capulet Jewelry;DE 264896021;80799;München;Zieblandstr 19;hello@capulet.de;08922843850;active
-2077;2077;Carina Levy;CC Shopping UG (haftungsbeschränkt);DE 309 927 856;63791;Karlstein;22 Auenstr.;c.levy@cc-shopping.de;015165243050;active
-117;117;Carola Weigerber;Casa Perla;DE;89233;Neu-Ulm;Hauptstrasse 12;info@casa-perla.de;+49 731 3784460;active
-748;748;Carola Weiß;Carola Weiß;Kleinunternehmen;1210;Wien;Karl-Aschenbrenner-Gasse 8/23/8;carola.weiss1@gmx.at;069917906941;active
-880;880;Carolina Tress;Carolina Tress Jewellery;DE81409592632;81677;München;Zaubzerstraße 18;caro.tress@googlemail.com;0049171441790;active
-120;120;Caroline Lorenz;Caro;;;;;caro@caroschmuck.de;+49 176 23380427;active
-824;824;Christa van der Hurk;Christa-ll;190678337;47533 Kleve;Kleve;Gasthausstr.18;christa-ll@freenet.de;02821 768808;active
-2057;2057;Christian Heerd;Calerris UG;DE332050107;80331;München;Kreuzstraße 4;info@calerris.com;08954843092;active
-126;126;Christian Köhler;HopfenSchmuck;154/238/20265;85283;Wolnzach;Hubensteinerstraße 4;koehler@hopfenschmuck.de;+49 8442 9682-19;active
-127;127;Christiane Hüthner;;;;;;christiane-huether@outlook.de;+49 3605 5458841;active
-2062;2062;Christiane Lauterbach;Insane Design;112/243/03779;06237;Leuna;Rathausstraße 7;jane.insane111@googlemail.com;034617448065;active
-128;128;Christina Bauer;Borboletta – Schmuck & Schönes;DE815136917;22765;Hamburg;Ottenser Hauptstrasse 37;hi@borboletta-hamburg.de;040-39005280;active
-129;129;Christina Eifert;pél yo;DE178528063;64297;Darmstadt;Mühltalstraße 131;info@pelyo.de;01783312910;active
-130;130;Christina Gelhausen;Gold Pavillon;11352345091057;60311;Frankfurt;Hasengasse 9;goldpavillon@gmail.com;+49 69 283519;active
-132;132;Christina Sauter-Knapp;Atelier CSK;;89584;Ehingen (Donau);Adlerstraße 27;info@stinascolana.de;+49 7391 753231;active
-133;133;Christine Axt;Uhren und Schmuck;;;;;nc78@web.de;+49 3603 812566;active
-135;135;Christine Großmann;Goldschmiede Atelier Großmann;DE;64319;Pfungstadt;Eberstädterstrasse 38;christine_grossmann@yahoo.de;+49 6157 9139101;active
-768;768;Christine Großmann;Goldschmiede Atelier Großmann;DE;64319;Pfungstadt;Eberstädterstraße 38;info@christine-grossmann.de;004961579139101;active
-137;137;Christine Kößler;Szenario;DE229130606;83052;Bruckmühl;Müller-zu-Bruck-Str. 6;info@szenario-trends.de;+498062807513;active
-2097;2097;Christine Melzer;Goldschmiedin;Not necessary;67434;Neustadt an der Weinstraße;Heerstraße 57;melzer.christine@web.de;0152 53020069;active
-736;736;CHRISTINE MULLER-CONNERT;CHRISTINE MULLER-CONNERT;X0770517V;38870;VALLE GRAN REY;CALLE LA PLAYA 15;c.c.canarias@gmx.net;+34606956946;active
-138;138;Christine Sack;F.F. Sack Juwelier;;;;;info@juwelier-sack.de;+49 355 23662;active
-140;140;Christine Zulinski Özen SILBERSCHMUCKDESIGN;Silberschmuckdesign;00;1180;Wien;Währingerstrasse 107;christine.zuli@sideholidays.com;+43 699 11663382;active
-1959;1959;Christof Krahforst;SCHMUCKRAUM Goldschmiede-Meisterwerkstatt;DE815720978;40878;Ratingen;Marktplatz 11-13;krahforst@schmuckraum-ratingen.de;+492102 1018072;active
-739;739;Christoph Hartmann;Schmuck&Objekte HERZKÖNIG;DE164522210;80636;München;Blutenburgstr. 39;info@herzkoenig.de;089184465;active
-1890;1890;Christopher Mogk;Christopher Mogk ( Einzelunternehmer );DE293932733;35516;Münzenberg (Gambach);Goethestr. 12;info@schmuck-schau.de;+4917670902787;active
-806;806;Ciot;Ciot Design;DE;8625;Gossau ZH;Grütstrasse 76;paola.ciot@gmx.ch;0041795260510;active
-1957;1957;Claudia Bossau-Engelke;Nidus Claudia Bossau-Engelke;DE303541090;20251;Hamburg;Eppendorfer Weg 253;info@perlen.net;04046856295;active
-147;147;Claudia Lutz;Lilienglück;DE;64342;Seeheim-Jugenheim;Hauptstr. 61;info@lilienglueck.de;+49 160 97531527;active
-149;149;Claudia Ricarda-Unger;Formsache;DE 166625352;66119;Saarbrücken;Saargemünder Str.126;info@formsache-unger.de;+49 681 855902;active
-866;866;Claudia Rittmann;Schmuckdesign;St.Nr. 26/139/63183;55131;Mainz;Königshütter Str. 11;schmuckdesign@arcor.de;015150981884;active
-152;152;Claudia Vogel;Traumring Galerie;DE323385966;36037;Fulda;Heinrichstraße 15;kontakt@traumring-galerie.de;+49 661 90197775;active
-1903;1903;Clemens;Lange;DE246186366;49074;Osnabrück;Hasestraße;clemens-nicole@web.de;05413502535;active
-2015;2015;Cordula Koch;CK Schmuckticker;000;73614;Schorndorf;Hainbuchenweg 10/1;cordula.koch@gmx.de;01776523703;active
-2070;2070;Corinna Kedzierski;CoriFEE;DE281186713;60598;Frankfurt;Ziegelhüttenweg 2a;wish@corifee.info;069 66370627;active
-1971;1971;Cornelia Amicabile;Waltrauds Wundertüte;DE253130647;79271;St. Peter;Bertoldsplatz 3;lebenswelten@yahoo.de;+49 07660 941629;active
-159;159;Cornelia Fischer-Krause;JFK Schmuck;DE;50999;Köln;Eygelshovener Str. 6;design-jfk@netcologne.de;+49 221 9356315;active
-1899;1899;Cynthia Kurth;Cynthia Kurth Design;DE 188 242 467;D 28215;Bremen;Wanfrieder Strasse 5;cynthiakurth@schmuckburg.de;+494215285459;active
-161;161;D. Diekstall;Diekstall GmbH & Co KG;DE275474285;49661;Cloppenburg;Lange Str. 68;info@diekstall.de;+49 4471 2682;active
-2004;2004;Dagmar Boehme;U&S BOEHME;DE 249478303;66482;Zweibrücken;Hauptstraße, 1;boehmeuhren@gmx.de;01723669710;active
-163;163;Dagmar Busch;Juwelier Partheil;;;;;Dagmar.Busch@gmx.net;+49 6154 52740;active
-164;164;Dagmar Fischer;Dagmar Fischer;DE;64342;Seeheim-Jugenheim;Am Grundweg 48;ducky-f@t-online.de;+49 6257 9188234;active
-2013;2013;Dan Krul;Silbergecko;01583901628;65936;Frankfurt am Main;Sossenheimer Mülhgasse;info@silbergecko.eu;+491724778855;active
-764;764;Dana Fischer;Danádi;DE267777087;26532;Großheide;Torfweg 18;dana.goez@yahoo.de;01621336570;active
-165;165;Daniel Ramirez Diaz;Aquamarine;;7470;Port de Pollensa;Virgin del Carmen 20;anandaniel@hotmail.com;+34 971 867288;active
-851;851;Daniel Sabrowski;Gemini Juwel;0000;34369;Hofgeismar;Mühlenstraße 6;gemini-juwel@outlook.de;056735773;active
-167;167;Daniela Eberl;FD Schmuck;DE;63834;Sulzbach;Hauptstr. 49;goerg.daniela@t-online.de;+49 6028 4373;active
-845;845;Daniela Lichtensteiger;Daniela Lichtensteiger;127/244/90431;87448;Waltenhofen;Am Südhang 10;entle@gmx.net;08379/929318;active
-865;865;Daniela Sigl & Michaela Stadler;MINADA Schmuck;DE298484424;94526;Metten;Sandgrube 6 a;minada-schmuck@web.de;0171 5858858;active
-2050;2050;Daniela Walde;Goldschmiede an der Kreppe;148 179 81144;81675;München;Max-Weber-Platz 1;dw@goldschmiede-an-der-kreppe.de;00491797661218;active
-884;884;Deja vu;Deja vu;DE173685475;73230;Kirchheim;Rossmarkt 9;gabi.grabowski@deja-vu.de;07021-8078167;active
-757;757;Dejan Mostic;Black Forest Store;DE344229991;78713;78713 Schramberg;6 An der Steige;blackforeststore13@gmail.com;017663308301;active
-712;712;Demo;WEBHU Kft.;11505066-2-16;5008;Szolnok;Munkácsy Mihály utca 46.;demo@webhu.hu;+36 56 786 220;active
-172;172;Denise Goldermann;DEGO Schmuckdesign;ATU 66253056;1080;Wien;Daungasse 1/8;degold@chello.at;+43 699 12706830;active
-882;882;Diana Canola;Palmsandbeach;DE354248227;95326;Kulmbach;Kauernburger Grund 22;dianacanola@gmx.de;0160-91610616;active
-176;176;Dieter Knaut;Uhren& Schmuck;DE;99718;Greußen;Markt 40;Frank.Knaut@t-online.de;+49 3636 703229;active
-2001;2001;Dieter Ostheimer;Ostheimer Schmuck;DE293253920;75223;Niefern-Öschelbronn 1;Sofienstr.17/1;dieter@ostheimer-schmuck.de;07233-4916;active
-2008;2008;Dieter Pfaff;Silbermond;DE211301303;88634;Überlingen;Christophstraße 35;silbermond_pfaff@web.de;07551945323;active
-2027;2027;Dietlinde Burmester;Kikis Bijoux;DE;61462;Königstein im Taunus;Drosselweg 10a;kikiscollection@web.de;061749350109;active
-2020;2020;Dirk Rauch;Schmuck Rauch;StNr. 205/173/00404;97762;Hammelburg;Bahnhofstraße 2;hr-24@web.de;09732 8898900;active
-862;862;Dominique Fichtner;Carina Schmuck;De 813 947 889;23669;Niendorf;Strandstraße 121;dominique.fichtner@outlook.de;01627098883;active
-1997;1997;Doris Hannes;Lollia Modeschmuck;DE315425428;89340;Leipheim;Uhlandstr. 11;info@lollia-schmuck.de;08221 9166378;active
-185;185;Doris Kreißl;Canape;DE 287778568;63619;Bad Orb;Hauptstraße 15;info@canape-schmuck.de;+49 6052 3284;active
-187;187;Doris Wiesler;Seelenflug;AT70206207;2120;Wolkersdorf;Brünnerstrasse 4;doris@seelen-flug.at;+43 2245 23472;active
-828;828;Dorothea Schepek;Schwapek KG, Stilhaus;DE295216919;61348;Bad Homburg;Louisenstraße 76;info@stilhaeuschen.de;01741748167;active
-870;870;Dr. Sigrid Rainer;Kopfberger;ATU34044600;5020;Salzburg;Judengasse 14;office@kopfberger.at;00436644145312;active
-850;850;Duygu Reinholz;Cookies angelwear;DE;50968;Köln;Unter den Ulmen 114;dreinholz@cookies-angelwear.de;01608074888;active
-855;855;Edda Westphal;Schatztruhe Eckernförde;DE;24340;Eckernförde;Nikolaistr. 18;edda.westphal@gmail.com;+49 4351 5772;active
-1926;1926;Edda Zierer-Zitzelsberger;the Mizen Goldsmiths;000;P81T211;Crookhaven;Harbourview Cottages;mizengoldsmiths@gmail.com;01704034273;active
-196;196;Eli Freifrau von Hutten;Perlinen;231/195/00850;97816;Lohr am Main;Steinbacher Straße 1;eli@vonhutten.de;+49 9352 80551;active
-1933;1933;Elisabeth Günthart;E.Günthart und Partner;--;8600;Dübendorf;Gfennstr. 11d;guenthart-gmbh@bluewin.ch;0041 794003216;active
-786;786;Elisabeth Prutti;Hair&VBeauty Studio Elisabeth Prutti;61907299;8750;Judenburg;Burg Gasse 71;eprutti@me.com;06644261446;active
-1949;1949;Elke;Szeklinski;DE 117368760;26579;Baltrum;Ostdorf  27;elke@balteringe.de;04939568;active
-202;202;Elke Bau;Bau & Roth;144/126/80740;80469;München;Pestalozzistr.5;elke.bau@gmx.de;+49 89 26949449;active
-203;203;Elke Feiler;Schmuckmanufaktur Weiden;DE;92637;Weiden;Im Obstgarten 23;elke.feiler@gmx.de;+49 175 1077512;active
-800;800;Elke Recker-Schmitz;Silberhell;DE272054470;51789;Lindlar;I'm Potthof 4a;info@silberhell.de;+492266440438;active
-205;205;Elke Stieb;Prachtstück;DE814900236;91054;Erlangen;Obere Karlstr. 5;info@prachtstueck-erlangen.de;+49 9131 9232733;active
-206;206;Elke Wöhr-Maxa;Schmuck und mehr;DE;71287;Weissach;Hauptstr. 8;woehr-maxa@t-online.de;+49 172 6329540;active
-308;308;Erich Barkhau;Galerie Barkhau;De117599118;49074;Osnabrück;Öwer de Hase 20;info@barkhau.com;+49 541 2051532;active
-210;210;Erika Hornung;Ebbes;00882901441;64354;64354 Reinheim;Darmstädterstrasse 43;info@ebbes-reinheim.de;+49 6162 83852;active
-211;211;Erika Wulf;Tara;DE;20251;Hamburg;Hegestr. 9;tangofee@web.de;+49 40 473052;active
-214;214;Esmeralda Kreuk;Esmeralda Sieraden & Atelier;NL001638359B06;4311 BT;Bruinisse;Prinses Beatrixstraat 1a;esmeralda.kreuk@gmail.com;0655191838;active
-2024;2024;Esra Coskuncay;Dilemmart;0000000000;40237;Dusseldorf;Lindemannstrasse 15a;esra.coskuncay@gmx.de;01623231212;active
-2054;2054;Eva Huber;Leo Components AG;ATU64958969;Leusbündtweg 49a;6800;Leusbündtweg 49a;eva.huber@leoag.net;00423 2312060;active
-1916;1916;Eva Schäfer;echt-es;DE310089988;54634;Bitburg;Petersstraße 6;info@echt-es.de;06561/9486220;active
-218;218;Eveline Dudenhöffer;Kompliment!;DE289729778;74080;Heilbronn;Im Kreuzgrund 80;info@kompliment-schmuck.de;+49 176 78305718;active
-219;219;Evelyn Bühler;Atelier für Schmuck;DE;89264;Weißenhorn;Memminger Straße 20;evelyn.buehler@web.de;+49 7309 9396740;active
-220;220;Evelyn Möhring;Moehring e. K.;DE231746366;98630;Römhild;Griebelstr. 20;us@deinmoehring.de;+49 36948 20443;active
-2082;2082;Evelyn Schulz;Sternenstaub Evelyn Schulz;+;85598;Baldham;Erikastrasse 20;hanspeter.hart@googlemail.com;+491733778796;active
-876;876;Felix Stocker;Monarchia Edelmetall UG;beantragt;80802;München;Leopoldstraße 31;stocker@monarchia-edelmetall.de;4917687160844;active
-872;872;Ferdinand Käfer;KF Schäfer;DE;91734;Eschenbach;Rathausstr. 33;keaferferdinand@aol.com;0174 4417779;active
-752;752;Fischer Wolfgang;Fischer Wolfgang;USt.Id.Nr. De244690563;80333;München;Karlstr. 54a (Eingang Dachauerstr.);fischergold@gmx.de;+4989594539;active
-1983;1983;Frank Dreves;Frank Dreves;29/034/02309;24360;Barkelsby;Eckernförder Straße 1;frankdreves@outlook.de;01604848926;active
-224;224;Frank Koethe;Elfieschmuckdesign;-;65830;Kriftel;Friedrichstr.22;elfieschmuckdesign@gmx.de;+49 6192 9550513;active
-225;225;Frank Michael Scholz;Slady Steel;DE290165358;32609;Hüllhorst;Niedermeiersfeld 13;slady-steel@gmx.de;+49 5741 301055;active
-1976;1976;Franz Wagner;Goldschmiede Wagner;-;35274;Kirchhain;Am Markt;goldschmiede.wagner@gmx.de;06422-1738;active
-2009;2009;Franz, Beate;Bea-Franz Schmuckdesign;Kleinunternehmen;61137;Schöneck;Pommernstrasse 14;bea-franz@web.de;06187-5282;active
-1995;1995;Friderike Wilken;Vitrinchen;de298531393;26427;Neuharlingersiel;Am Hafen Ost 2;friderike.wilken@gmail.com;015732251124;active
-231;231;Friedbert Welz;Juwelier Welz;DE 275826964;64319;pfungstadt;eberstädter str 31;info@welz.info;+49 6157 3615;active
-1945;1945;Gabi Strobl;Schrank Gold;DE;85435;Erding;Am Rätschenbach 11;schrankgold.erding@gmail.com;017698306373;active
-235;235;Gabriela Klingler;Silver & Pearls;DE 814657720;66440;Blieskastel;Alte Marktstraße 8;info@silver-and-pearls.de;+49 6842 97113;active
-238;238;Gabriela Schmidt;Stein Juwel;--;8123;Ebmatingen;Aeschstrasse 161;gabriela.schmidt@vtxmail.ch;+41765857402;active
-834;834;Gabriele Thekla Morr;CORDES AURUM;DE222381589;26757;Niedersachsen - Borkum;FRANZ-HABICH-STR. 3;immamo111@gmail.com;+491775579088;active
-241;241;Gaby Reittinger;Garten Eden;;;;;info@garten-eden-cham.de;+49 9971 768079;active
-243;243;Geogr Holdermann;Goldschmiede Holdermann;DE;76332;Bad Herrenalb;Kurpromenade 7;georg.holdermann@gmail.com;+49 7083 525725;active
-1970;1970;Georg Möllenbeck-Stopp;Lampu Schmuck;DE142128051;79189;Bad Krozingen;Bahnhofstr. 8;stopp40@aol.com;076339237730;active
-248;248;Gerd Makoschey;Schmuck und Erlesenes Makoschey;DE117535924;49152;Bad Essen;Lindenstr.61;gerd-makoschey@web.de;+49 4954 72977270;active
-252;252;Gerhard Keller;Ambiente lifestyle & Deko;DE326157917;86199;Augsburg;Adelmannstr.13;info@ambiente-keller.de;+49 821 9069704;active
-1967;1967;GERLINDE KRATOCHWILL;DIE SCHMUCKPERLE;DE255983142;28832;ACHIM;OBERNSTR. 39;gerlindekratochwill@gmx.de;015255958939;active
-254;254;Gert J. Friedrich;Goldschmiede Schmuck Design;DE128615927;87600;Kaufbeuren;Löwegässle 1;goldschmiede-friedrich@t-online.de;+49 8341 40344;active
-716;716;Gertrud Herfurth;Felizas Design;DE;97506;Grafenrheinfeld;Flößerweg 5;felizasdesign@gmail.com;097239053178;active
-740;740;Gertrud Norys;Goldschmiede Norys;DE228112252;91732;Merkendorf;Großbreitenbronn 28;goldschmiede@norys.de;09826/825;active
-754;754;Gertrud Wilfling;Goldschmiede Wilfling;133153133;97836;Oberndorf;Friedensstraße, 6;wilfling-bischbrunn@t-online.de;093941617;active
-257;257;Gertrud Wilfling;Goldschmiede Wilfling;;97836;Oberndorf;Friedensstr. 6;info@schmuckwiedu.de;+49 9394 1617;active
-258;258;Giorgio Canola;Venezianische Goldschmiede;207/209/00654;96049;Bamberg;Obere sandstrasse 30;info@venezianische-Goldschmiede.com;+49 951 3016902;active
-798;798;Goebel , Stephan;Pfandkreditbetrieb Stephan Goebel e.K.;DE239447583;10555;Berlin;Gotzkowskystraße 4;leihhaus1-goebel@web.de;030-39743130;active
-868;868;Goldschmiede Nikolai Rosenfeld;Goldschmiede Nikolai Rosenfeld;215/263/03358;09111;Chemnitz;Rosenhof 13;post@goldschmiede-n-r.de;0371 670201;active
-2087;2087;Goldschmiede Pollaschek;Goldschmiede Pollaschek;13166934;24340;Eckernförde;St. Nicolai Str. 13;goldschmiede-pollaschek@gmx.de;00494351720706;active
-1941;1941;Grübel Christa;Trendschmuck;DE 812334839;75365;Calw;Johannes-Brenz-Platz 10/1;trendschmuck.gruebel@gmail.com;07051 95061;active
-783;783;Gudrun Engert-Popko;Uhren & Schmuck;DE;04736;Waldheim;Obermarkt 12;info@juwelier-popko.de;03432759993;active
-260;260;Gudrun Roth;Schmuckgestaltung Gudrun Roth;DE345862713;65428;Rüsselsheim;Groß-Gerauer-Str.;roth-gudrun@web.de;0614268613;active
-849;849;Guido Krölls;Schatzinsel Tönisvorst;DE154772574;47918;Krefeld;Hochstr. 16;bahl@fmcg.de;02151-76747999;active
-811;811;Guido Rach;Uhren & Schmuck Rach;DE127422982;86157;Augsburg;Augsburgerstr.8;info@uhren-schmuck-rach.de;0821/ 52 59 37;active
-262;262;Gunda Lie Temme;Plateria;;;;;plateria@t-online.de;+49 511 3360369;active
-751;751;Gunda-Lie Temme;Plateria;230156853;30161;Hannover;Lister Meile 59;Info@plateria.de;0511 3360369;active
-259;259;Gundola Steiger;Zauberhaft;DE301298198;82418;Murnau;Untermarkt 42;info@zauberhaft-murnau.de;088416274026;active
-2029;2029;Gundula Horata;Kismet Goldschmiede Horata/Lettgen GbR;DE813335535;46535;Dinslaken;Bahnstraße 12;sigridlettgen@web.de;02064423719;active
-265;265;Gülten Mori;Mori Cologne;DE280975446;50823;Köln;Körnerstr.9;mori.cologne@yahoo.de;+49 221 42360677;active
-1921;1921;Haas;Goldschmiede Haas;DE216816079;82362;Weilheim;Am Ölschlag 2;andrea.haas@edelmetallschmiede-aurum.de;0881-8996;active
-841;841;Hans Bernd Scharnagl;Hans Bernd Scharnagl;DE132251707;96163;Gundelsheim;Fischerstr.14;charny@freenet.de;095141431;active
-2074;2074;Harald Froschauer;Schmuckwerkstatt NUB e. U.;ATU 64409107;8010;Graz;Murgasse 4;office@nubschmuck.at;0043 316 823447;active
-861;861;Harald Kluibenschädl;Kiosk am Locherboden;ATU77949302;6423;Mötz;Burgweg, 3;kluibi@outlook.com;+436641321232;active
-270;270;Harald Maier;Goodies;Kleingewerbe;86488;Breitenthal;Kapellenweg 25;goodies-glasperlen@web.de;+49 8282 62217;active
-792;792;Heidi Schirner;Schirner Verlag GmbH + Co. KG;DE 2451 00 569;64295;Darmstadt;Birkenweg 14a;heidi.schirner@schirner.com;06151-391830;active
-750;750;Heidrun Marget;PERLENUNIKATE;014 824 72999;60316;Frankfurt;Heidestrasse 31;h.marget@perlenunikate.de;01787282845;active
-274;274;Heidrun Marget;Perlenunikate;;60316;Frankfurt am Main;Heidestr.31;a.marget@perlenunikate.de;+49 69 78086952;active
-276;276;Heike Hercigonja;Hercigonja Schmuck Design;Xxx;73457;Essingen;Kirschenweg12/1;schmuck@hercigonja.de;+49 7365 6256;active
-869;869;Heike Lessing;MACHBAR &  SCHÖN;DE;71229;Leonberg;Sindelfinger Weg 11;heike.lessing@machbarundschoen.de;0176 57620802;active
-278;278;Heike Ruf;Schmuckwerkstatt Ruf;DE;77716;Hofstetten;Oberdorf 6;info@schmuckwerkstatt-ruf.de;+49 7832 9746133;active
-1927;1927;Heino Pestrup;Hut-und Schmuckatelier;DE144037054;69437;Neckargerach;Neckarstraße 11A;heinopestrup2@gmail.com;06263 427474;active
-1922;1922;Heinz-Werner Dahm;Nice Designs;DE256542084;55130;Mainz;Hohlstr. 58;info@nicedesigns.de;+49 6131 4989627;active
-1924;1924;HELD;Bijouterie Joaillerie HELD;FR71508356003;68000;COLMAR;Grand rue;marie.held@free.fr;0033-389296546;active
-283;283;Helga Gökmen;Schmuckdesign;DE;85283;Wolznach;Lindenstr. 43;helga.goekmen@t-online.de;+49 8442 4518;active
-1939;1939;Hendrik Boos;edelwert.de;DE245819464;51598;Friesenhagen;Oberweidenbruch 1;info@edelwert.de;01717821660;active
-285;285;Henrike Kreutzheide;die goldschmiedein;DE543592239109034;52062;Aachen;Annastraße 23;henrike_kreutzheide@web.de;+49491636288672;active
-848;848;Herbert Oysmüller;Süssmeisterei;atu78203301;3195;st.aegyd;hauptstrasse 42;info@pralinen-handel.eu;+436644988065;active
-782;782;Hertlein;Sabine Hertlein;DE;65197;Wiesbaden;Wiesbadener Straße 66;s-hertlein@web.de;01703603287;active
-1989;1989;Hilke Schneider;BELCARAT;DE341979228;50674;Köln;Händelstraße 12;order@belcarat.com;01604346134;active
-2043;2043;Holger Schroth;LiMus Via GbR;DE360408849;69469;Weinheim;Hauptstraße 87;info@limusvia.de;+491632015596;active
-292;292;Hrannar Hallgrimsson;Gullkunst;36964;101;Reykjavik;Laugavegur;gullkunst@gullkunst.is;+354 8677224;active
-294;294;Ilka Pohl;Schmuck & Meer;11/164/03986;24558;Henstedt-Ulzburg;Schäferkampsweg 13;design@schmuck-und-meer.de;01773887102;active
-860;860;Ilonka Felsing;Schmuck Lonkis Ilonka Felsing;small entrepreneur;22607;Hamburg;Dornstücken 14;schmuck.lonkis@gmail.com;+4917661271637;active
-874;874;Ina Ebner;Ina Ebner Schmuckgeschichten;De;79106;Freiburg;Egonstr.2;inaebner@schmuckgeschichten.de;0761-20 20 292;active
-1902;1902;Ina Handelmann;Kunstraum Wasserwerk;DE259273562;18551;Glowe;Hauptstr. 1;info@kunstraum-wasserwerk.de;038302 719844;active
-2033;2033;Ina Jeßen;Juwelani;DE245026373;15366;Hoppegarten;Jahnstr. 21;juwelani@gmx.de;03342/2500450;active
-852;852;Indra Krüger;Uhrmacherin Indra Krüger;DE299230994;27711;Osterholz-Scharmbeck;Marktplatz 12;kontakt@uhrmacherin-ohz.de;047919641057;active
-296;296;Ines-Marie Agena;Goldmarie;DE198748336;26465;Langeoog;Barkhausenstr. 11;info@golfclub-insel-langeoog.de;+49 4972 990325;active
-297;297;Inga Meister;Inga em.;DE812 496 409;20259;Hamburg;Eppendorfer Weg 66;inga@inga-em.de;+49 40 43271303;active
-2040;2040;Inge Eilers;Artful-Teehandel;DE190244606;26655;Westerstede;Peterstraße 16;artful.tea@web.de;044886587;active
-1978;1978;Ingo Hoffmeister;Team Hoffmeister;DE117076378;49740;Haselünne;Markt 3;ingo.hoffmeister1@ewetel.net;059615121;active
-299;299;Ingo Voß;Juwelier Voß;DE;25704;Meldorf;Spreetstaße 5;info@juwelier-voss.de;+49 4832 8407;active
-779;779;Ingrid Baumgaertner;Enjoy Munich Design;DE341805837;80638;Munich;Tizianstr. 133;info@enjoymunichdesign.de;+498917094146;active
-301;301;Ingrid Dublenycz;Hans Hertel;176909192;91564;Neuendettelsau;Hermann-von-Bezzelstr.19;hjhertel-hans@web.de;+49 9874 66998;active
-1918;1918;Ingrid Leim;Kleines Strandglück;DE202307924;17459;Ückeritz;Uferpromenade 1b;ingrid.leim@t-online.de;01773228545;active
-853;853;Ingrid Reischl-Wimmer;Helmut Wimmer GesmbH.&Co.KG;ATU32015306;6380;St. Johann in Tirol;Kaiserstraße 5;info@juwelier-wimmer.at;0043535262528;active
-1942;1942;Ingrid Riesterer;Schmuchideen;De;79258;Hartheim/ a Rhein;Schauinsland Str.12;ingrid-riesterer@hartheim.net;0177 3404437;active
-307;307;Iriana & Wladislaw Kugeler;Goldart;;;;;kontakt@goldart-schmuck.de;+49 176 52113455;active
-309;309;Iris Biehl;Meißterbiehl;DE313837785;82110;Germering;Bahnhofplatz 4;info@meisterbiehl.de;+49 89 54316159;active
-312;312;Irmgard Schierle-Bette;Glaszauber;DE;70372;Stuttgart;Sulzbachgasse 12;info@glaszauber.de;+49 711 5302525;active
-315;315;Isabel Müller;Ojala;DE;80331;München;Radlsteg 2;ojalamuenchen@yahoo.de;+49 89 220987;active
-2031;2031;Isabella Pauly;Hofacker GmbH;22/650/3281/1;56068;Koblenz;Schloßstraße 14;pauly@goldschmiede-hofacker.de;026112202;active
-762;762;Isabelle von Hörde;Isabelle von Hörde / Edel & Mehr;DE290600744;40625;Düsseldorf;Kölner Tor 20;info@edelundmehr.de;0211-30147090;active
-827;827;Iveta Antalova;Greg & Rich, s.r.o.;SK2120261913;915 01;Nové Mesto nad Váhom;Dubcekova 14;info@gregandrich.com;+421903677807;active
-856;856;Jacqueline Landgraf;Feng Shui Haus Pirna;DE276780124;01796;Pirna;Barbiergasse 4;info@fengshui-haus-pirna.de;03501-7797412;active
-648;648;Jan Braunert;Hümmer & Braunert GbR;DE331673635;22083;Hamburg;Flotowstraße 2;info@thessalie.de;017683223932;active
-320;320;Jan Hasselberg;Goldschmied;DE813030748;25980;SYLT;STRANDWEG 8;hesselberg@vodafone.de;+49 177 6345888;active
-321;321;Jan Satek;NEXTART Schmuckhandels GmbH;ATU64330334;1070;Wien;Neustiftgasse 67-69/35;office@nextart.at;+436763476001;active
-2048;2048;Janine Georgi;Honu & Moko Aumakua;DE359079100;96132;Schlüsselfeld;Am Zehentfeld 4;info@moko-aumakua.de;015758300036;active
-324;324;Jasmin Haidinger;Jasmins Jewelry;AT47538204;1060;Wien;Mariahilferstr. 45;info@jasmins.at;+43 1 5857566;active
-863;863;Jasna Sklebec;SILBERMOOS GmbH;DE319841656;55268;Nieder-Olm;Lindenstr. 15;jasna.sklebec@silbermoos.de;+4961364659377;active
-326;326;Jeannine Böttcher;J9 happyschmuck;DE303246975;39112;Magdeburg;Jordanstraße 9;Jeannine.B@web.de;+491723138180;active
-877;877;Jennifer Giesen;Goldschmiede Feld;106/5080/3683;40217;Düsseldorf;Friedrichstr. 28a;info@goldschmiede-feld.de;0211/371132;active
-878;878;Jennifer Jatho;LuxurySilver;DE 270 346 941;63165;Mühlheim;Robert-Koch-Str. 27;service@luxurysilver.de;06108/81764;active
-327;327;Jennifer Lauritsen;Schmuck & Meehr;;;;;J.lauritsen87@gmail.com;+49 151 61666686;active
-2076;2076;Joachim Graß;Uhren und Schmuck Schmitt-Graß;DE 164918160;66386;St,Ingbert;Rickertstr. 11;info@schmitt-grass.de;06894 4162;active
-331;331;Joachim Held;Der Juwelier Held;DE;31655;Stadthagen;Obernstrasse 5;held-stadthagen@t-online.de;+49 5721 1816;active
-1907;1907;Joachim Held;Juwelier Held;DE116505086;31655;Stadthagen;Obernstraße 5;held.louisa@web.de;05721/1816;active
-1932;1932;Joachim Rössig;Der Sonnenstrahl;130133899;81827;München;Von-Erckert-Str. 35;babsmoellerroessig@gmail.com;01711247457;active
-336;336;Joachim Vorndamme;Goldschmiede Vorndamme;DE 125409630;32052;Herford;Radewiger Straße 13;contact@goldschmiede-vorndamme.de;+49 5221 56333;active
-337;337;Joanna Arreaza Navarro;Arte Lava;;;;;artelava@gmail.com;+34 922 925817;active
-338;338;Jochen Schwab;Perlenmarkt;DE;86150;Augsburg;Wintergasse 5;info@perlenmarkt-onlineshop.de;+49 172 9015801;active
-340;340;Johann Lanzinger;Lanzinger Spielwaren und Geschenke;DE179152048;94377;Steinach;Ludwig - Lehner-Straße 7;johann@lanzinger-web.de;+4994288250;active
-342;342;Johann Weiss;Juwelier Weiss;ATU27237102;8530;Deutschlandsberg;Hauptplatz 15;juwelierweiss@aon.at;+434334622795;active
-788;788;Johannes Nierholz;Nierholz Uhren und Schmuck;DE338631827;79215;Elzach;Hauptstraße 68;johannes@nierholz-uhren.de;076828809;active
-345;345;Jörg Müßig;Aquamarine Sylt;DE;25980;Westerland;Neuestraße 1;aquamarine.sylt@aol.com;+49 4651 9575375;active
-347;347;Jörg Plüschau;Plüschau;DE;24340;Eckernförde;Kielerstr. 61;info@juwelier-petersen.de;+49 4351 767450;active
-349;349;Jörn Gahre;Goldschmiede Gahre;;;;;jgahre@online.de;+49 5761 2359;active
-350;350;Jörn Masemann;Jalimei;DE815297866;27616;Beverstedt;Mühlenstr. 59;meike.masemann@jalimei.de;+49 4748 549888;active
-1969;1969;Judith Amslgruber;JUDIDIT JEWELRY COLLECTION;DE230700513;82057;Icking;Krautgärten 22;judith.amslgruber@judidit.de;0170 47563 11;active
-1968;1968;Jula Abdolali;Kaufrausch Haarschmuck;DE289114364;20149;Hamburg;Isestraße 74;jula@abdolali.de;015254211266;active
-352;352;Julia Kubitza;Julia Kubitza Design;43/134/00013;22303;Hamburg;Lorenzengasse 7;info@juliakubitza.com;+49 179 9498393;active
-726;726;Julia Nägele;Julia Theresia Nägele;94835073127;86825;Bad wörishofen;30 Sankt-Wolfgang-Straße;Julia.naegele.85@gmail.com;015117808270;active
-871;871;Julia´s - Mit Liebe handgemacht;Stefan Lex;DE310387569;83376;Truchtlaching;Aubergstraße 1b;Julias_Taschenwerkstatt@web.de;016093820783;active
-1935;1935;Julian Sander;Atipep GmbH;DE346348681;22765;Hamburg;Ottenser Hauptstr. 44;Info@atipep.de;04039907129;active
-353;353;Julian Terbuyken;Jewelberry;DE315273160;29496;Waddeweitz;Dommatzen 12;info@jewelberry.de;015772373017;active
-2035;2035;Juliana Annen;Schmucksiederei;DE360534931;73230;Kirchheim;Rossmarkt 9;grabowski@schmucksiederei.de;07021-8078167;active
-801;801;Juliane Schäftner;Wildbachwelle;De;91242;Ottensoos;Bergstraße.18;info@wildbachwelle.de;01735934630;active
-2093;2093;Jurij Keil;Kraudzun Goldschmiede e.K.;DE241506060;83022;Rosenheim;Rathausstrasse 10;info@kraudzun.de;0803117914;active
-357;357;Jutta Kaiser;Schatzinsel;;;;;kaiserinsel@web.de;+49 2151 311544;active
-360;360;Jutta Müller;Silbervitrine;;63486;Bruchköbel;Martin-luther-strasse 1;Jutta.mueller@silbarvitrine.de;+49 6181 76970;active
-753;753;Jutta Müller;Silbervitrine;DE112811655;D 63486;Bruchköbel;Martin-Luther-Str. 1;jutta.mueller@silbervitrine.de;+49 6181 76970 oder 0179 3882508;active
-1904;1904;Juwelier Held;Juwelier Held;DE116505086;31655;Stadthagen;Obernstr., 5;info@held-stadthagen.de;05721/1816;active
-361;361;Jürgen Bacho;Edelsteinpalais Bacho;DE250314955;91487;Vestenbergsgreuth;Bürgermeister Bauer Str. 8;pj-bacho@t-online.de;+49 151 11175505;active
-362;362;Jürgen Büttner;Silberringe.de;DE166792718;28203;Bremen;Ostertorsteinweg 34;jb@silberringe.de;+49 421 79478642;active
-844;844;Jürgen Eschenweck;Fa. Contrast;de;81667;München;Weißenburger Str.36;contraste@gmx.de;+4989476687;active
-1917;1917;Jürgen Kaiser;Schatzinsel;DE 268 674 389;47929;Grefrath;Hohe Str. 17;kokopelli2@web.de;02158-2262;active
-1979;1979;Karadana;Silver & More UG;DE;23566;Lübeck;Kantstrasse 15 - 17;silverandmore@gmx.de;04517060918;active
-719;719;Kargo-Porter Petra;Silberfisch;DE;82418;Murnau;Obermarkt 34;silberfisch-murnau@outlook.de;015114229868;active
-363;363;Karin Jordan Ciesielski;New Trend & Classic;DE;18181;Graal-Müritz;Zur Seebrücke 9;jordan.karin@t-online.de;+49 38206 79896;active
-364;364;Karin Martin;UnikRte;DE;83346;Bergen;Säulner Weg 5;martin_karin@t-online.de;+49 175 1619976;active
-1966;1966;Karin Steiger;Kreativ-Schmuck;DE 343068550;72070;Tübingen;Dürrstr.31;karin.steiger@gmx.de;0707141533;active
-367;367;Karolin Auth;Schmuckschmiede;DE218491820;45149;Essen;Humboldtstr. 310;karolin@schmuckschmiede-auth.de;+49 201 3166277;active
-368;368;Karolin Puppe;Elb Goldschmiede Parey;DE299468402;39317;Parey;Friedensplatz 1;goldschmiede.kp@web.de;+49 152 08758708;active
-369;369;Karsten Lange-Rickmers;Inselgoldschmiede C. Rickmers;811 804 135;25946;Norddorf;Lunstruat 1;info@rickmers-schmuck.de;+49 4682 564;active
-1975;1975;Karsten Steingräber;Piercingstudio Steingräber;DE;58507;Lüdenscheid;Hagedornskamp 7;info@piercingstudio-steingraeber.de;02351456638;active
-1954;1954;Karsten Steingräber;Piercingstudio Steingräber;DE159 912 932;58507;Lüdenscheid;Hagedornskamp 7;piercingstudio-steingraeber@t-online.de;02351456638;active
-2026;2026;Kathi Eilert-Heers;Weisse Perle;de;37127;Barlissen;Niedere Streaße 16;weisse.perle@gmx.de;01711774998;active
-373;373;Kathlenn Schmelzer;KS Goldschmiede;DE;014509;Delitzsch;Eilenburgerstr. 23;kathleen-schmelzer@t-online.de;+49 34202 343715;active
-375;375;Kathrin Günther-Wezyk;Dürerhaus;;;;;duererhaus@arcor.de;+49 361 6421393;active
-513;513;Kathrin Trommen;nt nina trommen;DE 244175925;80997;München;Lechelstraße;info@ninatrommen.de;01728125544;active
-790;790;Kathrin Walter;SchmuckDesign-Goldschmiede K. Walter;De;68167;Mannheim;Lange Rötterstr.41;schmuckdesign-goldschmiede@web.de;06214018192;active
-867;867;Kathrin Weyhrich;Goldschmiede Weyhrich;DE293153846;07407;Rudolstadt;Strumpfgasse 1, Ecke Marktstraße;dirkweyhrich@web.de;03672412116;active
-2014;2014;Katja Pollok;Katja Pollok;DE182569525;40670;Meerbusch;Königsberger Straße 9;katjapollok@web.de;02159-910056;active
-380;380;Katrin Heinrich;Katrin Heinrich;DE;74076;Heilbronn;Riedstr . 29;post@kh-schmuckdesign.de;+49 171 6556350;active
-2059;2059;Katrin Hohenschildt;Atelier "SCHMUCKSTÜCKE";2213102475;23552;Lübeck;Hüxstrasse 86;Katrin.hohenschildt@gmx.de;0491701481966;active
-744;744;KAUFRAUSCH;Hesse und Bischoff GbR;DE297460400;96047;Bamberg;Austrasse 27;info@kaufrausch-bamberg.de;095123807;active
-2056;2056;Kerstin Martin;divineArt;DE321333391;91058;Erlangen;Volckamerstraße 60;sharan.nojella@gmail.com;+49 171 7913179;active
-385;385;Kerstin Schumacher;Kerstin Schumacher;DE245048514;49716;Meppen;St.-Georg-Str.31;ke.schumacher@gmx.de;+49 174 2617109;active
-387;387;Kerstin Wendler;Lädchen am Fleth;;25348;Glückstadt;Am Fleth 25;laedchenamfleth@hotmail.de;+49 4124 932938;active
-106;106;Kevin Martin;Martin's Jewellers;IE6333835o;Y35FY83;Wexford;2 Lower Rowe Street;info@martinsjewellers.ie;0863189458;active
-794;794;Kiki xander;Frauenzimmer;De;82152;Planegg;Lena-Christ-str. 12;kiki.xander@email.de;0173 6087638;active
-589;589;Kim Shari Hoffmann-Cordes;Shari Hoffmann;DE320731838;25980;Westerland;2 Elisabethstraße;shari@kimshari.de;046519952999;active
-1930;1930;KIRCHLER;Kirchler Kg02;02916730217;39030;Ahrntal;Mühlegg 101;info@arturkirchler.com;00390474652145;active
-1943;1943;Klara Thiel;KLara Thiel;DE;53783;Eitorf;Mühlenstraße 6;klaraswerkstatt@aol.com;02243 841694;active
-392;392;Klaus J. Miecznik;Schmuckkästchen;;;;;miecznik@mailbox.org;+49 201 3846732;active
-395;395;Klußmann;Tröndle;DE249697207;26486;Wangerooge;Zedeliusstr.36;info@juwelier-troendle.de;+49 4469 1800;active
-403;403;Kristina Haevescher;Vananne;DE317043246;22848;Norderstedt;Schillerstraße 5;vananne@gmx.de;+49 151 21617825;active
-404;404;Kristina Platt;Strandschmiede;DE134966687;25946;Nebel;Gewerbegebiet 5b;info@strandschmiede.de;+49 160 96468466;active
-787;787;Krölls;EigenArt;DE186700648;83278;Traunstein;Ludwig Straße 20;g.kroells@gmx.de;08611669790;active
-406;406;Lars Lewitzke;Zeitraum-Sylt;DE232115394;25992;List auf Sylt;Alte Bahnhofstr. 16;info@zeitraum-sylt.de;+49 160 1106857;active
-2028;2028;Lars Riemenschneider;Strandlädchen;DE174874439;24235;Laboe;Strandstr. 58 a;info@strandlaedchen.de;01739534235;active
-2078;2078;Laura;Kay;187112508;N10 3HP;London;109 Fortis Green Road;laura@tomfoolerylondon.co.uk;00442084447000;active
-408;408;Laura Gessler;Kleines Glück;DE289790459;85661;Forstinning;Kirchenweg 10;info@kleinesglueck-shop.de;+49 170 3470946;active
-780;780;Laurens Seidel;Laurens Seidel;207/273/40107;96135;STEGAURACH;Raiffeisenplatz 9;laurens.seidel@gmx.de;01629682915;active
-1944;1944;Lavinia-Minette Schoo;die kleine perle am main;DE310395023;97286;Winterhausen;Fuchsstadterstr.9;kontakt@die-kleine-perle-am-main.de;09333-9043088;active
-1912;1912;Le Quyen Vu;TONI SHOP;151/208/23679;99084;Erfurt;Marktstr. 54;ToniShop99@gmail.com;03615669950;active
-769;769;Leela Arts;Leelaarts;DE271700999;86825;Bad Wörishofen;Kneippstr.;leelaart@online.de;0824732570;active
-412;412;Lena Grewenig;Lena Grewneig jewelry;DE346386124;60323;Frankfurt am Main;Grüneburgweg 87;inbox@lena-grewenig.de;+49 171 4500674;active
-721;721;Lida Lette;Eenvoud;NL804231497B01;1016HW;Amsterdam;Prinsengracht;amsterdameenvoud@gmail.com;0206226374;active
-802;802;Lina Sophie Frick;Juwelier Norbert Frick KG;DE;23730;Neustadt in Holstein;Kremperstr. 30;Juwelier-frick@web.de;04561-4691;active
-1928;1928;Linder Schmuckdesign;Linder Schmuckdesign UG;DE;91054;Erlangen;5 Innere Bruckerstr;Linder-Jewelry@outlook.com;016093851794;active
-875;875;Lisa Bieser;Atelier Kunst & Seide;DE;79410;Badenweiler;Wilhelmstr. 39;lisabieser@hotmail.de;076327550591;active
-415;415;Lisa Bieser;Kunst & Seide;de;79410;Badenweiler;Wilhelmstr. 39;atelier@lisabieser.de;+49 7632 823611;active
-2034;2034;Lothar Rösch;Schmuckatelier Rösch;DE306 676 132;89079;Ulm;An der Zollbrücke 12;info@schmuckatelier-roesch.de;07305 21684;active
-2037;2037;Lothar Rösch;Schmuckatelier Rösch;DE306 676 132;89079;Ulm;An der Zollbrücke 12;lothar.roesch@gmx.de;07305 21684;active
-418;418;Luca Marie von Otto;Luca Marie;112/256/90156;85661;Forstinning;Forsthausweg 5 A;lucavonotto@gmx.de;+49 162 7252550;active
-1992;1992;Lucas Veith;Lumora;noch nicht vorhanden;77815;Bühl;Wolfhagweg 6;Lumora9293@web.de;015233512524;active
-420;420;Luise Höhne;Cyriax;DE;07545;Gera;2 Humboldtstraße;info@goldschmiede-gera.de;+49 365 20413884;active
-781;781;Madeleine Wissing Strand;Wissings Guld AB;01556062-8538;58102;Linköping;Storgatan 26;info@wissingsguld.se;46013149538;active
-770;770;Magdalena Höhne;Magdalena Höhne Schmuck;DE;73430;Aalen;Hofackerstrasse 16;magdalena.hoehne@gmail.com;0049736161461;active
-737;737;Maier;Artjom Maier;DE338579918;27578;Bremerhaven;Glatzer Straße 40;maier.brhv@gmail.com;017663355302;active
-2018;2018;Malgorzata Schrangl;ArtBijouxWelt;0000000000;4650;Edt bei Lambach;Fischerwweg 20;mp.artbijoux@yahoo.com;+434369919283392;active
-1925;1925;Manuela;Meyer;no VAT;37136;Ebergötzen;Kirchtal 51;schmuck-schmueckendes@web.de;055072792;active
-429;429;Manuela Braun;Kreativstüble;DE217016216;78532;Tuttlingen;Ettlensegart 20;Manuela.braun.kreativ@gmx.de;+49 7461 4507;active
-433;433;Manuela Loch;Sundance;DE;56068;Koblenz;Münzstr.6;info@sundance-online.de;+49 261 160568;active
-434;434;Manuela Neubert;Wild auf Wohnen;DE;67468;Neidenfels;Waldweg 20;neubertmanuela@aol.com;+49 152 08537956;active
-435;435;Manuela Ritter;Manuela Ritter;CHE 279 476 119;9485;Nendeln;Alemannenstrasse 6;Clara_design@gmx.ch;+41787302334;active
-2036;2036;Marc Stich / Reidenbach;Goldschmiede Reidenbach;0157306125;53474;Bad Neuenahr-Ahrweiler;Hauptstraße 102;Goldschmiede-Reidenbach@web.de;+49264125369;active
-822;822;Marcus Oliver Vorwerk;Deutsche Edelmetalle Invest und Recycling GmbH;DE 263 132 512;45731;Waltrop;Dortmunder Str. 10;waltrop@deir.de;02309/7862827;active
-2046;2046;Maren Brunner;Julchen;DE252946533;24879;Neuberend;Klosterreihe 45 A;maren@julchen.de;016094957286;active
-442;442;Margit Mach;Präsenta;DE150204850;99189;Elxleben;Thomas-Müntzer-Str. 79;margit.mach.medizintechnik@gmx.de;+49 173 523669;active
-444;444;Maria Fiedler;einzig-ART-ig;DE;63071;Offenbach;Stauffenbergstr.3;marie.fiedler@gmx.net;+49 69 85709292;active
-445;445;Maria Stürenburg;Maria Stürenburg -Erdenfeuer-;DE290615148;48167;Münster;Normannenweg 181;info@erdenfeuer.de;+49 175 2977183;active
-446;446;Maria Theresia;Galerie Maria Theresia;DE;39031;Brunneck;Stadtgasse 78;info@galeriemariatheresia.it;+39 0474 555427;active
-837;837;Mariann Ehrhardt;Mariann Ehrhardt;DE242964855;68723;Oftersheim;Reinhold Frank Str. 2;Mariann.e@t-online.de;015208717561;active
-447;447;Mariele Gommla;MarieleGommla;;59387;Asherberg;Münsterstraße10;mariele.gommla@outlook.de;+49 2599 1479;active
-448;448;Mariele Liebl;Palma Kunkel;DE;80469;München;Frauenhoferstraße 5;mail@palma-kunkel.eu;+49 89 2605790;active
-449;449;Marina Geisler;Goldschmiede Chrima;DE286768167;61137;Schöneck;Froschbachstr.14;mail@schmuck-chrima.de;+49 6187 91473;active
-1896;1896;Marina Hertzig;Goldschmiedeatelier Hertzig;DE350484889;89250;Senden;Hauptstraße 27;goldschmiede.team@gmail.com;0730731136;active
-450;450;Marion Buchsteiner;Schmuck Design;000;8967;Haus/E.;Fassbindergasse 244;marionbuchsteiner@gmail.com;+43 069981411812;active
-1914;1914;Marion Kempin;Edle Steinketten Föhr;-;25938;Wyk;Strandstrasse 65;marion.kempin@icloud.com;01608032798;active
-873;873;Marion Kunz;Marion Kunz;DE;79106;Freiburg im Breisgau;Guntramstr. 8;kunzmarion@gmx.de;0 178 1093559;active
-453;453;Marion Lüscher;Zone Designerschmuck;;;;;info@zoneschmuck.ch;+41 79 3220494;active
-829;829;Marita Stegherr;Uhren und Schmuck Marita Stegherr;DE129198896;87757;Kirchheim;Hauptstraße 12;uhren-stegherr@online.de;082661774;active
-1961;1961;Marita Vogel;Maritas Schmuckstube;3387800613  ID Nr. DE45028179163;64760;Oberzent;Neckartalstraße 72;marita.vogel@arcor.de;015202668343;active
-461;461;Markus Lentzen;Wandelbar;86 057 192 130;24340;Eckernförde;Frau-Clara-Straße 28;Mlentzenla@aol.com;+49 174 9498958;active
-773;773;Markus Wenger;Rockstyle;DE295330656;74915;WAIBSTADT;ZIEGELSTR. 9;markus.wenger@freenet.de;01712417334;active
-463;463;Markus Zinth;Goldschmiede Zinth;;;;;info@goldschmiede-zinth.de;+49 8241 910311;active
-464;464;Marta Velez;Rosa Bisbe;ESA58100926;08021;BARCELONA;GANDUXER 20;marta@rosabisbe.com;+34 932 016590;active
-1893;1893;Martin Corrigan;Design House Binz;DE357357908;18609;Ostseebad Binz;Hauptstraße 6;einkauf@dh-binz.de;03839343801;active
-727;727;Martin Henn;Schmuck & Uhren Henn;DE293132681;68723;Schwetzingen;Mannheimerstr.55;info@schmuckuhrenhenn.de;06202/14027;active
-886;886;Martin Ochs;Golddschmiede Ox-Design UG;DE255804696;34497;Korbach;Stechbahn 4;goldschmiede.oxdesign@gmail.com;05631-9377767;active
-466;466;Martin Wagner;Goettgen;DE 263 136 862;83471;Berchtesgaden;Maximilianstr. 6;werkstatt@goettgen.de;+49 8652 947870;active
-2067;2067;Martina;Wangemann;DE91448602378;51469;Bergisch Gladbach;Kempener Str. 60;tina.wangemann@gmx.net;01632432100;active
-720;720;Martina Bachmann;Glitzer&Glamour;De;89420;Höchstädt;Freiherr-von-Ungelter Str.3;bachmann_martina@yahoo.de;01702077228;active
-2019;2019;Martina Hoch;Hoch kreativ;DE238958327;78269;Volkertshausen;Hauptstr. 44;martina@hoch-kreativ.de;07774 9397924;active
-469;469;Martina Scholz;Silberschmiede Hamisch;102/271/07591;39104;Magdeburg;Otto von Guericke Str. 53;silberschmiede@email.de;+49 391 5434821;active
-471;471;Marzena Hajduczek;Mirma;;;;;mirma@mail.de;+49 89 1498887;active
-2041;2041;Mathias Liegl;Mathias Liegl VENADesign;DE316135282;82327;Tutzing;An der Leiten 3;venadesignshop@gmail.com;01717046627;active
-472;472;Matthias Naue;Der Silberladen;;99867;Gotha;Neumarkt 10;kontakt@der-silberladen.de;+49 3621 223706;active
-1894;1894;Mediha Schweighardt;Silberquelle;DE203353695;38124;Braunschweig;Helene-Engelbrecht-Str.129;mediha.schweighardt@gmail.com;+491736564421;active
-724;724;Meerfein;Meerfein;DE327258675;26127;Oldenburg;Brookweg;meerfein.shop@gmail.com;04413094373;active
-803;803;Mehri;Mehri Eskandari;At;1080;Wien;Neudeggergasse 5/19;mehri_eskandari@yahoo.de;00436644067671;active
-476;476;Melzer & Aschenbrenner;Goldschmiedelust;DE 237631528;92224;Amberg;Jesuitenfahrt 6;info@goldschmiedelust.de;+49 9621 9177455;active
-479;479;Michael Keppeler;868 Studio;DE334367922;86830;Schwabmünchen;Fuggerstraße 4;info@868studio.de;01708053734;active
-1947;1947;Michael Momesso;SchmuckAkzente;DE293836653;73463;Westhausen;Dalkinger Straße 13;Schmuckakzentemomesso@gmail.com;01725292476;active
-805;805;Michael Nengelken;Pasion;ESX8601660M;07157;Pto. d’Andratx;C/ Saluet 1, local 8;info-pasion@gmx.de;+34971674789;active
-1985;1985;Michael Wemmel;Bulldog Beads;DE279344983;22089;Hamburg;Wandsbeker Chaussee 157;service@rockerschmuck.shop;01573-6234209;active
-480;480;Michaela Gronmayer;Die Glaswerkstatt;?;86502;86502 Laugna;Bergstr. 16;1michagron@gmail.com;+49 8272 899376;active
-767;767;Michaela Pinter;Michaela Pinter Goldschmiede;ATU73437925;7000;Eisenstadt;Esterhazystraße;hi@mimela.at;06601202241;active
-483;483;Michaela Rudolph;Goldschmiede Rudolph;DE;79423;Heitersheim;Römerstr. 21;michi-rudolph@t-online.de;+49 7634 507515;active
-2085;2085;Michaela Rudolph;Goldschmiede;12116/20468;79423;Heitersheim;Römerstr., 21;romanfroschmeier@gmail.com;+491749217282;active
-2030;2030;Michaela Schwenn;A. Schwenn Achwiesuess Jewelry;DE 326258374;81477;München;Hermann-Hahn-Platz 11a;info@achwiesuess.de;+491716250050;active
-766;766;Michaela Thieme;Elathi Design;DE272779573;01309;Dresden;Loschwitzer Strasse 58;kontakt@elathi-design.de;0351/3119926;active
-486;486;Michaela Thieme;Elathi Design;;;;;diemichaelathieme@web.de;+49 351 3119926;active
-2032;2032;Mirjana Gahre;Goldschmiede Gahre;12345;31592;Stolzenau;2;mikicavelebit@gmail.com;015252468312;active
-490;490;Mitzi Mog;Silverschmiede;33131;72160;Horb a. Neckar;Schütteberg 7;mitzimog1@googlemail.com;015776139072;active
-491;491;Mojan Shatrandji;Metal & Meer;DE;38640;Goslar;Petersilienstr. 2;mshatrandji@t-online.de;+49 5321 709550;active
-826;826;Monica Sebesan;ARMILLA RO ART SRL;39338202;410595;Oradea;Ioan Corneli, 3;monica.sebesan@yahoo.com;0040723803147;active
-115;115;Monika Cadetg;Flurina;0;7563;Samnaun Dorf;Dorfstrasse 22;info@flurina-samnaun.ch;0818685522;active
-738;738;Monika Duschl;ketten und nettes;DE298614974;81547;München;Resedenweg 4;info@mehrzweckraum-harlaching.de;089 23964270;active
-2068;2068;Monika Jakoby;Monika Jakoby;DE812211740;66620;Nonnweiler;Im Hornfeld 11;monika.jakoby@web.de;01778357563;active
-745;745;Monika Plachy;Glamour;DE162358185;71543;Wüstenrot;Fuchswiesenstr 5;monikaplachy@aol.com;079452935;active
-496;496;Monika Reiter;Glanzpunkt;DE 811 945 989;86609;Donauwörth;Reichsstraße 11;retaildon@glanzpunkt.de;+49 906 7057270;active
-825;825;Montserrat BADA HANSEN;RESTYLE2;DE316108615;50999;Köln;Falderstrasse, 39;restyle2@gmx.de;022364906006;active
-785;785;Mücke Manfred;Mücke Uhren und Schmuck;DE139758809;06749;Bitterfeld;Walther-Rathenow-Str. 27;info@mein-juwelier.com;0349323695;active
-823;823;Nadine Hirsch;Juwelier Hirsch GmbH;DE293948699;76437;Rastatt;Poststr. 21;info@trauringe-hirsch.de;0722234228;active
-498;498;Nadine Schröder;Inselgedanke;0;18586;Göhren;Strandstr. 7;info@inselgedanke.de;+49 38308 91015;active
-500;500;Nele Markgraff;Grafengold;DE306559754;27612;Loxstedt;Wiesenstraße 4a;hallo@grafengold.de;+49 157 86918967;active
-791;791;Neus;Nova Joieria Radresa,S.A.;ES A17967175;17257;Torroella de Montgri;C. Sant Agusti 40;neusbonada@yahoo.es;0034972759106;active
-1977;1977;Nico Kettmann;Schmuckatelier Kettmann;DE260387362;14776;Brandenburg;Hauptstr. 46;schmuckatelier.kettmann@rftonline.net;01621870974;active
-505;505;Nicole Labemeier;Schmuckkasterl;DE815484110;84160;Frontenhausen;Marienplatz 10;schmuckkasterl@googlemail.com;+49 8732 9384047;active
-506;506;Nicole Lennartz;Silberpunkt;;;;;n.lennartz@silberpunkt.de;+49 4364 471755;active
-763;763;Nicole Meyer-Kötter;Rosabuntes Lädchen;de252513050;49143;Bissendorf;Wissinger Heide 3b;info@rosabunt.de;01708237501;active
-2073;2073;Nicole Simon;Nicole simon;DE289144987;78048;Villingen-Schwenningen;St.Georgener Str. 20;info@schmuckdesign-vs.de;07721 502775;active
-749;749;Nicole Stumpe;Wunderwerk;DE285778834;26122;Oldenburg;Burgstraße 22;nicole.stumpe@web.de;01788144855;active
-509;509;Nicole Weiß;Schmuckatelier;DE278237874;82234;Weßling;Bahnhofstr. 2;info@schmuckatelier-weiss.de;+49 8153 906264;active
-510;510;Nikolai Noack;Die Schatzkammer;323367499;23769;Fehmarn;Altenteil 3;schatzkammer.fehmarn@yahoo.de;+49 4372 639;active
-511;511;Nina Heyd;Capulet;;;;;contact@capulet.de;+49 89 22843850;active
-760;760;Nina Heyd;CAPULET Jewelry;De 264896021;80799;München;Zieblandstrasse 19;presse@capulet.de;01731986981;active
-743;743;Norbert  Wiegers;Oh! Calcutta;22353210921;50933;Köln;Stolbergerstrasse 1;patriciapink@web.de;02212585884;active
-1936;1936;Odette Bunica;Odette Bunica, Vincent Lackner GbR;DE355839144;82061;Neuried;Heimgartenweg 14;Odette.bunica@simplyo.de;01743121400;active
-517;517;Olaf Windecker;Juwelier Windecker;DE5755972;61440;Oberursel;Oberhöchstadter Str. 3;info@windecker.de;+49 6171 54471;active
-723;723;Olga Ebert;Boutique pur pur;DE251351459;16816;Neuruppin;Fischbänkenstrasse 17a;ebert@soventus.de;0049 15112020227;active
-835;835;Oliver Bauer;Karl Bauer eK;DE131955027;63739;Aschaffenburg;47 Herstallstraße;info@bauer-juwelier.de;06021/23005;active
-518;518;Oliver Wind;Live2day;NL002067994B02;4306CJ;Nieuwerkerk;Kerkring 1;info@live2day.nl;+31 111 550550;active
-519;519;Otto Semler;Juwelier Otto Semler;DE;35037;Marburg;Bahnhofstr. 10;juwelier-semler@t-online.de;06421 65710;active
-2066;2066;Panick, Andrea;Schmuck und Uhren;De139860095;06917;Sachsen-Anhalt - Jessen (Elste;Lange Strasse;andreapanick.schmuck@web.de;+49493537216373;active
-2060;2060;Patricia Drapalla-Lerch;Perlenspiel;DE201440773;88483;Burgrieden;Heusteige 9;perlenspielpd@gmail.com;015141434866;active
-524;524;Patrick Rueff;Schmuckbande-com;DE;81827;München;Großfriedrichsburger Straße 8D;info@schmuckbande.com;+49 89 63496803;active
-526;526;Perlerie;Ulrike von Stein;DE130440101;80634;München;Volkartstrasse 17;post@perlerie.net;+49 89 1689155;active
-530;530;Peter Kenner;Goldschmiede Peter Kenner;140/235/50602;86842;Türkheim;Maximilian-Philipp-Str.26;Peterkenner@web.de;08245967186;active
-533;533;Peter Wunsch;Kultur Ecke;de;88662;Überlingen;Münsterstr. 40;kultecke@t-online.de;+49 7551 69662;active
-730;730;Petra Bockstegers;Goldschmiede Atelier;DE;46519;Alpen;Adenauerplatz 8;petra.bockstegers@gmail.com;00491737273718;active
-759;759;Petra Carlen;EdelruhEchtschmuck;DE302231736;36103;Flieden;Unter den Birken 12;petracarlen@arcor.de;0151-61429345;active
-761;761;Petra Pawletta;Himmelblau;;96515;Sonneberg;Rathenaustraße 2;info@himmelblau-sonneberg.de;+49 3675 807300;active
-1929;1929;Petra Regnery-Britz;Haareszeiten Naturfriseure;DE241603353;56068;Koblenz;Markenbildchenweg 16;regnery-britz@web.de;02615793427;active
-1900;1900;Petra Sanders;Kunsthandwerk und Schmuck;DE359292391;28203;Bremen;Horner Straße;info@muranoglas-perlen.de;04217941420;active
-1955;1955;Petra Waldow;P Schmuck und Accessoires;DE81512560;01324;Dresden;Rißweg 29;p.waldow@gmx.de;00491725959576;active
-2022;2022;Petra Witte;Witte;DE;25836;Garding;Mückenberg 4;ppww78653@gmail.com;0151 175 43 672;active
-541;541;Petra Witte;;;;;;witte.petra1@t-online.de;+49 160 95542904;active
-839;839;Philipp Reinhartshuber;Mandismar e.U.;ATU67847333;5020;Salzburg;Nonntaler Hauptstrasse 69;office@mandismar.com;06764288824;active
-1950;1950;Pia;Margelisch;CH;3900;Brig;Furkastrasse 13;hair.pia@bluewin.ch;+41793527418;active
-813;813;Pinkall GmbH;Pinkall GmbH;St. Nr. 107/5734/0019;47055;Duisburg;Fischerstr. 124;pinkallschmuck@yahoo.de;0203774333;active
-732;732;Quiter Martin;Perlenrausch Quiter;DE815195247;57462;Olpe;Kurfürst-Heinrich-Str. 5;info@perlenrausch-quiter.de;027619422670;active
-543;543;Raimund Wettle;Cato-Design;---;6861;Alberschwende;Nannen 216;office@cato-design.at;+43 664 2829605;active
-2072;2072;Rampf;Silberflöckchen;102/260/30455;86830;Schwabmünchen;Alter Berg 3;kr-schreibservice@web.de;01772022400;active
-2071;2071;Raphael Maria Stieler;Perlenoase;DE 275 784 616;86633;Neuburg an der Donau;Am Schlagbrückchen 10;info@perlenoase.com;015117644359;active
-2086;2086;Regina Frank;Rocia;DE328898561;86845;Großaitingen;Bahnhofstr. 22;info@rocia.de;01794851510;active
-546;546;Regina Goldmann;Schmuck u. Seidenkreatione;;;;;regina.goldmann@gmx.de;+49 561 827594;active
-547;547;Regina Schmidt-Boye;Schmuckdeel;de;25386;Garding;Bahnhofstr. 3;info@schmuckdeel.de;+49 4862 201864;active
-728;728;Reweka Hess;Der Goldbasar;DE244697510;85301;Schweitenkirchen;Holledaustr. 24;reweka.hess@googlemail.com;084418796254;active
-553;553;Rita Gansmeier;Sha Ris;DE;80333;München;Augustenstr.63;ritaganslmeier@yahoo.de;01733873680;active
-789;789;Rita Kramer;Uhren und Schmuck;DE;09244;Oberlichtenau;Sachsenstraße 9;schmuckrita@gmail.com;0372084689;active
-555;555;Rita Rohrßen;Dies und Das;DE201093075;31515;Wunstorf;An der Friedenseiche 6;mail@diesunddassteinhude.de;+49 5033 1780;active
-556;556;Rita Schütt;Dekomagie;DE256641218;22305;Hamburg;Hellbrookstrasse 57;info@dekomagie.de;+49 151 16776783;active
-557;557;Robert Moll;Will I. Trotzdem GmbH;DE322219915;89584;Ehingen (Donau);Gymnasiumstr. 14;will-i-trotzdem@web.de;+49 7391 4661;active
-558;558;Roberto Blast;Diamond-Heiligen-Hafen;;;;;Bernstein-und-Silber@web.de;+49 151 53977726;active
-1982;1982;Roberto Fernandez;OLA;DE135706670;10405;Berlin;Wörther Str 22;ola-schmuck@web.de;01772161095;active
-765;765;Roger Hortlund;Arctic Gem;SE520229855901;93130;Skelleftea;Nygatan 63;info@arcticgem.se;+46702372040;active
-559;559;Roksana Bühn;Rogarii;335/5031/3006;32429;Minden;Menzelstr. 4;roksanabuehn@web.de;+49 160 97047054;active
-560;560;Roland Bock;Schmuck Fachwerk;DE214810786;67433;Neustadt a.d.W.;Landsachreibereistr. 3;Schmuckfachwerk@email.de;+49 6321 386690;active
-887;887;Rolf Dittmann;Juwelier Dittmann;811958660;29303;Bergen;Harburger Str. 8;rolfdittmann@t-online.de;05051-2074;active
-797;797;Rose Nebel;Goldschmiede am Kirchplatz;DE;51789;Lindlar;Hauptstraße 5;rosenstamm@gmx.net;02266 7062;active
-564;564;Rosemarie Recio de Mertens;Gold & Zeit;DE235284007;73760;Ostfildern;Hauptstr .14;info@goldundzeit.de;+49 711 69989956;active
-885;885;Rubina Kumar;ve;00;80686;München;Selma-Lagerlöf-Straße 76;rubina.kumar@icloud.com;01794935733;active
-565;565;Rudi Ertel;Kolibri;DE316138540;96052;Bamberg;Obere Königstrasse 16;kolibri_schmuck@web.de;+49 951 29608977;active
-566;566;Rudolf Baier;24schmuck.de;DE143880657;68305;Mannheim;Malvenweg 39;info@24schmuck.de;+49 178 4576387;active
-1905;1905;Rudolf Zirnsak;SchmuckStars;DE284178574;97688;Bad Kissingen;Ludwigstr.16;schmuckstars@web.de;09717858592;active
-568;568;Rüdiger Wich-Schwarz;Die Goldschmiede;DE229220352;95444;Bayreuth;Sophienstraße;goldschmiedewichschwarz@yahoo.de;092162699;active
-572;572;Sabine Hertel;Kon-dor Schmuckdesign;79786504324;92360;Mühlhausen;Am Hammerberg 6;info@kon-dor.de;+49 1751533919;active
-574;574;Sabine Pflaum;;;;;;pflaum.christian@t-online.de;+49 951 71847;active
-734;734;Sabine Raubaum;SchmuckStück;DE354435781;25398;Wyk auf Föhr;Große Straße 13;sabine.raubaum@gmx.de;04681 7479325;active
-731;731;Sabine Raubaum;SchmuckStück;DE354435781;25938;Wyk auf Föhr;Große Straße 13;schmuckstueck-foehr@gmx.de;04681 7479325;active
-725;725;Sabine Schultz;Das BernsteinZimmer;DE-153581674;18609;Ostseebad Binz;Hauptstraße 9;info@bernstein-ruegen.de;00491712002941;active
-842;842;Sabine Seitz-Klein;Juwelier A.Bräutigam;DE 313 113 488;90403;Nürnberg;Hauptmarkt  18;info@juwelier-braeutigam.de;0911-227112;active
-777;777;Sabine Staab;Pferdeperle;DE;27798;Hude;Grummersorter Dorfstraße 46;info@pferdeperle.de;01724179118;active
-771;771;Sabine Sturm;Schmuckdesign Sturm;DE;81377;München;Am Wiesenhang 11;info@schmuckdesign-sturm.de;01719858004;active
-715;715;Sabrina;Funkeloase;DE;86517;Wehringen;Obere Pointstrasse 4;S.Achberger@outlook.de;+491733236699;active
-784;784;Sabrina Achberger;Funkeloase;DE;86517;Wehringen;Obere Pointstr. 4;info@funkeloase.de;01733236699;active
-1908;1908;Sabrina Eddelbüttel;Shellcreations;17/046/02868;25980;Sylt;Gurtmuasem 2g;info@shellcreations.de;0175-1097713;active
-755;755;Sandra Baumann;Ellwanger Hochzeitshaus;DE266406765;73489;Ellwangen;Rotkreuzstrasse  44;info@ellwangerhochzeitshaus.de;07961/560127;active
-322;322;Sandra Jenischek;Alterberger Dom-Laden / Haus Altenberg e.V.;DE121948344;51519;Odenthal;Eugen-Heinen-Platz 2;info@domladen.de;+49 2174 419930;active
-577;577;Sandra Klinnert;Verein für Kultur und Wohlbefinden;DE;07356;Bad Lobenstein;Markt 5;verein.kw@googlemail.com;+49 36651 37124;active
-816;816;Sandra Steinbichler;Magische Steinwelt;DE;85290;Geisenfeld;Marienplatz 4;s.steinbichler@mail.de;01799097878;active
-581;581;Sandra Unger;Sali's;218 283 02482;08294;Lößnitz;Gerbergasse 1;salis@online.de;03771253897;active
-774;774;Sandra Wolf und Stefanie Kräh;Umhängsel GbR;DE;94356;Kirchroth;Jägerstraße 12a;info@umhaengsel.de;01608115427;active
-585;585;Sarah Inan;AP Schmuck;DE286290524;91207;Lauf;Kirchenplatz 2+ 4;A.P.Schmuck@googlemail.com;+49 9123 9989389;active
-1986;1986;Saskia Vierhuf;Saskia Vierhuf;DE318547848;40670;Meerbusch;Kösliner Weg;info@villarosalotta.de;015231754617;active
-1973;1973;Schloßboutique;Mainau GmbH;DE142313043;78465;Konstanz;Schwedenhof 1;Timo.schmid@mainau.de;+497531303182;active
-587;587;Schlusen;Warnemünder Schmuckeck;de;18119;Rostock;Am Strom 60;Warnemuender-Schmuckeck@gmx.de;+49 381 5190490;active
-1964;1964;Schmückend;Judith Werner;DE259244734;35510;Butzbach;Hausbergstraße 46;judith@werner-mailbox.de;0157 7154 7364;active
-804;804;Schuetz;SBS;De;84570;Villes  Sur Auzon;2 Le Grand Portail;84stefanieschuetz@gmail.com;0033 619113192;active
-654;654;Seyde Alp;Juwelier Babylon;DE812034364;37269;Eschwege;Stad 34;juwelierbabylon@gmx.de;+49 5651 70859;active
-714;714;Shailender;Bahl;De;65934;Frankfurt Am Main;Oeserstraße 1;shailenderbahl63@gmail.com;00491703813049;active
-2090;2090;sharnee ranjitsingh bache;Monsoon Arts & Crafts;DE279077474;33602;Bielefeld;Goldstrasse 22;info@monsoon-arts.de;015121503830;active
-596;596;Silke Ftuhlfauth;Schmuck & Ideen;;;;;goldschmiede@schmuckundideen.de;+49 9122 8088810;active
-775;775;Silke Holdinghausen;Silke Holdinghausen;DE;51371;Leverkusen;Unterstr. 6;silke@holdinghausen.com;01748538438;active
-2017;2017;Silke Rehbein;Malusi;DE279069272;83043;Bad Aibling;Marienplatz 1;info@malusi.de;01623171858;active
-599;599;Silke Rehbein;Malusi;DE279069272;83043;Bad Aibling;Marienplatz 1;rehbeinsilke@aol.com;+49 8061 3498451;active
-603;603;Silvia Kasdorf;Chunky Funky;ESX2102585V;03727;Xaló, Spanien;Av. Pla de la Séquia 61 Local 7;silviik@live.com;0034676781034;active
-772;772;Silvia Zierer;Gemsundpearlsbavaria;DE;84174;Eching;Kornweg 8;silvia.zierer@gmx.de;004987091455;active
-605;605;Simone Müller;Goldschmiede Schmuck & Stein;82047561948;87509;Immenstadt;In der Hub 13;info@schmuck-und-stein.com;+49 8323 9696177;active
-606;606;Simone Neubert;Steinschmuck-Kreation;;;;;simoneneubert@gmx.de;+49 38326 82007;active
-1906;1906;Simone Schmidt;Ostsee-Mitbringsel;-;23970;Benz;Gamehl 24a;ostsee-mitbringsel@web.de;-;active
-608;608;Sintya Milani;Y6879003Q;Y6879003Q;38686;Santa Cruz de Tenerife;Finca Cuchillo de Amaro 1;sintyamilani369@gmail.com;604127622;active
-1898;1898;Sonja Häcker;Goldschmiede Häcker;DE260282178;89198;Westerstetten;Geislingerstr 19/2;goldschmiede.haecker@gmail.com;07348982400;active
-2084;2084;Sonja Sauer;Glitzerstein;DE257776600;81737;München;Specklstrasse, 22;kontakt@Glitzerstein.com;01797316652;active
-840;840;Sonja Weger MSc;Individuelle Schmuckstücke;ATU59895466;6111;Volders;Jagerbichl 20;sonja.weger@a1.net;+436645034430;active
-832;832;stefan buser;InnocentArt;DE 166731032;86316;friedberg;nikolausweg 1;innocentart@gmx.de;08212629026;active
-615;615;Stefan Ebert;Schmuck Lounge;de202246171;68161;Mannheim;O3,1;info@schmucklounge.de;+49 621 1788898;active
-809;809;Stefan Gruhle;Gruhle GmbH;DE215338279;92637;Weiden;Hinter der Schanz 10 / Schulgasse;info@gruhle.com;0049 961 44232;active
-620;620;Stefan Müller;Der Goldschmied;DE160671970;81243;München;Radolfzeller Str.13;der-goldschmied@arcor.de;08989689559;active
-621;621;Stefan Seuß;Elfen Schmuck;DE226182943;12524;Berlin;Kirschweg 19;info@elfen-schmuck.de;+49 30 81723618;active
-1909;1909;Stefanie Gerloff;Schmuckfee;De;91126;Schwabach;Limbacherstr 25;info@schmuckfee.de;0151-22905923;active
-1974;1974;Stefanie Klees;Besonders Schönes;-;4955;Gondiswil;Hauelen;stefanie@besonders-schoenes.ch;0789536046;active
-624;624;Stefanie Rauch-Tschapeller;Edelsteinfasserwerkstatt;DE168130724;81241;München;Schusterwolfstr.7;rauch@edelsteinfasser.de;+49 89 8542460;active
-883;883;Steffen Kühnert;In Gold & Silber;DE154193200;26871;Papenburg;Friederikenstr 1;s.kuehnert@ingoldundsilber.de;04961 9821967;active
-1911;1911;Stephanie Mallien;Stephanie und Martin Mallien GbR;DE320318335;22941;Bargteheide;Rosenweg 11;diesternschnuppe@mallien.info;0176-56998378;active
-722;722;Stephanie Möllering;Die Möllering;DE291308554;49074;Osnabrück;Redlinger Straße 2;mail@diemoellering.de;0049 1794197129;active
-1915;1915;Stjernswärd Carl-Adam;Stjernswärd Juveler och Design ab;SE556425953801;11442;Stockholm;Sibyllegatan;info@stjernsward.se;+46705762252;active
-1951;1951;Susanne Hülsmann;Perlenmarkt;DE356480299;90403;Nürnberg;Weinmarkt 1;info@perlenmarkt.eu;015120659541;active
-795;795;Susanne Kramer;Kramer;DE;2500;Baden bei Wien;Kaiser Franz Josef Ring 33 Tür 5;kramer.atelier@gmx.at;0043 6764603116;active
-810;810;Susanne Krings;Schmuck & Design;DE265366685;61479;Glashütten;Sandweg 19;post@susanne-krings.de;6082928454;active
-1984;1984;Susanne Preidel;Raumduftmanufaktur Susanne Preidel;DE354183018;61206;Wöllstadt;Hanauer Str. 59;einkauf@blissful-aromas.de;+4960345098451;active
-831;831;Sussie Nielsen;Smykkeskrinet;34217297;3700;Rønne;St. Torvegade 2;sn@sussie-smykkeskrin.dk;56959090;active
-1934;1934;Svenja Marissa Schratt;Gaby's Schmuckinsel e. K.;DE299710457;86978;Hohenfurch;Schönachstraße 9;gs@gabys-schmuckinsel.de;0886120499;active
-830;830;Svenja Oertel;Goldschmiedewerkstatt Svenja Oertel;-;42283;Wuppertal;Paracelsusstr.40;svenja.langendorf@web.de;004920294689710;active
-634;634;Svenja Schratt Füssen;Gaby´s Schmuckinsel Füssen;DE299710457;87629;Füssen;Hutergasse 1;juwelier@gabys-schmuckinsel.de;+49 8362 9304363;active
-729;729;Sybille Reinig;Feine Schätzchen;de248333723;64658;Fürth;Tierparkstraße;info@feineschaetzchen.de;062534194;active
-1889;1889;Sylvi Jenny Weber;Schmuckplatzl;DE297584742;82494;Krün;Im Gschwand 5;info@schmuckplatzl.de;017675984214;active
-637;637;Sylvia Becker;Kontraste;DE267931480;32756;Detmold;Bruchstrasse 24;info@kontraste-detmold.de;+49 5231 3031737;active
-639;639;Sylvia Noack;Feng Shui-Haus;;;;;info@fengshuihaus-leipzig.de;+49 172 3697089;active
-1980;1980;Tabea Wollenweber;Vaganza;DE350379043;79312;Emmendingen;Markgrafenstraße 10;info@vaganza-emmendingen.de;076479333113;active
-640;640;Tamara Pinkwart;Tamara´s Perlenkunst;DE;94428;Aufhausen Eichendorf;Eichendorferstraße 10;info@tamaras-perlenkunst.de;+49 176 20516051;active
-733;733;Tanja Even;Oranien-Truhe;DE184685232;57250;Netphen;Neumarkt 28;info@oranientruhe.de;027381258;active
-2064;2064;Tanja Schönberger;Seelenoase;DE307615046;86150;Augsburg;Auf dem Rain 1;info@seelenoase-augsburg.de;08213495028;active
-847;847;Tanya Kraußer;Goldbeck Design;DE 273167063;20146;Hamburg;Hallerstraße 1c;Info@goldbeckdesign.de;+49 176 84944377;active
-858;858;Tatjana Möschl;;;;;;tatjana_moeschl@hotmail.com;;active
-646;646;Terea Cataluna Leydorf;Lovely + Hooked;De;40545;Düsseldorf;Luegallee 105;teresacatalunaleydorf@yahoo.de;+49 1722030744;active
-711;711;Teresa Beck;Schmuckliab;DE-309803878;84166;Adlkofen;Am Himmelreich 15;info@schmuckliab.de;0163/7470058;active
-1895;1895;Theodoros Cil;Barbarossa Juwelier;DE350088407;63571;Gelnhausen;Im Ziegelhaus 1;theonathan@hotmail.de;017631589536;active
-799;799;Thomas Butz;Käfers Goldankauf GmbH & Co. KG;De;80335;München;Bayerstraße 27;thomas.butz@juwelier-kaefer.de;089 41 11929 28;active
-1988;1988;Thomas Gasser;Dharmapala Duong & Gasser GbR;DE356519682;65934;Frankfurt;Ferdinand-Scholling-Ring 77;thgasser1@unitybox.de;01631527626;active
-859;859;Thomas Weidner;Weidner Maritim OHG;DE264071380;27476;Cuxhaven;Cuxhavener Str. 90;info@weidner-maritim.de;0472146165;active
-2096;2096;Thomas Weis;Karfunkelschmiede;xxx;63825;Schöllkrippen;Hauptstraße 31;karfunkelschmiede@web.de;0176 70 5555 19;active
-821;821;Thomas Woller;Schwechater Uhren-Engel;ATU50270200;2320;Schwechat;Hauptplatz 4;office@uhren-engel.at;+4317076227;active
-651;651;Thore Blome;Letj Schmuckkasje;DE813018030;25946;Norddorf;Strunwai 5;thore@letj-schmuckkasje.de;+49 4682 9616055;active
-1993;1993;Timo Gombold;tigo mondo;DE323409225;70619;Stuttgart;Bernsteinstr. 126;timo@gombold.de;071199738666;active
-655;655;Tina Jensen;Smykke Form;DK19557286;9000;Aalborg;Bispensgade 8;s-form@mail.dk;+45 98 131232;active
-1923;1923;Titze;Elke;486000001790;90579;Langenzenn;Berliner Straße;elke.titze@web.de;16;active
-656;656;Tobias Fischer;Trachtenschmuck Fischer;DE305555138;85586;Poing;Mitterfeldring 72;info@trachtenschmuck-fischer.de;+49 151 50112648;active
-657;657;Torsten Dillenburg;Schmuckgestaltung Webers;46499;39;Hamminkeln;Ringenberger Straße 39;t.dillenburg@web.de;+49 2852 960457;active
-1940;1940;Tugba Kapancioglu;Tugba Kapancioglu - KreativMinerals;02283365805;63477;Maintal;Spessartstr. 25;tugbakapancioglu@gmail.com;00491601527130;active
-2044;2044;Ulla Schütz;Goldschmiedewerkstatt Ulla Schütz;00;91241;Kirchensittenbach;Steinensittenbach 23;info@ullaschuetz.de;0163 5627846;active
-820;820;Ulla Zierer;Goldschmiede Zierer;DE130722746;81925;München;Arabellastr. 5;Gold.Zierer@gmail.com;089913934;active
-818;818;Ulrich Störbrauck;U.Störbrauck e.K.;DE249574073;45891;Gelsenkirchen;Cranger Straße 314;goldschmiede@stoerbrauck.de;+492097900112;active
-1991;1991;Ulrike Betzler-Hüttemeister;Juwelier Betzler;DE153279287;58762;Altena;Lennestraße 22;info@fildor.de;0235222500;active
-1994;1994;Ulrike Hahne;Ulrike Hahne;DE181882454;47877;Willich;Opalstraße 20;ulrike.hahne@web.de;+49 2154 8889927;active
-836;836;Ulrike Wehner;GlanzReich;DE277820786;20251;Hamburg;Neumünstersche Str. 22;info@glanzreich.de;1724051138;active
-1998;1998;Ulrike Zehner;Sammeln & Schenken Kd.Nr. 13406;DE812344576;97762;Hammelburg;Rote-Kreuz-Str. 3;info@sammeln-schenken.de;09732/7476;active
-1913;1913;undine stella schroth;undine stella collection;DE;83346;bergen;fliederweg 2;collection@undinestella.com;01726858529;active
-665;665;Uriel Beate Polzin;Kunstwerkstatt;DE259208618;83209;Prien;Wendelsteinstr.8;urielbeatepolzin@web.de;+49 8051 6404220;active
-1996;1996;Ursula Bittner-Wagenknecht;Juwelier am Markt;DE 327 364 062;56812;Cochem;Oberbachstr. 1;juwelier_am_markt@yahoo.de;02671-7370;active
-846;846;Uta Karen Hammelmann;Glasperlenmanufaktur PERLENDÜENE;2504460610;23730;Neustadt in Holstein;Kremper Str. 7;utahammelmann@glasperlenblog.de;+49 176 84493225;active
-2063;2063;Ute Poeppel;Weiße Gärten;205/5231/1987;53113;Bonn;Ermekeilstr. 25;info@weisse-gaerten.de;0151-52230992;active
-1990;1990;Ute Renate Bleichner;Ute Bleichner;207/205/61124;96194;Walsdorf;Lange Straße 13;ute.bleichner@gmail.com;09549 1445;active
-672;672;Ute Wichels;Ute Wichels;de;28279;Bremen;Baumhauser Weg 46k;utewichels@drahtschmuck.de;+49 421 8369683;active
-747;747;Uwe Grabisch;Gold-Grabisch;DE 142025974;79098;Freiburg;Rathausgasse 28;uwe.grabisch@gmx.net;0761-33847;active
-2045;2045;Uwe Middelberg;Goldschmiede Attribute, Uwe Middelberg;DE222742781;32105;Bad Salzuflen;Lange Str. 28;uwe.middelberg@schmuckattribute.de;05222806262;active
-741;741;Valerian Heyrowsky;TimeisDesign;DE336494780;86932;Lengenfeld;Sonnenstraße 3;valerian@timeisdesign.com;017631098750;active
-838;838;Vanessa Huven;Die Goldschmiedin;DE306708300;33442;Herzebrock-Clarholz;Gütersloher Str. 39;info@diegoldschmiedin.net;052459225698;active
-1972;1972;Vanessa Maya;Fräulein Maya - www.fraeulein-maya.de;DE327270519;76879;Hochstadt;Gemarkstraße 21;fraeulein.maya@gmail.com;063479724580;active
-735;735;Vera Kreuzer;Meistergoldschmiede Kreuzer;132/240/90956;84030;Ergolding;Herbststrasse 21;vera-kreuzer@gmx.de;015773708107;active
-677;677;Vera Terhorst;My Home Crystal;DE219697489;49492;Westerkappeln;Große Straße 1;info@myhome-kunst.de;+49 5404 9579797;active
-678;678;Verena Kohn;Die kleine Goldschmiede;;76770;Hatzenbühl;Luitpoldstr.70;verenakohn@gmx.de;+49 7275 95096;active
-679;679;Verena Lentz;Schöniglich;DE288857760;65183;Wiesbaden;Am Kaiser-Friederich-Bad 6;info@schoeniglich.de;+49 173 6620590;active
-815;815;Verena Rafensteiner;Galerie Kunst und Handwerk;De;86720;Nördlingen;Marktplatz 15;galerie.kunstundhandwerk@yahoo.de;0908122626;active
-680;680;Viviane Behare;Atelier B;BE0554514752;1050;Brussels;Rue Berkendael 197;vivibehare@yahoo.fr;+32 23 449564;active
-2016;2016;Volker Schmidt;LOOK! Time & Style;DE281296356;23769;Fehmarn;Am Markt 18;info@look-time.de;04371-6790;active
-681;681;Volkert Johanssen;Juwelier Johannsen;000;25761;Büsum;Alleestraße 11;info@juwelier-johannsen.de;+49 4834 93555;active
-682;682;W. von Schmieder;C/O Magnis-Schlump;DE;80804;München;Mainzerstr. 16B;info@vonschmieder.de;+49 89 294286;active
-683;683;Walburga Heidemann;Goldschmiedemeisterin Walburga Heidemann;DE;57539;Bitzen;Fichtenweg 18;walburga.heidemann@t-online.de;+49 2682 4586;active
-1888;1888;Wedel;Wedel;DE 812152737;27383;Scheeßel;Große Straße 20;wedel.schmuck-uhren@ewetel.net;04263/1343;active
-685;685;Wibke Paeth;Home and Kids;DE814080687;22589;hamburg;schenefelder landstrasse 154;wibke@homeandkids.de;+49 40 8701198;active
-690;690;Wilfert;ST'ATOUR - Wilfert & Böhme GbR;DE344791378;04177;Leipzig;Odermannstraße 13;bonjour@st-atour.de;+49 341 59981182;active
-833;833;Wilhelm Neth;Edles aus Stein;DE166864956;72419;Neufra;Rädlesbergstr. 40;WilhelmNeth@aol.com;075743710;active
-1920;1920;Wolfgang Günther;Argentum925;DE233412454;81669;München;Lilienstraße 63;info@argentum925.de;0175-2240230;active
-694;694;Wyssen;Gravia Trade;-;3661;Uetendorf;Thunstr.63;renate.wyssen@gmx.ch;+41 79 3762970;active
-695;695;Yasmine Naggar Zain;Die Schmuckwerkstatt GbR;40811;71691;Freiberg;Marktplatz 4;info@schmuckwerkstatt-freiberg.de;+49 7141 2980868;active
-2092;2092;Zoran Sitar;Zlatarstvo Zoran Sitar s.p.;SI23177934;4000;Kranj;Sorska ulica 20;zoransitar@t-2.net;041616301;active
+﻿No.;Customer Number;name;firmenname;VAT Number;postleitzahl;stadt;straße;email;phone;isUser;land;role;password
+699;699;;Solid sol;;;;;office@solid-sol.com;+43 3112 36050;angenommen;;customer;
+700;699;;Unikat Schmuck Gbr;;;;;INFO@UNIKAT-SAARBRUECKEN.DE;+49 681 373313;angenommen;;customer;
+701;701;;WasserSchnuppe;;;;;sinnfonie@aol.de;+49 6654 7757;angenommen;;customer;
+1892;1892;;;;;;;service@goldschmiedeschommer.de;;angenommen;;customer;
+1;1;A & A Schauer;Kunsthandwerk;;;;;info@schmuckampuls.de;+49 8822 6194;angenommen;;customer;
+2;2;A. Polychronidis;Kinitro;;;;;;+49 7071 256452;angenommen;;customer;
+3;3;Achim JÃ¶rg SchrÃ¶der;Juwelier SchrÃ¶der;;;;;info@juwelier-fulda.de;+49 661 25055522;angenommen;;customer;
+4;4;Achim Reiser;Reiser GmbH;;;;;info@reiser-schwetzingen.de;+49 6202 578910;angenommen;;customer;
+5;5;Adnan Dasdemir;A & N Accesories;;;;;;+49 7621 589446;angenommen;;customer;
+6;6;Adrian BÃ¼scher;Goldschmiede BÃ¼scher;;;;;Goldschmiede-Buescher@t-online.de;+49 5971 50607;angenommen;;customer;
+776;776;Agi;Silver Hug Ltd.;DE;1089;Budapest;Blathy Otto u.4-8 Felem 6;silverhug@gmail.com;309143295;angenommen;;customer;
+7;7;Aida Behner-Zlatar;AIDA Silberschmuck;;;;;info@aida-silberschmuck.de;+49 561 474096;angenommen;;customer;
+8;8;Alexander DÃ¼rigen;Silber-Design;;;;;silber-design@web.de;+49 6341 88631;angenommen;;customer;
+9;9;Alexandra Gruber;Alex Feinwerk;;;;;alex.feinwerk@t-online.de;+49 151 25278652;angenommen;;customer;
+10;10;Alexandra Kammerlander;Love Sign;;;;;Alexandra-lovesign@hotmail.com;+43 676 4015666;angenommen;;customer;
+11;11;Alexandra Muelenz;Luxusperle;;;;;mail@luxusperle.de;+49 176 61924791;angenommen;;customer;
+12;12;Alexandra Schmidt;;;;;;aschmidt0505@icloud.com;+49 176 31200649;angenommen;;customer;
+2012;2012;Alfons Schmidt;Alfons Schmidt;0;92342;Freystadt;Rohr 26;schmidt.schmuck@web.de;09179 1313;angenommen;;customer;
+13;13;Ali Ghalandarlakisoltani;Soltani;;;;;Ali.Soltani@gmx.de;+49 241 95472340;angenommen;;customer;
+2011;2011;Alicia Spinelli;SchÃ¶nWerk;97331/20374;70619;Stuttgart;Bockelstr. 92c;aliciamertens@gmail.com;4,92E+11;angenommen;;customer;
+14;14;Allen Brown;Allen Brown Jewellery;;;;;allen@allenbrownjewellery.co.uk;+44 1543 481948;angenommen;;customer;
+15;15;Ana Durao;;;;;;geral.adjoias@gmail.com;+93 31 45030;angenommen;;customer;
+16;16;Ana Wintgen;Perlentaucher;;;;;info@perlentaucher-leipzig.de;+49 341 2601697;angenommen;;customer;
+1953;1953;Andrea A. Heuser;Andenken&Mitbringsel;DE815213961;69117;Heidelberg;Hauptstrasse  215;andenkenundmitbringsel@web.de;0174 75 65005;angenommen;;customer;
+17;17;Andrea Angres;Uhren Pippig;;;;;info@uhren-pippig.de;+49 6261 15857;angenommen;;customer;
+18;18;Andrea Gassenbauer;Daniel Schmuckwelten;;4202;Kirchschlag bei Linz;Davidschlag 41;info@schmuckwelten.at;+43 660 9206566;angenommen;;customer;
+19;19;Andrea Graf;Kandis;;;;;info@kandis-natur.de;+7425 21226;angenommen;;customer;
+2005;2005;Andrea Hecht;A&A Schauer;DE128352060;82487;Oberammergau;Devrientweg 3;hecht.andrea@yahoo.de;08822 6194;angenommen;;customer;
+20;20;Andrea KÃ¼ster;Juwelier KÃ¼ster;;;;;juwelier.kuester.karlsruhe@t-online.de;+49 721 849268;angenommen;;customer;
+21;21;Andrea Mai;Schmuckliesl;De;86916;Kaufering;Pommernstr. 18;mai.andrea@me.com;+49 8191 4286488;angenommen;;customer;
+808;808;Andrea MÃ¶hle-Remus;Feinschliff-Goldschmiede;DE 242 802 146;44866;Bochum;VoedestraÃŸe 1;info@feinschliff-goldschmiede.de;2327548900;angenommen;;customer;
+23;23;Andrea Panick;Schmuck & Uhren Panick;;;;;info@andreapanick.de;+49 3537 216373;angenommen;;customer;
+24;24;Andrea Quast;Goldschmiede;;50931;KÃ¶ln;LandgrafenstraÃŸe 67;mail.me@andrea-quast.de;+49 221 2828562;angenommen;;customer;
+25;25;Andrea Schiechtl;;;;;;info@andreaschiechtl.at;+43 650 9240029;angenommen;;customer;
+26;26;Andrea Schwydki;silvera925;;;;;silvera925@yahoo.de;+49 6421 4899923;angenommen;;customer;
+27;27;Andrea Student;Student;082/279/00297;18546;Sassnitz;BÃ¶ttcherstraÃŸe 5;astudent@web.de;+49 162 2117414;angenommen;;customer;
+28;28;Andrea Thesing-Schenk;miomyfashion;;;;;info@miomyfashion.de;+49 2863 381461;angenommen;;customer;
+2088;2088;Andrea Thesing-Schenk;Miomyfashion;0;48653;Coesfeld;Kupferstrasse 11;hwschenkcoe@gmail.com;02541-9288930;angenommen;;customer;
+29;29;Andrea Voklert;Schmuck & Design;;;;;mail@andrea-volkert.info;+49 177 3681103;angenommen;;customer;
+1999;1999;Andreas DÃ¶rre;Uhren Optik Schmuck DÃ¶rre;56964807329;51702;Bergneustadt;KÃ¶lner Str. 206-208;schmuck@optik-doerre.de;02261/41658;angenommen;;customer;
+814;814;Andreas Erkalp;Juwelier Zero;DE815278816;22083;Hamburg;Hamburger StraÃŸe 31;info@juwelier-zero-meile.de;040 41929661;angenommen;;customer;
+30;30;Andreas Nees;;;;;;anheraoro@outlook.de;+49 6181 4345586;angenommen;;customer;
+31;31;Andreas Palm;AFP;;;;;afp@afp-silberschmuck.de;+49 33093 60432;angenommen;;customer;
+33;33;Andreas Schiestl;Natur SchmÃ¼ckt;;;;;andreas@schiestl.info;+49 7642 45371;angenommen;;customer;
+34;34;andreas weber;Juwelier A.Weber;213980730;8371;Glauchau;BrÃ¼derstr., 13;juwelier-aweber@saxonia.net;37633878;angenommen;;customer;
+35;35;Andreas Wildner;AW;;;;;awildner@t-online.de;+49 7745 1338;angenommen;;customer;
+36;36;Anemone Tontsch;Galerie Cebra;;;;;info@galerie-cebra.de;+49 211 323212;angenommen;;customer;
+38;38;Angela Huber;Goldschmiede Huber;;;;;goldschmiede.huber@gmx.at;+43 676 4866902;angenommen;;customer;
+2010;2010;angela raschka;goldschmiede raschka;027/859/30022;34454;bad arolsen;schloÃŸstrasse 9;angelaraschka@online.de;05691 8779009       0171 9977783;angenommen;;customer;
+39;39;Anita Daffner WÃ¶lflick;Dein Schmuck Werk;;;;;anita@deinschmuckwerk.de;+49 8039 908855;angenommen;;customer;
+40;40;Anita Kanelopoulos;;;;;;gangela@gmx.de;+49 7143 33671;angenommen;;customer;
+41;41;Anita Michel;Liebeswertes;;;;;anita.michel@rentweinsdorf.eu;+49 175 5510198;angenommen;;customer;
+42;42;Anita MoosmÃ¼ller;Katarina rembeck;9277141;84140;Gangkofen;BahnhofstraÃŸe 110;anita.moosmueller@web.de;+49 8722910614;angenommen;;customer;
+2003;2003;Anja Linkis;Mike`s & More;DE174884106;29308;Winsen Aller;PoststraÃŸe 5;a-linkis@gmx.de;0160/96206577;angenommen;;customer;
+43;43;Anja M. Gast;Arizona-Galerie;;;;;arizona-galerie-germany@t-online.de;069 287379;angenommen;;customer;
+1963;1963;Anja Muth;die Schmuckmanufaktur;DE257319203;74336;Brackenheim;Friedhofstr.3;info@die-schmuckmanufaktur.de;4,92E+11;angenommen;;customer;
+44;44;Anja Schramm;;;;;;anja-schramm.home@t-online.de;+49 151 16789959;angenommen;;customer;
+45;45;Anje Schliepper-Bracher;Juwelier Schliepper;;;;;schlieperanne@yahoo.de;+49 6772 94163;angenommen;;customer;
+879;879;Anke BrÃ¼dgam;Inselseifen;DE254323139;18546;Sassnitz;HauptstraÃŸe 10;inselseifen@web.de;1705372513;angenommen;;customer;
+46;46;Anke Junginger;Der kleine Engelladen;DE258621489;85375;NEUFAHRN b. Freising;Liebigweg 9;anke@all-is-one.de;4,91E+16;angenommen;;customer;
+47;47;Anke Pryzgoda;FrÃ¤ulein Punkt Design;;;;;fraeuleinppunkt@gmx.de;+49 177 3264737;angenommen;;customer;
+48;48;Anna KÃ¼hmstedt;;;;;;mail@annaplus.de;+49 40 45 06 06 49;angenommen;;customer;
+49;49;Anna-Sue Lorenz;Schmuck mal;;;;;schmuckmal@web.de;+49 821 71058072;angenommen;;customer;
+1981;1981;Anne Demmer;Caja;94219078633;52062;Aachen;Kapuzinergraben 9;caja52064@gmx.de;15119454747;angenommen;;customer;
+50;50;Anne Gohr;Decoration DÃ­nterior;;;;;anne@annegohr.de;+49 160 97027731;angenommen;;customer;
+2075;2075;Anne Gohr;Anne Gohr;148 523 81744;80799;MÃ¼nchen;Schellingstrasse 62;anne@familie-gohr.de;16097027731;angenommen;;customer;
+51;51;Anne Jalibert Faure;;;;;;lescaillouxdekiyou@aol.com;;angenommen;;customer;
+52;52;Anne Katrin Merkh;Merkh Unikate;;;;;merkh-schmuck@arcor.de;+49 7121 79363;angenommen;;customer;
+53;53;Anne-Katrin Windler;Traumkontor;;;;;anne-katrin-windler@t-online.de;+49 4524 7009535;angenommen;;customer;
+1919;1919;Anne-Katrin Windler;Traumkontor;-;23684;Scharbeutz;Am Bahnhof 8;service@kayamo.eu;15152627376;angenommen;;customer;
+718;718;Annett Hering;Feng Shui Haus Dresden e.K.;DE813468042;1099;Dresden;GÃ¶rlitzer StraÃŸe. 21;kontakt@fengshuihaus-dresden.de;4,94E+11;angenommen;;customer;
+54;54;Annette Hering;Feng Shui Haus;;;;;kontakt@fengsui-haus-dresden.de;0351-8105498;angenommen;;customer;
+55;55;Annette Jung;Jung GbR;;;;;info@schaulade-erberstadt.de;+49 6151 5044150;angenommen;;customer;
+2000;2000;Annette Jung;Annette und Norbert Jung GbR;DE296147713;64297;Darmstadt;Schwanenstr. 45;info@schaulade-eberstadt.de;61515044150;angenommen;;customer;
+56;56;Annette Lucka;;;;;;info@lucka-schmuck.de;06401-220790;angenommen;;customer;
+57;57;Annette WeiÃŸenfels;Sierra;;;;;Sierra-Schmuck@web.de;+49 621 105111;angenommen;;customer;
+698;698;Anni DÃ¶rre;Schmuckatelier DÃ¶rre;DE231645771;82467;Garmisch-Partenkirchen;Bahnhofstr. 41;info@schmuckatelier-doerre.de;08821 - 967 4844;angenommen;;customer;
+881;881;Annica Nilsson;Pirum HB;SE916673729701;75598;Uppsala;Danmarks Viggeby 2;annica.nilsson@pirum.se;702585383;angenommen;;customer;
+58;58;Antje Balzer-Radschuweit;PÃ¼nktchen;;;;;info@puenktchen-Geschenke.de;+49 2203 81997;angenommen;;customer;
+59;59;Antje Borgwardt;LP 13;;;;;mail@lp13.de;+49 4181 9199313;angenommen;;customer;
+60;60;Antje Jansen;Schmuckimperium;;;;;antje-jansen@freenet.de;+49 251 778309;angenommen;;customer;
+61;61;Antje Weimert;Weimert;;97816;Lohr;Kapuzinergasse 4;info@weimert-lohr.de;+49 9352 9228;angenommen;;customer;
+62;62;Antje Willberg;Stage by WE;;;;;info@stage-by-we.de;+49 5151 8090750;angenommen;;customer;
+713;713;Anton Blechschmidt;Marktredwitzer Goldschmiede;DE260332970;95615;Marktredwitz;Markt 37;info@marktredwitzer-goldschmiede.de;09231/63591;angenommen;;customer;
+63;63;Artful Teenandel;Inge Eilers;;;;;artful.tea@t-online.de;+49 4488 6587;angenommen;;customer;
+64;64;Arthur Konnert;KonnArt;;;;;info@goldschmieden.de;+49 8461 1563;angenommen;;customer;
+65;65;Astrid Lauterbach;My Lovely Stuff;;;;;astrid.lauterbach@emg-network.de;+49 172 3754672;angenommen;;customer;
+2083;2083;Astrid Liedtke;Astrid Liedtke;DE 119805609;45139;Essen;Wisthoffweg 42;astrid-liedtke@freenet.de;0201-5200116;angenommen;;customer;
+66;66;Atra Kabakulak;Juwelier Kaba;;;;;schmuck-kaba@live.de;+49 961 4702324;angenommen;;customer;
+67;67;Axel Schwenn;;;;;;info@go-shining.de;+49 171 6250050;angenommen;;customer;
+2049;2049;Bader;S Jewelry | Design;N.v.;82287;Jesenwang;Dr. Ottmar WeiÃŸ Str. 16;bader.stef@hotmail.de;1739844000;angenommen;;customer;
+68;68;Barbara Heider-Rauter;Avalon;;;;;barbara@aurasomashop.at;+43 662 871090;angenommen;;customer;
+69;69;Barbara HÃ¶rmann;Enothek Schmuck;;;;;office@ethnothek.at;+43 699 11108090;angenommen;;customer;
+70;70;Barbara HÃ¶rmann;Ethnothek;;;;;office@ethnothek.at;+43 316 830975;angenommen;;customer;
+71;71;Barbara HÃ¼bener;Schmuckwerk HÃ¼bener;;;;;anfrage@schmuckwerk-shop.de;+49 341 9615278;angenommen;;customer;
+72;72;Barbara Kranz;Rio;;;;;rio-schmuck@t-online.de;+49 30 3133152;angenommen;;customer;
+73;73;Barbara Mehlhorn;Silberschmucksteine;;;;;info@vollerideen.de;+49 8205 1788;angenommen;;customer;
+812;812;Barbara Murauer-Schadenfroh;BMS Schmuck & Kunstobjekte;DE311040577;94469;Deggendorf;Ã–stlicher Stadtgraben 35;info@bms-schmuck.de;1631744421;angenommen;;customer;
+74;74;Barbara Rosvaenge;Fourth Dimension;;;;;fourthdimension@t-online.de;+49 89 22801090;angenommen;;customer;
+75;75;Barbara Sander;;;;;;info@boutique-pepita.de;+49 40 39907129;angenommen;;customer;
+76;76;Barbara Schaumann;Goldschmiede Ladenburg;;;;;goldschmiede.ladenburg@t-online.de;+49 6203 14485;angenommen;;customer;
+2061;2061;Barbara Schrauf-Hermann;Silbersachen;DE274041292;94330;Aiterhofen;Aitrachwiese;barbara.schrauf_hermann@outlook.de;1736019146;angenommen;;customer;
+1962;1962;Barbara Vitiello;GLAM&GLORY Jewels;DE153950289;90762;FÃ¼rth;NÃ¼rnberger Str.34;info@glamglory.de;0151-11593463;angenommen;;customer;
+77;77;BÃ¤rbel Trebing;Uhrenhaus Otto;;;;;uhrenotto@t-online.de;+49 561 718012;angenommen;;customer;
+78;78;BÃ¤rbel Wassmer;Steinzeit;;;;;alex.wassmer@gmx.de;+49 173 4379681;angenommen;;customer;
+2052;2052;Baris Gelir;Gold- und Silberschmiede Gelir;DE357499378;81241;Munich;Planegger Str. 47g;info@rileg-muc.de;4,92E+11;angenommen;;customer;
+79;79;Bartbara Hartmann;Blickwinkel Karlstadt GmbH;;;;;kontakt@blickwinkel-karlstadt.de;+49 9353 985366;angenommen;;customer;
+1946;1946;Bastian Friedrich;Kunst Cafe / Schatzlager;DE255368617;88131;Lindau;Maximilianstr. 48;info@schatzlager.de;15110010346;angenommen;;customer;
+80;80;Beate Hoessler;Mein Traumring;;;;;beate_hÃ¶essler@hotmail.com;+49 176 62835261;angenommen;;customer;
+2053;2053;Beate HÃ¶ÃŸler;mein-traumring;218/5100/2341;51109;KÃ¶ln;Anisweg 18;beate_hoessler@hotmail.com;17662835261;angenommen;;customer;
+81;81;Beate Kaczke;Juwelier Kaczke;;;;;Info@kaczke.de;+49 3831 293998;angenommen;;customer;
+82;82;Beate Michalik;Carusel;;;;;info@carusel.de;+49 69 825443;angenommen;;customer;
+86;86;Beckhoff;Topas;;;;;info@topas-schmuckdesign.de;+49 172 9015801;angenommen;;customer;
+87;87;Benjamin Becher;Binzer KÃ¼steneck;DE;18609;Binz;HauptstraÃŸe 4;benjamin-becher@gmx.de;+49 38393 144140;angenommen;;customer;
+89;89;Bernadett Rinkenburger;Rinkenburger;;;;;drinkenburger@t-online.de;+49 8261 22121;angenommen;;customer;
+90;90;Bernd Angerstein;Angerstein Uhren- und SchmuckfachgeschÃ¤ft;5110102682;38170;SchÃ¶ppenstedt;StobenstraÃŸe 6;info@juwelier-angerstein.de;+49 5332 90660;angenommen;;customer;
+423;423;Bernoulli Jacob;Estrella de plata;CHE-115.392.778;4434;HÃ¶lstein;Bennwilerstrasse 4;e.deplata@bluewin.ch;793274545;angenommen;;customer;
+2006;2006;Berthold Vogelsang;Goldschmiede Vogelsang;DE;64297;Darmstadt Eberstadt;Heidelberger Landstr. 200;info@vogelsang-schmuck.de;06151 943485;angenommen;;customer;
+2021;2021;bertie hamers;bofb -best of both-;NL814411915B01;1012LB;Amsterdam;Rokin 116M;info@bofb.nl;31206253078;angenommen;;customer;
+94;94;Bettina Baysal;Baysal;DE248462276;83555;Gars Bahnhof;SchÃ¼tzenstr. 4;yasminschmuckatelier@aol.com;+49 8073 9165939;angenommen;;customer;
+843;843;Bianca Fischer;Fischer im Steinreich;DE;55545;Bad Kreuznach;MannheimerstraÃŸe.18;biancafischer7@gmx.de;0671 97087315;angenommen;;customer;
+97;97;Bianca Fischer;Fischer im Steinreich;DE;55545;Bad Kreuznach;Mannheimer StraÃŸe 18;biancafischer7@gmx.com;+49 671 97087315;angenommen;;customer;
+1887;1887;Bianca Traeger;Asabi, Perlencenter u. Schmuckdesign;DE225949885;12163;Berlin;Holsteinische Strasse 14;asabiperlencenter@gmail.com;3032897082;angenommen;;customer;
+2042;2042;Birgit Achilles;Schmuckwerkstadt38;14/101/19162;38100;Braunschweig;Handelsweg3/4;info@schmuckwerkstadt38.de;17647333916;angenommen;;customer;
+100;100;Birgit Eitzenberger;Goldschmiede Eitzenberger;DE286544640;82467;Garmisch-Partenkirchen;Bahnhofstr. 3;info@eitzenberger.net;49882173664;angenommen;;customer;
+1910;1910;Birgit Janca;BiJanca Schmuck;0;16833;Protzen;Dorfstrasse 87;bijazi@web.de;1726455045;angenommen;;customer;
+717;717;Birgit Leo;Leo;ATU;6130;Schwaz;Fuggergasse 9B;birgit.leo@gmx.at;4,37E+11;angenommen;;customer;
+104;104;BjÃ¶rn Nilsson;Guldsmed;;;;;bjornnilsson.ab@hotmail.com;+46 44 124994;angenommen;;customer;
+396;396;Bormuth Petra;KlÃ¼gl OhG;DE227913104;64646;Heppenheim;LudwigstraÃŸe 3;pb@kluegl.info;+49 6252 3167;angenommen;;customer;
+2047;2047;Branka Vukcevic;Cherry Jewells EE;CHE-165.887.556;8046;ZÃ¼rich;Dora-Staudinger -Strasse 11;elle.epoce@hotmail.com;764909619;angenommen;;customer;
+1901;1901;Bredow;Your Design;DE;50171;Kerpen;LÃ¶rsfelder Busch 17;your.design@gmx.de;1736541340;angenommen;;customer;
+1952;1952;Brenda Saavedra;Brenda Saavedra Jewelry;123;83109;Grosskarolinenfeld;Pfaelzerstr. 11A;brendasaavedra.jewelry@gmail.com;16095733657;angenommen;;customer;
+2002;2002;Brian de Staic;Brian de Staic;4788406m;V92TE81;DINGLE;The Wood;info@briandestaic.com;669151298;angenommen;;customer;
+107;107;Brigit Laun;Perlin;DE 207557632;10178;Berlin;Rosenthalerstr. 40/41 Hof IV;info@perlin-berlin.de;+49 30 21230730;angenommen;;customer;
+1958;1958;Brigitte Bayer;Brigittes Kleine Klunkerwerkstatt;45707861391;86609;DonauwÃ¶rth;Bschorerstr 1;klunkerwerkstatt@web.de;9067001683;angenommen;;customer;
+109;109;Brigitte Grunwald;Goldschmiede Grunwald;DE343526927;85614;Kirchseeon;HochriesstraÃŸe 18;brigitte.grunwald@goldschmiede-grunwald.de;+49 8091 5376850;angenommen;;customer;
+1948;1948;Brigitte Lidl;Brigitte Lidl Schmuckdesignerin;ATU;6112;Wattens;Kreuzbichlstrasse 53;d.lidl@chello.at;6505166136;angenommen;;customer;
+756;756;Brigitte Schorn;Schmuck & Accessoires;DE167817309;91080;Spardorf;Siedlerstr. 5;Horst.Schorn@t-online.de;09131 52167;angenommen;;customer;
+114;114;Britta Fahnoe Poulsen;Godkarmashop.dk;DK35718273;7300;Jelling;Ballevej 118;britta@godkarmashop.dk;+45 61 274882;angenommen;;customer;
+864;864;C. BÃ¼chler-Towae;Uhren-Schmuck-Optik BÃ¼chler;DE286907665;77723;Gengenbach;Leutkirchstr. 10;mail@uhren-optik-buechler.de;07803-2400;angenommen;;customer;
+817;817;CÃ¤cilia Mager;CÃ¤cilia Mager GmbH;DE303622492;67373;Dudenhofen;Schillerst.20;caeciliamager@hotmail.com;06232 6518820;angenommen;;customer;
+2079;2079;Capulet Jewelry;Capulet Jewelry;DE 264896021;80799;MÃ¼nchen;Zieblandstr 19;hello@capulet.de;8922843850;angenommen;;customer;
+2077;2077;Carina Levy;CC Shopping UG (haftungsbeschrÃ¤nkt);DE 309 927 856;63791;Karlstein;22 Auenstr.;c.levy@cc-shopping.de;15165243050;angenommen;;customer;
+117;117;Carola Weigerber;Casa Perla;DE;89233;Neu-Ulm;Hauptstrasse 12;info@casa-perla.de;+49 731 3784460;angenommen;;customer;
+748;748;Carola WeiÃŸ;Carola WeiÃŸ;Kleinunternehmen;1210;Wien;Karl-Aschenbrenner-Gasse 8/23/8;carola.weiss1@gmx.at;69917906941;angenommen;;customer;
+880;880;Carolina Tress;Carolina Tress Jewellery;DE81409592632;81677;MÃ¼nchen;ZaubzerstraÃŸe 18;caro.tress@googlemail.com;49171441790;angenommen;;customer;
+120;120;Caroline Lorenz;Caro;;;;;caro@caroschmuck.de;+49 176 23380427;angenommen;;customer;
+824;824;Christa van der Hurk;Christa-ll;190678337;47533 Kleve;Kleve;Gasthausstr.18;christa-ll@freenet.de;02821 768808;angenommen;;customer;
+2057;2057;Christian Heerd;Calerris UG;DE332050107;80331;MÃ¼nchen;KreuzstraÃŸe 4;info@calerris.com;8954843092;angenommen;;customer;
+126;126;Christian KÃ¶hler;HopfenSchmuck;154/238/20265;85283;Wolnzach;HubensteinerstraÃŸe 4;koehler@hopfenschmuck.de;+49 8442 9682-19;angenommen;;customer;
+127;127;Christiane HÃ¼thner;;;;;;christiane-huether@outlook.de;+49 3605 5458841;angenommen;;customer;
+2062;2062;Christiane Lauterbach;Insane Design;112/243/03779;6237;Leuna;RathausstraÃŸe 7;jane.insane111@googlemail.com;34617448065;angenommen;;customer;
+128;128;Christina Bauer;Borboletta â€“ Schmuck & SchÃ¶nes;DE815136917;22765;Hamburg;Ottenser Hauptstrasse 37;hi@borboletta-hamburg.de;040-39005280;angenommen;;customer;
+129;129;Christina Eifert;pÃ©l yo;DE178528063;64297;Darmstadt;MÃ¼hltalstraÃŸe 131;info@pelyo.de;1783312910;angenommen;;customer;
+130;130;Christina Gelhausen;Gold Pavillon;1,14E+13;60311;Frankfurt;Hasengasse 9;goldpavillon@gmail.com;+49 69 283519;angenommen;;customer;
+132;132;Christina Sauter-Knapp;Atelier CSK;;89584;Ehingen (Donau);AdlerstraÃŸe 27;info@stinascolana.de;+49 7391 753231;angenommen;;customer;
+133;133;Christine Axt;Uhren und Schmuck;;;;;nc78@web.de;+49 3603 812566;angenommen;;customer;
+135;135;Christine GroÃŸmann;Goldschmiede Atelier GroÃŸmann;DE;64319;Pfungstadt;EberstÃ¤dterstrasse 38;christine_grossmann@yahoo.de;+49 6157 9139101;angenommen;;customer;
+768;768;Christine GroÃŸmann;Goldschmiede Atelier GroÃŸmann;DE;64319;Pfungstadt;EberstÃ¤dterstraÃŸe 38;info@christine-grossmann.de;4,96E+12;angenommen;;customer;
+137;137;Christine KÃ¶ÃŸler;Szenario;DE229130606;83052;BruckmÃ¼hl;MÃ¼ller-zu-Bruck-Str. 6;info@szenario-trends.de;4,98E+11;angenommen;;customer;
+2097;2097;Christine Melzer;Goldschmiedin;Not necessary;67434;Neustadt an der WeinstraÃŸe;HeerstraÃŸe 57;melzer.christine@web.de;0152 53020069;angenommen;;customer;
+736;736;CHRISTINE MULLER-CONNERT;CHRISTINE MULLER-CONNERT;X0770517V;38870;VALLE GRAN REY;CALLE LA PLAYA 15;c.c.canarias@gmx.net;34606956946;angenommen;;customer;
+138;138;Christine Sack;F.F. Sack Juwelier;;;;;info@juwelier-sack.de;+49 355 23662;angenommen;;customer;
+140;140;Christine Zulinski Ã–zen SILBERSCHMUCKDESIGN;Silberschmuckdesign;0;1180;Wien;WÃ¤hringerstrasse 107;christine.zuli@sideholidays.com;+43 699 11663382;angenommen;;customer;
+1959;1959;Christof Krahforst;SCHMUCKRAUM Goldschmiede-Meisterwerkstatt;DE815720978;40878;Ratingen;Marktplatz 11-13;krahforst@schmuckraum-ratingen.de;+492102 1018072;angenommen;;customer;
+739;739;Christoph Hartmann;Schmuck&Objekte HERZKÃ–NIG;DE164522210;80636;MÃ¼nchen;Blutenburgstr. 39;info@herzkoenig.de;89184465;angenommen;;customer;
+1890;1890;Christopher Mogk;Christopher Mogk ( Einzelunternehmer );DE293932733;35516;MÃ¼nzenberg (Gambach);Goethestr. 12;info@schmuck-schau.de;4,92E+12;angenommen;;customer;
+806;806;Ciot;Ciot Design;DE;8625;Gossau ZH;GrÃ¼tstrasse 76;paola.ciot@gmx.ch;41795260510;angenommen;;customer;
+1957;1957;Claudia Bossau-Engelke;Nidus Claudia Bossau-Engelke;DE303541090;20251;Hamburg;Eppendorfer Weg 253;info@perlen.net;4046856295;angenommen;;customer;
+147;147;Claudia Lutz;LilienglÃ¼ck;DE;64342;Seeheim-Jugenheim;Hauptstr. 61;info@lilienglueck.de;+49 160 97531527;angenommen;;customer;
+149;149;Claudia Ricarda-Unger;Formsache;DE 166625352;66119;SaarbrÃ¼cken;SaargemÃ¼nder Str.126;info@formsache-unger.de;+49 681 855902;angenommen;;customer;
+866;866;Claudia Rittmann;Schmuckdesign;St.Nr. 26/139/63183;55131;Mainz;KÃ¶nigshÃ¼tter Str. 11;schmuckdesign@arcor.de;15150981884;angenommen;;customer;
+152;152;Claudia Vogel;Traumring Galerie;DE323385966;36037;Fulda;HeinrichstraÃŸe 15;kontakt@traumring-galerie.de;+49 661 90197775;angenommen;;customer;
+1903;1903;Clemens;Lange;DE246186366;49074;OsnabrÃ¼ck;HasestraÃŸe;clemens-nicole@web.de;5413502535;angenommen;;customer;
+2015;2015;Cordula Koch;CK Schmuckticker;0;73614;Schorndorf;Hainbuchenweg 10/1;cordula.koch@gmx.de;1776523703;angenommen;;customer;
+2070;2070;Corinna Kedzierski;CoriFEE;DE281186713;60598;Frankfurt;ZiegelhÃ¼ttenweg 2a;wish@corifee.info;069 66370627;angenommen;;customer;
+1971;1971;Cornelia Amicabile;Waltrauds WundertÃ¼te;DE253130647;79271;St. Peter;Bertoldsplatz 3;lebenswelten@yahoo.de;+49 07660 941629;angenommen;;customer;
+159;159;Cornelia Fischer-Krause;JFK Schmuck;DE;50999;KÃ¶ln;Eygelshovener Str. 6;design-jfk@netcologne.de;+49 221 9356315;angenommen;;customer;
+1899;1899;Cynthia Kurth;Cynthia Kurth Design;DE 188 242 467;D 28215;Bremen;Wanfrieder Strasse 5;cynthiakurth@schmuckburg.de;4,94E+11;angenommen;;customer;
+161;161;D. Diekstall;Diekstall GmbH & Co KG;DE275474285;49661;Cloppenburg;Lange Str. 68;info@diekstall.de;+49 4471 2682;angenommen;;customer;
+2004;2004;Dagmar Boehme;U&S BOEHME;DE 249478303;66482;ZweibrÃ¼cken;HauptstraÃŸe, 1;boehmeuhren@gmx.de;1723669710;angenommen;;customer;
+163;163;Dagmar Busch;Juwelier Partheil;;;;;Dagmar.Busch@gmx.net;+49 6154 52740;angenommen;;customer;
+164;164;Dagmar Fischer;Dagmar Fischer;DE;64342;Seeheim-Jugenheim;Am Grundweg 48;ducky-f@t-online.de;+49 6257 9188234;angenommen;;customer;
+2013;2013;Dan Krul;Silbergecko;1583901628;65936;Frankfurt am Main;Sossenheimer MÃ¼lhgasse;info@silbergecko.eu;4,92E+11;angenommen;;customer;
+764;764;Dana Fischer;DanÃ¡di;DE267777087;26532;GroÃŸheide;Torfweg 18;dana.goez@yahoo.de;1621336570;angenommen;;customer;
+165;165;Daniel Ramirez Diaz;Aquamarine;;7470;Port de Pollensa;Virgin del Carmen 20;anandaniel@hotmail.com;+34 971 867288;angenommen;;customer;
+851;851;Daniel Sabrowski;Gemini Juwel;0;34369;Hofgeismar;MÃ¼hlenstraÃŸe 6;gemini-juwel@outlook.de;56735773;angenommen;;customer;
+167;167;Daniela Eberl;FD Schmuck;DE;63834;Sulzbach;Hauptstr. 49;goerg.daniela@t-online.de;+49 6028 4373;angenommen;;customer;
+845;845;Daniela Lichtensteiger;Daniela Lichtensteiger;127/244/90431;87448;Waltenhofen;Am SÃ¼dhang 10;entle@gmx.net;08379/929318;angenommen;;customer;
+865;865;Daniela Sigl & Michaela Stadler;MINADA Schmuck;DE298484424;94526;Metten;Sandgrube 6 a;minada-schmuck@web.de;0171 5858858;angenommen;;customer;
+2050;2050;Daniela Walde;Goldschmiede an der Kreppe;148 179 81144;81675;MÃ¼nchen;Max-Weber-Platz 1;dw@goldschmiede-an-der-kreppe.de;4,92E+11;angenommen;;customer;
+884;884;Deja vu;Deja vu;DE173685475;73230;Kirchheim;Rossmarkt 9;gabi.grabowski@deja-vu.de;07021-8078167;angenommen;;customer;
+757;757;Dejan Mostic;Black Forest Store;DE344229991;78713;78713 Schramberg;6 An der Steige;blackforeststore13@gmail.com;17663308301;angenommen;;customer;
+712;712;Demo;WEBHU Kft.;11505066-2-16;5008;Szolnok;MunkÃ¡csy MihÃ¡ly utca 46.;demo@webhu.hu;+36 56 786 220;angenommen;;customer;
+172;172;Denise Goldermann;DEGO Schmuckdesign;ATU 66253056;1080;Wien;Daungasse 1/8;degold@chello.at;+43 699 12706830;angenommen;;customer;
+882;882;Diana Canola;Palmsandbeach;DE354248227;95326;Kulmbach;Kauernburger Grund 22;dianacanola@gmx.de;0160-91610616;angenommen;;customer;
+176;176;Dieter Knaut;Uhren& Schmuck;DE;99718;GreuÃŸen;Markt 40;Frank.Knaut@t-online.de;+49 3636 703229;angenommen;;customer;
+2001;2001;Dieter Ostheimer;Ostheimer Schmuck;DE293253920;75223;Niefern-Ã–schelbronn 1;Sofienstr.17/1;dieter@ostheimer-schmuck.de;07233-4916;angenommen;;customer;
+2008;2008;Dieter Pfaff;Silbermond;DE211301303;88634;Ãœberlingen;ChristophstraÃŸe 35;silbermond_pfaff@web.de;7551945323;angenommen;;customer;
+2027;2027;Dietlinde Burmester;Kikis Bijoux;DE;61462;KÃ¶nigstein im Taunus;Drosselweg 10a;kikiscollection@web.de;61749350109;angenommen;;customer;
+2020;2020;Dirk Rauch;Schmuck Rauch;StNr. 205/173/00404;97762;Hammelburg;BahnhofstraÃŸe 2;hr-24@web.de;09732 8898900;angenommen;;customer;
+862;862;Dominique Fichtner;Carina Schmuck;De 813 947 889;23669;Niendorf;StrandstraÃŸe 121;dominique.fichtner@outlook.de;1627098883;angenommen;;customer;
+1997;1997;Doris Hannes;Lollia Modeschmuck;DE315425428;89340;Leipheim;Uhlandstr. 11;info@lollia-schmuck.de;08221 9166378;angenommen;;customer;
+185;185;Doris KreiÃŸl;Canape;DE 287778568;63619;Bad Orb;HauptstraÃŸe 15;info@canape-schmuck.de;+49 6052 3284;angenommen;;customer;
+187;187;Doris Wiesler;Seelenflug;AT70206207;2120;Wolkersdorf;BrÃ¼nnerstrasse 4;doris@seelen-flug.at;+43 2245 23472;angenommen;;customer;
+828;828;Dorothea Schepek;Schwapek KG, Stilhaus;DE295216919;61348;Bad Homburg;LouisenstraÃŸe 76;info@stilhaeuschen.de;1741748167;angenommen;;customer;
+870;870;Dr. Sigrid Rainer;Kopfberger;ATU34044600;5020;Salzburg;Judengasse 14;office@kopfberger.at;4,37E+11;angenommen;;customer;
+850;850;Duygu Reinholz;Cookies angelwear;DE;50968;KÃ¶ln;Unter den Ulmen 114;dreinholz@cookies-angelwear.de;1608074888;angenommen;;customer;
+855;855;Edda Westphal;Schatztruhe EckernfÃ¶rde;DE;24340;EckernfÃ¶rde;Nikolaistr. 18;edda.westphal@gmail.com;+49 4351 5772;angenommen;;customer;
+1926;1926;Edda Zierer-Zitzelsberger;the Mizen Goldsmiths;0;P81T211;Crookhaven;Harbourview Cottages;mizengoldsmiths@gmail.com;1704034273;angenommen;;customer;
+196;196;Eli Freifrau von Hutten;Perlinen;231/195/00850;97816;Lohr am Main;Steinbacher StraÃŸe 1;eli@vonhutten.de;+49 9352 80551;angenommen;;customer;
+1933;1933;Elisabeth GÃ¼nthart;E.GÃ¼nthart und Partner;--;8600;DÃ¼bendorf;Gfennstr. 11d;guenthart-gmbh@bluewin.ch;0041 794003216;angenommen;;customer;
+786;786;Elisabeth Prutti;Hair&VBeauty Studio Elisabeth Prutti;61907299;8750;Judenburg;Burg Gasse 71;eprutti@me.com;6644261446;angenommen;;customer;
+1949;1949;Elke;Szeklinski;DE 117368760;26579;Baltrum;Ostdorf  27;elke@balteringe.de;4939568;angenommen;;customer;
+202;202;Elke Bau;Bau & Roth;144/126/80740;80469;MÃ¼nchen;Pestalozzistr.5;elke.bau@gmx.de;+49 89 26949449;angenommen;;customer;
+203;203;Elke Feiler;Schmuckmanufaktur Weiden;DE;92637;Weiden;Im Obstgarten 23;elke.feiler@gmx.de;+49 175 1077512;angenommen;;customer;
+800;800;Elke Recker-Schmitz;Silberhell;DE272054470;51789;Lindlar;I'm Potthof 4a;info@silberhell.de;4,92E+11;angenommen;;customer;
+205;205;Elke Stieb;PrachtstÃ¼ck;DE814900236;91054;Erlangen;Obere Karlstr. 5;info@prachtstueck-erlangen.de;+49 9131 9232733;angenommen;;customer;
+206;206;Elke WÃ¶hr-Maxa;Schmuck und mehr;DE;71287;Weissach;Hauptstr. 8;woehr-maxa@t-online.de;+49 172 6329540;angenommen;;customer;
+308;308;Erich Barkhau;Galerie Barkhau;De117599118;49074;OsnabrÃ¼ck;Ã–wer de Hase 20;info@barkhau.com;+49 541 2051532;angenommen;;customer;
+210;210;Erika Hornung;Ebbes;882901441;64354;64354 Reinheim;DarmstÃ¤dterstrasse 43;info@ebbes-reinheim.de;+49 6162 83852;angenommen;;customer;
+211;211;Erika Wulf;Tara;DE;20251;Hamburg;Hegestr. 9;tangofee@web.de;+49 40 473052;angenommen;;customer;
+214;214;Esmeralda Kreuk;Esmeralda Sieraden & Atelier;NL001638359B06;4311 BT;Bruinisse;Prinses Beatrixstraat 1a;esmeralda.kreuk@gmail.com;655191838;angenommen;;customer;
+2024;2024;Esra Coskuncay;Dilemmart;0;40237;Dusseldorf;Lindemannstrasse 15a;esra.coskuncay@gmx.de;1623231212;angenommen;;customer;
+2054;2054;Eva Huber;Leo Components AG;ATU64958969;LeusbÃ¼ndtweg 49a;6800;LeusbÃ¼ndtweg 49a;eva.huber@leoag.net;00423 2312060;angenommen;;customer;
+1916;1916;Eva SchÃ¤fer;echt-es;DE310089988;54634;Bitburg;PetersstraÃŸe 6;info@echt-es.de;06561/9486220;angenommen;;customer;
+218;218;Eveline DudenhÃ¶ffer;Kompliment!;DE289729778;74080;Heilbronn;Im Kreuzgrund 80;info@kompliment-schmuck.de;+49 176 78305718;angenommen;;customer;
+219;219;Evelyn BÃ¼hler;Atelier fÃ¼r Schmuck;DE;89264;WeiÃŸenhorn;Memminger StraÃŸe 20;evelyn.buehler@web.de;+49 7309 9396740;angenommen;;customer;
+220;220;Evelyn MÃ¶hring;Moehring e. K.;DE231746366;98630;RÃ¶mhild;Griebelstr. 20;us@deinmoehring.de;+49 36948 20443;angenommen;;customer;
+2082;2082;Evelyn Schulz;Sternenstaub Evelyn Schulz;+;85598;Baldham;Erikastrasse 20;hanspeter.hart@googlemail.com;4,92E+11;angenommen;;customer;
+876;876;Felix Stocker;Monarchia Edelmetall UG;beantragt;80802;MÃ¼nchen;LeopoldstraÃŸe 31;stocker@monarchia-edelmetall.de;4,92E+12;angenommen;;customer;
+872;872;Ferdinand KÃ¤fer;KF SchÃ¤fer;DE;91734;Eschenbach;Rathausstr. 33;keaferferdinand@aol.com;0174 4417779;angenommen;;customer;
+752;752;Fischer Wolfgang;Fischer Wolfgang;USt.Id.Nr. De244690563;80333;MÃ¼nchen;Karlstr. 54a (Eingang Dachauerstr.);fischergold@gmx.de;4989594539;angenommen;;customer;
+1983;1983;Frank Dreves;Frank Dreves;29/034/02309;24360;Barkelsby;EckernfÃ¶rder StraÃŸe 1;frankdreves@outlook.de;1604848926;angenommen;;customer;
+224;224;Frank Koethe;Elfieschmuckdesign;-;65830;Kriftel;Friedrichstr.22;elfieschmuckdesign@gmx.de;+49 6192 9550513;angenommen;;customer;
+225;225;Frank Michael Scholz;Slady Steel;DE290165358;32609;HÃ¼llhorst;Niedermeiersfeld 13;slady-steel@gmx.de;+49 5741 301055;angenommen;;customer;
+1976;1976;Franz Wagner;Goldschmiede Wagner;-;35274;Kirchhain;Am Markt;goldschmiede.wagner@gmx.de;06422-1738;angenommen;;customer;
+2009;2009;Franz, Beate;Bea-Franz Schmuckdesign;Kleinunternehmen;61137;SchÃ¶neck;Pommernstrasse 14;bea-franz@web.de;06187-5282;angenommen;;customer;
+1995;1995;Friderike Wilken;Vitrinchen;de298531393;26427;Neuharlingersiel;Am Hafen Ost 2;friderike.wilken@gmail.com;15732251124;angenommen;;customer;
+231;231;Friedbert Welz;Juwelier Welz;DE 275826964;64319;pfungstadt;eberstÃ¤dter str 31;info@welz.info;+49 6157 3615;angenommen;;customer;
+1945;1945;Gabi Strobl;Schrank Gold;DE;85435;Erding;Am RÃ¤tschenbach 11;schrankgold.erding@gmail.com;17698306373;angenommen;;customer;
+235;235;Gabriela Klingler;Silver & Pearls;DE 814657720;66440;Blieskastel;Alte MarktstraÃŸe 8;info@silver-and-pearls.de;+49 6842 97113;angenommen;;customer;
+238;238;Gabriela Schmidt;Stein Juwel;--;8123;Ebmatingen;Aeschstrasse 161;gabriela.schmidt@vtxmail.ch;41765857402;angenommen;;customer;
+834;834;Gabriele Thekla Morr;CORDES AURUM;DE222381589;26757;Niedersachsen - Borkum;FRANZ-HABICH-STR. 3;immamo111@gmail.com;4,92E+11;angenommen;;customer;
+241;241;Gaby Reittinger;Garten Eden;;;;;info@garten-eden-cham.de;+49 9971 768079;angenommen;;customer;
+243;243;Geogr Holdermann;Goldschmiede Holdermann;DE;76332;Bad Herrenalb;Kurpromenade 7;georg.holdermann@gmail.com;+49 7083 525725;angenommen;;customer;
+1970;1970;Georg MÃ¶llenbeck-Stopp;Lampu Schmuck;DE142128051;79189;Bad Krozingen;Bahnhofstr. 8;stopp40@aol.com;76339237730;angenommen;;customer;
+248;248;Gerd Makoschey;Schmuck und Erlesenes Makoschey;DE117535924;49152;Bad Essen;Lindenstr.61;gerd-makoschey@web.de;+49 4954 72977270;angenommen;;customer;
+252;252;Gerhard Keller;Ambiente lifestyle & Deko;DE326157917;86199;Augsburg;Adelmannstr.13;info@ambiente-keller.de;+49 821 9069704;angenommen;;customer;
+1967;1967;GERLINDE KRATOCHWILL;DIE SCHMUCKPERLE;DE255983142;28832;ACHIM;OBERNSTR. 39;gerlindekratochwill@gmx.de;15255958939;angenommen;;customer;
+254;254;Gert J. Friedrich;Goldschmiede Schmuck Design;DE128615927;87600;Kaufbeuren;LÃ¶wegÃ¤ssle 1;goldschmiede-friedrich@t-online.de;+49 8341 40344;angenommen;;customer;
+716;716;Gertrud Herfurth;Felizas Design;DE;97506;Grafenrheinfeld;FlÃ¶ÃŸerweg 5;felizasdesign@gmail.com;97239053178;angenommen;;customer;
+740;740;Gertrud Norys;Goldschmiede Norys;DE228112252;91732;Merkendorf;GroÃŸbreitenbronn 28;goldschmiede@norys.de;09826/825;angenommen;;customer;
+754;754;Gertrud Wilfling;Goldschmiede Wilfling;133153133;97836;Oberndorf;FriedensstraÃŸe, 6;wilfling-bischbrunn@t-online.de;93941617;angenommen;;customer;
+257;257;Gertrud Wilfling;Goldschmiede Wilfling;;97836;Oberndorf;Friedensstr. 6;info@schmuckwiedu.de;+49 9394 1617;angenommen;;customer;
+258;258;Giorgio Canola;Venezianische Goldschmiede;207/209/00654;96049;Bamberg;Obere sandstrasse 30;info@venezianische-Goldschmiede.com;+49 951 3016902;angenommen;;customer;
+798;798;Goebel , Stephan;Pfandkreditbetrieb Stephan Goebel e.K.;DE239447583;10555;Berlin;GotzkowskystraÃŸe 4;leihhaus1-goebel@web.de;030-39743130;angenommen;;customer;
+868;868;Goldschmiede Nikolai Rosenfeld;Goldschmiede Nikolai Rosenfeld;215/263/03358;9111;Chemnitz;Rosenhof 13;post@goldschmiede-n-r.de;0371 670201;angenommen;;customer;
+2087;2087;Goldschmiede Pollaschek;Goldschmiede Pollaschek;13166934;24340;EckernfÃ¶rde;St. Nicolai Str. 13;goldschmiede-pollaschek@gmx.de;4,94E+11;angenommen;;customer;
+1941;1941;GrÃ¼bel Christa;Trendschmuck;DE 812334839;75365;Calw;Johannes-Brenz-Platz 10/1;trendschmuck.gruebel@gmail.com;07051 95061;angenommen;;customer;
+783;783;Gudrun Engert-Popko;Uhren & Schmuck;DE;4736;Waldheim;Obermarkt 12;info@juwelier-popko.de;3432759993;angenommen;;customer;
+260;260;Gudrun Roth;Schmuckgestaltung Gudrun Roth;DE345862713;65428;RÃ¼sselsheim;GroÃŸ-Gerauer-Str.;roth-gudrun@web.de;614268613;angenommen;;customer;
+849;849;Guido KrÃ¶lls;Schatzinsel TÃ¶nisvorst;DE154772574;47918;Krefeld;Hochstr. 16;bahl@fmcg.de;02151-76747999;angenommen;;customer;
+811;811;Guido Rach;Uhren & Schmuck Rach;DE127422982;86157;Augsburg;Augsburgerstr.8;info@uhren-schmuck-rach.de;0821/ 52 59 37;angenommen;;customer;
+262;262;Gunda Lie Temme;Plateria;;;;;plateria@t-online.de;+49 511 3360369;angenommen;;customer;
+751;751;Gunda-Lie Temme;Plateria;230156853;30161;Hannover;Lister Meile 59;Info@plateria.de;0511 3360369;angenommen;;customer;
+259;259;Gundola Steiger;Zauberhaft;DE301298198;82418;Murnau;Untermarkt 42;info@zauberhaft-murnau.de;88416274026;angenommen;;customer;
+2029;2029;Gundula Horata;Kismet Goldschmiede Horata/Lettgen GbR;DE813335535;46535;Dinslaken;BahnstraÃŸe 12;sigridlettgen@web.de;2064423719;angenommen;;customer;
+265;265;GÃ¼lten Mori;Mori Cologne;DE280975446;50823;KÃ¶ln;KÃ¶rnerstr.9;mori.cologne@yahoo.de;+49 221 42360677;angenommen;;customer;
+1921;1921;Haas;Goldschmiede Haas;DE216816079;82362;Weilheim;Am Ã–lschlag 2;andrea.haas@edelmetallschmiede-aurum.de;0881-8996;angenommen;;customer;
+841;841;Hans Bernd Scharnagl;Hans Bernd Scharnagl;DE132251707;96163;Gundelsheim;Fischerstr.14;charny@freenet.de;95141431;angenommen;;customer;
+2074;2074;Harald Froschauer;Schmuckwerkstatt NUB e. U.;ATU 64409107;8010;Graz;Murgasse 4;office@nubschmuck.at;0043 316 823447;angenommen;;customer;
+861;861;Harald KluibenschÃ¤dl;Kiosk am Locherboden;ATU77949302;6423;MÃ¶tz;Burgweg, 3;kluibi@outlook.com;4,37E+11;angenommen;;customer;
+270;270;Harald Maier;Goodies;Kleingewerbe;86488;Breitenthal;Kapellenweg 25;goodies-glasperlen@web.de;+49 8282 62217;angenommen;;customer;
+792;792;Heidi Schirner;Schirner Verlag GmbH + Co. KG;DE 2451 00 569;64295;Darmstadt;Birkenweg 14a;heidi.schirner@schirner.com;06151-391830;angenommen;;customer;
+750;750;Heidrun Marget;PERLENUNIKATE;014 824 72999;60316;Frankfurt;Heidestrasse 31;h.marget@perlenunikate.de;1787282845;angenommen;;customer;
+274;274;Heidrun Marget;Perlenunikate;;60316;Frankfurt am Main;Heidestr.31;a.marget@perlenunikate.de;+49 69 78086952;angenommen;;customer;
+276;276;Heike Hercigonja;Hercigonja Schmuck Design;Xxx;73457;Essingen;Kirschenweg12/1;schmuck@hercigonja.de;+49 7365 6256;angenommen;;customer;
+869;869;Heike Lessing;MACHBAR &  SCHÃ–N;DE;71229;Leonberg;Sindelfinger Weg 11;heike.lessing@machbarundschoen.de;0176 57620802;angenommen;;customer;
+278;278;Heike Ruf;Schmuckwerkstatt Ruf;DE;77716;Hofstetten;Oberdorf 6;info@schmuckwerkstatt-ruf.de;+49 7832 9746133;angenommen;;customer;
+1927;1927;Heino Pestrup;Hut-und Schmuckatelier;DE144037054;69437;Neckargerach;NeckarstraÃŸe 11A;heinopestrup2@gmail.com;06263 427474;angenommen;;customer;
+1922;1922;Heinz-Werner Dahm;Nice Designs;DE256542084;55130;Mainz;Hohlstr. 58;info@nicedesigns.de;+49 6131 4989627;angenommen;;customer;
+1924;1924;HELD;Bijouterie Joaillerie HELD;FR71508356003;68000;COLMAR;Grand rue;marie.held@free.fr;0033-389296546;angenommen;;customer;
+283;283;Helga GÃ¶kmen;Schmuckdesign;DE;85283;Wolznach;Lindenstr. 43;helga.goekmen@t-online.de;+49 8442 4518;angenommen;;customer;
+1939;1939;Hendrik Boos;edelwert.de;DE245819464;51598;Friesenhagen;Oberweidenbruch 1;info@edelwert.de;1717821660;angenommen;;customer;
+285;285;Henrike Kreutzheide;die goldschmiedein;DE543592239109034;52062;Aachen;AnnastraÃŸe 23;henrike_kreutzheide@web.de;4,95E+13;angenommen;;customer;
+848;848;Herbert OysmÃ¼ller;SÃ¼ssmeisterei;atu78203301;3195;st.aegyd;hauptstrasse 42;info@pralinen-handel.eu;4,37E+11;angenommen;;customer;
+782;782;Hertlein;Sabine Hertlein;DE;65197;Wiesbaden;Wiesbadener StraÃŸe 66;s-hertlein@web.de;1703603287;angenommen;;customer;
+1989;1989;Hilke Schneider;BELCARAT;DE341979228;50674;KÃ¶ln;HÃ¤ndelstraÃŸe 12;order@belcarat.com;1604346134;angenommen;;customer;
+2043;2043;Holger Schroth;LiMus Via GbR;DE360408849;69469;Weinheim;HauptstraÃŸe 87;info@limusvia.de;4,92E+11;angenommen;;customer;
+292;292;Hrannar Hallgrimsson;Gullkunst;36964;101;Reykjavik;Laugavegur;gullkunst@gullkunst.is;+354 8677224;angenommen;;customer;
+294;294;Ilka Pohl;Schmuck & Meer;11/164/03986;24558;Henstedt-Ulzburg;SchÃ¤ferkampsweg 13;design@schmuck-und-meer.de;1773887102;angenommen;;customer;
+860;860;Ilonka Felsing;Schmuck Lonkis Ilonka Felsing;small entrepreneur;22607;Hamburg;DornstÃ¼cken 14;schmuck.lonkis@gmail.com;4,92E+12;angenommen;;customer;
+874;874;Ina Ebner;Ina Ebner Schmuckgeschichten;De;79106;Freiburg;Egonstr.2;inaebner@schmuckgeschichten.de;0761-20 20 292;angenommen;;customer;
+1902;1902;Ina Handelmann;Kunstraum Wasserwerk;DE259273562;18551;Glowe;Hauptstr. 1;info@kunstraum-wasserwerk.de;038302 719844;angenommen;;customer;
+2033;2033;Ina JeÃŸen;Juwelani;DE245026373;15366;Hoppegarten;Jahnstr. 21;juwelani@gmx.de;03342/2500450;angenommen;;customer;
+852;852;Indra KrÃ¼ger;Uhrmacherin Indra KrÃ¼ger;DE299230994;27711;Osterholz-Scharmbeck;Marktplatz 12;kontakt@uhrmacherin-ohz.de;47919641057;angenommen;;customer;
+296;296;Ines-Marie Agena;Goldmarie;DE198748336;26465;Langeoog;Barkhausenstr. 11;info@golfclub-insel-langeoog.de;+49 4972 990325;angenommen;;customer;
+297;297;Inga Meister;Inga em.;DE812 496 409;20259;Hamburg;Eppendorfer Weg 66;inga@inga-em.de;+49 40 43271303;angenommen;;customer;
+2040;2040;Inge Eilers;Artful-Teehandel;DE190244606;26655;Westerstede;PeterstraÃŸe 16;artful.tea@web.de;44886587;angenommen;;customer;
+1978;1978;Ingo Hoffmeister;Team Hoffmeister;DE117076378;49740;HaselÃ¼nne;Markt 3;ingo.hoffmeister1@ewetel.net;59615121;angenommen;;customer;
+299;299;Ingo VoÃŸ;Juwelier VoÃŸ;DE;25704;Meldorf;SpreetstaÃŸe 5;info@juwelier-voss.de;+49 4832 8407;angenommen;;customer;
+779;779;Ingrid Baumgaertner;Enjoy Munich Design;DE341805837;80638;Munich;Tizianstr. 133;info@enjoymunichdesign.de;4,99E+11;angenommen;;customer;
+301;301;Ingrid Dublenycz;Hans Hertel;176909192;91564;Neuendettelsau;Hermann-von-Bezzelstr.19;hjhertel-hans@web.de;+49 9874 66998;angenommen;;customer;
+1918;1918;Ingrid Leim;Kleines StrandglÃ¼ck;DE202307924;17459;Ãœckeritz;Uferpromenade 1b;ingrid.leim@t-online.de;1773228545;angenommen;;customer;
+853;853;Ingrid Reischl-Wimmer;Helmut Wimmer GesmbH.&Co.KG;ATU32015306;6380;St. Johann in Tirol;KaiserstraÃŸe 5;info@juwelier-wimmer.at;43535262528;angenommen;;customer;
+1942;1942;Ingrid Riesterer;Schmuchideen;De;79258;Hartheim/ a Rhein;Schauinsland Str.12;ingrid-riesterer@hartheim.net;0177 3404437;angenommen;;customer;
+307;307;Iriana & Wladislaw Kugeler;Goldart;;;;;kontakt@goldart-schmuck.de;+49 176 52113455;angenommen;;customer;
+309;309;Iris Biehl;MeiÃŸterbiehl;DE313837785;82110;Germering;Bahnhofplatz 4;info@meisterbiehl.de;+49 89 54316159;angenommen;;customer;
+312;312;Irmgard Schierle-Bette;Glaszauber;DE;70372;Stuttgart;Sulzbachgasse 12;info@glaszauber.de;+49 711 5302525;angenommen;;customer;
+315;315;Isabel MÃ¼ller;Ojala;DE;80331;MÃ¼nchen;Radlsteg 2;ojalamuenchen@yahoo.de;+49 89 220987;angenommen;;customer;
+2031;2031;Isabella Pauly;Hofacker GmbH;22/650/3281/1;56068;Koblenz;SchloÃŸstraÃŸe 14;pauly@goldschmiede-hofacker.de;26112202;angenommen;;customer;
+762;762;Isabelle von HÃ¶rde;Isabelle von HÃ¶rde / Edel & Mehr;DE290600744;40625;DÃ¼sseldorf;KÃ¶lner Tor 20;info@edelundmehr.de;0211-30147090;angenommen;;customer;
+827;827;Iveta Antalova;Greg & Rich, s.r.o.;SK2120261913;915 01;NovÃ© Mesto nad VÃ¡hom;Dubcekova 14;info@gregandrich.com;4,22E+11;angenommen;;customer;
+856;856;Jacqueline Landgraf;Feng Shui Haus Pirna;DE276780124;1796;Pirna;Barbiergasse 4;info@fengshui-haus-pirna.de;03501-7797412;angenommen;;customer;
+648;648;Jan Braunert;HÃ¼mmer & Braunert GbR;DE331673635;22083;Hamburg;FlotowstraÃŸe 2;info@thessalie.de;17683223932;angenommen;;customer;
+320;320;Jan Hasselberg;Goldschmied;DE813030748;25980;SYLT;STRANDWEG 8;hesselberg@vodafone.de;+49 177 6345888;angenommen;;customer;
+321;321;Jan Satek;NEXTART Schmuckhandels GmbH;ATU64330334;1070;Wien;Neustiftgasse 67-69/35;office@nextart.at;4,37E+11;angenommen;;customer;
+2048;2048;Janine Georgi;Honu & Moko Aumakua;DE359079100;96132;SchlÃ¼sselfeld;Am Zehentfeld 4;info@moko-aumakua.de;15758300036;angenommen;;customer;
+324;324;Jasmin Haidinger;Jasmins Jewelry;AT47538204;1060;Wien;Mariahilferstr. 45;info@jasmins.at;+43 1 5857566;angenommen;;customer;
+863;863;Jasna Sklebec;SILBERMOOS GmbH;DE319841656;55268;Nieder-Olm;Lindenstr. 15;jasna.sklebec@silbermoos.de;4,96E+12;angenommen;;customer;
+326;326;Jeannine BÃ¶ttcher;J9 happyschmuck;DE303246975;39112;Magdeburg;JordanstraÃŸe 9;Jeannine.B@web.de;4,92E+11;angenommen;;customer;
+877;877;Jennifer Giesen;Goldschmiede Feld;106/5080/3683;40217;DÃ¼sseldorf;Friedrichstr. 28a;info@goldschmiede-feld.de;0211/371132;angenommen;;customer;
+878;878;Jennifer Jatho;LuxurySilver;DE 270 346 941;63165;MÃ¼hlheim;Robert-Koch-Str. 27;service@luxurysilver.de;06108/81764;angenommen;;customer;
+327;327;Jennifer Lauritsen;Schmuck & Meehr;;;;;J.lauritsen87@gmail.com;+49 151 61666686;angenommen;;customer;
+2076;2076;Joachim GraÃŸ;Uhren und Schmuck Schmitt-GraÃŸ;DE 164918160;66386;St,Ingbert;Rickertstr. 11;info@schmitt-grass.de;06894 4162;angenommen;;customer;
+331;331;Joachim Held;Der Juwelier Held;DE;31655;Stadthagen;Obernstrasse 5;held-stadthagen@t-online.de;+49 5721 1816;angenommen;;customer;
+1907;1907;Joachim Held;Juwelier Held;DE116505086;31655;Stadthagen;ObernstraÃŸe 5;held.louisa@web.de;05721/1816;angenommen;;customer;
+1932;1932;Joachim RÃ¶ssig;Der Sonnenstrahl;130133899;81827;MÃ¼nchen;Von-Erckert-Str. 35;babsmoellerroessig@gmail.com;1711247457;angenommen;;customer;
+336;336;Joachim Vorndamme;Goldschmiede Vorndamme;DE 125409630;32052;Herford;Radewiger StraÃŸe 13;contact@goldschmiede-vorndamme.de;+49 5221 56333;angenommen;;customer;
+337;337;Joanna Arreaza Navarro;Arte Lava;;;;;artelava@gmail.com;+34 922 925817;angenommen;;customer;
+338;338;Jochen Schwab;Perlenmarkt;DE;86150;Augsburg;Wintergasse 5;info@perlenmarkt-onlineshop.de;+49 172 9015801;angenommen;;customer;
+340;340;Johann Lanzinger;Lanzinger Spielwaren und Geschenke;DE179152048;94377;Steinach;Ludwig - Lehner-StraÃŸe 7;johann@lanzinger-web.de;4994288250;angenommen;;customer;
+342;342;Johann Weiss;Juwelier Weiss;ATU27237102;8530;Deutschlandsberg;Hauptplatz 15;juwelierweiss@aon.at;4,34E+11;angenommen;;customer;
+788;788;Johannes Nierholz;Nierholz Uhren und Schmuck;DE338631827;79215;Elzach;HauptstraÃŸe 68;johannes@nierholz-uhren.de;76828809;angenommen;;customer;
+345;345;JÃ¶rg MÃ¼ÃŸig;Aquamarine Sylt;DE;25980;Westerland;NeuestraÃŸe 1;aquamarine.sylt@aol.com;+49 4651 9575375;angenommen;;customer;
+347;347;JÃ¶rg PlÃ¼schau;PlÃ¼schau;DE;24340;EckernfÃ¶rde;Kielerstr. 61;info@juwelier-petersen.de;+49 4351 767450;angenommen;;customer;
+349;349;JÃ¶rn Gahre;Goldschmiede Gahre;;;;;jgahre@online.de;+49 5761 2359;angenommen;;customer;
+350;350;JÃ¶rn Masemann;Jalimei;DE815297866;27616;Beverstedt;MÃ¼hlenstr. 59;meike.masemann@jalimei.de;+49 4748 549888;angenommen;;customer;
+1969;1969;Judith Amslgruber;JUDIDIT JEWELRY COLLECTION;DE230700513;82057;Icking;KrautgÃ¤rten 22;judith.amslgruber@judidit.de;0170 47563 11;angenommen;;customer;
+1968;1968;Jula Abdolali;Kaufrausch Haarschmuck;DE289114364;20149;Hamburg;IsestraÃŸe 74;jula@abdolali.de;15254211266;angenommen;;customer;
+352;352;Julia Kubitza;Julia Kubitza Design;43/134/00013;22303;Hamburg;Lorenzengasse 7;info@juliakubitza.com;+49 179 9498393;angenommen;;customer;
+726;726;Julia NÃ¤gele;Julia Theresia NÃ¤gele;94835073127;86825;Bad wÃ¶rishofen;30 Sankt-Wolfgang-StraÃŸe;Julia.naegele.85@gmail.com;15117808270;angenommen;;customer;
+871;871;JuliaÂ´s - Mit Liebe handgemacht;Stefan Lex;DE310387569;83376;Truchtlaching;AubergstraÃŸe 1b;Julias_Taschenwerkstatt@web.de;16093820783;angenommen;;customer;
+1935;1935;Julian Sander;Atipep GmbH;DE346348681;22765;Hamburg;Ottenser Hauptstr. 44;Info@atipep.de;4039907129;angenommen;;customer;
+353;353;Julian Terbuyken;Jewelberry;DE315273160;29496;Waddeweitz;Dommatzen 12;info@jewelberry.de;15772373017;angenommen;;customer;
+2035;2035;Juliana Annen;Schmucksiederei;DE360534931;73230;Kirchheim;Rossmarkt 9;grabowski@schmucksiederei.de;07021-8078167;angenommen;;customer;
+801;801;Juliane SchÃ¤ftner;Wildbachwelle;De;91242;Ottensoos;BergstraÃŸe.18;info@wildbachwelle.de;1735934630;angenommen;;customer;
+2093;2093;Jurij Keil;Kraudzun Goldschmiede e.K.;DE241506060;83022;Rosenheim;Rathausstrasse 10;info@kraudzun.de;803117914;angenommen;;customer;
+357;357;Jutta Kaiser;Schatzinsel;;;;;kaiserinsel@web.de;+49 2151 311544;angenommen;;customer;
+360;360;Jutta MÃ¼ller;Silbervitrine;;63486;BruchkÃ¶bel;Martin-luther-strasse 1;Jutta.mueller@silbarvitrine.de;+49 6181 76970;angenommen;;customer;
+753;753;Jutta MÃ¼ller;Silbervitrine;DE112811655;D 63486;BruchkÃ¶bel;Martin-Luther-Str. 1;jutta.mueller@silbervitrine.de;+49 6181 76970 oder 0179 3882508;angenommen;;customer;
+1904;1904;Juwelier Held;Juwelier Held;DE116505086;31655;Stadthagen;Obernstr., 5;info@held-stadthagen.de;05721/1816;angenommen;;customer;
+361;361;JÃ¼rgen Bacho;Edelsteinpalais Bacho;DE250314955;91487;Vestenbergsgreuth;BÃ¼rgermeister Bauer Str. 8;pj-bacho@t-online.de;+49 151 11175505;angenommen;;customer;
+362;362;JÃ¼rgen BÃ¼ttner;Silberringe.de;DE166792718;28203;Bremen;Ostertorsteinweg 34;jb@silberringe.de;+49 421 79478642;angenommen;;customer;
+844;844;JÃ¼rgen Eschenweck;Fa. Contrast;de;81667;MÃ¼nchen;WeiÃŸenburger Str.36;contraste@gmx.de;4989476687;angenommen;;customer;
+1917;1917;JÃ¼rgen Kaiser;Schatzinsel;DE 268 674 389;47929;Grefrath;Hohe Str. 17;kokopelli2@web.de;02158-2262;angenommen;;customer;
+1979;1979;Karadana;Silver & More UG;DE;23566;LÃ¼beck;Kantstrasse 15 - 17;silverandmore@gmx.de;4517060918;angenommen;;customer;
+719;719;Kargo-Porter Petra;Silberfisch;DE;82418;Murnau;Obermarkt 34;silberfisch-murnau@outlook.de;15114229868;angenommen;;customer;
+363;363;Karin Jordan Ciesielski;New Trend & Classic;DE;18181;Graal-MÃ¼ritz;Zur SeebrÃ¼cke 9;jordan.karin@t-online.de;+49 38206 79896;angenommen;;customer;
+364;364;Karin Martin;UnikRte;DE;83346;Bergen;SÃ¤ulner Weg 5;martin_karin@t-online.de;+49 175 1619976;angenommen;;customer;
+1966;1966;Karin Steiger;Kreativ-Schmuck;DE 343068550;72070;TÃ¼bingen;DÃ¼rrstr.31;karin.steiger@gmx.de;707141533;angenommen;;customer;
+367;367;Karolin Auth;Schmuckschmiede;DE218491820;45149;Essen;Humboldtstr. 310;karolin@schmuckschmiede-auth.de;+49 201 3166277;angenommen;;customer;
+368;368;Karolin Puppe;Elb Goldschmiede Parey;DE299468402;39317;Parey;Friedensplatz 1;goldschmiede.kp@web.de;+49 152 08758708;angenommen;;customer;
+369;369;Karsten Lange-Rickmers;Inselgoldschmiede C. Rickmers;811 804 135;25946;Norddorf;Lunstruat 1;info@rickmers-schmuck.de;+49 4682 564;angenommen;;customer;
+1975;1975;Karsten SteingrÃ¤ber;Piercingstudio SteingrÃ¤ber;DE;58507;LÃ¼denscheid;Hagedornskamp 7;info@piercingstudio-steingraeber.de;2351456638;angenommen;;customer;
+1954;1954;Karsten SteingrÃ¤ber;Piercingstudio SteingrÃ¤ber;DE159 912 932;58507;LÃ¼denscheid;Hagedornskamp 7;piercingstudio-steingraeber@t-online.de;2351456638;angenommen;;customer;
+2026;2026;Kathi Eilert-Heers;Weisse Perle;de;37127;Barlissen;Niedere StreaÃŸe 16;weisse.perle@gmx.de;1711774998;angenommen;;customer;
+373;373;Kathlenn Schmelzer;KS Goldschmiede;DE;14509;Delitzsch;Eilenburgerstr. 23;kathleen-schmelzer@t-online.de;+49 34202 343715;angenommen;;customer;
+375;375;Kathrin GÃ¼nther-Wezyk;DÃ¼rerhaus;;;;;duererhaus@arcor.de;+49 361 6421393;angenommen;;customer;
+513;513;Kathrin Trommen;nt nina trommen;DE 244175925;80997;MÃ¼nchen;LechelstraÃŸe;info@ninatrommen.de;1728125544;angenommen;;customer;
+790;790;Kathrin Walter;SchmuckDesign-Goldschmiede K. Walter;De;68167;Mannheim;Lange RÃ¶tterstr.41;schmuckdesign-goldschmiede@web.de;6214018192;angenommen;;customer;
+867;867;Kathrin Weyhrich;Goldschmiede Weyhrich;DE293153846;7407;Rudolstadt;Strumpfgasse 1, Ecke MarktstraÃŸe;dirkweyhrich@web.de;3672412116;angenommen;;customer;
+2014;2014;Katja Pollok;Katja Pollok;DE182569525;40670;Meerbusch;KÃ¶nigsberger StraÃŸe 9;katjapollok@web.de;02159-910056;angenommen;;customer;
+380;380;Katrin Heinrich;Katrin Heinrich;DE;74076;Heilbronn;Riedstr . 29;post@kh-schmuckdesign.de;+49 171 6556350;angenommen;;customer;
+2059;2059;Katrin Hohenschildt;"Atelier ""SCHMUCKSTÃœCKE""";2213102475;23552;LÃ¼beck;HÃ¼xstrasse 86;Katrin.hohenschildt@gmx.de;4,92E+11;angenommen;;customer;
+744;744;KAUFRAUSCH;Hesse und Bischoff GbR;DE297460400;96047;Bamberg;Austrasse 27;info@kaufrausch-bamberg.de;95123807;angenommen;;customer;
+2056;2056;Kerstin Martin;divineArt;DE321333391;91058;Erlangen;VolckamerstraÃŸe 60;sharan.nojella@gmail.com;+49 171 7913179;angenommen;;customer;
+385;385;Kerstin Schumacher;Kerstin Schumacher;DE245048514;49716;Meppen;St.-Georg-Str.31;ke.schumacher@gmx.de;+49 174 2617109;angenommen;;customer;
+387;387;Kerstin Wendler;LÃ¤dchen am Fleth;;25348;GlÃ¼ckstadt;Am Fleth 25;laedchenamfleth@hotmail.de;+49 4124 932938;angenommen;;customer;
+106;106;Kevin Martin;Martin's Jewellers;IE6333835o;Y35FY83;Wexford;2 Lower Rowe Street;info@martinsjewellers.ie;863189458;angenommen;;customer;
+794;794;Kiki xander;Frauenzimmer;De;82152;Planegg;Lena-Christ-str. 12;kiki.xander@email.de;0173 6087638;angenommen;;customer;
+589;589;Kim Shari Hoffmann-Cordes;Shari Hoffmann;DE320731838;25980;Westerland;2 ElisabethstraÃŸe;shari@kimshari.de;46519952999;angenommen;;customer;
+1930;1930;KIRCHLER;Kirchler Kg02;2916730217;39030;Ahrntal;MÃ¼hlegg 101;info@arturkirchler.com;3,90E+11;angenommen;;customer;
+1943;1943;Klara Thiel;KLara Thiel;DE;53783;Eitorf;MÃ¼hlenstraÃŸe 6;klaraswerkstatt@aol.com;02243 841694;angenommen;;customer;
+392;392;Klaus J. Miecznik;SchmuckkÃ¤stchen;;;;;miecznik@mailbox.org;+49 201 3846732;angenommen;;customer;
+395;395;KluÃŸmann;TrÃ¶ndle;DE249697207;26486;Wangerooge;Zedeliusstr.36;info@juwelier-troendle.de;+49 4469 1800;angenommen;;customer;
+403;403;Kristina Haevescher;Vananne;DE317043246;22848;Norderstedt;SchillerstraÃŸe 5;vananne@gmx.de;+49 151 21617825;angenommen;;customer;
+404;404;Kristina Platt;Strandschmiede;DE134966687;25946;Nebel;Gewerbegebiet 5b;info@strandschmiede.de;+49 160 96468466;angenommen;;customer;
+787;787;KrÃ¶lls;EigenArt;DE186700648;83278;Traunstein;Ludwig StraÃŸe 20;g.kroells@gmx.de;8611669790;angenommen;;customer;
+406;406;Lars Lewitzke;Zeitraum-Sylt;DE232115394;25992;List auf Sylt;Alte Bahnhofstr. 16;info@zeitraum-sylt.de;+49 160 1106857;angenommen;;customer;
+2028;2028;Lars Riemenschneider;StrandlÃ¤dchen;DE174874439;24235;Laboe;Strandstr. 58 a;info@strandlaedchen.de;1739534235;angenommen;;customer;
+2078;2078;Laura;Kay;187112508;N10 3HP;London;109 Fortis Green Road;laura@tomfoolerylondon.co.uk;4,42E+11;angenommen;;customer;
+408;408;Laura Gessler;Kleines GlÃ¼ck;DE289790459;85661;Forstinning;Kirchenweg 10;info@kleinesglueck-shop.de;+49 170 3470946;angenommen;;customer;
+780;780;Laurens Seidel;Laurens Seidel;207/273/40107;96135;STEGAURACH;Raiffeisenplatz 9;laurens.seidel@gmx.de;1629682915;angenommen;;customer;
+1944;1944;Lavinia-Minette Schoo;die kleine perle am main;DE310395023;97286;Winterhausen;Fuchsstadterstr.9;kontakt@die-kleine-perle-am-main.de;09333-9043088;angenommen;;customer;
+1912;1912;Le Quyen Vu;TONI SHOP;151/208/23679;99084;Erfurt;Marktstr. 54;ToniShop99@gmail.com;3615669950;angenommen;;customer;
+769;769;Leela Arts;Leelaarts;DE271700999;86825;Bad WÃ¶rishofen;Kneippstr.;leelaart@online.de;824732570;angenommen;;customer;
+412;412;Lena Grewenig;Lena Grewneig jewelry;DE346386124;60323;Frankfurt am Main;GrÃ¼neburgweg 87;inbox@lena-grewenig.de;+49 171 4500674;angenommen;;customer;
+721;721;Lida Lette;Eenvoud;NL804231497B01;1016HW;Amsterdam;Prinsengracht;amsterdameenvoud@gmail.com;206226374;angenommen;;customer;
+802;802;Lina Sophie Frick;Juwelier Norbert Frick KG;DE;23730;Neustadt in Holstein;Kremperstr. 30;Juwelier-frick@web.de;04561-4691;angenommen;;customer;
+1928;1928;Linder Schmuckdesign;Linder Schmuckdesign UG;DE;91054;Erlangen;5 Innere Bruckerstr;Linder-Jewelry@outlook.com;16093851794;angenommen;;customer;
+875;875;Lisa Bieser;Atelier Kunst & Seide;DE;79410;Badenweiler;Wilhelmstr. 39;lisabieser@hotmail.de;76327550591;angenommen;;customer;
+415;415;Lisa Bieser;Kunst & Seide;de;79410;Badenweiler;Wilhelmstr. 39;atelier@lisabieser.de;+49 7632 823611;angenommen;;customer;
+2034;2034;Lothar RÃ¶sch;Schmuckatelier RÃ¶sch;DE306 676 132;89079;Ulm;An der ZollbrÃ¼cke 12;info@schmuckatelier-roesch.de;07305 21684;angenommen;;customer;
+2037;2037;Lothar RÃ¶sch;Schmuckatelier RÃ¶sch;DE306 676 132;89079;Ulm;An der ZollbrÃ¼cke 12;lothar.roesch@gmx.de;07305 21684;angenommen;;customer;
+418;418;Luca Marie von Otto;Luca Marie;112/256/90156;85661;Forstinning;Forsthausweg 5 A;lucavonotto@gmx.de;+49 162 7252550;angenommen;;customer;
+1992;1992;Lucas Veith;Lumora;noch nicht vorhanden;77815;BÃ¼hl;Wolfhagweg 6;Lumora9293@web.de;15233512524;angenommen;;customer;
+420;420;Luise HÃ¶hne;Cyriax;DE;7545;Gera;2 HumboldtstraÃŸe;info@goldschmiede-gera.de;+49 365 20413884;angenommen;;customer;
+781;781;Madeleine Wissing Strand;Wissings Guld AB;01556062-8538;58102;LinkÃ¶ping;Storgatan 26;info@wissingsguld.se;46013149538;angenommen;;customer;
+770;770;Magdalena HÃ¶hne;Magdalena HÃ¶hne Schmuck;DE;73430;Aalen;Hofackerstrasse 16;magdalena.hoehne@gmail.com;49736161461;angenommen;;customer;
+737;737;Maier;Artjom Maier;DE338579918;27578;Bremerhaven;Glatzer StraÃŸe 40;maier.brhv@gmail.com;17663355302;angenommen;;customer;
+2018;2018;Malgorzata Schrangl;ArtBijouxWelt;0;4650;Edt bei Lambach;Fischerwweg 20;mp.artbijoux@yahoo.com;4,34E+14;angenommen;;customer;
+1925;1925;Manuela;Meyer;no VAT;37136;EbergÃ¶tzen;Kirchtal 51;schmuck-schmueckendes@web.de;55072792;angenommen;;customer;
+429;429;Manuela Braun;KreativstÃ¼ble;DE217016216;78532;Tuttlingen;Ettlensegart 20;Manuela.braun.kreativ@gmx.de;+49 7461 4507;angenommen;;customer;
+433;433;Manuela Loch;Sundance;DE;56068;Koblenz;MÃ¼nzstr.6;info@sundance-online.de;+49 261 160568;angenommen;;customer;
+434;434;Manuela Neubert;Wild auf Wohnen;DE;67468;Neidenfels;Waldweg 20;neubertmanuela@aol.com;+49 152 08537956;angenommen;;customer;
+435;435;Manuela Ritter;Manuela Ritter;CHE 279 476 119;9485;Nendeln;Alemannenstrasse 6;Clara_design@gmx.ch;41787302334;angenommen;;customer;
+2036;2036;Marc Stich / Reidenbach;Goldschmiede Reidenbach;157306125;53474;Bad Neuenahr-Ahrweiler;HauptstraÃŸe 102;Goldschmiede-Reidenbach@web.de;49264125369;angenommen;;customer;
+822;822;Marcus Oliver Vorwerk;Deutsche Edelmetalle Invest und Recycling GmbH;DE 263 132 512;45731;Waltrop;Dortmunder Str. 10;waltrop@deir.de;02309/7862827;angenommen;;customer;
+2046;2046;Maren Brunner;Julchen;DE252946533;24879;Neuberend;Klosterreihe 45 A;maren@julchen.de;16094957286;angenommen;;customer;
+442;442;Margit Mach;PrÃ¤senta;DE150204850;99189;Elxleben;Thomas-MÃ¼ntzer-Str. 79;margit.mach.medizintechnik@gmx.de;+49 173 523669;angenommen;;customer;
+444;444;Maria Fiedler;einzig-ART-ig;DE;63071;Offenbach;Stauffenbergstr.3;marie.fiedler@gmx.net;+49 69 85709292;angenommen;;customer;
+445;445;Maria StÃ¼renburg;Maria StÃ¼renburg -Erdenfeuer-;DE290615148;48167;MÃ¼nster;Normannenweg 181;info@erdenfeuer.de;+49 175 2977183;angenommen;;customer;
+446;446;Maria Theresia;Galerie Maria Theresia;DE;39031;Brunneck;Stadtgasse 78;info@galeriemariatheresia.it;+39 0474 555427;angenommen;;customer;
+837;837;Mariann Ehrhardt;Mariann Ehrhardt;DE242964855;68723;Oftersheim;Reinhold Frank Str. 2;Mariann.e@t-online.de;15208717561;angenommen;;customer;
+447;447;Mariele Gommla;MarieleGommla;;59387;Asherberg;MÃ¼nsterstraÃŸe10;mariele.gommla@outlook.de;+49 2599 1479;angenommen;;customer;
+448;448;Mariele Liebl;Palma Kunkel;DE;80469;MÃ¼nchen;FrauenhoferstraÃŸe 5;mail@palma-kunkel.eu;+49 89 2605790;angenommen;;customer;
+449;449;Marina Geisler;Goldschmiede Chrima;DE286768167;61137;SchÃ¶neck;Froschbachstr.14;mail@schmuck-chrima.de;+49 6187 91473;angenommen;;customer;
+1896;1896;Marina Hertzig;Goldschmiedeatelier Hertzig;DE350484889;89250;Senden;HauptstraÃŸe 27;goldschmiede.team@gmail.com;730731136;angenommen;;customer;
+450;450;Marion Buchsteiner;Schmuck Design;0;8967;Haus/E.;Fassbindergasse 244;marionbuchsteiner@gmail.com;+43 069981411812;angenommen;;customer;
+1914;1914;Marion Kempin;Edle Steinketten FÃ¶hr;-;25938;Wyk;Strandstrasse 65;marion.kempin@icloud.com;1608032798;angenommen;;customer;
+873;873;Marion Kunz;Marion Kunz;DE;79106;Freiburg im Breisgau;Guntramstr. 8;kunzmarion@gmx.de;0 178 1093559;angenommen;;customer;
+453;453;Marion LÃ¼scher;Zone Designerschmuck;;;;;info@zoneschmuck.ch;+41 79 3220494;angenommen;;customer;
+829;829;Marita Stegherr;Uhren und Schmuck Marita Stegherr;DE129198896;87757;Kirchheim;HauptstraÃŸe 12;uhren-stegherr@online.de;82661774;angenommen;;customer;
+1961;1961;Marita Vogel;Maritas Schmuckstube;3387800613  ID Nr. DE45028179163;64760;Oberzent;NeckartalstraÃŸe 72;marita.vogel@arcor.de;15202668343;angenommen;;customer;
+461;461;Markus Lentzen;Wandelbar;86 057 192 130;24340;EckernfÃ¶rde;Frau-Clara-StraÃŸe 28;Mlentzenla@aol.com;+49 174 9498958;angenommen;;customer;
+773;773;Markus Wenger;Rockstyle;DE295330656;74915;WAIBSTADT;ZIEGELSTR. 9;markus.wenger@freenet.de;1712417334;angenommen;;customer;
+463;463;Markus Zinth;Goldschmiede Zinth;;;;;info@goldschmiede-zinth.de;+49 8241 910311;angenommen;;customer;
+464;464;Marta Velez;Rosa Bisbe;ESA58100926;8021;BARCELONA;GANDUXER 20;marta@rosabisbe.com;+34 932 016590;angenommen;;customer;
+1893;1893;Martin Corrigan;Design House Binz;DE357357908;18609;Ostseebad Binz;HauptstraÃŸe 6;einkauf@dh-binz.de;3839343801;angenommen;;customer;
+727;727;Martin Henn;Schmuck & Uhren Henn;DE293132681;68723;Schwetzingen;Mannheimerstr.55;info@schmuckuhrenhenn.de;06202/14027;angenommen;;customer;
+886;886;Martin Ochs;Golddschmiede Ox-Design UG;DE255804696;34497;Korbach;Stechbahn 4;goldschmiede.oxdesign@gmail.com;05631-9377767;angenommen;;customer;
+466;466;Martin Wagner;Goettgen;DE 263 136 862;83471;Berchtesgaden;Maximilianstr. 6;werkstatt@goettgen.de;+49 8652 947870;angenommen;;customer;
+2067;2067;Martina;Wangemann;DE91448602378;51469;Bergisch Gladbach;Kempener Str. 60;tina.wangemann@gmx.net;1632432100;angenommen;;customer;
+720;720;Martina Bachmann;Glitzer&Glamour;De;89420;HÃ¶chstÃ¤dt;Freiherr-von-Ungelter Str.3;bachmann_martina@yahoo.de;1702077228;angenommen;;customer;
+2019;2019;Martina Hoch;Hoch kreativ;DE238958327;78269;Volkertshausen;Hauptstr. 44;martina@hoch-kreativ.de;07774 9397924;angenommen;;customer;
+469;469;Martina Scholz;Silberschmiede Hamisch;102/271/07591;39104;Magdeburg;Otto von Guericke Str. 53;silberschmiede@email.de;+49 391 5434821;angenommen;;customer;
+471;471;Marzena Hajduczek;Mirma;;;;;mirma@mail.de;+49 89 1498887;angenommen;;customer;
+2041;2041;Mathias Liegl;Mathias Liegl VENADesign;DE316135282;82327;Tutzing;An der Leiten 3;venadesignshop@gmail.com;1717046627;angenommen;;customer;
+472;472;Matthias Naue;Der Silberladen;;99867;Gotha;Neumarkt 10;kontakt@der-silberladen.de;+49 3621 223706;angenommen;;customer;
+1894;1894;Mediha Schweighardt;Silberquelle;DE203353695;38124;Braunschweig;Helene-Engelbrecht-Str.129;mediha.schweighardt@gmail.com;4,92E+11;angenommen;;customer;
+724;724;Meerfein;Meerfein;DE327258675;26127;Oldenburg;Brookweg;meerfein.shop@gmail.com;4413094373;angenommen;;customer;
+803;803;Mehri;Mehri Eskandari;At;1080;Wien;Neudeggergasse 5/19;mehri_eskandari@yahoo.de;4,37E+11;angenommen;;customer;
+476;476;Melzer & Aschenbrenner;Goldschmiedelust;DE 237631528;92224;Amberg;Jesuitenfahrt 6;info@goldschmiedelust.de;+49 9621 9177455;angenommen;;customer;
+479;479;Michael Keppeler;868 Studio;DE334367922;86830;SchwabmÃ¼nchen;FuggerstraÃŸe 4;info@868studio.de;1708053734;angenommen;;customer;
+1947;1947;Michael Momesso;SchmuckAkzente;DE293836653;73463;Westhausen;Dalkinger StraÃŸe 13;Schmuckakzentemomesso@gmail.com;1725292476;angenommen;;customer;
+805;805;Michael Nengelken;Pasion;ESX8601660M;7157;Pto. dâ€™Andratx;C/ Saluet 1, local 8;info-pasion@gmx.de;34971674789;angenommen;;customer;
+1985;1985;Michael Wemmel;Bulldog Beads;DE279344983;22089;Hamburg;Wandsbeker Chaussee 157;service@rockerschmuck.shop;01573-6234209;angenommen;;customer;
+480;480;Michaela Gronmayer;Die Glaswerkstatt;?;86502;86502 Laugna;Bergstr. 16;1michagron@gmail.com;+49 8272 899376;angenommen;;customer;
+767;767;Michaela Pinter;Michaela Pinter Goldschmiede;ATU73437925;7000;Eisenstadt;EsterhazystraÃŸe;hi@mimela.at;6601202241;angenommen;;customer;
+483;483;Michaela Rudolph;Goldschmiede Rudolph;DE;79423;Heitersheim;RÃ¶merstr. 21;michi-rudolph@t-online.de;+49 7634 507515;angenommen;;customer;
+2085;2085;Michaela Rudolph;Goldschmiede;12116/20468;79423;Heitersheim;RÃ¶merstr., 21;romanfroschmeier@gmail.com;4,92E+11;angenommen;;customer;
+2030;2030;Michaela Schwenn;A. Schwenn Achwiesuess Jewelry;DE 326258374;81477;MÃ¼nchen;Hermann-Hahn-Platz 11a;info@achwiesuess.de;4,92E+11;angenommen;;customer;
+766;766;Michaela Thieme;Elathi Design;DE272779573;1309;Dresden;Loschwitzer Strasse 58;kontakt@elathi-design.de;0351/3119926;angenommen;;customer;
+486;486;Michaela Thieme;Elathi Design;;;;;diemichaelathieme@web.de;+49 351 3119926;angenommen;;customer;
+2032;2032;Mirjana Gahre;Goldschmiede Gahre;12345;31592;Stolzenau;2;mikicavelebit@gmail.com;15252468312;angenommen;;customer;
+490;490;Mitzi Mog;Silverschmiede;33131;72160;Horb a. Neckar;SchÃ¼tteberg 7;mitzimog1@googlemail.com;15776139072;angenommen;;customer;
+491;491;Mojan Shatrandji;Metal & Meer;DE;38640;Goslar;Petersilienstr. 2;mshatrandji@t-online.de;+49 5321 709550;angenommen;;customer;
+826;826;Monica Sebesan;ARMILLA RO ART SRL;39338202;410595;Oradea;Ioan Corneli, 3;monica.sebesan@yahoo.com;40723803147;angenommen;;customer;
+115;115;Monika Cadetg;Flurina;0;7563;Samnaun Dorf;Dorfstrasse 22;info@flurina-samnaun.ch;818685522;angenommen;;customer;
+738;738;Monika Duschl;ketten und nettes;DE298614974;81547;MÃ¼nchen;Resedenweg 4;info@mehrzweckraum-harlaching.de;089 23964270;angenommen;;customer;
+2068;2068;Monika Jakoby;Monika Jakoby;DE812211740;66620;Nonnweiler;Im Hornfeld 11;monika.jakoby@web.de;1778357563;angenommen;;customer;
+745;745;Monika Plachy;Glamour;DE162358185;71543;WÃ¼stenrot;Fuchswiesenstr 5;monikaplachy@aol.com;79452935;angenommen;;customer;
+496;496;Monika Reiter;Glanzpunkt;DE 811 945 989;86609;DonauwÃ¶rth;ReichsstraÃŸe 11;retaildon@glanzpunkt.de;+49 906 7057270;angenommen;;customer;
+825;825;Montserrat BADA HANSEN;RESTYLE2;DE316108615;50999;KÃ¶ln;Falderstrasse, 39;restyle2@gmx.de;22364906006;angenommen;;customer;
+785;785;MÃ¼cke Manfred;MÃ¼cke Uhren und Schmuck;DE139758809;6749;Bitterfeld;Walther-Rathenow-Str. 27;info@mein-juwelier.com;349323695;angenommen;;customer;
+823;823;Nadine Hirsch;Juwelier Hirsch GmbH;DE293948699;76437;Rastatt;Poststr. 21;info@trauringe-hirsch.de;722234228;angenommen;;customer;
+498;498;Nadine SchrÃ¶der;Inselgedanke;0;18586;GÃ¶hren;Strandstr. 7;info@inselgedanke.de;+49 38308 91015;angenommen;;customer;
+500;500;Nele Markgraff;Grafengold;DE306559754;27612;Loxstedt;WiesenstraÃŸe 4a;hallo@grafengold.de;+49 157 86918967;angenommen;;customer;
+791;791;Neus;Nova Joieria Radresa,S.A.;ES A17967175;17257;Torroella de Montgri;C. Sant Agusti 40;neusbonada@yahoo.es;34972759106;angenommen;;customer;
+1977;1977;Nico Kettmann;Schmuckatelier Kettmann;DE260387362;14776;Brandenburg;Hauptstr. 46;schmuckatelier.kettmann@rftonline.net;1621870974;angenommen;;customer;
+505;505;Nicole Labemeier;Schmuckkasterl;DE815484110;84160;Frontenhausen;Marienplatz 10;schmuckkasterl@googlemail.com;+49 8732 9384047;angenommen;;customer;
+506;506;Nicole Lennartz;Silberpunkt;;;;;n.lennartz@silberpunkt.de;+49 4364 471755;angenommen;;customer;
+763;763;Nicole Meyer-KÃ¶tter;Rosabuntes LÃ¤dchen;de252513050;49143;Bissendorf;Wissinger Heide 3b;info@rosabunt.de;1708237501;angenommen;;customer;
+2073;2073;Nicole Simon;Nicole simon;DE289144987;78048;Villingen-Schwenningen;St.Georgener Str. 20;info@schmuckdesign-vs.de;07721 502775;angenommen;;customer;
+749;749;Nicole Stumpe;Wunderwerk;DE285778834;26122;Oldenburg;BurgstraÃŸe 22;nicole.stumpe@web.de;1788144855;angenommen;;customer;
+509;509;Nicole WeiÃŸ;Schmuckatelier;DE278237874;82234;WeÃŸling;Bahnhofstr. 2;info@schmuckatelier-weiss.de;+49 8153 906264;angenommen;;customer;
+510;510;Nikolai Noack;Die Schatzkammer;323367499;23769;Fehmarn;Altenteil 3;schatzkammer.fehmarn@yahoo.de;+49 4372 639;angenommen;;customer;
+511;511;Nina Heyd;Capulet;;;;;contact@capulet.de;+49 89 22843850;angenommen;;customer;
+760;760;Nina Heyd;CAPULET Jewelry;De 264896021;80799;MÃ¼nchen;Zieblandstrasse 19;presse@capulet.de;1731986981;angenommen;;customer;
+743;743;Norbert  Wiegers;Oh! Calcutta;22353210921;50933;KÃ¶ln;Stolbergerstrasse 1;patriciapink@web.de;2212585884;angenommen;;customer;
+1936;1936;Odette Bunica;Odette Bunica, Vincent Lackner GbR;DE355839144;82061;Neuried;Heimgartenweg 14;Odette.bunica@simplyo.de;1743121400;angenommen;;customer;
+517;517;Olaf Windecker;Juwelier Windecker;DE5755972;61440;Oberursel;OberhÃ¶chstadter Str. 3;info@windecker.de;+49 6171 54471;angenommen;;customer;
+723;723;Olga Ebert;Boutique pur pur;DE251351459;16816;Neuruppin;FischbÃ¤nkenstrasse 17a;ebert@soventus.de;0049 15112020227;angenommen;;customer;
+835;835;Oliver Bauer;Karl Bauer eK;DE131955027;63739;Aschaffenburg;47 HerstallstraÃŸe;info@bauer-juwelier.de;06021/23005;angenommen;;customer;
+518;518;Oliver Wind;Live2day;NL002067994B02;4306CJ;Nieuwerkerk;Kerkring 1;info@live2day.nl;+31 111 550550;angenommen;;customer;
+519;519;Otto Semler;Juwelier Otto Semler;DE;35037;Marburg;Bahnhofstr. 10;juwelier-semler@t-online.de;06421 65710;angenommen;;customer;
+2066;2066;Panick, Andrea;Schmuck und Uhren;De139860095;6917;Sachsen-Anhalt - Jessen (Elste;Lange Strasse;andreapanick.schmuck@web.de;4,95E+13;angenommen;;customer;
+2060;2060;Patricia Drapalla-Lerch;Perlenspiel;DE201440773;88483;Burgrieden;Heusteige 9;perlenspielpd@gmail.com;15141434866;angenommen;;customer;
+524;524;Patrick Rueff;Schmuckbande-com;DE;81827;MÃ¼nchen;GroÃŸfriedrichsburger StraÃŸe 8D;info@schmuckbande.com;+49 89 63496803;angenommen;;customer;
+526;526;Perlerie;Ulrike von Stein;DE130440101;80634;MÃ¼nchen;Volkartstrasse 17;post@perlerie.net;+49 89 1689155;angenommen;;customer;
+530;530;Peter Kenner;Goldschmiede Peter Kenner;140/235/50602;86842;TÃ¼rkheim;Maximilian-Philipp-Str.26;Peterkenner@web.de;8245967186;angenommen;;customer;
+533;533;Peter Wunsch;Kultur Ecke;de;88662;Ãœberlingen;MÃ¼nsterstr. 40;kultecke@t-online.de;+49 7551 69662;angenommen;;customer;
+730;730;Petra Bockstegers;Goldschmiede Atelier;DE;46519;Alpen;Adenauerplatz 8;petra.bockstegers@gmail.com;4,92E+11;angenommen;;customer;
+759;759;Petra Carlen;EdelruhEchtschmuck;DE302231736;36103;Flieden;Unter den Birken 12;petracarlen@arcor.de;0151-61429345;angenommen;;customer;
+761;761;Petra Pawletta;Himmelblau;;96515;Sonneberg;RathenaustraÃŸe 2;info@himmelblau-sonneberg.de;+49 3675 807300;angenommen;;customer;
+1929;1929;Petra Regnery-Britz;Haareszeiten Naturfriseure;DE241603353;56068;Koblenz;Markenbildchenweg 16;regnery-britz@web.de;2615793427;angenommen;;customer;
+1900;1900;Petra Sanders;Kunsthandwerk und Schmuck;DE359292391;28203;Bremen;Horner StraÃŸe;info@muranoglas-perlen.de;4217941420;angenommen;;customer;
+1955;1955;Petra Waldow;P Schmuck und Accessoires;DE81512560;1324;Dresden;RiÃŸweg 29;p.waldow@gmx.de;4,92E+11;angenommen;;customer;
+2022;2022;Petra Witte;Witte;DE;25836;Garding;MÃ¼ckenberg 4;ppww78653@gmail.com;0151 175 43 672;angenommen;;customer;
+541;541;Petra Witte;;;;;;witte.petra1@t-online.de;+49 160 95542904;angenommen;;customer;
+839;839;Philipp Reinhartshuber;Mandismar e.U.;ATU67847333;5020;Salzburg;Nonntaler Hauptstrasse 69;office@mandismar.com;6764288824;angenommen;;customer;
+1950;1950;Pia;Margelisch;CH;3900;Brig;Furkastrasse 13;hair.pia@bluewin.ch;41793527418;angenommen;;customer;
+813;813;Pinkall GmbH;Pinkall GmbH;St. Nr. 107/5734/0019;47055;Duisburg;Fischerstr. 124;pinkallschmuck@yahoo.de;203774333;angenommen;;customer;
+732;732;Quiter Martin;Perlenrausch Quiter;DE815195247;57462;Olpe;KurfÃ¼rst-Heinrich-Str. 5;info@perlenrausch-quiter.de;27619422670;angenommen;;customer;
+543;543;Raimund Wettle;Cato-Design;---;6861;Alberschwende;Nannen 216;office@cato-design.at;+43 664 2829605;angenommen;;customer;
+2072;2072;Rampf;SilberflÃ¶ckchen;102/260/30455;86830;SchwabmÃ¼nchen;Alter Berg 3;kr-schreibservice@web.de;1772022400;angenommen;;customer;
+2071;2071;Raphael Maria Stieler;Perlenoase;DE 275 784 616;86633;Neuburg an der Donau;Am SchlagbrÃ¼ckchen 10;info@perlenoase.com;15117644359;angenommen;;customer;
+2086;2086;Regina Frank;Rocia;DE328898561;86845;GroÃŸaitingen;Bahnhofstr. 22;info@rocia.de;1794851510;angenommen;;customer;
+546;546;Regina Goldmann;Schmuck u. Seidenkreatione;;;;;regina.goldmann@gmx.de;+49 561 827594;angenommen;;customer;
+547;547;Regina Schmidt-Boye;Schmuckdeel;de;25386;Garding;Bahnhofstr. 3;info@schmuckdeel.de;+49 4862 201864;angenommen;;customer;
+728;728;Reweka Hess;Der Goldbasar;DE244697510;85301;Schweitenkirchen;Holledaustr. 24;reweka.hess@googlemail.com;84418796254;angenommen;;customer;
+553;553;Rita Gansmeier;Sha Ris;DE;80333;MÃ¼nchen;Augustenstr.63;ritaganslmeier@yahoo.de;1733873680;angenommen;;customer;
+789;789;Rita Kramer;Uhren und Schmuck;DE;9244;Oberlichtenau;SachsenstraÃŸe 9;schmuckrita@gmail.com;372084689;angenommen;;customer;
+555;555;Rita RohrÃŸen;Dies und Das;DE201093075;31515;Wunstorf;An der Friedenseiche 6;mail@diesunddassteinhude.de;+49 5033 1780;angenommen;;customer;
+556;556;Rita SchÃ¼tt;Dekomagie;DE256641218;22305;Hamburg;Hellbrookstrasse 57;info@dekomagie.de;+49 151 16776783;angenommen;;customer;
+557;557;Robert Moll;Will I. Trotzdem GmbH;DE322219915;89584;Ehingen (Donau);Gymnasiumstr. 14;will-i-trotzdem@web.de;+49 7391 4661;angenommen;;customer;
+558;558;Roberto Blast;Diamond-Heiligen-Hafen;;;;;Bernstein-und-Silber@web.de;+49 151 53977726;angenommen;;customer;
+1982;1982;Roberto Fernandez;OLA;DE135706670;10405;Berlin;WÃ¶rther Str 22;ola-schmuck@web.de;1772161095;angenommen;;customer;
+765;765;Roger Hortlund;Arctic Gem;SE520229855901;93130;Skelleftea;Nygatan 63;info@arcticgem.se;46702372040;angenommen;;customer;
+559;559;Roksana BÃ¼hn;Rogarii;335/5031/3006;32429;Minden;Menzelstr. 4;roksanabuehn@web.de;+49 160 97047054;angenommen;;customer;
+560;560;Roland Bock;Schmuck Fachwerk;DE214810786;67433;Neustadt a.d.W.;Landsachreibereistr. 3;Schmuckfachwerk@email.de;+49 6321 386690;angenommen;;customer;
+887;887;Rolf Dittmann;Juwelier Dittmann;811958660;29303;Bergen;Harburger Str. 8;rolfdittmann@t-online.de;05051-2074;angenommen;;customer;
+797;797;Rose Nebel;Goldschmiede am Kirchplatz;DE;51789;Lindlar;HauptstraÃŸe 5;rosenstamm@gmx.net;02266 7062;angenommen;;customer;
+564;564;Rosemarie Recio de Mertens;Gold & Zeit;DE235284007;73760;Ostfildern;Hauptstr .14;info@goldundzeit.de;+49 711 69989956;angenommen;;customer;
+885;885;Rubina Kumar;ve;0;80686;MÃ¼nchen;Selma-LagerlÃ¶f-StraÃŸe 76;rubina.kumar@icloud.com;1794935733;angenommen;;customer;
+565;565;Rudi Ertel;Kolibri;DE316138540;96052;Bamberg;Obere KÃ¶nigstrasse 16;kolibri_schmuck@web.de;+49 951 29608977;angenommen;;customer;
+566;566;Rudolf Baier;24schmuck.de;DE143880657;68305;Mannheim;Malvenweg 39;info@24schmuck.de;+49 178 4576387;angenommen;;customer;
+1905;1905;Rudolf Zirnsak;SchmuckStars;DE284178574;97688;Bad Kissingen;Ludwigstr.16;schmuckstars@web.de;9717858592;angenommen;;customer;
+568;568;RÃ¼diger Wich-Schwarz;Die Goldschmiede;DE229220352;95444;Bayreuth;SophienstraÃŸe;goldschmiedewichschwarz@yahoo.de;92162699;angenommen;;customer;
+572;572;Sabine Hertel;Kon-dor Schmuckdesign;79786504324;92360;MÃ¼hlhausen;Am Hammerberg 6;info@kon-dor.de;+49 1751533919;angenommen;;customer;
+574;574;Sabine Pflaum;;;;;;pflaum.christian@t-online.de;+49 951 71847;angenommen;;customer;
+734;734;Sabine Raubaum;SchmuckStÃ¼ck;DE354435781;25398;Wyk auf FÃ¶hr;GroÃŸe StraÃŸe 13;sabine.raubaum@gmx.de;04681 7479325;angenommen;;customer;
+731;731;Sabine Raubaum;SchmuckStÃ¼ck;DE354435781;25938;Wyk auf FÃ¶hr;GroÃŸe StraÃŸe 13;schmuckstueck-foehr@gmx.de;04681 7479325;angenommen;;customer;
+725;725;Sabine Schultz;Das BernsteinZimmer;DE-153581674;18609;Ostseebad Binz;HauptstraÃŸe 9;info@bernstein-ruegen.de;4,92E+11;angenommen;;customer;
+842;842;Sabine Seitz-Klein;Juwelier A.BrÃ¤utigam;DE 313 113 488;90403;NÃ¼rnberg;Hauptmarkt  18;info@juwelier-braeutigam.de;0911-227112;angenommen;;customer;
+777;777;Sabine Staab;Pferdeperle;DE;27798;Hude;Grummersorter DorfstraÃŸe 46;info@pferdeperle.de;1724179118;angenommen;;customer;
+771;771;Sabine Sturm;Schmuckdesign Sturm;DE;81377;MÃ¼nchen;Am Wiesenhang 11;info@schmuckdesign-sturm.de;1719858004;angenommen;;customer;
+715;715;Sabrina;Funkeloase;DE;86517;Wehringen;Obere Pointstrasse 4;S.Achberger@outlook.de;4,92E+11;angenommen;;customer;
+784;784;Sabrina Achberger;Funkeloase;DE;86517;Wehringen;Obere Pointstr. 4;info@funkeloase.de;1733236699;angenommen;;customer;
+1908;1908;Sabrina EddelbÃ¼ttel;Shellcreations;17/046/02868;25980;Sylt;Gurtmuasem 2g;info@shellcreations.de;0175-1097713;angenommen;;customer;
+755;755;Sandra Baumann;Ellwanger Hochzeitshaus;DE266406765;73489;Ellwangen;Rotkreuzstrasse  44;info@ellwangerhochzeitshaus.de;07961/560127;angenommen;;customer;
+322;322;Sandra Jenischek;Alterberger Dom-Laden / Haus Altenberg e.V.;DE121948344;51519;Odenthal;Eugen-Heinen-Platz 2;info@domladen.de;+49 2174 419930;angenommen;;customer;
+577;577;Sandra Klinnert;Verein fÃ¼r Kultur und Wohlbefinden;DE;7356;Bad Lobenstein;Markt 5;verein.kw@googlemail.com;+49 36651 37124;angenommen;;customer;
+816;816;Sandra Steinbichler;Magische Steinwelt;DE;85290;Geisenfeld;Marienplatz 4;s.steinbichler@mail.de;1799097878;angenommen;;customer;
+581;581;Sandra Unger;Sali's;218 283 02482;8294;LÃ¶ÃŸnitz;Gerbergasse 1;salis@online.de;3771253897;angenommen;;customer;
+774;774;Sandra Wolf und Stefanie KrÃ¤h;UmhÃ¤ngsel GbR;DE;94356;Kirchroth;JÃ¤gerstraÃŸe 12a;info@umhaengsel.de;1608115427;angenommen;;customer;
+585;585;Sarah Inan;AP Schmuck;DE286290524;91207;Lauf;Kirchenplatz 2+ 4;A.P.Schmuck@googlemail.com;+49 9123 9989389;angenommen;;customer;
+1986;1986;Saskia Vierhuf;Saskia Vierhuf;DE318547848;40670;Meerbusch;KÃ¶sliner Weg;info@villarosalotta.de;15231754617;angenommen;;customer;
+1973;1973;SchloÃŸboutique;Mainau GmbH;DE142313043;78465;Konstanz;Schwedenhof 1;Timo.schmid@mainau.de;4,98E+11;angenommen;;customer;
+587;587;Schlusen;WarnemÃ¼nder Schmuckeck;de;18119;Rostock;Am Strom 60;Warnemuender-Schmuckeck@gmx.de;+49 381 5190490;angenommen;;customer;
+1964;1964;SchmÃ¼ckend;Judith Werner;DE259244734;35510;Butzbach;HausbergstraÃŸe 46;judith@werner-mailbox.de;0157 7154 7364;angenommen;;customer;
+804;804;Schuetz;SBS;De;84570;Villes  Sur Auzon;2 Le Grand Portail;84stefanieschuetz@gmail.com;0033 619113192;angenommen;;customer;
+654;654;Seyde Alp;Juwelier Babylon;DE812034364;37269;Eschwege;Stad 34;juwelierbabylon@gmx.de;+49 5651 70859;angenommen;;customer;
+714;714;Shailender;Bahl;De;65934;Frankfurt Am Main;OeserstraÃŸe 1;shailenderbahl63@gmail.com;4,92E+11;angenommen;;customer;
+2090;2090;sharnee ranjitsingh bache;Monsoon Arts & Crafts;DE279077474;33602;Bielefeld;Goldstrasse 22;info@monsoon-arts.de;15121503830;angenommen;;customer;
+596;596;Silke Ftuhlfauth;Schmuck & Ideen;;;;;goldschmiede@schmuckundideen.de;+49 9122 8088810;angenommen;;customer;
+775;775;Silke Holdinghausen;Silke Holdinghausen;DE;51371;Leverkusen;Unterstr. 6;silke@holdinghausen.com;1748538438;angenommen;;customer;
+2017;2017;Silke Rehbein;Malusi;DE279069272;83043;Bad Aibling;Marienplatz 1;info@malusi.de;1623171858;angenommen;;customer;
+599;599;Silke Rehbein;Malusi;DE279069272;83043;Bad Aibling;Marienplatz 1;rehbeinsilke@aol.com;+49 8061 3498451;angenommen;;customer;
+603;603;Silvia Kasdorf;Chunky Funky;ESX2102585V;3727;XalÃ³, Spanien;Av. Pla de la SÃ©quia 61 Local 7;silviik@live.com;34676781034;angenommen;;customer;
+772;772;Silvia Zierer;Gemsundpearlsbavaria;DE;84174;Eching;Kornweg 8;silvia.zierer@gmx.de;4987091455;angenommen;;customer;
+605;605;Simone MÃ¼ller;Goldschmiede Schmuck & Stein;82047561948;87509;Immenstadt;In der Hub 13;info@schmuck-und-stein.com;+49 8323 9696177;angenommen;;customer;
+606;606;Simone Neubert;Steinschmuck-Kreation;;;;;simoneneubert@gmx.de;+49 38326 82007;angenommen;;customer;
+1906;1906;Simone Schmidt;Ostsee-Mitbringsel;-;23970;Benz;Gamehl 24a;ostsee-mitbringsel@web.de;-;angenommen;;customer;
+608;608;Sintya Milani;Y6879003Q;Y6879003Q;38686;Santa Cruz de Tenerife;Finca Cuchillo de Amaro 1;sintyamilani369@gmail.com;604127622;angenommen;;customer;
+1898;1898;Sonja HÃ¤cker;Goldschmiede HÃ¤cker;DE260282178;89198;Westerstetten;Geislingerstr 19/2;goldschmiede.haecker@gmail.com;7348982400;angenommen;;customer;
+2084;2084;Sonja Sauer;Glitzerstein;DE257776600;81737;MÃ¼nchen;Specklstrasse, 22;kontakt@Glitzerstein.com;1797316652;angenommen;;customer;
+840;840;Sonja Weger MSc;Individuelle SchmuckstÃ¼cke;ATU59895466;6111;Volders;Jagerbichl 20;sonja.weger@a1.net;4,37E+11;angenommen;;customer;
+832;832;stefan buser;InnocentArt;DE 166731032;86316;friedberg;nikolausweg 1;innocentart@gmx.de;8212629026;angenommen;;customer;
+615;615;Stefan Ebert;Schmuck Lounge;de202246171;68161;Mannheim;O3,1;info@schmucklounge.de;+49 621 1788898;angenommen;;customer;
+809;809;Stefan Gruhle;Gruhle GmbH;DE215338279;92637;Weiden;Hinter der Schanz 10 / Schulgasse;info@gruhle.com;0049 961 44232;angenommen;;customer;
+620;620;Stefan MÃ¼ller;Der Goldschmied;DE160671970;81243;MÃ¼nchen;Radolfzeller Str.13;der-goldschmied@arcor.de;8989689559;angenommen;;customer;
+621;621;Stefan SeuÃŸ;Elfen Schmuck;DE226182943;12524;Berlin;Kirschweg 19;info@elfen-schmuck.de;+49 30 81723618;angenommen;;customer;
+1909;1909;Stefanie Gerloff;Schmuckfee;De;91126;Schwabach;Limbacherstr 25;info@schmuckfee.de;0151-22905923;angenommen;;customer;
+1974;1974;Stefanie Klees;Besonders SchÃ¶nes;-;4955;Gondiswil;Hauelen;stefanie@besonders-schoenes.ch;789536046;angenommen;;customer;
+624;624;Stefanie Rauch-Tschapeller;Edelsteinfasserwerkstatt;DE168130724;81241;MÃ¼nchen;Schusterwolfstr.7;rauch@edelsteinfasser.de;+49 89 8542460;angenommen;;customer;
+883;883;Steffen KÃ¼hnert;In Gold & Silber;DE154193200;26871;Papenburg;Friederikenstr 1;s.kuehnert@ingoldundsilber.de;04961 9821967;angenommen;;customer;
+1911;1911;Stephanie Mallien;Stephanie und Martin Mallien GbR;DE320318335;22941;Bargteheide;Rosenweg 11;diesternschnuppe@mallien.info;0176-56998378;angenommen;;customer;
+722;722;Stephanie MÃ¶llering;Die MÃ¶llering;DE291308554;49074;OsnabrÃ¼ck;Redlinger StraÃŸe 2;mail@diemoellering.de;0049 1794197129;angenommen;;customer;
+1915;1915;StjernswÃ¤rd Carl-Adam;StjernswÃ¤rd Juveler och Design ab;SE556425953801;11442;Stockholm;Sibyllegatan;info@stjernsward.se;46705762252;angenommen;;customer;
+1951;1951;Susanne HÃ¼lsmann;Perlenmarkt;DE356480299;90403;NÃ¼rnberg;Weinmarkt 1;info@perlenmarkt.eu;15120659541;angenommen;;customer;
+795;795;Susanne Kramer;Kramer;DE;2500;Baden bei Wien;Kaiser Franz Josef Ring 33 TÃ¼r 5;kramer.atelier@gmx.at;0043 6764603116;angenommen;;customer;
+810;810;Susanne Krings;Schmuck & Design;DE265366685;61479;GlashÃ¼tten;Sandweg 19;post@susanne-krings.de;6082928454;angenommen;;customer;
+1984;1984;Susanne Preidel;Raumduftmanufaktur Susanne Preidel;DE354183018;61206;WÃ¶llstadt;Hanauer Str. 59;einkauf@blissful-aromas.de;4,96E+12;angenommen;;customer;
+831;831;Sussie Nielsen;Smykkeskrinet;34217297;3700;RÃ¸nne;St. Torvegade 2;sn@sussie-smykkeskrin.dk;56959090;angenommen;;customer;
+1934;1934;Svenja Marissa Schratt;Gaby's Schmuckinsel e. K.;DE299710457;86978;Hohenfurch;SchÃ¶nachstraÃŸe 9;gs@gabys-schmuckinsel.de;886120499;angenommen;;customer;
+830;830;Svenja Oertel;Goldschmiedewerkstatt Svenja Oertel;-;42283;Wuppertal;Paracelsusstr.40;svenja.langendorf@web.de;4,92E+12;angenommen;;customer;
+634;634;Svenja Schratt FÃ¼ssen;GabyÂ´s Schmuckinsel FÃ¼ssen;DE299710457;87629;FÃ¼ssen;Hutergasse 1;juwelier@gabys-schmuckinsel.de;+49 8362 9304363;angenommen;;customer;
+729;729;Sybille Reinig;Feine SchÃ¤tzchen;de248333723;64658;FÃ¼rth;TierparkstraÃŸe;info@feineschaetzchen.de;62534194;angenommen;;customer;
+1889;1889;Sylvi Jenny Weber;Schmuckplatzl;DE297584742;82494;KrÃ¼n;Im Gschwand 5;info@schmuckplatzl.de;17675984214;angenommen;;customer;
+637;637;Sylvia Becker;Kontraste;DE267931480;32756;Detmold;Bruchstrasse 24;info@kontraste-detmold.de;+49 5231 3031737;angenommen;;customer;
+639;639;Sylvia Noack;Feng Shui-Haus;;;;;info@fengshuihaus-leipzig.de;+49 172 3697089;angenommen;;customer;
+1980;1980;Tabea Wollenweber;Vaganza;DE350379043;79312;Emmendingen;MarkgrafenstraÃŸe 10;info@vaganza-emmendingen.de;76479333113;angenommen;;customer;
+640;640;Tamara Pinkwart;TamaraÂ´s Perlenkunst;DE;94428;Aufhausen Eichendorf;EichendorferstraÃŸe 10;info@tamaras-perlenkunst.de;+49 176 20516051;angenommen;;customer;
+733;733;Tanja Even;Oranien-Truhe;DE184685232;57250;Netphen;Neumarkt 28;info@oranientruhe.de;27381258;angenommen;;customer;
+2064;2064;Tanja SchÃ¶nberger;Seelenoase;DE307615046;86150;Augsburg;Auf dem Rain 1;info@seelenoase-augsburg.de;8213495028;angenommen;;customer;
+847;847;Tanya KrauÃŸer;Goldbeck Design;DE 273167063;20146;Hamburg;HallerstraÃŸe 1c;Info@goldbeckdesign.de;+49 176 84944377;angenommen;;customer;
+858;858;Tatjana MÃ¶schl;;;;;;tatjana_moeschl@hotmail.com;;angenommen;;customer;
+646;646;Terea Cataluna Leydorf;Lovely + Hooked;De;40545;DÃ¼sseldorf;Luegallee 105;teresacatalunaleydorf@yahoo.de;+49 1722030744;angenommen;;customer;
+711;711;Teresa Beck;Schmuckliab;DE-309803878;84166;Adlkofen;Am Himmelreich 15;info@schmuckliab.de;0163/7470058;angenommen;;customer;
+1895;1895;Theodoros Cil;Barbarossa Juwelier;DE350088407;63571;Gelnhausen;Im Ziegelhaus 1;theonathan@hotmail.de;17631589536;angenommen;;customer;
+799;799;Thomas Butz;KÃ¤fers Goldankauf GmbH & Co. KG;De;80335;MÃ¼nchen;BayerstraÃŸe 27;thomas.butz@juwelier-kaefer.de;089 41 11929 28;angenommen;;customer;
+1988;1988;Thomas Gasser;Dharmapala Duong & Gasser GbR;DE356519682;65934;Frankfurt;Ferdinand-Scholling-Ring 77;thgasser1@unitybox.de;1631527626;angenommen;;customer;
+859;859;Thomas Weidner;Weidner Maritim OHG;DE264071380;27476;Cuxhaven;Cuxhavener Str. 90;info@weidner-maritim.de;472146165;angenommen;;customer;
+2096;2096;Thomas Weis;Karfunkelschmiede;xxx;63825;SchÃ¶llkrippen;HauptstraÃŸe 31;karfunkelschmiede@web.de;0176 70 5555 19;angenommen;;customer;
+821;821;Thomas Woller;Schwechater Uhren-Engel;ATU50270200;2320;Schwechat;Hauptplatz 4;office@uhren-engel.at;4317076227;angenommen;;customer;
+651;651;Thore Blome;Letj Schmuckkasje;DE813018030;25946;Norddorf;Strunwai 5;thore@letj-schmuckkasje.de;+49 4682 9616055;angenommen;;customer;
+1993;1993;Timo Gombold;tigo mondo;DE323409225;70619;Stuttgart;Bernsteinstr. 126;timo@gombold.de;71199738666;angenommen;;customer;
+655;655;Tina Jensen;Smykke Form;DK19557286;9000;Aalborg;Bispensgade 8;s-form@mail.dk;+45 98 131232;angenommen;;customer;
+1923;1923;Titze;Elke;4,86E+11;90579;Langenzenn;Berliner StraÃŸe;elke.titze@web.de;16;angenommen;;customer;
+656;656;Tobias Fischer;Trachtenschmuck Fischer;DE305555138;85586;Poing;Mitterfeldring 72;info@trachtenschmuck-fischer.de;+49 151 50112648;angenommen;;customer;
+657;657;Torsten Dillenburg;Schmuckgestaltung Webers;46499;39;Hamminkeln;Ringenberger StraÃŸe 39;t.dillenburg@web.de;+49 2852 960457;angenommen;;customer;
+1940;1940;Tugba Kapancioglu;Tugba Kapancioglu - KreativMinerals;2283365805;63477;Maintal;Spessartstr. 25;tugbakapancioglu@gmail.com;4,92E+11;angenommen;;customer;
+2044;2044;Ulla SchÃ¼tz;Goldschmiedewerkstatt Ulla SchÃ¼tz;0;91241;Kirchensittenbach;Steinensittenbach 23;info@ullaschuetz.de;0163 5627846;angenommen;;customer;
+820;820;Ulla Zierer;Goldschmiede Zierer;DE130722746;81925;MÃ¼nchen;Arabellastr. 5;Gold.Zierer@gmail.com;89913934;angenommen;;customer;
+818;818;Ulrich StÃ¶rbrauck;U.StÃ¶rbrauck e.K.;DE249574073;45891;Gelsenkirchen;Cranger StraÃŸe 314;goldschmiede@stoerbrauck.de;4,92E+11;angenommen;;customer;
+1991;1991;Ulrike Betzler-HÃ¼ttemeister;Juwelier Betzler;DE153279287;58762;Altena;LennestraÃŸe 22;info@fildor.de;235222500;angenommen;;customer;
+1994;1994;Ulrike Hahne;Ulrike Hahne;DE181882454;47877;Willich;OpalstraÃŸe 20;ulrike.hahne@web.de;+49 2154 8889927;angenommen;;customer;
+836;836;Ulrike Wehner;GlanzReich;DE277820786;20251;Hamburg;NeumÃ¼nstersche Str. 22;info@glanzreich.de;1724051138;angenommen;;customer;
+1998;1998;Ulrike Zehner;Sammeln & Schenken Kd.Nr. 13406;DE812344576;97762;Hammelburg;Rote-Kreuz-Str. 3;info@sammeln-schenken.de;09732/7476;angenommen;;customer;
+1913;1913;undine stella schroth;undine stella collection;DE;83346;bergen;fliederweg 2;collection@undinestella.com;1726858529;angenommen;;customer;
+665;665;Uriel Beate Polzin;Kunstwerkstatt;DE259208618;83209;Prien;Wendelsteinstr.8;urielbeatepolzin@web.de;+49 8051 6404220;angenommen;;customer;
+1996;1996;Ursula Bittner-Wagenknecht;Juwelier am Markt;DE 327 364 062;56812;Cochem;Oberbachstr. 1;juwelier_am_markt@yahoo.de;02671-7370;angenommen;;customer;
+846;846;Uta Karen Hammelmann;Glasperlenmanufaktur PERLENDÃœENE;2504460610;23730;Neustadt in Holstein;Kremper Str. 7;utahammelmann@glasperlenblog.de;+49 176 84493225;angenommen;;customer;
+2063;2063;Ute Poeppel;WeiÃŸe GÃ¤rten;205/5231/1987;53113;Bonn;Ermekeilstr. 25;info@weisse-gaerten.de;0151-52230992;angenommen;;customer;
+1990;1990;Ute Renate Bleichner;Ute Bleichner;207/205/61124;96194;Walsdorf;Lange StraÃŸe 13;ute.bleichner@gmail.com;09549 1445;angenommen;;customer;
+672;672;Ute Wichels;Ute Wichels;de;28279;Bremen;Baumhauser Weg 46k;utewichels@drahtschmuck.de;+49 421 8369683;angenommen;;customer;
+747;747;Uwe Grabisch;Gold-Grabisch;DE 142025974;79098;Freiburg;Rathausgasse 28;uwe.grabisch@gmx.net;0761-33847;angenommen;;customer;
+2045;2045;Uwe Middelberg;Goldschmiede Attribute, Uwe Middelberg;DE222742781;32105;Bad Salzuflen;Lange Str. 28;uwe.middelberg@schmuckattribute.de;5222806262;angenommen;;customer;
+741;741;Valerian Heyrowsky;TimeisDesign;DE336494780;86932;Lengenfeld;SonnenstraÃŸe 3;valerian@timeisdesign.com;17631098750;angenommen;;customer;
+838;838;Vanessa Huven;Die Goldschmiedin;DE306708300;33442;Herzebrock-Clarholz;GÃ¼tersloher Str. 39;info@diegoldschmiedin.net;52459225698;angenommen;;customer;
+1972;1972;Vanessa Maya;FrÃ¤ulein Maya - www.fraeulein-maya.de;DE327270519;76879;Hochstadt;GemarkstraÃŸe 21;fraeulein.maya@gmail.com;63479724580;angenommen;;customer;
+735;735;Vera Kreuzer;Meistergoldschmiede Kreuzer;132/240/90956;84030;Ergolding;Herbststrasse 21;vera-kreuzer@gmx.de;15773708107;angenommen;;customer;
+677;677;Vera Terhorst;My Home Crystal;DE219697489;49492;Westerkappeln;GroÃŸe StraÃŸe 1;info@myhome-kunst.de;+49 5404 9579797;angenommen;;customer;
+678;678;Verena Kohn;Die kleine Goldschmiede;;76770;HatzenbÃ¼hl;Luitpoldstr.70;verenakohn@gmx.de;+49 7275 95096;angenommen;;customer;
+679;679;Verena Lentz;SchÃ¶niglich;DE288857760;65183;Wiesbaden;Am Kaiser-Friederich-Bad 6;info@schoeniglich.de;+49 173 6620590;angenommen;;customer;
+815;815;Verena Rafensteiner;Galerie Kunst und Handwerk;De;86720;NÃ¶rdlingen;Marktplatz 15;galerie.kunstundhandwerk@yahoo.de;908122626;angenommen;;customer;
+680;680;Viviane Behare;Atelier B;BE0554514752;1050;Brussels;Rue Berkendael 197;vivibehare@yahoo.fr;+32 23 449564;angenommen;;customer;
+2016;2016;Volker Schmidt;LOOK! Time & Style;DE281296356;23769;Fehmarn;Am Markt 18;info@look-time.de;04371-6790;angenommen;;customer;
+681;681;Volkert Johanssen;Juwelier Johannsen;0;25761;BÃ¼sum;AlleestraÃŸe 11;info@juwelier-johannsen.de;+49 4834 93555;angenommen;;customer;
+682;682;W. von Schmieder;C/O Magnis-Schlump;DE;80804;MÃ¼nchen;Mainzerstr. 16B;info@vonschmieder.de;+49 89 294286;angenommen;;customer;
+683;683;Walburga Heidemann;Goldschmiedemeisterin Walburga Heidemann;DE;57539;Bitzen;Fichtenweg 18;walburga.heidemann@t-online.de;+49 2682 4586;angenommen;;customer;
+1888;1888;Wedel;Wedel;DE 812152737;27383;ScheeÃŸel;GroÃŸe StraÃŸe 20;wedel.schmuck-uhren@ewetel.net;04263/1343;angenommen;;customer;
+685;685;Wibke Paeth;Home and Kids;DE814080687;22589;hamburg;schenefelder landstrasse 154;wibke@homeandkids.de;+49 40 8701198;angenommen;;customer;
+690;690;Wilfert;ST'ATOUR - Wilfert & BÃ¶hme GbR;DE344791378;4177;Leipzig;OdermannstraÃŸe 13;bonjour@st-atour.de;+49 341 59981182;angenommen;;customer;
+833;833;Wilhelm Neth;Edles aus Stein;DE166864956;72419;Neufra;RÃ¤dlesbergstr. 40;WilhelmNeth@aol.com;75743710;angenommen;;customer;
+1920;1920;Wolfgang GÃ¼nther;Argentum925;DE233412454;81669;MÃ¼nchen;LilienstraÃŸe 63;info@argentum925.de;0175-2240230;angenommen;;customer;
+694;694;Wyssen;Gravia Trade;-;3661;Uetendorf;Thunstr.63;renate.wyssen@gmx.ch;+41 79 3762970;angenommen;;customer;
+695;695;Yasmine Naggar Zain;Die Schmuckwerkstatt GbR;40811;71691;Freiberg;Marktplatz 4;info@schmuckwerkstatt-freiberg.de;+49 7141 2980868;angenommen;;customer;
+2092;2092;Zoran Sitar;Zlatarstvo Zoran Sitar s.p.;SI23177934;4000;Kranj;Sorska ulica 20;zoransitar@t-2.net;41616301;angenommen;;customer;

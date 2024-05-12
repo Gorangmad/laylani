@@ -18,29 +18,34 @@ function userController() {
 
         async search(req, res) {
             // Check if searchTerm exists and is not undefined
-    const searchTerm = req.query.searchTerm ? req.query.searchTerm.toLowerCase() : '';
-
-    try {
-        let filteredUsers = [];
-
-        // Assuming you have a function to get all users
-        const allUsers = await User.find();
-
-        if (searchTerm) {
-            filteredUsers = allUsers.filter(user =>
-                user.name.toLowerCase().includes(searchTerm) ||
-                user.email.toLowerCase().includes(searchTerm)
-            );
-        } else {
-            filteredUsers = allUsers;
-        }
-
-        res.render('admin/users', { allUsers: filteredUsers }, { showNavbar: false });
-    } catch (error) {
-    
-        res.status(500).send('Server error');
-    }
+            const searchTerm = req.query.searchTerm ? req.query.searchTerm.toLowerCase() : '';
+        
+            console.log(searchTerm)
+        
+            try {
+                let filteredUsers = [];
+        
+                // Assuming you have a function to get all users
+                const allUsers = await User.find();
+        
+                if (searchTerm) {
+                    filteredUsers = allUsers.filter(user => {
+                        const name = user.name ? user.name.toLowerCase() : '';
+                        const email = user.email ? user.email.toLowerCase() : '';
+                        return name.includes(searchTerm) || email.includes(searchTerm);
+                    });
+                        } else {
+                    filteredUsers = allUsers;
+                }
+                
+                // Ensure you're passing the options correctly
+                res.render('admin/users', { allUsers: filteredUsers, showNavbar: false });
+            } catch (error) {
+                console.log(error);
+                res.status(500).send('Server error');
+            }
         },
+        
 
 
 
@@ -99,7 +104,30 @@ function userController() {
         async render(req, res) {
 
             return res.render('admin', { showNavbar: false });
+        },
+
+        async getOneUser(req, res){
+            try {
+                const user = await User.findById(req.params.id); // Assuming Mongoose for MongoDB
+                if (!user) {
+                    return res.status(404).send('User not found');
+                }
+                res.render('admin/singleUser', { user }); // Render a user detail page
+            } catch (error) {
+                res.status(500).send('Server error');
+            }
+        },
+
+        async updateOneUser(req, res) {
+            try {
+                const { name, email, phone, straße, postleitzahl, land, firmenname } = req.body;
+                await User.findByIdAndUpdate(req.params.id, { name, email, phone, straße, postleitzahl, land, firmenname });
+                res.status(201).json({ message: 'User details erfolgreich geändert' });
+            } catch (error) {
+                res.status(500).json({ error: 'Unable to update user' });
+            }
         }
+        
     }
 }
 

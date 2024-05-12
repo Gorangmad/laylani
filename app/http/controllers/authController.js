@@ -77,6 +77,42 @@ function authController() {
             res.render('auth/wiederherstellung')
         },
 
+        setPasswortScreen(req, res) {
+            res.render('auth/setPasswort.ejs')
+        },
+
+
+        async setPasswort(req, res) {
+            const email = req.body.email;
+            const password = req.body.Passwort;
+        
+            try {
+                // Check if the user exists in the database
+                const user = await User.findOne({email})
+       
+                if (!user) {
+                    return res.status(404).json({ error: 'User not found' });
+                }
+        
+                // Check if the user's password field is empty or null
+                if (!user.password) {
+                    // Encrypt the provided password
+                    const hashedPassword = await bcrypt.hash(password, 10);
+        
+                    // Update the user's password field in the database
+                    user.password = hashedPassword;
+                    await user.save();
+        
+                    return res.render('auth/success.ejs'); // Assuming you have a view named 'passwordSetSuccess'
+                } else {
+                    return res.status(400).json({ error: 'User already has a password set' });
+                }
+            } catch (error) {
+                console.error('Error setting password:', error);
+                return res.status(500).json({ error: 'Internal server error' });
+            }
+        },
+
 
         async wiederherstellen(req, res) {
             const { email } = req.body;
@@ -187,7 +223,7 @@ function authController() {
 
 
         async update(req, res) {
-            const { name, email, password, phone, straße, postleitzahl, land, firmenname } = req.body;
+            const { name, email, password, phone, straße, postleitzahl, land, firmenname, stadt, VAT } = req.body;
 
             // Validate request
             if (!name || !email || !password || !phone || !straße || !postleitzahl || !land || !firmenname) {
@@ -219,6 +255,8 @@ function authController() {
                     password: hashedPassword,
                     straße,
                     postleitzahl,
+                    stadt,
+                    VAT,
                     land,
                     firmenname,
                 });
