@@ -31,7 +31,7 @@ function orderController () {
                 })
                 .then(placedOrder => {
                     // Stripe payment
-                    if (paymentType !== 'card') {
+                    if (paymentType !== 'card' && paymentType !== undefined) {
                         
                         placedOrder.paymentStatus = true;
                         placedOrder.paymentType = paymentType;
