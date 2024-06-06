@@ -270,7 +270,7 @@ eventEmitter.on('orderUpdated', async (data) => {
 
       const mailOptions = {
         from: 'nichtantwortenbb@gmail.com',
-        to: order.name, // Assuming order.name is the customer's email
+        to: order.name, 
         subject: 'Order Completed',
         text: emailBody,
       };
@@ -351,12 +351,12 @@ eventEmitter.on('orderPlaced', async (data) => {
 
     let emailBody = `Ihre Bestellung ${data.id} wurde empfangen.\n\nOrder Details:\n`;
     Object.entries(orderDetails).forEach(([key, value]) => {
-    emailBody += `Wir haben Ihre Bestellung erhalten`
+    emailBody = `Wir haben Ihre Bestellung erhalten`
     });
 
     const mailOptions = {
-      from: 'ggorangmadaan@gmail.com',
-      to: 'ggorangmadaan@gmail.com',
+      from: 'nichtantwortenbb@gmail.com',
+      to: order.email,
       subject: 'Order Placed',
       text: emailBody,
     };
@@ -368,6 +368,24 @@ eventEmitter.on('orderPlaced', async (data) => {
         console.log('Email sent: ' + info.response);
       }
     });
+
+    // Send an email to the admin
+  const adminEmailBody = `A new order (${data.id}) has been placed.\n\nOrder Details:\n`;
+  const mailOptions2 = {
+    from: 'nichtantwortenbb@gmail.com',
+    // to: 'jimikaram@yahoo.de', // Replace with the admin's email address
+    to: 'ggorangmadaan@gmail.com',
+    subject: 'New Order Placed',
+    text: adminEmailBody,
+  };
+
+  transporter.sendMail(mailOptions2, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent to admin: ' + info.response);
+    }
+  });
 
 
   } catch (error) {

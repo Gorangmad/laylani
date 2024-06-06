@@ -31,7 +31,6 @@ function orderController () {
                 })
                 .then(placedOrder => {
                     // Stripe payment
-                    if (paymentType !== 'card' && paymentType !== undefined) {
                         
                         placedOrder.paymentStatus = true;
                         placedOrder.paymentType = paymentType;
@@ -48,11 +47,6 @@ function orderController () {
                           delete req.session.cart;
                           return res.json({ message: 'Failed to place the order' });
                         });
-                      } else {
-                        delete req.session.cart;
-                        return res.redirect("/success");
-                      }
-                      
                 })
                 .catch(err => {
                     console.log(err)

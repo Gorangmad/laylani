@@ -2,7 +2,7 @@
     <% if (session.cart) { %>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12"> <!-- Adjusted for wider layout -->
+                <div class="col-lg-12">
                     <h1 class="mb-4 font-weight-bold">Order Summary</h1>
                     <div class="table-responsive">
                         <table class="table">
@@ -16,18 +16,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% for (let pizza of Object.values(session.cart.items)) { %>
+                                <% for (let key in session.cart.items) { 
+                                    let pizza = session.cart.items[key]; %>
                                     <tr>
                                         <td><img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image[0] %>.jpg"></td>
                                         <td><%= pizza.item.name %></td>
-                                        <td><%= pizza.item.sizes %></td>
+                                        <td class="sizes"><%= pizza.item.sizes %></td>
                                         <td>
-                                                <button data-pizza='<%= JSON.stringify(pizza) %>' class="add-to-cart-button py-1 px-4 rounded-full font-bold">+</button>
-                                                <span class="itemQty"><%= pizza.qty %> Stk.</span>
-                                                <button data-pizza='<%= JSON.stringify(pizza) %>' class="remove-to-cart py-1 px-4 rounded-full font-bold">-</button>
+                                            <button data-pizza='<%= JSON.stringify(pizza) %>' class="add-to-cart-button py-1 px-4 rounded-full font-bold">+</button>
+                                            <span class="itemQty"><%= pizza.qty %> Stk.</span>
+                                            <button data-pizza='<%= JSON.stringify(pizza) %>' class="remove-to-cart py-1 px-4 rounded-full font-bold">-</button>
                                         </td>
-                                        <td class="itemPrice">
-                                            <%= pizza.item.price * pizza.qty %></td>
+                                        <td class="itemPrice"><%= pizza.item.price * pizza.qty %></td>
                                     </tr>
                                 <% } %>
                             </tbody>
@@ -40,7 +40,6 @@
                     <% if (user) { %>
                         <div class="mt-4">
                             <form action="/orders" method="POST" id="payment-form">
-                                <!-- Add any additional fields here -->
                                 <button class="btn btn-primary btn-lg mt-4" type="submit">Weiter</button>
                             </form>
                         </div>
@@ -58,7 +57,3 @@
         </div>
     <% } %>
 </section>
-
-
-
-</script>

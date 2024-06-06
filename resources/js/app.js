@@ -10,49 +10,40 @@ import { initUsers } from './user'
 let addToCart = document.querySelectorAll('.add-to-cart-button');
 let removeToCart = document.querySelectorAll(".remove-to-cart");
 
-function updateCartItem(button, pizzaData, totalPrice) {
-    // Update quantity in the UI
-    const quantityElement = button.parentElement.querySelector('.itemQty');
-    const itemPriceElement = button.parentElement.parentElement.querySelector(".itemPrice"); // Select itemPrice related to the button
+function updateCartItem(button, pizzaData, totalPrice, size) {
+    const itemSizeElement = button.parentElement.parentElement.querySelector(".sizes").textContent.trim();
 
-    console.log("updating", pizzaData)
+    if (itemSizeElement === size) {
+        const quantityElement = button.parentElement.querySelector('.itemQty');
+        const itemPriceElement = button.parentElement.parentElement.querySelector(".itemPrice");
 
-    if (pizzaData.qty > 0) {
-        quantityElement.textContent = pizzaData.qty + ' Stk.';
-        const itemPrice = pizzaData.qty * Number(pizzaData.item.price);
-        itemPriceElement.textContent = itemPrice.toFixed(2);
-    } else {
-        console.log("removing", button.parentElement)
-        button.parentElement.remove()
+        if (pizzaData.qty > 0) {
+            quantityElement.textContent = pizzaData.qty + ' Stk.';
+            const itemPrice = pizzaData.qty * Number(pizzaData.item.price);
+            itemPriceElement.textContent = itemPrice.toFixed(2);
+        } else {
+            button.parentElement.remove();
+        }
+
+        const totalPriceElement = document.querySelector('.totalPrice');
+        totalPriceElement.textContent = totalPrice.toFixed(2);
     }
-
-    // Update total amount
-    const totalPriceElement = document.querySelector('.totalPrice');
-    totalPriceElement.textContent = totalPrice.toFixed(2);
 }
 
-
-
-
 function updateCart(pizza, url, msg, button) {
-  axios.post(url, pizza)
-      .then(res => {  
-          // Show success message
-          new Noty({
-              type: 'success',
-              timeout: 1000,
-              text: msg,
-              progressBar: false,
-          }).show();
-          
-          // Update cart counter
-          updateCartCounter(res.data.totalQty);
+    axios.post(url, pizza)
+        .then(res => {
+            new Noty({
+                type: 'success',
+                timeout: 1000,
+                text: msg,
+                progressBar: false,
+            }).show();
 
-          updateCartItem(button, res.data.cartItems[pizza._id], res.data.totalPrice);
-      })
-      .catch(err => {
-
-      });
+            updateCartCounter(res.data.totalQty);
+            updateCartItem(button, res.data.cartItems[`${pizza._id}_${pizza.sizes}`], res.data.totalPrice, pizza.sizes);
+        })
+        .catch(err => {});
 }
 
 function updateCartCounter(totalQty) {
