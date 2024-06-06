@@ -333,9 +333,7 @@ eventEmitter.on('orderPlaced', async (data) => {
     const orderDetails = {
       orderId: order._id,
       Produkte: [],
-    
-      // Include other order details as needed
-    };
+      };
     
     for (const itemId in order.items) {
       if (order.items.hasOwnProperty(itemId)) {
@@ -346,6 +344,7 @@ eventEmitter.on('orderPlaced', async (data) => {
         orderDetails.Produkte.push(itemName, itemQty);
       }
     }
+
 
     
 
@@ -369,12 +368,23 @@ eventEmitter.on('orderPlaced', async (data) => {
       }
     });
 
-    // Send an email to the admin
-  const adminEmailBody = `A new order (${data.id}) has been placed.\n\nOrder Details:\n`;
+
+// Send an email to the admin
+const adminEmailBody = `
+  A new order has been placed.
+  
+  Customer Details:
+  Name: ${data.customerId.name}
+  Email: ${data.customerId.email}
+  Phone: ${data.customerId.phone}
+  
+  Total Price: ${data.totalPrice}
+  Order Date: ${new Date(data.createdAt).toLocaleString()}
+`;
+
   const mailOptions2 = {
     from: 'nichtantwortenbb@gmail.com',
-    // to: 'jimikaram@yahoo.de', // Replace with the admin's email address
-    to: 'ggorangmadaan@gmail.com',
+    to: 'jimikaram@yahoo.de', // Replace with the admin's email address
     subject: 'New Order Placed',
     text: adminEmailBody,
   };

@@ -1,151 +1,150 @@
+<section class="hero"> 
+  <% if (user) { %>
+      <button class="btn-home rounded-full text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-white hover:text-black">
+          <a href="/meu" class="btn-link">Shop ⇒</a>
+      </button>
+      <button class="btn-home1 rounded-full text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-white hover:text-black">
+          <a href="/customer/orders" class="btn-link">Meine Bestellungen ⇒</a>
+      </button>
+  <% } else { %>
+      <button class="btn-home rounded-full text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <a href="/register" class="btn-link">Registrieren ⇒</a>
+      </button>
+      <button class="btn-home1 rounded-full text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <a href="/login" class="btn-link">Anmelden ⇒</a>
+      </button>
+  <% } %>
+</section>
 
-    <section class="hero"> 
-        <button class="btn-home rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            <a href="/register">Registrieren ⇒</a>
-        </button>
-        <button class="btn-home1 rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            <a href="/login">Anmelden ⇒</a>
-        </button>
-    </section>
-
-    <section class="about text-center" aria-labelledby="about-label" id="about">
-        <div class="container">
-
-          <div class="about-content">
-
-            <h2 class="headline-1 section-title">Jedes Stück erzählt eine Geschichte</h2>
-
-            <p class="section-text">
-                In jedem funkelnden Design von Schmuck ruht eine Geschichte, gewoben aus Inspiration, Leidenschaft und Handwerkskunst. Jeder geschliffene Edelstein, jede geschmiedete Kurve und jede filigrane Verzierung erzählt von den Träumen seines Schöpfers, von den Emotionen, die ihn bewegten, und von den Momenten des Glücks oder der Herausforderungen, die ihn geprägt haben. Diese Geschichten werden zu einem Teil des Schmucks selbst, eingebettet in jedes Detail und weitergetragen durch die Menschen, die sie tragen. Von Hand gefertigt oder mit modernster Technologie geschaffen, jedes Schmuckstück birgt eine einzigartige Geschichte, bereit, mit jedem, der es betrachtet oder trägt, geteilt zu werden.
-            </p>
-
+<section class="about text-center" aria-labelledby="about-label" id="about">
+  <div class="container">
+      <div class="about-content">
+          <h2 class="headline-1 section-title">Jedes Stück erzählt eine Geschichte</h2>
+          <p class="section-text">
+              In jedem funkelnden Design von Schmuck ruht eine Geschichte, gewoben aus Inspiration, Leidenschaft und Handwerkskunst. Jeder geschliffene Edelstein, jede geschmiedete Kurve und jede filigrane Verzierung erzählt von den Träumen seines Schöpfers, von den Emotionen, die ihn bewegten, und von den Momenten des Glücks oder der Herausforderungen, die ihn geprägt haben. Diese Geschichten werden zu einem Teil des Schmucks selbst, eingebettet in jedes Detail und weitergetragen durch die Menschen, die sie tragen. Von Hand gefertigt oder mit modernster Technologie geschaffen, jedes Schmuckstück birgt eine einzigartige Geschichte, bereit, mit jedem, der es betrachtet oder trägt, geteilt zu werden.
+          </p>
+      </div>
+      <figure class="about-banner">
+          <div>
+              <img src="/img/Bahl.gif" class="w-100" data-parallax-item data-parallax-speed="1">
           </div>
+      </figure>
+  </div>
+</section>
 
-          <figure class="about-banner">
-
-            <div >
-              <img src="/img/Bahl.gif" class="w-100" data-parallax-item data-parallax-speed="1"></video>
-            </div>
-
-          </figure>
-
-        </div>
-      </section>
-    
-
-      <!-- Footer -->
-    <footer class="footer bg-dark text-white">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-6">
-                  <h5>Rechtliche Links</h5>
-                  <ul class="list-unstyled">
-                      <li><a href="/impressum">Impressum</a></li>
-                      <li><a href="/agb">AGB</a></li>
-                      <li><a href="/datenschutzerklaerung">Datenschutzerklärung</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-3">
-                  <h5>Quick Links</h5>
-                  <ul class="list-unstyled">
-                      <li><a href="#">Home</a></li>
-                      <li><a href="/meu">Shop</a></li>
-                      <li><a href="/customer/orders">Meine Bestellungen</a></li>
-                      <li><a href="#">Contact</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-3">
-                  <h5>Kontaktieren sie uns</h5>
-                  <ul class="list-unstyled">
-                      <li>Email: bahl-collection@t-online.de</li>
-                      <li>Phone: 069 38996981</li>
-                      <li>Address: Oeserstraße 1, 65934 Frankfurt am Main</li>
-                  </ul>
-              </div>
+<!-- Footer -->
+<footer class="footer bg-dark text-white">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-3">
+              <h5>Rechtliche Links</h5>
+              <ul class="list-unstyled">
+                  <li><a href="/impressum">Impressum</a></li>
+                  <li><a href="/agb">AGB</a></li>
+                  <li><a href="/datenschutzerklaerung">Datenschutzerklärung</a></li>
+              </ul>
           </div>
-          <hr>
-          <div class="row">
-              <div class="col-md-12 text-center">
-                  <p>&copy; 2024 Bahl Collection. All rights reserved.</p>
-              </div>
+          <div class="col-md-3">
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="/meu">Shop</a></li>
+                  <li><a href="/customer/orders">Meine Bestellungen</a></li>
+                  <li><a href="#">Contact</a></li>
+              </ul>
+          </div>
+          <div class="col-md-3">
+              <h5>Kontaktieren sie uns</h5>
+              <ul class="list-unstyled">
+                  <li>Email: bahl-collection@t-online.de</li>
+                  <li>Phone: 069 38996981</li>
+                  <li>Address: Oeserstraße 1, 65934 Frankfurt am Main</li>
+              </ul>
+          </div>
+          <div class="col-md-3">
+              <h5>Öffnungszeiten</h5>
+              <ul class="list-unstyled">
+                  <li>Montag - Freitag: 11:00 - 16:30</li>
+              </ul>
           </div>
       </div>
-  </footer>
-    
-    
+      <hr>
+      <div class="row">
+          <div class="col-md-12 text-center">
+              <p>&copy; 2024 Bahl Collection. All rights reserved.</p>
+          </div>
+      </div>
+  </div>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $(window).scroll(function() {
-            // Calculate the position of the about section
-            var aboutSectionPosition = $('.about').offset().top;
-            var topOfScreen = $(window).scrollTop() + $(window).height();
-            
-            // Check if the top of the about section is within the viewport
-            if (aboutSectionPosition < topOfScreen) {
-                // If yes, iterate through each fade-in element within the about section
-                $('.about .fade-in').each(function() {
-                    // Calculate the position of the fade-in element
-                    var position = $(this).offset().top;
-                    // Check if the element is within the viewport
-                    if (position < topOfScreen) {
-                        $(this).addClass("active");
-                    }
-                });
-            }
-        });
-    });
+  $(document).ready(function() {
+      $(window).scroll(function() {
+          var aboutSectionPosition = $('.about').offset().top;
+          var topOfScreen = $(window).scrollTop() + $(window).height();
+          if (aboutSectionPosition < topOfScreen) {
+              $('.about .fade-in').each(function() {
+                  var position = $(this).offset().top;
+                  if (position < topOfScreen) {
+                      $(this).addClass("active");
+                  }
+              });
+          }
+      });
+  });
 </script>
 
 <style>
 /* Footer Fade-in effect */
 @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-        /* Footer styles */
-        .footer {
-            background-color: #333; /* Dark background color */
-            color: #fff; /* Text color */
-            padding: 50px 0; /* Padding top and bottom */
-        }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-        .footer h5 {
-            color: #fff; /* Heading text color */
-            margin-bottom: 20px; /* Bottom margin for headings */
-        }
+/* Footer styles */
+.footer {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Text color */
+  padding: 50px 0; /* Padding top and bottom */
+}
 
-        .footer p,
-        .footer ul {
-            font-size: 14px; /* Text size */
-            margin-bottom: 10px; /* Bottom margin for paragraphs and lists */
-        }
+.footer h5 {
+  color: #fff; /* Heading text color */
+  margin-bottom: 20px; /* Bottom margin for headings */
+}
 
-        .footer ul li {
-            list-style: none; /* Remove bullet points from list items */
-        }
+.footer p,
+.footer ul {
+  font-size: 14px; /* Text size */
+  margin-bottom: 10px; /* Bottom margin for paragraphs and lists */
+}
 
-        .footer ul li a {
-            color: #fff; /* Link text color */
-            text-decoration: none; /* Remove underlines from links */
-        }
+.footer ul li {
+  list-style: none; /* Remove bullet points from list items */
+}
 
-        .footer ul li a:hover {
-            text-decoration: underline; /* Underline links on hover */
-        }
+.footer ul li a {
+  color: #fff; /* Link text color */
+  text-decoration: none; /* Remove underlines from links */
+  font-weight: bold; /* Make link text bold */
+}
 
-        .footer hr {
-            border-color: #666; /* Border color for horizontal line */
-            margin-top: 30px; /* Top margin for horizontal line */
-            margin-bottom: 20px; /* Bottom margin for horizontal line */
-        }
+.footer ul li a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
 
-        .footer .copyright {
-            font-size: 12px; /* Smaller text size for copyright notice */
-            color: #999; /* Color for copyright notice */
-        }
-        
+.footer hr {
+  border-color: #666; /* Border color for horizontal line */
+  margin-top: 30px; /* Top margin for horizontal line */
+  margin-bottom: 20px; /* Bottom margin for horizontal line */
+}
+
+.footer .copyright {
+  font-size: 12px; /* Smaller text size for copyright notice */
+  color: #999; /* Color for copyright notice */
+}
+
 .about {
   background-color: #1D1B26;
 }
@@ -153,12 +152,12 @@
 .about .headline-1 {
   margin-top: 80px;
 }
-  /* Add this CSS to make h2 and p text white */
-  .about .headline-1,
-  .about .section-text {
-    color: white;
-  }
 
+/* Add this CSS to make h2 and p text white */
+.about .headline-1,
+.about .section-text {
+  color: white;
+}
 
 .about .btn {
   margin-inline: auto;
@@ -175,11 +174,17 @@
   margin-block-end: 120px;
 }
 
-.about-banner > .w-100 { padding-inline-start: 50px; }
+.about-banner > .w-100 {
+  padding-inline-start: 50px;
+}
 
-.about .abs-img { position: absolute; }
+.about .abs-img {
+  position: absolute;
+}
 
-.about .abs-img::before { z-index: -1; }
+.about .abs-img::before {
+  z-index: -1;
+}
 
 .about .abs-img-1 {
   bottom: -120px;
@@ -210,5 +215,16 @@
   background-repeat: no-repeat;
   background-size: contain;
   animation: rotate360 15s linear infinite;
+}
+
+/* Button Link Styles */
+.btn-link {
+  color: inherit; /* Inherit color from button */
+  text-decoration: none; /* Remove underline from link */
+  font-weight: bold; /* Make link text bold */
+}
+
+.btn-home:hover .btn-link, .btn-home1:hover .btn-link {
+  color: inherit; /* Ensure the color remains the same on hover */
 }
 </style>

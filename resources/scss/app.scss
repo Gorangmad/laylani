@@ -16,7 +16,6 @@ nav li a {
     }
 }
 
-
 nav {
     background-color: black;
 }
@@ -178,6 +177,7 @@ section.login {
     padding-left: 8px!important;
 }
 
+
 a.link {
     color: $primary;
 }
@@ -256,7 +256,9 @@ section.status {
    background: $dark;
    margin-top: 10px;
 }
+
 // Last dot
+
 .status-box ul li:nth-child(5) span:after {
     box-shadow:0 20px 1px 20px $secondary;
 }
@@ -534,6 +536,7 @@ input:checked + .slider:before {
   margin-left: 10px;
   line-height: 34px;
 }
+
 
 .pagination-container {
 
