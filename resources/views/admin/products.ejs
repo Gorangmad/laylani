@@ -135,6 +135,7 @@
                                 <option value="NEW" <%= product.availability === 'NEW' ? 'selected' : '' %>>NEW</option>
                                 <option value="BACK IN" <%= product.availability === 'BACK IN' ? 'selected' : '' %>>BACK IN</option>
                                 <option value="WSL" <%= product.availability === 'WSL' ? 'selected' : '' %>>WSL</option>
+                                <option value="HIDDEN" <%= product.availability === 'HIDDEN' ? 'selected' : '' %>>HIDE</option>
                             </select>
                         </td>
                         <td class="editable" contenteditable="false" data-product-id="<%= product._id %>">    <%= product.expiry %></td>

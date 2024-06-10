@@ -317,7 +317,7 @@ function productController() {
             
 
             // Check if availability is provided and is one of the enum values
-            if (editedValue.availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL'].includes(editedValue.availability)) {
+            if (editedValue.availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL', 'HIDDEN'].includes(editedValue.availability)) {
                 product.availability = editedValue.availability;
               } else {
                 // If the value is not valid, you can set a default value or handle the error
@@ -342,7 +342,7 @@ function productController() {
             const product = await Menu.findById(productId);
 
             // Check if availability is provided and is one of the enum values
-            if (availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL'].includes(availability)) {
+            if (availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL', 'HIDDEN'].includes(availability)) {
                 product.availability = availability;
               } else {
                 // If the value is not valid, you can set a default value or handle the error

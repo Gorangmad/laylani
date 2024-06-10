@@ -35,23 +35,25 @@
 
     <div class="row">
         <% pizzas.forEach(function(pizza) { %>
-            <div class="col-md-3">
-                <a href="/product/<%= pizza._id %>" class="card-link">
-                    <div class="card product-card">
-                        <% if (pizza.image && pizza.image.length > 0) { %>
-                            <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
-                        <% } else { %>
-                            <!-- Provide a placeholder image or text if no image is available -->
-                            <div class="placeholder-image">No Image Available</div>
-                        <% } %>
-                        <div class="card-body">
-                            <h5 class="card-title"><%= pizza.name %></h5>
-                            <p class="card-text"><%= pizza.price %>€</p>
+            <% if (pizza.availability !== 'HIDDEN') { %>
+                <div class="col-md-3">
+                    <a href="/product/<%= pizza._id %>" class="card-link">
+                        <div class="card product-card">
+                            <% if (pizza.image && pizza.image.length > 0) { %>
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                            <% } else { %>
+                                <!-- Provide a placeholder image or text if no image is available -->
+                                <div class="placeholder-image">No Image Available</div>
+                            <% } %>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= pizza.name %></h5>
+                                <p class="card-text"><%= pizza.price %>€</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-        <% }) %>
+                    </a>
+                </div>
+            <% } %>
+        <% }) %>        
     </div>
     
 

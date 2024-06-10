@@ -10,7 +10,7 @@ const menuSchema = new Schema({
       },    comment: { type: String, required: false },
     price: { type: String, required: true },
     category: { type: String, required: false },
-    availability: { type: String, enum: ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL'], default: 'AVAILABLE' },
+    availability: { type: String, enum: ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL', 'HIDDEN'], default: 'AVAILABLE' },
     expiry: { type: Date, required: false },
     sizes: { type: String, required: false },
     relatedMenus: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Menu', required: false }] // Multiple related menus
