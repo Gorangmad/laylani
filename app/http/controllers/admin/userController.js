@@ -14,7 +14,37 @@ function userController() {
             }
         },
 
-        
+
+        async getAllUsersAsked(req, res) {
+            try {
+                const allUsers = await User.find();
+                res.render('admin/users2', { allUsers , showNavbar: false});
+            } catch (error) {
+                console.error(error);
+                res.status(500).send('Internal Server Error');
+            }
+        },
+
+        async deleteUser(req, res) {
+            try {
+                const userId = req.body.userId;
+                
+                // Check if the user exists in the database
+                const user = await User.findById(userId);
+                if (!user) {
+                    return res.status(404).json({ message: 'User not found' });
+                }
+                
+                // Delete the user
+                await User.findByIdAndDelete(userId);
+                
+                res.status(200).json({ message: 'User deleted successfully' });
+            } catch (error) {
+                console.error('Error deleting user:', error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        },
+    
 
         async search(req, res) {
             // Check if searchTerm exists and is not undefined

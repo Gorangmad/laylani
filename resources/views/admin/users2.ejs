@@ -2,21 +2,21 @@
     .table-container {
         border: 1px solid #ddd; /* Border for the entire table */
     }
-
+    
     th {
         background-color: lightblue; /* Background color for the header cells */
     }
-
+    
     tr:nth-child(even) {
         background-color: lightgrey; /* Background color for every second row */
     }
-
+    
     td, th {
         border: 1px solid #ddd; /* Border for each cell */
         padding: 8px; /* Adjust the padding as needed */
         text-align: left;
     }
-
+    
     select {
         width: 100%;
         border: 1px solid #ddd;
@@ -31,21 +31,11 @@
         border: 1px solid #ddd;
         border-radius: 4px;
     }
-
-    .delete-button {
-        background: none;
-        border: none;
-        color: red;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-
-<%- include('../components/sidebar') %>
-
-<section class="orders light-section">
+    </style>
+    
+    <%- include('../components/sidebar') %>
+    
+    <section class="orders light-section">
     <div class="container mx-auto pt-12 pb-2 table-container">
         <h1 class="font-bold text-2xl mb-4">All Users</h1>
         <div class="search-bar">
@@ -65,7 +55,8 @@
                 </tr>
             </thead>
             <tbody>
-                <% allUsers.forEach(user => { %>
+                <% allUsers.forEach(user => { 
+                    if (user.isUser !== 'angenommen') { %>
                     <tr>
                         <td>
                             <a href="/user-detail/<%= user._id %>" class="text-blue-500 hover:text-blue-800">
@@ -94,30 +85,37 @@
                             </form>
                         </td>
                     </tr>
-                <% }); %>
+                <% }}); %>
             </tbody>
         </table>
     </div>
-</section>
-
-<style>
+    </section>
+    
+    <style>
     .orders {
         margin-left: 280px;
     }
-</style>
-
-<script>
+    
+    .delete-button {
+        background: none;
+        border: none;
+        color: red;
+        cursor: pointer;
+    }
+    </style>
+    
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
         const searchInput = document.getElementById('searchInput');
-
+    
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const tableRows = document.querySelectorAll('.orders tbody tr');
-
+    
             tableRows.forEach(row => {
                 const name = row.cells[1].textContent.toLowerCase();
                 const email = row.cells[2].textContent.toLowerCase();
-
+    
                 if (name.includes(searchTerm) || email.includes(searchTerm)) {
                     row.style.display = '';
                 } else {
@@ -126,4 +124,5 @@
             });
         });
     });
-</script>
+    </script>
+    

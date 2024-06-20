@@ -15,7 +15,12 @@ function homeController() {
         
                 if (req.query.search) {
                     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-                    query.name = regex;
+                    query = {
+                        $or: [
+                            { name: regex },
+                            { comment: regex }
+                        ]
+                    };
                 }
         
                 // Adding a field to check if timestamps exist
@@ -41,8 +46,7 @@ function homeController() {
                 const pizzas = await Menu.aggregate(aggregationPipeline).exec();
         
                 // Fetch total number of pizzas for pagination
-                // Note: This does not account for the search filter in the count. Adjust if needed.
-                const totalPizzas = await Menu.countDocuments();
+                const totalPizzas = await Menu.countDocuments(query);
         
                 return res.render('menu', { 
                     pizzas, 

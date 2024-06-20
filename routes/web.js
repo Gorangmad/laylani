@@ -114,11 +114,13 @@ function initRoutes(app) {
     app.get('/admin/changes', admin, adminProductController().changeTracker)
 
     app.get('/admin/users',admin, adminUserController().getAllUsers)
+    app.get('/admin/users-asked',admin, adminUserController().getAllUsersAsked)
     app.get('/user-search',admin,  adminUserController().search)
     app.get('/admin/orders/:id', admin, adminOrderController().show)
     app.put('/admin/orders/:orderId/items/:itemId',admin,  adminController().index)
     app.get('/user-detail/:id',admin, adminUserController().getOneUser)
     app.post('/update-user/:id', admin, adminUserController().updateOneUser)
+    app.post('/delete-user', admin, adminUserController().deleteUser)
   
 
     //Admin changer routes 
