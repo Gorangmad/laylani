@@ -251,16 +251,6 @@ eventEmitter.on('orderUpdated', async (data) => {
         // Include other order details as needed
       };
 
-      for (const itemId in order.items) {
-        if (order.items.hasOwnProperty(itemId)) {
-          const item = order.items[itemId];
-          const itemName = item.pizza.name;
-          const itemQty = item.qty;
-
-          orderDetails.Produkte.push({ name: itemName, quantity: itemQty });
-        }
-      }
-
       let emailBody = `Ihre Bestellung ${orderDetails.orderId} ist fertig und auf dem Weg zu Ihnen. `;
       emailBody += 'Bestellte Produkte:\n';
 

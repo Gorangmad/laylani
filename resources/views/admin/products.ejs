@@ -117,6 +117,7 @@
                     <th class="px-4 py-2">Sizes</th>
                     <th class="px-4 py-2">Label</th>
                     <th class="px-4 py-2">Label expiry</th>
+                    <th class="px-4 py-2">Checked</th>
                 </tr>
             </thead>
             <tbody>
@@ -139,6 +140,9 @@
                             </select>
                         </td>
                         <td class="editable" contenteditable="false" data-product-id="<%= product._id %>">    <%= product.expiry %></td>
+                        <td>
+                            <input type="checkbox" class="product-checkbox" data-product-id="<%= product._id %>" <%= product.isChecked ? 'checked' : '' %> onchange="toggleChecked(this)">
+                        </td>
                         <td>
                             <button class="edit-button" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Edit</button>
                             <button class="delete-button" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
@@ -217,6 +221,29 @@
     
 <style>
 
+.product-checkbox {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .product-checkbox:checked::before {
+        content: '\2713'; /* Unicode for a tick */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: green;
+        color: white;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+    
 .edit-button, .delete-button {
     margin-right: 5px;
     padding: 5px 10px;
@@ -462,6 +489,31 @@ function updateProduct(data) {
     console.error('Error:', error);
   });
 }
+
+function toggleChecked(checkbox) {
+    const productId = checkbox.getAttribute('data-product-id');
+    const isChecked = checkbox.checked;
+
+    fetch('/admin/products/update-checked', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            productId: productId,
+            isChecked: isChecked
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        // Optionally, update the UI or notify the user
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 
     </script>
     

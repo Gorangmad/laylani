@@ -106,6 +106,7 @@ function initRoutes(app) {
     app.post('/admin/update/categories', admin, adminProductController().updateCategory)
     app.post('/admin/products/search/similiar', admin, adminProductController().productAdminSearch)
     app.post('/admin/products/link/:currentProductId', admin, adminProductController().relateProduct)
+    app.post('/admin/products/update-checked', admin, adminProductController().checkProduct)
 
     app.delete('/admin/products/delete/:currentProductId', admin, adminProductController().deleteProdukt)
     app.delete('/admin/products/:productId/delete', admin, adminProductController().deleteSimilarProduct)

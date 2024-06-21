@@ -353,6 +353,19 @@ function productController() {
 
         },
 
+        async checkProduct(req, res) {
+            const { productId, isChecked } = req.body;
+
+            Menu.findByIdAndUpdate(productId, { isChecked: isChecked }, { new: true })
+                .then(updatedProduct => {
+                    res.status(200).json(updatedProduct);
+                })
+                .catch(error => {
+                    console.error('Error updating product:', error);
+                    res.status(500).json({ error: 'Failed to update product' });
+                });
+        },
+
         async deleteSimilarProduct(req, res) {
             try {
                 const currentProductId = req.body.currentProductId;
