@@ -22,39 +22,51 @@
     <div class="product-details">
         <div>
             <div class="product-name"><%= product.name %></div>
-            <div class="product-price mt-10">Preis: <span class="darker-price"><%= product.price %></span></div> 
+            <div class="product-price mt-10">Preis: <span class="darker-price"><%= Array.isArray(product.price) ? product.price.join(', ') : product.price %></span></div> 
             <div class="product-comment mt-10">Beschreibung: <%= product.comment %></div> 
-            <p class="size-instruction mt-10">Wählen Sie Ihre Größe aus:</p> <!-- New line for size instruction -->
+            <p class="size-instruction mt-10">Wählen Sie Ihre Größe aus:</p>
             <div class="product-sizes">
-                <% if (product.sizes) { %>
+                <% if (Array.isArray(product.sizes)) { %>
                     <div class="product-sizes">
-                        <% 
-                            const sizesArray = product.sizes.split(',');
-                            sizesArray.forEach(size => {
-                                // Try to split the size into text and number parts
-                                const sizeParts = size.match(/(\D*)(\d+)(\D*)/);
-                                let sizeText = '';
-                                let sizeNumber = size; // Default to the whole size if no match is found
-                                let sizeUnit = '';
-                                
-                                if (sizeParts) {
-                                    // If match is found, separate the text and number
-                                    [, sizeText, sizeNumber, sizeUnit] = sizeParts;
-                                }
-                        %>
+                        <% product.sizes.forEach((size, index) => { %>
                         <div class="size-option">
-                            <% if (sizeText) { %>
-                                <div class="size-text"><%= sizeText.trim() %></div>
-                            <% } %>
-                            <div class="size-circle" data-size="<%= sizeNumber %>" onclick="handleSizeClick(this)">
-                                <div class="size-number"><%= sizeNumber %></div>
+                            <div class="size-circle" data-size="<%= size %>" data-price="<%= product.price[index + 1] %>" onclick="handleSizeClick(this)">
+                                <div class="size-number"><%= size %></div>
+                                <div class="size-price"><%= product.price[index + 1] %>€</div>
                             </div>
-                            <% if (sizeUnit) { %>
-                                <div class="size-unit"><%= sizeUnit.trim() %></div>
-                            <% } %>
                         </div>
                         <% }); %>
                     </div>
+                <% } else if (typeof product.sizes === 'string' && typeof product.price === 'string') { %>
+                    <% 
+                        const sizesArray = product.sizes.split(',');
+                        const pricesArray = product.price.split(',');
+                        sizesArray.forEach((size, index) => {
+                            // Try to split the size into text and number parts
+                            const sizeParts = size.match(/(\D*)(\d+)(\D*)/);
+                            let sizeText = '';
+                            let sizeNumber = size; // Default to the whole size if no match is found
+                            let sizeUnit = '';
+                            let sizePrice = pricesArray[index + 1] || product.price;
+
+                            if (sizeParts) {
+                                // If match is found, separate the text and number
+                                [, sizeText, sizeNumber, sizeUnit] = sizeParts;
+                            }
+                    %>
+                    <div class="size-option">
+                        <% if (sizeText) { %>
+                            <div class="size-text"><%= sizeText.trim() %></div>
+                        <% } %>
+                        <div class="size-circle" data-size="<%= sizeNumber %>" data-price="<%= sizePrice %>" onclick="handleSizeClick(this)">
+                            <div class="size-number"><%= sizeNumber %></div>
+                            <div class="size-price"><%= sizePrice %>€</div>
+                        </div>
+                        <% if (sizeUnit) { %>
+                            <div class="size-unit"><%= sizeUnit.trim() %></div>
+                        <% } %>
+                    </div>
+                    <% }); %>
                 <% } else { %>
                     <p>Universal Größe</p>
                 <% } %>                
@@ -67,31 +79,24 @@
     </div>
 </div>
 
-
-
 <script>
   function handleSizeClick(element) {
     const selectedSize = element.getAttribute('data-size');
+    const selectedPrice = element.getAttribute('data-price');
     const productData = JSON.parse(document.querySelector('.add-to-cart-button').getAttribute('data-pizza'));
-    
 
     productData.sizes = selectedSize;
+    productData.price = selectedPrice;
 
     document.querySelector('.add-to-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
-
 
     const allSizeCircles = document.querySelectorAll('.size-circle');
     allSizeCircles.forEach(circle => circle.classList.remove('selected-size'));
     element.classList.add('selected-size');
   }
-</script>                                 
-
-
-
-
+</script>
 
 <style>
-
 /* Add the following CSS styles */
 .carousel .carousel-item img {
   min-height: 500px; /* adjust to your preference */
@@ -101,7 +106,6 @@
 .carousel {
     max-width: 500px;
 }
-
 
 .size-instruction {
     font-size: 16px;
@@ -132,7 +136,6 @@
     flex: 1; /* Keeps the image flexible within the container */
     min-height: 450px; /* Increase max height as needed */
     min-width: 450px; /* Ensures the image is responsive and does not overflow its container */
- /* Adjusts the image's size to cover the container without losing its aspect ratio */
 }
 
 .product-details {
@@ -181,20 +184,22 @@
 }
 
 .size-circle {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 2px solid #000;
-    margin-right: 5px;
+    margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .size-number {
     font-size: 14px;
 }
 
-
+.size-price {
+    font-size: 12px;
+}
 </style>
-

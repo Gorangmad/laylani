@@ -78,6 +78,7 @@ connection.once('open', () => {
     console.log ('Database connected....');
 });
 
+
 // Initialize Change Stream
 const dbName = 'bahlCollection'; // Update with your database name
 
@@ -117,6 +118,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 } // One month
 }))
+
 
 
 // // Event emitter
@@ -378,6 +380,8 @@ const adminEmailBody = `
     subject: 'New Order Placed',
     text: adminEmailBody,
   };
+
+
 
   transporter.sendMail(mailOptions2, function (error, info) {
     if (error) {
