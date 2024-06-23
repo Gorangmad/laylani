@@ -179,33 +179,39 @@ function productController() {
 
         async addProduct(req, res) {
             try {
-                
-              const { name, comment, price, sizes} = req.body;   
-          
-              let finalNames = req.files.map(file => {
-                // Process each file to obtain the desired final name
-                const originalNameWithoutExtension = file.originalname.split('.').slice(0, -1).join('.');
-                return "/" + originalNameWithoutExtension; // You might want to store the full path or URL
-               });
-              
-              // Create a new product instance
-              const newProduct = new Menu({
-                name,
-                comment,
-                price,
-                sizes,
-                image: finalNames, 
-              });
-          
-              // Save the product to the database
-              await newProduct.save();
-          
-              res.status(201).json({ message: 'Product added successfully', product: newProduct });
+                const { name, comment, price, sizes } = req.body;
+        
+                console.log(req.body);
+        
+                let finalNames = req.files.map(file => {
+                    // Process each file to obtain the desired final name
+                    const originalNameWithoutExtension = file.originalname.split('.').slice(0, -1).join('.');
+                    return "/" + originalNameWithoutExtension; // You might want to store the full path or URL
+                });
+        
+                // Add "0," at the start of prices
+                const processedPrice = price.split(',').map(p => p.trim());
+                const updatedPrice = ["0", ...processedPrice].join(',');
+        
+                // Create a new product instance
+                const newProduct = new Menu({
+                    name,
+                    comment,
+                    price: updatedPrice,
+                    sizes,
+                    image: finalNames,
+                });
+        
+                // Save the product to the database
+                await newProduct.save();
+        
+                res.status(201).json({ message: 'Product added successfully', product: newProduct });
             } catch (error) {
-              console.error('Failed to add product:', error);
-              res.status(500).json({ message: 'Failed to add product', error: error.message });
+                console.error('Failed to add product:', error);
+                res.status(500).json({ message: 'Failed to add product', error: error.message });
             }
-          },
+        },
+        
 
           async addProductImage(req, res) {
             try {

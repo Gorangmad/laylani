@@ -5,6 +5,7 @@ const Schema = mongoose.Schema
 
 
 const userSchema = new Schema({
+    CustomerNumber: { type: Number, required: false},
     name: { type: String, required: false},
     email: { type: String, required: false},
     password: { type: String, required: false},
