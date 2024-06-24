@@ -8,7 +8,7 @@
 
 
 <section class="menu container mx-auto py-8">
-      
+
     <div class="row">
 
         <div class="search-container">
@@ -29,9 +29,7 @@
                </form>
            </div>
 
-       </div>    
-
-    </div>
+       </div>  
 
     <div class="row">
         <% pizzas.forEach(function(pizza) { %>
@@ -61,7 +59,7 @@
 
 
 <div class="pagination-container">
-    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
+    <a href="<%= currentPage > 1 ? `/products?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
 
     <%
         let pageStart = Math.max(currentPage - 2, 1);
@@ -69,14 +67,14 @@
 
         // Show the first page and ellipsis if necessary
         if (pageStart > 1) { %>
-            <a href="/menu/?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number">1</a>
+            <a href="/products?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number">1</a>
             <% if (pageStart > 2) { %>
                 <span class="ellipsis">...</span>
             <% } %>
     <% }
 
         for(let i = pageStart; i <= pageEnd; i++) { %>
-            <a href="/menu/?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" 
+            <a href="/products?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" 
                class="page-number <%= i === currentPage ? 'active' : '' %>"> 
                <%= i %> 
             </a>
@@ -86,12 +84,11 @@
             if (pageEnd < totalPages - 1) { %>
                 <span class="ellipsis">...</span>
             <% } %>
-            <a href="/menu/?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number"><%= totalPages %></a>
+            <a href="/products?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number"><%= totalPages %></a>
     <% } %>
 
-    <a href="<%= currentPage < totalPages ? `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-next">&#10095;</a>
+    <a href="<%= currentPage < totalPages ? `/products?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-next">&#10095;</a>
 </div>
-
 
 
 
