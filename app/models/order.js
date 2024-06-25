@@ -11,8 +11,8 @@ const orderSchema = new Schema({
         required: true
     },
     items: { type: Object, required:true },
-    email: {type:String, required: true},
-    totalPrice: { type: String, required:true },
+    email: {type:String, required: false},
+    totalPrice: { type: String, required:false },
     name: {type: String, required:false},
     phone: {type: String, required:false},
     straße: {type: String, required:false},
