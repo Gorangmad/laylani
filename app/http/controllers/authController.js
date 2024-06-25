@@ -34,7 +34,7 @@ function authController() {
                 req.flash('error', 'All fields are required');
                 return res.redirect('/login');
             }
-        
+
             passport.authenticate('local', (err, user, info) => {
                 if (err) {
                     req.flash('error', info.message);
@@ -44,13 +44,13 @@ function authController() {
                     req.flash('error', info.message);
                     return res.redirect('/login');
                 }
-        
+
                 // Check if the user has the isUser property set to true
                 if (user.isUser !== "angenommen") {
                     req.flash('error', 'You do not have permission to log in.');
                     return res.redirect('/login');
                 }
-        
+
                 req.login(user, (err) => {
                     if (err) {
                         req.flash('error', info.message);
@@ -61,6 +61,7 @@ function authController() {
                 });
             })(req, res, next);
         },
+
         
 
         register(req, res) {
@@ -89,7 +90,7 @@ function authController() {
             try {
                 // Check if the user exists in the database
                 const user = await User.findOne({email})
-       
+        
                 if (!user) {
                     return res.status(404).json({ error: 'User not found' });
                 }
@@ -112,6 +113,7 @@ function authController() {
                 return res.status(500).json({ error: 'Internal server error' });
             }
         },
+        
 
 
         async wiederherstellen(req, res) {
@@ -178,25 +180,25 @@ function authController() {
             if (req.headers.referer) {
                 const refererUrl = new URL(req.headers.referer);
                 token = refererUrl.searchParams.get('token');
-                token = String(token)
+                token = String(token);
             }
         
             if (!token) {
                 return res.status(400).send('Token is missing or invalid.');
             }
-
-            const password1 = req.body.Passwort[0]
-            const password2 = req.body.Passwort[1]
+        
+            const password1 = req.body.Passwort[0];
+            const password2 = req.body.Passwort[1];
         
             if (password1 !== password2) {
                 return res.status(400).send('Passwords do not match.');
             }
         
             const saltRounds = 10;
-            
+        
             try {
                 console.log(token);
-
+        
                 const hash = await bcrypt.hash(password1, saltRounds);
                 // Find user by token
                 const user = await User.findOne({ resetPasswordToken: token });
@@ -211,14 +213,15 @@ function authController() {
                     $unset: { resetPasswordToken: "", resetPasswordExpires: "" }
                 });
         
-                res.render('home')
+                res.render('home');
             } catch (error) {
                 if (!res.headersSent) {
-                    console.log(error)
+                    console.log(error);
                     res.status(500).send('An error occurred.');
                 }
             }
         },
+        
         
 
 
