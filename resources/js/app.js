@@ -9,6 +9,7 @@ import { initUsers } from './user'
 
 let addToCart = document.querySelectorAll('.add-to-cart-button');
 let removeToCart = document.querySelectorAll(".remove-to-cart");
+let updateToCart = document.querySelectorAll(".update-cart-button")
 
 function updateCartItem(button, pizzaData, totalPrice, size) {
     const itemSizeElement = button.parentElement.parentElement.querySelector(".sizes").textContent.trim();
@@ -44,6 +45,9 @@ function updateCart(pizza, url, msg, button) {
             updateCartItem(button, res.data.cartItems[`${pizza._id}_${pizza.sizes}`], res.data.totalPrice, pizza.sizes);
         })
         .catch(err => {});
+
+    // Reset sizeSelected to false
+    localStorage.setItem('sizeSelected', false);
 }
 
 function updateCartCounter(totalQty) {
@@ -52,29 +56,51 @@ function updateCartCounter(totalQty) {
       cartCounter.textContent = totalQty;
   }
 }
- 
-
 
 addToCart.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        let pizza = JSON.parse(btn.dataset.pizza);
+        
+        // Check if size has been selected
+        const sizeSelected = localStorage.getItem('sizeSelected');
+        const isUniversalSize = pizza.sizes === "";
+        if (!isUniversalSize && (!sizeSelected || sizeSelected === "false")) {
+            alert('Suchen Sie eine Größe aus');
+            return; // Prevent adding to cart
+        }
 
- btn.addEventListener('click', (e) => {
-     let pizza = JSON.parse(btn.dataset.pizza)
-     // if data fetched from session , there will be have "item object" => (cart.ejs)
-     if (pizza.item) {
-         pizza = pizza.item;
-     }
-     let url = "/update-cart";
-     updateCart(pizza, url, "Item added to cart",btn);
-     });
- });
+        // If data fetched from session, there will be an "item object" => (cart.ejs)
+        if (pizza.item) {
+            pizza = pizza.item;
+        }
 
- removeToCart.forEach((btn) => {
-     btn.addEventListener("click", (e) => {
-     let pizza = JSON.parse(btn.dataset.pizza);
-     let url = "/remove-cart";
-     updateCart(pizza.item, url, "Item removed from cart",btn);
- })
-})
+        let url = "/update-cart";
+        updateCart(pizza, url, "Item added to cart", btn);
+    });
+});
+
+updateToCart.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        let pizza = JSON.parse(btn.dataset.pizza);
+
+        // If data fetched from session, there will be an "item object" => (cart.ejs)
+        if (pizza.item) {
+            pizza = pizza.item;
+        }
+
+        let url = "/update-cart";
+        updateCart(pizza, url, "Item added to cart", btn);
+    });
+});
+
+removeToCart.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        let pizza = JSON.parse(btn.dataset.pizza);
+        let url = "/remove-cart";
+        updateCart(pizza.item, url, "Item removed from cart", btn);
+    });
+});
+
 
 
 

@@ -301,7 +301,6 @@ eventEmitter.on('orderUpdated', async (data) => {
 });
 
 
-// Usage example
 eventEmitter.on('orderPlaced', async (data) => {
   io.to('adminRoom').emit('orderPlaced', data);
 
@@ -315,7 +314,6 @@ eventEmitter.on('orderPlaced', async (data) => {
     // Fetch the order details from the database based on the data.id
     const order = await Order.findById(data.id);
 
-
     // Check if the order exists
     if (!order) {
       console.log('Order not found');
@@ -325,75 +323,77 @@ eventEmitter.on('orderPlaced', async (data) => {
     const orderDetails = {
       orderId: order._id,
       Produkte: [],
-      };
-    
+    };
+
     for (const itemId in order.items) {
       if (order.items.hasOwnProperty(itemId)) {
         const item = order.items[itemId];
         const itemName = item.name;
         const itemQty = item.qty;
-    
-        orderDetails.Produkte.push(itemName, itemQty);
+
+        orderDetails.Produkte.push({ name: itemName, quantity: itemQty });
       }
     }
 
-
-    
-
-    let emailBody = `Ihre Bestellung ${data.id} wurde empfangen.\n\nOrder Details:\n`;
-    Object.entries(orderDetails).forEach(([key, value]) => {
-    emailBody = `Wir haben Ihre Bestellung erhalten`
+    // Construct email body for the user
+    let userEmailBody = `Ihre Bestellung ${data.id} wurde empfangen.\n\nOrder Details:\n`;
+    orderDetails.Produkte.forEach((product) => {
+      userEmailBody += `${product.name}: ${product.quantity}\n`;
     });
 
-    const mailOptions = {
+    // Check if the order has an email
+    if (order.email) {
+      const userMailOptions = {
+        from: 'nichtantwortenbb@gmail.com',
+        to: order.email,
+        subject: 'Order Placed',
+        text: userEmailBody,
+      };
+
+      console.log('Sending email to:', order.email);
+      transporter.sendMail(userMailOptions, function (error, info) {
+        if (error) {
+          console.log('Error sending email:', error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+    } else {
+      console.log('No email provided for order:', data.id);
+    }
+
+    // Construct email body for the admin
+    const adminEmailBody = `
+      A new order has been placed.
+      
+      Customer Details:
+      Name: ${data.customerId.name}
+      Email: ${data.customerId.email}
+      Phone: ${data.customerId.phone}
+      
+      Total Price: ${data.totalPrice}
+      Order Date: ${new Date(data.createdAt).toLocaleString()}
+    `;
+
+    const adminMailOptions = {
       from: 'nichtantwortenbb@gmail.com',
-      to: order.email,
-      subject: 'Order Placed',
-      text: emailBody,
+      to: 'jimikaram@yahoo.de', // Replace with the admin's email address
+      subject: 'New Order Placed',
+      text: adminEmailBody,
     };
 
-    transporter.sendMail(mailOptions, function (error, info) {
+    console.log('Sending admin email to: jimikaram@yahoo.de');
+    transporter.sendMail(adminMailOptions, function (error, info) {
       if (error) {
-        console.log(error);
+        console.log('Error sending admin email:', error);
       } else {
-        console.log('Email sent: ' + info.response);
+        console.log('Email sent to admin: ' + info.response);
       }
     });
-
-
-// Send an email to the admin
-const adminEmailBody = `
-  A new order has been placed.
-  
-  Customer Details:
-  Name: ${data.customerId.name}
-  Email: ${data.customerId.email}
-  Phone: ${data.customerId.phone}
-  
-  Total Price: ${data.totalPrice}
-  Order Date: ${new Date(data.createdAt).toLocaleString()}
-`;
-
-  const mailOptions2 = {
-    from: 'nichtantwortenbb@gmail.com',
-    to: 'jimikaram@yahoo.de', // Replace with the admin's email address
-    subject: 'New Order Placed',
-    text: adminEmailBody,
-  };
-
-
-
-  transporter.sendMail(mailOptions2, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent to admin: ' + info.response);
-    }
-  });
-
 
   } catch (error) {
     console.log('Error fetching order details:', error);
-  }    
+  }
 });
+
 

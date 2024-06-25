@@ -17,6 +17,7 @@ const orderSchema = new Schema({
     phone: {type: String, required:false},
     straße: {type: String, required:false},
     postleitzahl: {type: String, required:false},
+    comment: {type: String, required: false},
     land: {type: String, required:false},
     firmenname: {type: String, required:false},
     paymentType: { type: String, default: 'COD'},
