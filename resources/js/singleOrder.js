@@ -54,6 +54,7 @@ export function initSingleOrder() {
                 <h2 style="color: #333; margin-bottom: 10px">Order ID: ${order._id}</h2>
                 <p style="margin-bottom: 10px;">Name: ${order.name}</p>
                 <p style="margin-bottom: 10px;">Total Price: ${order.totalPrice}</p>
+                <p style="margin-bottom: 10px;">Kommentar: ${order.comment}</p>
                 <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
                   <tbody>
                     ${renderItems(order.items)}
