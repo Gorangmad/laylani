@@ -8,6 +8,7 @@ import { initArchiv } from './archiv'
 import { initUsers } from './user'
 
 let addToCart = document.querySelectorAll('.add-to-cart-button');
+let addToOldCart = document.querySelectorAll('.add-to-old-cart-button');
 let removeToCart = document.querySelectorAll(".remove-to-cart");
 let updateToCart = document.querySelectorAll(".update-cart-button")
 
@@ -82,6 +83,22 @@ addToCart.forEach((btn) => {
 updateToCart.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         let pizza = JSON.parse(btn.dataset.pizza);
+
+        // If data fetched from session, there will be an "item object" => (cart.ejs)
+        if (pizza.item) {
+            pizza = pizza.item;
+        }
+
+        let url = "/update-cart";
+        updateCart(pizza, url, "Item added to cart", btn);
+    });
+});
+
+addToOldCart.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        let pizza = JSON.parse(btn.dataset.pizza);
+        
+        console.log(pizza.item)
 
         // If data fetched from session, there will be an "item object" => (cart.ejs)
         if (pizza.item) {
