@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Categories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .table-container {
+            border: 1px solid #ddd; /* Border for the entire table */
+        }
+
+        th {
+            background-color: lightblue; /* Background color for the header cells */
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgrey; /* Background color for every second row */
+        }
+
+        td, th {
+            border: 1px solid #ddd; /* Border for each cell */
+            padding: 8px; /* Adjust the padding as needed */
+            text-align: left;
+        }
+
+        select {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            margin-top: 4px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .delete-button {
+            background: none;
+            border: none;
+            color: red;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .add-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0 16px 0;
+            border: 1px solid black; /* Black border */
+            border-radius: 4px;
+        }
+
+        .orders {
+            margin-left: 280px;
+        }
+    </style>
+</head>
+<body>
+
+<%- include('../components/sidebar') %>
+
+<section class="orders light-section">
+    <div class="container mx-auto pt-12 pb-2 table-container">
+        <h1 class="font-bold text-2xl mb-4">All Categories</h1>
+        <button class="add-button" id="openModal">Add Category</button>
+        <table class="w-full table-auto bg-white">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">ID</th>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.forEach(categorie => { %>
+                    <tr>
+                        <td>
+                            <a href="/categorie-detail/<%= categorie._id %>" class="text-blue-500 hover:text-blue-800">
+                                <%= categorie._id %>
+                            </a>
+                        </td>
+                        <td><%= categorie.Parent_Category %></td>
+                        <td>
+                            <form action="/delete-categorie" method="POST">
+                                <input type="hidden" name="userId" value="<%= categorie._id %>">
+                                <button type="submit" class="delete-button">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Add New Category</h2>
+    <form action="/admin/add-categories" method="POST">
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" name="categoryName" required><br><br>
+
+        <label for="subcategories">Subcategories (komma-getrennt):</label>
+        <input type="text" id="subcategories" name="subcategories"><br><br>
+
+        <input type="submit" value="Add Category" class="add-button">
+    </form>
+  </div>
+
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("openModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+</script>
+
+</body>
+</html>

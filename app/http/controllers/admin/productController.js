@@ -1,9 +1,11 @@
 const Menu = require('../../../models/menu');
-const Category = require('../../../models/categories')
+const Category = require('../../../models/categories');
 const path = require('path');
-const moment = require('moment')
+const moment = require('moment');
 const multer = require('multer');
-const ChangeLog = require("../../../models/change")
+const ChangeLog = require("../../../models/change");
+
+
 
 function productController() {
     return {
@@ -24,14 +26,14 @@ function productController() {
                         $addFields: {
                             hasTimestamp: {
                                 $cond: {
-                                    if: { $or: [ { $ifNull: ["$createdAt", false] }] },
+                                    if: { $or: [{ $ifNull: ["$createdAt", false] }] },
                                     then: true,
                                     else: false
                                 }
                             }
                         }
                     },
-                    { $sort: { hasTimestamp: -1, createdAt: -1} }, // Sorting by hasTimestamp then by createdAt and updatedAt
+                    { $sort: { hasTimestamp: -1, createdAt: -1 } }, // Sorting by hasTimestamp then by createdAt and updatedAt
                     { $skip: (page - 1) * pageSize },
                     { $limit: pageSize }
                 ];
@@ -53,27 +55,114 @@ function productController() {
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         },
+
+        async categories(req, res) {
+            try {
+                const categories = await Category.find({});
+                res.render('admin/categories', { categories: categories });
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        },
+        
+        async deleteCategories(req, res) {
+            try {
+                const categoryId = req.body.userId;
+        
+                // Check if categoryId is provided
+                if (!categoryId) {
+                    return res.status(400).json({ error: 'Category ID is required' });
+                }
+        
+                // Find and delete the category by ID
+                const deletedCategory = await Category.findByIdAndDelete(categoryId);
+        
+                // Check if the category was found and deleted
+                if (!deletedCategory) {
+                    return res.status(404).json({ error: 'Category not found' });
+                }
+        
+                res.json({ message: 'Category deleted successfully', deletedCategory });
+        
+            } catch (error) {
+                console.error('Error deleting category:', error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        },
+
+        async AddCategories(req, res) {
+            try {
+                const { categoryName, subcategories } = req.body;
+                
+                // Ensure subcategories is always an array of objects
+                let subcategoriesArray = [];
+                if (typeof subcategories === 'string') {
+                    // Split the comma-separated string and map each value to an object
+                    subcategoriesArray = subcategories.split(',').map((subcat, index) => ({
+                        name: subcat.trim(),
+                        Visibility: "true",  // Default value for visibility, modify as needed
+                        No: "",              // To be assigned later
+                        Global_Rank: ""      // To be assigned later
+                    }));
+                } else if (Array.isArray(subcategories)) {
+                    subcategoriesArray = subcategories;
+                } else {
+                    subcategoriesArray = [subcategories];
+                }
+        
+        
+                // Get all global ranks
+                const allCategories = await Category.find({});
+                const globalRanks = await Category.distinct('Global_Rank');
+                const globalNos = allCategories.flatMap(category => [category.No, ...category.subcategories.map(subcat => subcat.No)]);
+                
+                // Sort the globalRanks and globalNos arrays in ascending order
+                globalRanks.sort((a, b) => a - b);
+                globalNos.sort((a, b) => a - b);
+        
+                // Determine the next No value
+                const lastGlobalRank = globalRanks.length > 0 ? parseInt(globalRanks[globalRanks.length - 1]) : 0;
+                const lastGlobalNo = globalNos.length > 0 ? parseInt(globalNos[globalNos.length - 1]) : 0;
+                const nextNo = (lastGlobalNo + 1).toString();
+                const nextRank = (lastGlobalRank + 1).toString();
+        
+
+                // Create the new category object
+                const newCategory = new Category({
+                    No: nextNo,
+                    Parent_Category: categoryName,
+                    Global_Rank: nextRank,
+                    subcategories: subcategoriesArray.map((subcat, index) => ({
+                        ...subcat,
+                        No: (lastGlobalNo + 1 + index + 1).toString(), // Incremental No for each subcategory
+                        Global_Rank: `${nextRank}.${index + 1}` // Global_Rank in the format Global_Rank.1, Global_Rank.2, etc.
+                    }))
+                });
+        
+                // Save the new category to the database
+                await newCategory.save();
+        
+                res.json({ message: 'Category added successfully'});
+        
+            } catch (error) {
+                console.error('Error adding category:', error);
+                res.json({ error: 'Internal Server Error' });
+            }
+        },
+        
         
         async changeTracker(req, res) {
             const totalLogs = await ChangeLog.find();
-
-            // Render the EJS template and pass the 'products' array and pagination data
-            res.render('admin/changeLog', {
-                totalLogs: totalLogs
-            });
-
+            res.render('admin/changeLog', { totalLogs: totalLogs });
         },
 
-        async updateCategory (req, res) {
+        async updateCategory(req, res) {
             try {
                 const { categories } = req.body; // This is the string of 'No' values
                 const productId = req.body.currentProductId;
         
-                console.log(categories)
-
-                // Assuming 'categories' is a field in your product schema where you want to save the string
                 await Menu.findByIdAndUpdate(productId, { category: categories });
-        
                 res.json({ message: 'Categories updated successfully!' });
             } catch (error) {
                 console.error('Failed to save categories:', error);
@@ -93,8 +182,6 @@ function productController() {
                 const categoryPromises = categoryIds.map(id => Category.findOne({ "No": id }));
                 const categoryDetails = await Promise.all(categoryPromises);
 
-
-                
                 const productCategoryNames = categoryDetails
                   .filter(details => details != null)
                   .flatMap(details => {
@@ -111,7 +198,6 @@ function productController() {
                     });
                     return names;
                   });
-
         
                 // Fetch related menus if they exist
                 const relatedMenuPromises = productDetails.relatedMenus ? productDetails.relatedMenus.map(id => Menu.findById(id)) : [];
@@ -137,8 +223,7 @@ function productController() {
             }
         },
         
-
-        async deleteProdukt (req, res) {
+        async deleteProdukt(req, res) {
             try {
                 const { currentProductId } = req.params;
                 await Menu.findByIdAndRemove(currentProductId);
@@ -149,23 +234,19 @@ function productController() {
             }
         },
         
-        
-        async relateProduct (req, res) {
+        async relateProduct(req, res) {
             try {
                 const currentProductId = req.params.currentProductId;
                 const { relatedProductId } = req.body;
 
-        
                // Add the related product ID to the current product's relatedMenus field
                 await Menu.findOneAndUpdate({ _id: currentProductId }, {
                    $addToSet: { relatedMenus: relatedProductId } // Use $addToSet to avoid duplicates
                 });
                  
-                 await Menu.findOneAndUpdate({ _id: relatedProductId }, {
+                await Menu.findOneAndUpdate({ _id: relatedProductId }, {
                    $addToSet: { relatedMenus: currentProductId } // Use $addToSet to avoid duplicates
                 });
-  
-        
 
                 res.json({ message: 'Product linked successfully' });
             } catch (error) {
@@ -174,14 +255,9 @@ function productController() {
             }
         },
         
-        
-        
-
         async addProduct(req, res) {
             try {
                 const { name, comment, price, sizes } = req.body;
-        
-                console.log(req.body);
         
                 let finalNames = req.files.map(file => {
                     // Process each file to obtain the desired final name
@@ -202,7 +278,7 @@ function productController() {
                     image: finalNames,
                 });
         
-                // Save the product to the database
+                // Save the new product to the database
                 await newProduct.save();
         
                 res.status(201).json({ message: 'Product added successfully', product: newProduct });
@@ -212,8 +288,7 @@ function productController() {
             }
         },
         
-
-          async addProductImage(req, res) {
+        async addProductImage(req, res) {
             try {
                 const { productId } = req.body; // Assuming you have the product ID in the request body
         
@@ -242,15 +317,10 @@ function productController() {
                 res.status(500).json({ message: 'Failed to add product image', error: error.message });
             }
         },
-        
-        
-
-          
 
         async productSearch(req, res) {
             try {
                 const searchQuery = req.query.name; // Get the search term from the request body
-        
         
                 const searchResult = await Menu.find({ 
                     $or: [
@@ -258,7 +328,6 @@ function productController() {
                         { comment: { $regex: searchQuery, $options: 'i' } } // Search for comment
                     ]
                 });
-        
 
                 const currentPage = 1;
                 const itemsPerPage = 30; // Adjust based on your setup
@@ -269,7 +338,6 @@ function productController() {
                     products: searchResult,
                     currentPage: currentPage,
                     totalPages: totalPages
-                    // Include any other variables your view might expect
                 });
             } catch (error) {
                 console.error('Search error:', error);
@@ -277,8 +345,6 @@ function productController() {
             }
         },
         
-
-
         async productAdminSearch(req, res) {
             try {
                 let searchQuery = {};
@@ -304,37 +370,30 @@ function productController() {
             }
         },
         
-        
-        
         async productChanger(req, res) {
-
-            
             const { productId, rowIndex, columnIndex, editedValue } = req.body;
 
             try {
                 // Find the product by ID
-            const product = await Menu.findById(productId);
+                const product = await Menu.findById(productId);
 
+                product.name = editedValue.name;
+                product.comment = editedValue.comment;
+                product.price = editedValue.price; // Assuming price is stored as a string
+                product.sizes = editedValue.sizes;
 
-            product.name = editedValue.name;
-            product.comment = editedValue.comment;
-            product.price = editedValue.price; // Assuming price is stored as a string
-            product.sizes = editedValue.sizes;
-            
+                // Check if availability is provided and is one of the enum values
+                if (editedValue.availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL', 'HIDDEN'].includes(editedValue.availability)) {
+                    product.availability = editedValue.availability;
+                } else {
+                    // If the value is not valid, you can set a default value or handle the error
+                    product.availability = 'AVAILABLE'; // Or handle the error accordingly
+                }
 
-            // Check if availability is provided and is one of the enum values
-            if (editedValue.availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL', 'HIDDEN'].includes(editedValue.availability)) {
-                product.availability = editedValue.availability;
-              } else {
-                // If the value is not valid, you can set a default value or handle the error
-                product.availability = 'AVAILABLE'; // Or handle the error accordingly
-              }
+                // Save the updated product
+                await product.save();
 
-
-            // Save the updated product
-            await product.save();
-
-            res.json({ success: true, message: 'Product updated successfully' });
+                res.json({ success: true, message: 'Product updated successfully' });
             } catch (error) {
                 console.error('Error updating product:', error);
                 res.status(500).json({ error: 'Internal Server Error' });
@@ -342,7 +401,6 @@ function productController() {
         },
 
         async availabilityChanger(req, res) {
-
             const { productId, rowIndex, columnIndex, availability } = req.body;
             
             const product = await Menu.findById(productId);
@@ -350,13 +408,12 @@ function productController() {
             // Check if availability is provided and is one of the enum values
             if (availability && ['AVAILABLE', 'SOLDOUT', 'NEW', 'BACK IN', 'WSL', 'HIDDEN'].includes(availability)) {
                 product.availability = availability;
-              } else {
+            } else {
                 // If the value is not valid, you can set a default value or handle the error
                 product.availability = 'AVAILABLE'; // Or handle the error accordingly
-              }
+            }
 
-              await product.save();
-
+            await product.save();
         },
 
         async checkProduct(req, res) {

@@ -155,6 +155,7 @@ export function initSingleOrder() {
           { text: `Email: ${orderDetails.email}`, margin: [0, 10] },
           { text: `Addresse: ${orderDetails.straße}`, margin: [0, 10] },
           { text: `Telefonnummer: ${orderDetails.phone}`, margin: [0, 10] },
+          { text: `Kommentar: ${orderDetails.comment}`, margin: [0, 10] },
           { text: 'Items:', style: 'subheader' },
           renderItemsPDF(orderDetails.items),
 
