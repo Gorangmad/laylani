@@ -150,12 +150,15 @@ a:hover {
                 <div class=" w-72 sm:w-64">
                     <a href="/product/<%= pizza._id %>" class="card-link">
                         <div class="card product-card">
-                            <% if (pizza.image && pizza.image.length > 0) { %>
-                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="" alt="<%= pizza.name %>">
+                            <% if (Array.isArray(pizza.image) && pizza.image.length > 0) { %>
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                            <% } else if (typeof pizza.image === 'string' && pizza.image.length > 0) { %>
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
                             <% } else { %>
                                 <!-- Provide a placeholder image or text if no image is available -->
                                 <div class="placeholder-image">No Image Available</div>
                             <% } %>
+                            
                             <div class="card-body">
                                 <h5 class="  "><%= pizza.name %></h5>
                                 <p class="card-text"><%= pizza.price %>€</p>

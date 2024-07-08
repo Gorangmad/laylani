@@ -8,7 +8,6 @@ function orderController () {
             // Validate request
             const { paymentType } = req.body
 
-
             let totalPrice = req.session.cart.totalPrice
 
 
@@ -22,7 +21,8 @@ function orderController () {
                 postleitzahl: req.user.postleizahl,
                 land: req.user.land,
                 firmenname: req.user.firmenname,
-                totalPrice: totalPrice
+                totalPrice: totalPrice,
+                comment: req.body.comment
             })
 
             order.save()

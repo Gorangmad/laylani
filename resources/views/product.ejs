@@ -5,7 +5,7 @@
         <div class="carousel-inner">
           <% product.image.forEach(function(image, index) { %>
             <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-              <img src="https://bahl.fra1.digitaloceanspaces.com<%= image %>.jpg" class="" alt="<%= product.name %>">
+              <img src="https://bahl.fra1.digitaloceanspaces.com<%= image %>.jpg" class="product-image" alt="<%= product.name %>">
             </div>
           <% }); %>
         </div>
@@ -28,7 +28,7 @@
             <div class="product-comment mt-10">Beschreibung: <%= product.comment %></div> 
             <p class="size-instruction mt-10">Wählen Sie Ihre Größe aus:</p>
             <div class="product-sizes">
-                <% if (Array.isArray(product.sizes)) { %>
+                <% if (Array.isArray(product.sizes) && product.sizes.length > 0) { %>
                     <div class="product-sizes">
                         <% product.sizes.forEach((size, index) => { %>
                         <div class="size-option">
@@ -39,22 +39,22 @@
                         </div>
                         <% }); %>
                     </div>
-                <% } else if (typeof product.sizes === 'string' && typeof product.price === 'string') { %>
+                <% } else if (typeof product.sizes === 'string' && product.sizes !== "") { %>
                     <% 
                         const sizesArray = product.sizes.split(',');
                         const pricesArray = product.price.split(',');
                         sizesArray.forEach((size, index) => {
-                            // Try to split the size into text and number parts
                             const sizeParts = size.match(/(\D*)(\d+)(\D*)/);
                             let sizeText = '';
-                            let sizeNumber = size; // Default to the whole size if no match is found
+                            let sizeNumber = size;
                             let sizeUnit = '';
                             let sizePrice = pricesArray[index + 1] || product.price;
-
+        
                             if (sizeParts) {
-                                // If match is found, separate the text and number
                                 [, sizeText, sizeNumber, sizeUnit] = sizeParts;
                             }
+        
+                            if (!isNaN(sizeNumber)) {
                     %>
                     <div class="size-option">
                         <% if (sizeText) { %>
@@ -68,7 +68,10 @@
                             <div class="size-unit"><%= sizeUnit.trim() %></div>
                         <% } %>
                     </div>
-                    <% }); %>
+                    <% 
+                            }
+                        }); 
+                    %>
                 <% } else { %>
                     <p>Universal Größe</p>
                 <% } %>                
@@ -292,44 +295,79 @@
   
   
 
+<div class="related-products-container mt-30">
+    <h3>Related Products</h3>
+    <div class="related-products-row">
+      <% relatedMenus.forEach(function(relatedMenu) { %>
+        <a href="/product/<%= relatedMenu.id %>" class="related-product-card">
+          <img src="https://bahl.fra1.digitaloceanspaces.com<%= relatedMenu.image %>.jpg" class="related-product-image" alt="<%= relatedMenu.name.trim() %>">
+          <div class="related-product-info">
+            <div class="related-product-name"><%= relatedMenu.name.trim() %></div>
+            <div class="related-product-price">Preis: <span class="darker-price"><%= relatedMenu.price %>€</span></div>
+          </div>
+        </a>
+      <% }); %>
+    </div>
+</div>
+
 <script>
-  function handleSizeClick(element) {
-    const selectedSize = element.getAttribute('data-size');
-    const selectedPrice = element.getAttribute('data-price');
-    const productData = JSON.parse(document.querySelector('.add-to-cart-button').getAttribute('data-pizza'));
-
-    productData.sizes = selectedSize;
-    productData.price = selectedPrice;
-
-    document.querySelector('.add-to-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
-
-    const allSizeCircles = document.querySelectorAll('.size-circle');
-    allSizeCircles.forEach(circle => circle.classList.remove('selected-size'));
-    element.classList.add('selected-size');
-  }
-</script>
+    let sizeSelected = false;
+  
+    function handleSizeClick(element) {
+      const selectedSize = element.getAttribute('data-size');
+      const selectedPrice = element.getAttribute('data-price');
+      const productData = JSON.parse(document.querySelector('.add-to-cart-button').getAttribute('data-pizza'));
+  
+      productData.sizes = selectedSize;
+      productData.price = selectedPrice;
+  
+      document.querySelector('.add-to-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
+  
+      const allSizeCircles = document.querySelectorAll('.size-circle');
+      allSizeCircles.forEach(circle => circle.classList.remove('selected-size'));
+      element.classList.add('selected-size');
+      sizeSelected = true;
+  
+      // Store sizeSelected state in localStorage
+      localStorage.setItem('sizeSelected', sizeSelected);
+    }
+  
+    // Add beforeunload event listener to clear the size selection
+    window.addEventListener('beforeunload', function() {
+      localStorage.removeItem('sizeSelected');
+    });
+  
+    // On page load, clear the size selection
+    window.addEventListener('load', function() {
+      const allSizeCircles = document.querySelectorAll('.size-circle');
+      allSizeCircles.forEach(circle => circle.classList.remove('selected-size'));
+      localStorage.removeItem('sizeSelected');
+    });
+  </script>
+  
 
 <style>
-/* Add the following CSS styles */
 .carousel .carousel-item img {
-  min-height: 500px; /* adjust to your preference */
-  max-width: 500px;
+  min-height: 300px;
+  max-width: 300px;
 }
 
 .carousel {
-    max-width: 500px;
+    max-width: 900px;
+    margin: auto;
+    background-color: white; /* Set background color to white */
 }
 
 .size-instruction {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 10px; /* Increased margin for separation */
-    color: #333; /* Darker color for the instruction */
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .darker-price {
     font-weight: bold;
-    color: #333; /* Darker color for the price */
+    color: #333;
 }
 
 .selected-size {
@@ -346,9 +384,9 @@
 }
 
 .product-image {
-    flex: 1; /* Keeps the image flexible within the container */
-    min-height: 450px; /* Increase max height as needed */
-    min-width: 450px; /* Ensures the image is responsive and does not overflow its container */
+    flex: 1;
+    min-height: 300px;
+    min-width: 300px;
 }
 
 .product-details {
@@ -392,8 +430,8 @@
 
 .product-sizes {
     display: flex;
-    margin-top: 10px; /* Add margin between Preis and Size */
-    margin-bottom: 10px; /* Add margin between Size and Availability */
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .size-circle {
@@ -414,5 +452,53 @@
 
 .size-price {
     font-size: 12px;
+}
+
+.size-option .size-text, .size-option .size-unit {
+    text-align: center;
+    font-size: 12px;
+}
+
+.related-products-container {
+    margin-top: 30px;
+}
+
+.related-products-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.related-product-card {
+    text-align: center;
+    width: 200px;
+    background-color: white; /* Set background color to white */
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+.related-product-image {
+    width: 100%;
+    height: auto;
+}
+
+.related-product-info {
+    padding: 10px;
+}
+
+.related-product-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.related-product-price {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
 }
 </style>

@@ -102,6 +102,10 @@ function initRoutes(app) {
     app.get('/admin/archiv',admin , adminOrderController().threedex)
 
     app.get('/admin/products', admin, adminProductController().index)
+    app.get('/admin/categories', admin, adminProductController().categories)
+  
+    app.post('/delete-categorie', admin, adminProductController().deleteCategories)
+    app.post('/admin/add-categories', admin, adminProductController().AddCategories)
     app.get('/admin/product/:id', admin, adminProductController().product)
     app.post('/admin/update/categories', admin, adminProductController().updateCategory)
     app.post('/admin/products/search/similiar', admin, adminProductController().productAdminSearch)

@@ -16,7 +16,7 @@ const categorySchema = new mongoose.Schema({
   },
   Visibility: {
     type: String,
-    required: true
+    required: false
   },
   subcategories: [{
     name: String,
