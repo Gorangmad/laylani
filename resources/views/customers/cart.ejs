@@ -1,3 +1,5 @@
+
+
 <section class="py-5">
     <% if (session.cart) { %>
         <div class="container">
@@ -18,12 +20,6 @@
                             <tbody>
                                 <% for (let key in session.cart.items) { 
                                     let pizza = session.cart.items[key]; %>
-                                    <tr>
-                                        <td><img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image[0] %>.jpg"></td>
-                                        <td><%= pizza.item.name %></td>
-                                        <td class="sizes"><%= pizza.item.sizes %></td>
-                                        <td>
-                                            <button data-pizza='<%= JSON.stringify(pizza) %>' class="update-cart-button py-1 px-4 rounded-full font-bold">+</button>
                                     <tr class="border-b border-gray-300 flex items-center justify-around w-full py-2">
                                         <td class="   w-20 sm:w-32 md:w-44 lg:w-52 xl:w-64"><img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image[0] %>.jpg" class="w-16 sm:w-24 md:w-32 rounded-lg"/></td>
                                         <td class="text-xs sm:text-base w-20 sm:w-28 md:w-32  lg:w-44 xl:w-52 ps-2"><%= pizza.item.name %></td>
@@ -61,10 +57,6 @@
                     <% if (user) { %>
                         <div class="mt-4">
                             <form action="/orders" method="POST" id="payment-form">
-                                <div class="form-group">
-                                    <label for="order-comment" class="font-weight-bold">Kommentar:</label>
-                                    <textarea class="form-control" id="order-comment" name="comment" rows="4" placeholder="Write your comment here..."></textarea>
-                                </div>
                                 <button class="btn btn-primary btn-lg mt-4" type="submit">Weiter</button>
                             </form>
                         </div>
