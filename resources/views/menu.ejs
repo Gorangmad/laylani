@@ -151,9 +151,9 @@ a:hover {
                     <a href="/product/<%= pizza._id %>" class="card-link">
                         <div class="card product-card">
                             <% if (Array.isArray(pizza.image) && pizza.image.length > 0) { %>
-                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class=" " alt="<%= pizza.name %>">
                             <% } else if (typeof pizza.image === 'string' && pizza.image.length > 0) { %>
-                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image %>.jpg" class=" " alt="<%= pizza.name %>">
                             <% } else { %>
                                 <!-- Provide a placeholder image or text if no image is available -->
                                 <div class="placeholder-image">No Image Available</div>
@@ -281,8 +281,7 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
         /* color: white; Changes text color to white for readability */
     }
 
-    /* .product-card:hover .product-image {
-        transform: scale(1.03); /* Slightly enlarges the image on hover */
+    /* .prnsform: scale(1.03); /* Slightly enlarges the image on hover */
     /* } */ */
 
     .card-body {
