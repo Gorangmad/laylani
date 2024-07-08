@@ -176,11 +176,11 @@
 <div class="flex justify-center w-screen">
     <div class="w-full px-2.5 sm:px-0 sm:w-11/12 2xl:w-2/3 grid grid-cols-1 lg:grid-cols-2 gap-8 my-10 lg:my-20">
       <div class="flex justify-center w-full col-span-1">
-        <div id="productCarousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
+        <div id="productCarousel" class="carousel slide w-11/12  sm:w-2/3 md:w-1/2 lg:w-5/6  " data-ride="carousel">
+          <div class="carousel-inner w-full ">
             <% product.image.forEach(function(image, index) { %>
-            <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-              <img src="https://bahl.fra1.digitaloceanspaces.com<%= image %>.jpg" class="h-full w-full clickable-image" alt="<%= product.name %>">
+            <div class="carousel-item w-full  <%= index == 0 ? 'active' : '' %>">
+              <img src="https://bahl.fra1.digitaloceanspaces.com<%= image %>.jpg" class="w-full clickable-image" alt="<%= product.name %>">
             </div>
             <% }); %>
           </div>
@@ -347,10 +347,10 @@
   
 
 <style>
-.carousel .carousel-item img {
+/* .carousel .carousel-item img {
   min-height: 300px;
   max-width: 300px;
-}
+} */
 
 .carousel {
     max-width: 900px;
