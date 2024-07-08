@@ -248,7 +248,7 @@
           </div>
           <div class="availability mt-10">Availability: <%= product.availability %></div>
         </div>
-        <button class="add-to-cart-button" data-pizza='<%= JSON.stringify(product) %>'>
+        <button class="update-cart-button" data-pizza='<%= JSON.stringify(product) %>'>
           In den Warenkorb
         </button>
       </div>
@@ -316,12 +316,12 @@
     function handleSizeClick(element) {
       const selectedSize = element.getAttribute('data-size');
       const selectedPrice = element.getAttribute('data-price');
-      const productData = JSON.parse(document.querySelector('.add-to-cart-button').getAttribute('data-pizza'));
+      const productData = JSON.parse(document.querySelector('.update-cart-button').getAttribute('data-pizza'));
   
       productData.sizes = selectedSize;
       productData.price = selectedPrice;
   
-      document.querySelector('.add-to-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
+      document.querySelector('.update-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
   
       const allSizeCircles = document.querySelectorAll('.size-circle');
       allSizeCircles.forEach(circle => circle.classList.remove('selected-size'));
@@ -414,7 +414,7 @@
     margin-bottom: 10px;
 }
 
-.add-to-cart-button {
+.update-cart-button {
     background-color: #000;
     color: #fff;
     padding: 8px 12px;
