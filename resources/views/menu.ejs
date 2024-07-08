@@ -1,52 +1,163 @@
-<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark">
-    <button class="close-sidebar-btn">&times;</button> <!-- X button to close sidebar -->
-    <ul class="categories-list">
+<style>
+ 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #222222
+}
+
+/* Dropdown */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-button:hover {
+  background-color: #eeeeee;
+}
+
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  left: -80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  list-style-type: none;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+} 
+
+.dd-input:checked + .dd-menu {
+  display: block;
+} 
+
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color: #f6f6f6;
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
+}
+</style>
+
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-white text-black">
+    <button class="close-sidebar-btn text-black ">&times;</button> <!-- X button to close sidebar -->
+    <ul class="categories-list text-black">
         <!-- Categories will be dynamically added here -->
     </ul>
 </div>
 
 
 
-<section class="menu container mx-auto py-8">
+
+<section class=" flex justify-center  ">
       
-    <div class="row">
+ <div class="w-full sm:w-5/6 lg:w-3/4 my-4 sm:my-8 px-8 py-4 sm:p-0">
 
-        <div class="search-container">
-            <button class="sidebar-toggle">&#9776;</button>
 
+
+        <div class="flex flex-col md:flex-row justify-center  items-center md:justify-between">
+            <div class="flex  justify-between md:justify-start items-center  px-2 w-80 md:w-full">
+
+                <button class="bg-black text-white px-2.5 py-1 rounded-lg my-2 sm:my-0 sidebar-toggle md:mr-4 ">&#9776;</button>
+                <label class="dropdown ">
+
+                <div class="dd-button">
+                  Sort By
+                </div>
+              
+                <input type="checkbox" class="dd-input" id="test">
+              
+                <ul class="dd-menu z-20">
+                    <li>Price, low to high</li>
+                    <li>Price, high to low</li>
+                  <li>Alphabetically, A - Z</li>
+                  <li>Alphabetically, Z - A</li>
+                </ul>
+                
+            </label>
+        </div>
+             
             <form action="/menu" method="GET">
-                   <div class="search-input-container">
+                   <div class=" flex">
                        <input
                            type="text"
                            name="search"
-                           class="search-input"
+                           class="w-64 sm:w-72 p-2 border rounded-lg mx-1"
                            placeholder="Suchen"
                        />
-                       <button type="submit" class="search-button">
+                       <button type="submit" class="bg-black text-white px-3 py-1.5 rounded-lg">
                            <i class="fas fa-search"></i>
                        </button>
                    </div>
                </form>
            </div>
-
-       </div>    
-
-    </div>
-
-    <div class="row">
+ 
+    <div class=" flex justify-around  flex-wrap  gap-y-5  items-center my-5">
         <% pizzas.forEach(function(pizza) { %>
             <% if (pizza.availability !== 'HIDDEN') { %>
-                <div class="col-md-3">
+                <div class=" w-72 sm:w-64">
                     <a href="/product/<%= pizza._id %>" class="card-link">
                         <div class="card product-card">
                             <% if (pizza.image && pizza.image.length > 0) { %>
-                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="" alt="<%= pizza.name %>">
                             <% } else { %>
                                 <!-- Provide a placeholder image or text if no image is available -->
                                 <div class="placeholder-image">No Image Available</div>
                             <% } %>
                             <div class="card-body">
-                                <h5 class="card-title"><%= pizza.name %></h5>
+                                <h5 class="  "><%= pizza.name %></h5>
                                 <p class="card-text"><%= pizza.price %>€</p>
                             </div>
                         </div>
@@ -56,7 +167,7 @@
         <% }) %>        
     </div>
     
-
+</div>
 </section>
 
 
@@ -162,14 +273,14 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
     }
 
     .product-card:hover {
-        transform: scale(1.03); /* Slightly enlarges the card on hover */
-        background-color: black; /* Changes background to black on hover */
-        color: white; /* Changes text color to white for readability */
+        transform: scale(1.05); /* Slightly enlarges the card on hover */
+        /* background-color: black; Changes background to black on hover */
+        /* color: white; Changes text color to white for readability */
     }
 
-    .product-card:hover .product-image {
-        transform: scale(1.05); /* Slightly enlarges the image on hover */
-    }
+    /* .product-card:hover .product-image {
+        transform: scale(1.03); /* Slightly enlarges the image on hover */
+    /* } */ */
 
     .card-body {
         display: flex;
@@ -197,7 +308,7 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
     width: 280px;
     height: 100%;
     overflow-y: auto;
-    background-color: #333;
+    /* background-color: #333; */
     transition: left 0.3s ease; /* Smooth transition for sliding animation */
     z-index: 1000; /* Ensure sidebar is above other content */
     }
@@ -217,7 +328,7 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
 }
 
 /* Position sidebar toggle on the left */
-.sidebar-toggle {
+.ssidebar-toggle {
     margin-right: 800px;
     background-color: black; /* Set background color to black */
     border: none; /* Remove border */
@@ -227,7 +338,7 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
 }
 
 /* Add stripes to the toggle button */
-.sidebar-toggle::before, .sidebar-toggle::after {
+/* .sidebar-toggle::before, .sidebar-toggle::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -235,16 +346,16 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
     width: 2px;
     height: 20px;
     background-color: white;
-}
+} */
 
 /* Position the stripes */
-.sidebar-toggle::before {
+/* .sidebar-toggle::before {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .sidebar-toggle::after {
     transform: translate(-50%, -50%) rotate(-45deg);
-}
+} */
 
 
     
@@ -290,7 +401,7 @@ function renderSidebar(categories) {
         arrow.classList.add('arrow'); // Add a class for styling
 
         link.textContent = category.Parent_Category;
-        link.classList.add('text-white', 'sidebar-link');
+        link.classList.add('text-black', 'sidebar-link');
 
         // Check if the category has subcategories
         if (category.subcategories && category.subcategories.length > 0) {

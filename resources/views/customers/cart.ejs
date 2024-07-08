@@ -2,32 +2,47 @@
     <% if (session.cart) { %>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <h1 class="mb-4 font-weight-bold">Order Summary</h1>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Bild</th>
-                                    <th>Name</th>
-                                    <th>Größe</th>
-                                    <th>Quantität</th>
-                                    <th>Preis</th>
+                <div class="">
+                    <h1 class="mb-4 font-weight-bold text-3xl sm:text-5xl">Order Summary</h1>
+                    <div class=" ">
+                        <table class="">
+                            <thead class="border-t-2 border-b-2 border-gray-300">
+                                <tr class="flex items-center justify-around  w-full py-2.5">
+                                    <th class="text-sm sm:text-base md:text-lg  border-none w-20  sm:w-32 md:w-44 lg:w-52 xl:w-64">Bild</th>
+                                    <th class="text-sm sm:text-base md:text-lg  border-none w-20 sm:w-28 md:w-32  lg:w-44 xl:w-52 ps-2">Name</th>
+                                    <th class="text-sm sm:text-base md:text-lg  border-none w-16 sm:w-24 md:w-32  lg:w-44 xl:w-52">Größe</th>
+                                    <th class="text-sm sm:text-base md:text-lg  border-none w-16 sm:w-24 md:w-32 ">Quantität</th>
+                                    <th class="text-sm sm:text-base md:text-lg  border-none  w-12 sm:w-20 md:w-32  lg:w-44 xl:w-52  flex justify-center">Preis</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% for (let key in session.cart.items) { 
                                     let pizza = session.cart.items[key]; %>
-                                    <tr>
-                                        <td><img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image[0] %>.jpg"></td>
-                                        <td><%= pizza.item.name %></td>
-                                        <td class="sizes"><%= pizza.item.sizes %></td>
-                                        <td>
-                                            <button data-pizza='<%= JSON.stringify(pizza) %>' class="add-to-cart-button py-1 px-4 rounded-full font-bold">+</button>
+                                    <tr class="border-b border-gray-300 flex items-center justify-around w-full py-2">
+                                        <td class="   w-20 sm:w-32 md:w-44 lg:w-52 xl:w-64"><img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image[0] %>.jpg" class="w-16 sm:w-24 md:w-32 rounded-lg"/></td>
+                                        <td class="text-xs sm:text-base w-20 sm:w-28 md:w-32  lg:w-44 xl:w-52 ps-2"><%= pizza.item.name %></td>
+                                        <td class="sizes text-sm sm:text-base w-16 sm:w-24 md:w-32  lg:w-44 xl:w-52"><%= pizza.item.sizes %></td>
+                                        <td class=" flex  items-center justify-around sm:py-1   mt-1 sm:mt-2 w-16 sm:w-24 md:w-32 border border-black me-5">
+                                            <!-- <button data-pizza='<%= JSON.stringify(pizza) %>' class="add-to-cart-button py-1 px-4 rounded-full font-bold">+</button>
                                             <span class="itemQty"><%= pizza.qty %> Stk.</span>
-                                            <button data-pizza='<%= JSON.stringify(pizza) %>' class="remove-to-cart py-1 px-4 rounded-full font-bold">-</button>
+                                            <button data-pizza='<%= JSON.stringify(pizza) %>' class="remove-to-cart py-1 px-4 rounded-full font-bold">-</button> -->
+                                        <!-- <div class="flex  items-center justify-around  py-1 mt-1 sm:mt-2 w-20 sm:w-24 md:w-32 border border-black"> -->
+
+                                            <button
+                                            
+                                                data-pizza='<%= JSON.stringify(pizza) %>'
+                                                class="remove-to-cart  text-black cursor-pointer text-xl outline-none " 
+                                                >
+                                                -
+                                            </button>
+                                            <span class="itemQty"><%= pizza.qty %></span>
+                                                <button  data-pizza='<%= JSON.stringify(pizza) %>'  class="add-to-cart-button text-black cursor-pointer text-xl outline-none border-none  " >
+                                                +
+                                            </button>
+                                            
+                                        <!-- </div> -->
                                         </td>
-                                        <td class="itemPrice"><%= pizza.item.price * pizza.qty %></td>
+                                        <td class="itemPrice text-sm sm:text-base w-12 sm:w-20 md:w-32  lg:w-44 xl:w-52  flex justify-center "><%= pizza.item.price * pizza.qty %></td>
                                     </tr>
                                 <% } %>
                             </tbody>

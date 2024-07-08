@@ -18,7 +18,7 @@ function updateCartItem(button, pizzaData, totalPrice, size) {
         const itemPriceElement = button.parentElement.parentElement.querySelector(".itemPrice");
 
         if (pizzaData.qty > 0) {
-            quantityElement.textContent = pizzaData.qty + ' Stk.';
+            quantityElement.textContent = pizzaData.qty;
             const itemPrice = pizzaData.qty * Number(pizzaData.item.price);
             itemPriceElement.textContent = itemPrice.toFixed(2);
         } else {
