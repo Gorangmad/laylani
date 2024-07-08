@@ -31,7 +31,7 @@
                                     <% } else if (typeof pizza.item.image === 'string' && pizza.item.image.length > 0) { %>
                                         <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
                                     <% } else { %>
-                                        <!-- Provide a placeholder image or text if no image is available -->
+                               
                                         <div class="placeholder-image">No Image Available</div>
                                     <% } %>
                                   </div>
@@ -85,7 +85,15 @@
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="flex flex-col lg:flex-row">
                                     <div class=" flex justify-center">
-                                        <img src="/img/b.png" class=" w-64 h-44  rounded-start" alt="<%= pizza.item.name %>">
+                                        <!-- <img src="/img/b.png" class=" w-64 h-44  rounded-start" alt="<%= pizza.item.name %>"> -->
+                                        <% if (Array.isArray(pizza.item.image) && pizza.item.image.length > 0) { %>
+                                            <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image[0]%>.jpg" class=" w-64 h-44  rounded-start" alt="<%= pizza.item.name %>">
+                                        <% } else if (typeof pizza.item.image === 'string' && pizza.item.image.length > 0) { %>
+                                            <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image %>.jpg" class=" w-64 h-44  rounded-start card-img-top product-image" alt="<%= pizza.name %>">
+                                        <% } else { %>
+                                   
+                                            <div class="placeholder-image">No Image Available</div>
+                                        <% } %>
                                     </div>
                                     <div class="">
                                         <div class="card-body">
@@ -98,36 +106,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="flex flex-col lg:flex-row">
-                                    <div class=" flex justify-center">
-                                        <img src="/img/b.png" class=" w-64 h-44  rounded-start" alt="<%= pizza.item.name %>">
-                                    </div>
-                                    <div class="">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><%= pizza.item.name %></h5>
-                                            <p class="card-text">Quantity: <%= pizza.qty %></p>
-                                            <button class="add-to-cart-button" data-pizza='<%= JSON.stringify(pizza) %>'>
-                                              Produkt hinzufügen
-                                          </button>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>   <div class="card mb-3" style="max-width: 540px;">
-                                <div class="flex flex-col lg:flex-row">
-                                    <div class=" flex justify-center">
-                                        <img src="/img/b.png" class=" w-64 h-44  rounded-start" alt="<%= pizza.item.name %>">
-                                    </div>
-                                    <div class="">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><%= pizza.item.name %></h5>
-                                            <p class="card-text">Quantity: <%= pizza.qty %></p>
-                                            <button class="add-to-cart-button" data-pizza='<%= JSON.stringify(pizza) %>'>
-                                              Produkt hinzufügen
-                                          </button>
-                                          </div>
-                                    </div>
-                                </div>
+                              
                             </div>
                             <% } %>
                         </div>
