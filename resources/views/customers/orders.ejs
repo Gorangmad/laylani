@@ -82,27 +82,12 @@
                     </td>
                     <td class="border px-4 py-2 text-sm  md:text-base text-nowrap">
                         <%= order.address %>
-                        Frankfurt, GERMANY
                     </td>
                     <td class="border px-4 py-2 text-sm  md:text-base text-nowrap">
                         <%= moment(order.createdAt).format('hh:mm A') %>
                     </td>
                 </tr>
-                <tr class=" ">
-                    <td class="border px-4 py-2 text-sm  md:text-base">
-                        <a class="link" href="/customer/orders/<%= order._id %>"><%= order._id %></a>
-                    </td>
-                    <td class="border px-4 py-2 text-sm  md:text-base">
-                        <%= order.phone %>
-                    </td>
-                    <td class="border px-4 py-2 text-sm  md:text-base ">
-                        <%= order.address %>
-                        GERMNAY
-                    </td>
-                    <td class="border px-4 py-2 text-sm  md:text-base">
-                        <%= moment(order.createdAt).format('hh:mm A') %>
-                    </td>
-                </tr>
+             
                 <% }) %>
                 <% } else { %>
                 <tr>
