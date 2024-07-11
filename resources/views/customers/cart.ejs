@@ -57,12 +57,26 @@
                     <% if (user) { %>
                         <div class="mt-4">
                             <form action="/orders" method="POST" id="payment-form">
+                                <div class="form-group">
+                                    <label for="order-comment" class="font-weight-bold">Kommentar:</label>
+                                    <textarea class="form-control" id="order-comment" name="comment" rows="4" placeholder="Write your comment here..."></textarea>
+                                </div>
                                 <button class="btn btn-primary btn-lg mt-4" type="submit">Weiter</button>
                             </form>
                         </div>
                     <% } else { %>
                         <a href="/login" class="btn btn-primary btn-lg mt-4">Login to continue</a>
                     <% } %>
+
+                    <!-- <% if (user) { %>
+                        <div class="mt-4">
+                            <form action="/orders" method="POST" id="payment-form">
+                                <button class="btn btn-primary btn-lg mt-4" type="submit">Weiter</button>
+                            </form>
+                        </div>
+                    <% } else { %>
+                        <a href="/login" class="btn btn-primary btn-lg mt-4">Login to continue</a>
+                    <% } %> -->
                 </div>
             </div>
         </div>
