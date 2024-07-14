@@ -270,7 +270,7 @@ function authController() {
                     from: 'nichtantwortenbb@gmail.com',
                     to: email,
                     subject: 'Registration Confirmation',
-                    text: 'Vielen Dank für Ihre Registrierung. Unser Team wird Ihnen eine Bestätigung schicekn sobald sie Registriert sind'
+                    text: 'Sehr geehrter Kunde,\n\nvielen Dank für Ihre Registrierung. Unser Team wird Ihnen eine Bestätigung senden, sobald Ihre Registrierung abgeschlossen ist.\n\nBitte beachten Sie, dass Sie zusätzlich einen Nachweis Ihres Gewerbes per E-Mail an uns senden müssen.\n\nMit freundlichen Grüßen,\nIhr Bahl Collection Team'
                 };
 
                 transporter.sendMail(mailOptions, (error, info) => {
