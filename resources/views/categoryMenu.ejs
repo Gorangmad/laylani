@@ -118,7 +118,28 @@
                    <div class="flex  justify-between md:justify-start items-center  px-2 w-80 md:w-full">
        
                        <button class="bg-black text-white px-2.5 py-1 rounded-lg my-2 sm:my-0 sidebar-toggle md:mr-4 ">&#9776;</button>
-                       <label class="dropdown ">
+                       <form id="sortForm" action="/products" method="GET">
+                        <label class="dropdown">
+                            <div class="dd-button">Sort By</div>
+                            <input type="checkbox" class="dd-input" id="test">
+                            <!-- <ul class="dd-menu z-20">
+                                <li data-value="price_asc">Price, low to high</li>
+                                <li data-value="price_desc">Price, high to low</li>
+                                <li data-value="name_asc">Alphabetically, A - Z</li>
+                                <li data-value="name_desc">Alphabetically, Z - A</li>
+                            </ul> -->
+                            <ul  class="dd-menu z-20">
+                                <li id="price-low-to-high" data-value="price-low-to-high">Price, low to high</li>
+                                <li id="price-high-to-low" data-value="price-high-to-low">Price, high to low</li>
+                                <li id="name-a-z" data-value="name-a-z">Alphabetically, A - Z</li>
+                                <li id="name-z-a" data-value="name-z-a">Alphabetically, Z - A</li>
+                            </ul>
+                            
+                            <input type="hidden" name="sort" id="sortInput">
+                        </label>
+                    </form>
+                    
+                       <!-- <label class="dropdown ">
        
                        <div class="dd-button">
                          Sort By
@@ -133,7 +154,7 @@
                          <li>Alphabetically, Z - A</li>
                        </ul>
                        
-                   </label>
+                   </label> -->
                </div>
                     
                    <form action="/menu" method="GET">
@@ -232,7 +253,7 @@
 
 
 <div class="pagination-container">
-    <a href="<%= currentPage > 1 ? `/products?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
+    <a href="<%= currentPage > 1 ? `/products?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}${sort ? '&sort=' + sort : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
 
     <%
         let pageStart = Math.max(currentPage - 2, 1);
@@ -240,14 +261,14 @@
 
         // Show the first page and ellipsis if necessary
         if (pageStart > 1) { %>
-            <a href="/products?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number">1</a>
+            <a href="/products?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" class="page-number">1</a>
             <% if (pageStart > 2) { %>
                 <span class="ellipsis">...</span>
             <% } %>
     <% }
 
         for(let i = pageStart; i <= pageEnd; i++) { %>
-            <a href="/products?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" 
+            <a href="/products?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" 
                class="page-number <%= i === currentPage ? 'active' : '' %>"> 
                <%= i %> 
             </a>
@@ -257,10 +278,10 @@
             if (pageEnd < totalPages - 1) { %>
                 <span class="ellipsis">...</span>
             <% } %>
-            <a href="/products?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number"><%= totalPages %></a>
+            <a href="/products?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" class="page-number"><%= totalPages %></a>
     <% } %>
 
-    <a href="<%= currentPage < totalPages ? `/products?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-next">&#10095;</a>
+    <a href="<%= currentPage < totalPages ? `/products?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}${sort ? '&sort=' + sort : ''}` : '#' %>" class="pagination-next">&#10095;</a>
 </div>
 
 
@@ -309,8 +330,17 @@ document.querySelector('.pagination-prev').addEventListener('click', function(e)
 
 document.querySelector('.pagination-next').addEventListener('click', function(e) {
     e.preventDefault();
+        // Get the query string
+let queryString = window.location.search;
+
+// Parse the query string
+let params = new URLSearchParams(queryString);
+
+// Get the value of a specific query parameter
+let searchParam = params.get('sort');
+console.log(searchParam); // e.g., 'test'
     if (currentPage < totalPages) {
-        window.location.href = `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}`;
+        window.location.href = `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${searchParam ? '&sort=' + searchParam : ''}`;
     }
 });
 </script>
@@ -490,6 +520,7 @@ function renderSidebar(categories) {
 
             // Make the parent category toggleable
             link.classList.add('toggleable');
+
         } else {
             // Event listener for category link
             link.addEventListener('click', () => {
@@ -501,14 +532,63 @@ function renderSidebar(categories) {
 
 
 
-    // Function to fetch products based on category or subcategory ID
-    function fetchProducts(categoryId) {
-        fetch(`/products?category=${categoryId}`, {
-            method: 'GET',
-        })
-        .catch(error => console.error('Error fetching products:', error));
-    }
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//         const sortItems = document.querySelectorAll('.dd-menu li');
+
+//         sortItems.forEach(item => {
+//             item.addEventListener('click', () => {
+//                 console.log("HEREEE")
+//                 const sortBy = item.getAttribute('data-value');
+//                 fetchProducts(categoryId, sortBy);
+//             });
+//         });
+//     });
+
+
+//     // Function to fetch products based on category or subcategory ID
+//     function fetchProducts(categoryId,sortBy) {
+//         console.log("FETCHER")
+//         fetch(`/products?category=${categoryId}?sort=${sortBy}`, {
+//             method: 'GET',
+//         })
+//         .catch(error => console.error('Error fetching products:', error));
+//     }
 });
+   
+ 
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Get the query string
+let queryString = window.location.search;
+
+// Parse the query string
+let params = new URLSearchParams(queryString);
+
+// Get the value of a specific query parameter
+let searchParam = params.get('category');
+console.log(searchParam); // e.g., 'test'
+
+    document.getElementById('price-low-to-high').addEventListener('click', () => {
+        window.location.href = `/products?category=${searchParam}&sort=price-low-to-high`;
+    });
+
+    document.getElementById('price-high-to-low').addEventListener('click', () => {
+        window.location.href = `/products?category=${searchParam}&sort=price-high-to-low`;
+    });
+
+    document.getElementById('name-a-z').addEventListener('click', () => {
+        window.location.href = `/products?category=${searchParam}&sort=name-a-z`;
+    });
+
+    document.getElementById('name-z-a').addEventListener('click', () => {
+        window.location.href = `/products?category=${searchParam}&sort=name-z-a`;
+    });
+    });
+
+
 
 
 

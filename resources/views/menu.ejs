@@ -111,7 +111,28 @@ a:hover {
             <div class="flex  justify-between md:justify-start items-center  px-2 w-80 md:w-full">
 
                 <button class="bg-black text-white px-2.5 py-1 rounded-lg my-2 sm:my-0 sidebar-toggle md:mr-4 ">&#9776;</button>
-                <label class="dropdown ">
+                <form id="sortForm" action="/menu" method="GET">
+                    <label class="dropdown">
+                        <div class="dd-button">Sort By</div>
+                        <input type="checkbox" class="dd-input" id="test">
+                        <!-- <ul class="dd-menu z-20">
+                            <li data-value="price_asc">Price, low to high</li>
+                            <li data-value="price_desc">Price, high to low</li>
+                            <li data-value="name_asc">Alphabetically, A - Z</li>
+                            <li data-value="name_desc">Alphabetically, Z - A</li>
+                        </ul> -->
+                        <ul  class="dd-menu z-20">
+                            <li id="price-low-to-high" data-value="price-low-to-high">Price, low to high</li>
+                            <li id="price-high-to-low" data-value="price-high-to-low">Price, high to low</li>
+                            <li id="name-a-z" data-value="name-a-z">Alphabetically, A - Z</li>
+                            <li id="name-z-a" data-value="name-z-a">Alphabetically, Z - A</li>
+                        </ul>
+                        
+                        <input type="hidden" name="sort" id="sortInput">
+                    </label>
+                </form>
+                
+                <!-- <label class="dropdown " action="/menu" method="GET">
 
                 <div class="dd-button">
                   Sort By
@@ -119,14 +140,30 @@ a:hover {
               
                 <input type="checkbox" class="dd-input" id="test">
               
-                <ul class="dd-menu z-20">
-                    <li>Price, low to high</li>
-                    <li>Price, high to low</li>
-                  <li>Alphabetically, A - Z</li>
-                  <li>Alphabetically, Z - A</li>
-                </ul>
+            <ul class="dd-menu z-20">
+                <li data-value="price_asc">Price, low to high</li>
+                        <li data-value="price_desc">Price, high to low</li>
+                        <li data-value="name_asc">Alphabetically, A - Z</li>
+                        <li data-value="name_desc">Alphabetically, Z - A</li>
+            </ul>
                 
-            </label>
+            </label> -->
+            <!-- <form id="sortForm" action="/menu" method="GET">
+                <div class="dropdown">
+                    <div class="dd-button">
+                        Sort By
+                    </div>
+                    <input type="checkbox" class="dd-input" id="test">
+                    <ul class="dd-menu z-20">
+                        <li data-value="price_asc">Price, low to high</li>
+                        <li data-value="price_desc">Price, high to low</li>
+                        <li data-value="name_asc">Alphabetically, A - Z</li>
+                        <li data-value="name_desc">Alphabetically, Z - A</li>
+                    </ul>
+                </div>
+                <input type="hidden" name="sort" id="sortInput">
+            </form> -->
+            
         </div>
              
             <form action="/menu" method="GET">
@@ -175,7 +212,7 @@ a:hover {
 
 
 <div class="pagination-container">
-    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
+    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}${sort ? '&sort=' + sort : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
 
     <%
         let pageStart = Math.max(currentPage - 2, 1);
@@ -183,14 +220,14 @@ a:hover {
 
         // Show the first page and ellipsis if necessary
         if (pageStart > 1) { %>
-            <a href="/menu/?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number">1</a>
+            <a href="/menu/?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" class="page-number">1</a>
             <% if (pageStart > 2) { %>
                 <span class="ellipsis">...</span>
             <% } %>
     <% }
 
         for(let i = pageStart; i <= pageEnd; i++) { %>
-            <a href="/menu/?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" 
+            <a href="/menu/?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" 
                class="page-number <%= i === currentPage ? 'active' : '' %>"> 
                <%= i %> 
             </a>
@@ -200,10 +237,10 @@ a:hover {
             if (pageEnd < totalPages - 1) { %>
                 <span class="ellipsis">...</span>
             <% } %>
-            <a href="/menu/?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number"><%= totalPages %></a>
+            <a href="/menu/?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" class="page-number"><%= totalPages %></a>
     <% } %>
 
-    <a href="<%= currentPage < totalPages ? `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-next">&#10095;</a>
+    <a href="<%= currentPage < totalPages ? `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}${sort ? '&sort=' + sort : ''}` : '#' %>" class="pagination-next">&#10095;</a>
 </div>
 
 
@@ -463,21 +500,113 @@ function renderSidebar(categories) {
     });
 }
 
+ 
 
 
     // Function to fetch products based on category or subcategory ID
-    function fetchProducts(categoryId) {
-        fetch(`/products?category=${categoryId}`, {
-            method: 'GET',
-        })
-        .catch(error => console.error('Error fetching products:', error));
-    }
+    // function fetchProducts(categoryId,sortBy) {
+    //     console.log("FETCHER")
+    //     fetch(`/products?category=${categoryId}?sort=${sortBy}`, {
+    //         method: 'GET',
+    //     })
+    //     .catch(error => console.error('Error fetching products:', error));
+    // }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+document.getElementById('price-low-to-high').addEventListener('click', () => {
+    window.location.href = `/menu?sort=price-low-to-high`;
+});
+
+document.getElementById('price-high-to-low').addEventListener('click', () => {
+    window.location.href = `/menu?sort=price-high-to-low`;
+});
+
+document.getElementById('name-a-z').addEventListener('click', () => {
+    window.location.href = `/menu?sort=name-a-z`;
+});
+
+document.getElementById('name-z-a').addEventListener('click', () => {
+    window.location.href = `/menu?sort=name-z-a`;
+});
 });
 
 
 
-
 </script>
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortItems = document.querySelectorAll('.dd-menu li');
+
+        sortItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const sortBy = item.getAttribute('data-value');
+                fetchSortedProducts(sortBy);
+            });
+        });
+    });
+
+    function fetchSortedProducts(sortBy) {
+        fetch(`/products?sort=${sortBy}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(products => {
+            renderProducts(products);
+        })
+        .catch(error => console.error('Error fetching sorted products:', error));
+    }
+
+    function renderProducts(products) {
+        const productsContainer = document.querySelector('.flex.justify-around.flex-wrap.gap-y-5.items-center.my-5');
+        productsContainer.innerHTML = ''; // Clear current products
+
+        products.forEach(pizza => {
+            if (pizza.availability !== 'HIDDEN') {
+                const productCard = document.createElement('div');
+                productCard.classList.add('w-72', 'sm:w-64');
+
+                productCard.innerHTML = `
+                    <a href="/product/${pizza._id}" class="card-link">
+                        <div class="card product-card">
+                            ${Array.isArray(pizza.image) && pizza.image.length > 0 
+                                ? `<img src="https://bahl.fra1.digitaloceanspaces.com${pizza.image[0]}.jpg" alt="${pizza.name}">` 
+                                : (typeof pizza.image === 'string' && pizza.image.length > 0 
+                                    ? `<img src="https://bahl.fra1.digitaloceanspaces.com${pizza.image}.jpg" alt="${pizza.name}">` 
+                                    : '<div class="placeholder-image">No Image Available</div>')}
+                            <div class="card-body">
+                                <h5>${pizza.name}</h5>
+                                <p class="card-text">${pizza.price}€</p>
+                            </div>
+                        </div>
+                    </a>
+                `;
+
+                productsContainer.appendChild(productCard);
+            }
+        });
+    }
+</script> -->
+
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortForm = document.getElementById('sortForm');
+        const sortInput = document.getElementById('sortInput');
+        const sortItems = document.querySelectorAll('.dd-menu li');
+
+        sortItems.forEach(item => {
+            item.addEventListener('click', () => {
+                sortInput.value = item.getAttribute('data-value');
+                sortForm.submit();
+            });
+        });
+    });
+</script> -->
+
 
 
 
