@@ -47,10 +47,10 @@
 
 <body>
         <div class="bg-dark w-full">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="container mx-auto flex  items-center justify-end">
 
-            <div>
-                <ul class="flex items-center space-x-2 text-xs">
+            <!-- <div class=" h-full"> -->
+                <ul class="flex items-center space-x-2  py-0.5 text-sm">
                     <li><a href="/register">Registrieren</a></li>
                     <% if(user) { %>
                     <li>
@@ -62,7 +62,7 @@
                     <li><a href="/login">Anmelden</a></li>
                     <% } %>
                 </ul>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
     <% if (typeof showNavbar === 'undefined' || showNavbar) { %>
@@ -77,6 +77,7 @@
             <div class="collapse navbar-collapse px-2" id="navbarNav">
                 <!-- <ul class="navbar-nav mr-auto"> -->
                     <ul class="navbar-nav ml-auto">
+                      
                     <% if (user && user.role === 'admin') { %>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin">Admin</a>

@@ -1,5 +1,259 @@
 <!-- sidebar.ejs -->
-<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark" style="width: 280px;">
+ <style>
+    /* Dropdown */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button-sidebar {
+  display: inline-block;
+
+  padding: 10px 30px 10px 25px;
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button-sidebar:after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgb(255, 255, 255);
+}
+
+
+
+
+.dd-input {
+  display: none;
+}
+
+
+.dd-input + .dd-menu-sidebar {
+  display: none;
+} 
+
+.dd-input:checked + .dd-menu-sidebar {
+  display: block;
+} 
+
+.dd-menu-sidebar li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+
+.dd-menu-sidebar li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu-sidebar li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+/* Primary Styles */
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+/* body {
+   font-family: sans-serif;
+   font-size: 1em;
+   color: #333;
+} */
+
+/* h1 {
+  font-size: 1.4em;
+}
+
+em {
+   font-style: normal;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+}  */
+
+/* Layout */
+.s-layout {
+   display: flex;
+   width: 100%;
+   min-height: 100vh;
+}
+
+.s-layout__content {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex: 1;
+}
+
+/* Sidebar */
+.s-sidebar__trigger {
+   z-index: 25;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 4em;
+   /* background: #192b3c; */
+}
+
+.s-sidebar__trigger > i {
+   display: inline-block;
+   margin: 1.5em 0 0 1.5em;
+   /* color: #f07ab0; */
+   color: white;
+}
+
+.s-sidebar__nav {
+   position: fixed;
+   top: 0;
+   left: -16em;
+   overflow: hidden;
+   transition: all .3s ease-in;
+   width: 16em;
+   height: 100%;
+   /* background: #243e56; */
+   color: rgba(255, 255, 255, 0.7);
+}
+
+.s-sidebar__nav:hover,
+.s-sidebar__nav:focus,
+.s-sidebar__trigger:focus + .s-sidebar__nav,
+.s-sidebar__trigger:hover + .s-sidebar__nav {
+   left: 0;
+}
+
+/* .s-sidebar__nav ul {
+   position: absolute;
+   top: 4em;
+   left: 0;
+   margin: 0;
+   padding: 0;
+   width: 15em;
+} */
+
+/* .s-sidebar__nav ul li {
+   width: 100%;
+} */
+
+.s-sidebar__nav-link {
+   position: relative;
+   display: inline-block;
+   width: 100%;
+   height: 4em;
+}
+
+.s-sidebar__nav-link em {
+   position: absolute;
+   top: 50%;
+   left: 4em;
+   transform: translateY(-50%);
+}
+
+.s-sidebar__nav-link:hover {
+   background: #4d6276;
+}
+
+.s-sidebar__nav-link > i {
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: inline-block;
+   width: 4em;
+   height: 4em;
+}
+
+.s-sidebar__nav-link > i::before {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+/* Mobile First */
+/* @media (min-width: 42em) {
+    .s-layout__content {
+      margin-left: 4em;
+   } 
+   
+  
+   .s-sidebar__trigger {
+      width: 4em;
+   }
+   
+   .s-sidebar__nav {
+      width: 4em;
+     
+   }
+   
+   .s-sidebar__nav:hover,
+   .s-sidebar__nav:focus,
+   .s-sidebar__trigger:hover + .s-sidebar__nav,
+   .s-sidebar__trigger:focus + .s-sidebar__nav {
+      width: 15em;
+   }
+} */
+
+@media (min-width: 48em) {
+   .s-layout__content {
+      margin-left: 17em;
+   }
+   
+   
+ 
+   
+   .s-sidebar__nav {
+      width: 17em;
+      left: -17em;
+   }
+   
+   /* .s-sidebar__nav ul {
+      top: 1.3em;
+   } */
+} 
+@media (min-width: 64em) {
+   .s-layout__content {
+      margin-left: 18em;
+   }
+   
+   
+   .s-sidebar__trigger {
+      display: none
+   }
+   
+   .s-sidebar__nav {
+      width: 18em;
+      left: 0;
+   }
+   
+   /* .s-sidebar__nav ul {
+      top: 1.3em;
+   } */
+} 
+
+
+ </style>
+
+
+<!-- ----------------OG SIDEBAR---------------- -->
+
+<!-- <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <span class="fs-4">Bahl Collection Dashboard</span>
     </a>
@@ -13,11 +267,11 @@
         </li>
         <li class="nav-item">
             <a href="#ordersSubmenu" data-bs-toggle="collapse" class="nav-link link-dark">
-                <span class="right-icon">&#9662;</span> <!-- Downward arrow -->
+                <span class="right-icon">&#9662;</span> 
                 <i class="fas fa-file-alt"></i>
                 Orders
             </a>
-            <ul class="collapse nav flex-column ms-3" id="ordersSubmenu" style="font-size: 0.7rem;"> <!-- ms-3 for margin start -->
+            <ul class="collapse nav flex-column ms-3" id="ordersSubmenu" style="font-size: 0.7rem;">  
                 <li class="nav-item">
                     <a href="/admin/orders" class="nav-link link-dark">
                         Orders
@@ -33,7 +287,7 @@
                         Orders finished
                     </a>
                 </li>
-                <!-- More sub-menu items here -->
+                
             </ul>
         </li>
         <li class="nav-item">
@@ -44,11 +298,11 @@
         </li>
         <li class="nav-item">
             <a href="#customersSubmenu" data-bs-toggle="collapse" class="nav-link link-dark">
-                <span class="right-icon">&#9662;</span> <!-- Downward arrow -->
+                <span class="right-icon">&#9662;</span>  
                 <i class="fas fa-users"></i>
                 Customers
             </a>
-            <ul class="collapse nav flex-column ms-3" id="customersSubmenu" style="font-size: 0.7rem;"> <!-- ms-3 for margin start -->
+            <ul class="collapse nav flex-column ms-3" id="customersSubmenu" style="font-size: 0.7rem;"> 
                 <li class="nav-item">
                     <a href="/admin/users" class="nav-link link-dark">
                         Angenommene Kunden
@@ -67,17 +321,177 @@
                 Changes
             </a>
         </li>
-        <li class="nav-item mt-auto"> <!-- mt-auto will push the logout to the bottom if the sidebar is taller than the content -->
+        <li class="nav-item mt-auto"> 
             <a href="/logout" class="nav-link link-dark">
                 <i class="fas fa-sign-out-alt"></i>
                 Log Out
             </a>
         </li>
-        <!-- Add more links as needed -->
+      
     </ul>
-</div>
+</div> -->
 
-<style>
+<!-- -----------------------------BEST SIDEBAR------------------- -->
+
+<!-- 
+        <div class="  relative lg:fixed bottom-0 lg:top-5  h-16 w-full lg:w-72 lg:min-h-full bg-dark  border-t border-white lg:border-none px-3" >
+            <div class="d-flex flex-lg-column flex-row flex-nowrap   align-items-start pt-2">
+                <a href="/" class="hidden lg:inline ms-6 lg:ms-0 p-2 lg:p-3 mb-4  text-lg text-decoration-none text-white font-bold" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+                    <i class="bi-bootstrap fs-1"></i>
+                    BAHL COLLECTION
+                </a>
+                <ul class="w-64 nav nav-pills nav-flush text-sm sm:text-base lg:text-lg    lg:flex-col  flex-nowrap mb-auto mx-auto text-start align-items-start font-semibold text-white">
+                    <li class="nav-item  flex items-center border-b border-white w-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M20.7999 9H12V17H11V21.0001H5C4.44772 21.0001 4 20.5524 4 20.0001V11.0001L1 11.0001 11.3273 1.61162C11.7087 1.26488 12.2913 1.26488 12.6727 1.61162L20.7999 9ZM14 11H23V18H14V11ZM13 21H24V19H13V21Z"></path></svg>
+                        <a href="/admin" class="nav-link ml-3 text-white py-2 lg:py-3 px-1 sm:px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                            Dashboard
+                        </a>
+                    </li>
+                
+                    <label class="dropdown border-b border-white w-full cursor-pointer">
+                        <div class="flex items-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M9 4L6 2L3 4V16V19C3 20.6569 4.34315 22 6 22H20C21.6569 22 23 20.6569 23 19V17H7V19C7 19.5523 6.55228 20 6 20C5.44772 20 5 19.5523 5 19V15H21V4L18 2L15 4L12 2L9 4Z"></path></svg>
+                            <div class="dd-button-sidebar  ">
+                                Orders</div>
+                            </div>
+                        <input type="checkbox" class="dd-input" id="test">
+                        <ul  class="dd-menu-sidebar font-normal text-base z-20">
+                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/orders">Orders</a></li>
+                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/delivery">Orders out for delivery</a></li>
+                            <li class="" ><a class=" text-white" href="/admin/archiv">Orders finished</a></li>
+                
+                        </ul>
+                        
+                        <input type="hidden" name="sort" id="sortInput">
+                    </label>
+                    <li class="nav-item  flex items-center border-b border-white w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(251,251,251,1)"><path d="M20.5021 5.92225 12 1 3.49793 5.92225 12 10.8445 20.5021 5.92225ZM2.5 7.6555V17.5L11 22.4211V12.5765L2.5 7.6555ZM13 22.4211 21.5 17.5V7.6555L13 12.5765V22.4211Z"></path></svg>
+                          <a href="/admin" class="nav-link ml-3 text-white py-2 lg:py-3 px-1 sm:px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                              Products
+                          </a>
+                      </li>
+                      <label class="dropdown border-b border-white w-full cursor-pointer">
+                        <div class="flex items-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M12 10C14.2091 10 16 8.20914 16 6 16 3.79086 14.2091 2 12 2 9.79086 2 8 3.79086 8 6 8 8.20914 9.79086 10 12 10ZM5.5 13C6.88071 13 8 11.8807 8 10.5 8 9.11929 6.88071 8 5.5 8 4.11929 8 3 9.11929 3 10.5 3 11.8807 4.11929 13 5.5 13ZM21 10.5C21 11.8807 19.8807 13 18.5 13 17.1193 13 16 11.8807 16 10.5 16 9.11929 17.1193 8 18.5 8 19.8807 8 21 9.11929 21 10.5ZM12 11C14.7614 11 17 13.2386 17 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5 15.9999C5 15.307 5.10067 14.6376 5.28818 14.0056L5.11864 14.0204C3.36503 14.2104 2 15.6958 2 17.4999V21.9999H5V15.9999ZM22 21.9999V17.4999C22 15.6378 20.5459 14.1153 18.7118 14.0056 18.8993 14.6376 19 15.307 19 15.9999V21.9999H22Z"></path></svg>
+                            <div class="dd-button-sidebar  ">
+                                Customers</div>
+                            </div>
+                        <input type="checkbox" class="dd-input" id="test">
+                        <ul  class="dd-menu-sidebar font-normal text-base z-20">
+                            <li class="border-b border-white"  ><a class=" text-white" href="#">Angenommene Kunden</a></li>
+                            
+                            <li class="" ><a class=" text-white" href="#">Angefragte Kunden</a></li>
+                
+                        </ul>
+                        
+                        <input type="hidden" name="sort" id="sortInput">
+                    </label>
+                    
+                  
+                    <li class="nav-item  flex items-center border-b border-white w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z"></path></svg>
+                          <a href="/admin" class="nav-link ml-3 text-white py-2 lg:py-3 px-1 sm:px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                              Changes
+                          </a>
+                      </li>
+                    
+                     
+                </ul>
+                
+            </div>
+        </div> -->
+ 
+
+        <!-- ----------------------NEW SIDEBAR---------------------- -->
+
+        <!-- <div class="s-layout"> -->
+            <!-- Sidebar -->
+            <div class="s-layout__sidebar ">
+              <a class="s-sidebar__trigger bg-dark flex justify-between " href="#0">
+                 <i class="fa fa-bars"></i>
+                 <!-- <a href="/" class="ms-6 lg:ms-0 p-2 lg:p-3 mb-2  text-lg text-decoration-none text-white font-bold" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+                
+                    BAHL COLLECTION
+                </a> -->
+              </a>
+            
+              <nav class="s-sidebar__nav z-20 bg-dark mt-16 lg:mt-0 lg:pt-10 px-2">
+                <a href="/" class="   p-2   text-xl  text-decoration-none text-white font-bold" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+                
+                    BAHL COLLECTION
+                </a>
+                <ul class="pl-2 w-60 md:w-64 mt-3 lg:mt-4 nav nav-pills nav-flush text-sm md:text-base lg:text-lg   flex-col   mb-auto mx-auto text-start align-items-start font-semibold text-white">
+                    <li class="nav-item  flex items-center border-b border-white w-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M20.7999 9H12V17H11V21.0001H5C4.44772 21.0001 4 20.5524 4 20.0001V11.0001L1 11.0001 11.3273 1.61162C11.7087 1.26488 12.2913 1.26488 12.6727 1.61162L20.7999 9ZM14 11H23V18H14V11ZM13 21H24V19H13V21Z"></path></svg>
+                        <a href="/admin" class="nav-link ml-3 text-white p-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                            Dashboard
+                        </a>
+                    </li>
+                
+                    <label class="dropdown border-b border-white w-full cursor-pointer">
+                        <div class="flex items-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M9 4L6 2L3 4V16V19C3 20.6569 4.34315 22 6 22H20C21.6569 22 23 20.6569 23 19V17H7V19C7 19.5523 6.55228 20 6 20C5.44772 20 5 19.5523 5 19V15H21V4L18 2L15 4L12 2L9 4Z"></path></svg>
+                            <div class="dd-button-sidebar  ">
+                                Orders</div>
+                            </div>
+                        <input type="checkbox" class="dd-input" id="test">
+                        <ul  class="dd-menu-sidebar font-normal text-base z-20">
+                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/orders">Orders</a></li>
+                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/delivery">Orders out for delivery</a></li>
+                            <li class="" ><a class=" text-white" href="/admin/archiv">Orders finished</a></li>
+                
+                        </ul>
+                        
+                        <input type="hidden" name="sort" id="sortInput">
+                    </label>
+                    <li class="nav-item  flex items-center border-b border-white w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(251,251,251,1)"><path d="M20.5021 5.92225 12 1 3.49793 5.92225 12 10.8445 20.5021 5.92225ZM2.5 7.6555V17.5L11 22.4211V12.5765L2.5 7.6555ZM13 22.4211 21.5 17.5V7.6555L13 12.5765V22.4211Z"></path></svg>
+                          <a href="/admin" class="nav-link ml-3 text-white p-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                              Products
+                          </a>
+                      </li>
+                      <label class="dropdown border-b border-white w-full cursor-pointer">
+                        <div class="flex items-center ">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M12 10C14.2091 10 16 8.20914 16 6 16 3.79086 14.2091 2 12 2 9.79086 2 8 3.79086 8 6 8 8.20914 9.79086 10 12 10ZM5.5 13C6.88071 13 8 11.8807 8 10.5 8 9.11929 6.88071 8 5.5 8 4.11929 8 3 9.11929 3 10.5 3 11.8807 4.11929 13 5.5 13ZM21 10.5C21 11.8807 19.8807 13 18.5 13 17.1193 13 16 11.8807 16 10.5 16 9.11929 17.1193 8 18.5 8 19.8807 8 21 9.11929 21 10.5ZM12 11C14.7614 11 17 13.2386 17 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5 15.9999C5 15.307 5.10067 14.6376 5.28818 14.0056L5.11864 14.0204C3.36503 14.2104 2 15.6958 2 17.4999V21.9999H5V15.9999ZM22 21.9999V17.4999C22 15.6378 20.5459 14.1153 18.7118 14.0056 18.8993 14.6376 19 15.307 19 15.9999V21.9999H22Z"></path></svg>
+                            <div class="dd-button-sidebar   ">
+                                Customers</div>
+                            </div>
+                        <input type="checkbox" class="dd-input" id="test">
+                        <ul  class="dd-menu-sidebar font-normal text-base z-20">
+                            <li class="border-b border-white"  ><a class=" text-white" href="#">Angenommene Kunden</a></li>
+                            
+                            <li class="" ><a class=" text-white" href="#">Angefragte Kunden</a></li>
+                
+                        </ul>
+                        
+                        <input type="hidden" name="sort" id="sortInput">
+                    </label>
+                    
+                  
+                    <li class="nav-item  flex items-center border-b border-white w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z"></path></svg>
+                          <a href="/admin" class="nav-link ml-3 text-white p-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                              Changes
+                          </a>
+                      </li>
+                    
+                     
+                </ul>
+                
+              </nav>
+            </div>
+            
+            <!-- Content -->
+            <!-- <main class="s-layout__content">
+              <h1>Full View, Please!</h1>
+            </main> -->
+            <!-- </div> -->
+
+<!-- <style>
 .sidebar .nav-item.mt-auto {
     position: fixed;
     bottom: 0;
@@ -147,9 +561,9 @@
 .sidebar .fas {
     margin-right: 10px;
 }
-</style>
+</style> -->
 
-<script>
+<!-- <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     var navLinks = document.querySelectorAll('.nav-link[data-bs-toggle="collapse"]');
 
@@ -163,4 +577,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 });
-</script>
+</script> -->
+
