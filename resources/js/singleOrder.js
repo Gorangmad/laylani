@@ -68,7 +68,7 @@ export function initSingleOrder() {
     }
 
     function renderItems(items) {
-      let parsedItems = Object.values(items);
+      let parsedItems = Object.values(items).filter(item => item !== undefined);
       return `
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
