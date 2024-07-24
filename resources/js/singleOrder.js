@@ -183,7 +183,7 @@ export function initSingleOrder() {
       const body = parsedItems.map((menuItem, index) =>  [
         menuItem.item.name,
         menuItem.item.comment,
-        menuItem.item.sizes,
+        menuItem.item.sizes || 'universal Größe',
         menuItem.qty,
         menuItem.item.price,
       ]);
