@@ -68,7 +68,8 @@ export function initSingleOrder() {
     }
 
     function renderItems(items) {
-      let parsedItems = Object.values(items);
+      // Filter out undefined items
+      let parsedItems = Object.values(items).filter(item => item !== undefined);
       return `
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
@@ -80,7 +81,7 @@ export function initSingleOrder() {
                 Produkt
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Comment
+                Comment
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Größe
@@ -101,7 +102,7 @@ export function initSingleOrder() {
               return `
                 <tr class="${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}">
                   <td class="px-4 py-2 whitespace-nowrap w-16 h-16">
-                   <img src="https://bahl.fra1.digitaloceanspaces.com${menuItem.item.image[0]}.jpg" alt="${menuItem.item.name}" class="h-8 w-8 object-cover ">
+                    <img src="https://bahl.fra1.digitaloceanspaces.com${menuItem.item.image[0]}.jpg" alt="${menuItem.item.name}" class="h-8 w-8 object-cover ">
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
@@ -119,7 +120,7 @@ export function initSingleOrder() {
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="text-sm text-gray-500">
-                      ${menuItem.item.sizes}
+                      ${menuItem.item.sizes || 'universal Größe'}
                     </div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
@@ -144,7 +145,6 @@ export function initSingleOrder() {
       // Get the order details
       const orderDetails = getOrderDetails();
 
-
       // Define the document definition using pdfmake syntax
       const documentDefinition = {
         content: [
@@ -158,7 +158,6 @@ export function initSingleOrder() {
           { text: `Kommentar: ${orderDetails.comment}`, margin: [0, 10] },
           { text: 'Items:', style: 'subheader' },
           renderItemsPDF(orderDetails.items),
-
         ],
         styles: {
           header: {
@@ -179,15 +178,16 @@ export function initSingleOrder() {
     }
 
     function renderItemsPDF(items) {
-      let parsedItems = Object.values(items);
-      const body = parsedItems.map((menuItem, index) =>  [
+      // Filter out undefined items
+      let parsedItems = Object.values(items).filter(item => item !== undefined);
+      const body = parsedItems.map((menuItem, index) => [
         menuItem.item.name,
         menuItem.item.comment,
-        menuItem.item.sizes,
+        menuItem.item.sizes || 'universal Größe',
         menuItem.qty,
         menuItem.item.price,
       ]);
-    
+
       const table = {
         table: {
           headerRows: 1,
@@ -209,10 +209,9 @@ export function initSingleOrder() {
           },
         },
       };
-    
+
       return table;
     }
-    
 
     function getOrderDetails() {
       // Find the order with the specified orderId

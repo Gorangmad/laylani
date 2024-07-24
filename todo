@@ -1,23 +1,5 @@
-questions: 
-
-
-
-- welche categorie 
-- welches Produkte
-- Top 10 Kunden
-- meist eingeloggt
-- welche Arbeiter wie oft eingeloggt
-
-
-
-
--ketten preis muss aussuchen
--kommentar feld im Warenkorb
-
-
--rheinfolge in admin
-
-
--sale
--neu
--niedrig zu hoch und hoch zu niedrig
+1.    Photos zoom funktion
+2.    Filter function by admin on products ( checked and unchecked, in sequence like alphabetically,) also this alphabetically in shop.
+3.    if possible categories for admin also, ( also where i can reposition the categories or add or delete categories)
+4.    When i link one artcle to the other, its automatically linked with another, which is good, but sometimes i link to or three articles with one, is there any way that they all linked with each other.
+5.    Banner sale and new is needed with a expiry date for new collection

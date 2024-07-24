@@ -14,7 +14,7 @@ function productController() {
                 let query = {}; // Initial query to fetch all products
         
                 // Pagination parameters
-                const pageSize = 50; // Number of products per page
+                const pageSize = 200; // Number of products per page
                 const page = req.query.page ? parseInt(req.query.page) : 1; // Current page number, default to 1 if not specified
         
                 // Find the total number of products to calculate total pages
