@@ -76,6 +76,9 @@ function initRoutes(app) {
     
     //cart routes
 
+    // app.get('/', homeController().index);
+     
+
     app.get('/cart', auth, cartController().index)
     app.get('/menu', auth, menuController().index)
     app.get('/products', auth, menuController().filterMenu);

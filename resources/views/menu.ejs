@@ -1,55 +1,166 @@
-<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark">
-    <button class="close-sidebar-btn">&times;</button> <!-- X button to close sidebar -->
-    <ul class="categories-list">
+<style>
+ 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #222222
+}
+
+/* Dropdown */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-button:hover {
+  background-color: #eeeeee;
+}
+
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  left: -80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  list-style-type: none;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+} 
+
+.dd-input:checked + .dd-menu {
+  display: block;
+} 
+
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color: #f6f6f6;
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
+}
+</style>
+
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-white text-black">
+    <button class="close-sidebar-btn text-black ">&times;</button> <!-- X button to close sidebar -->
+    <ul class="categories-list text-black">
         <!-- Categories will be dynamically added here -->
     </ul>
 </div>
 
 
 
-<section class="menu container mx-auto py-8">
+
+<section class=" flex justify-center  ">
       
-    <div class="row">
+ <div class="w-full sm:w-5/6 lg:w-3/4 my-4 sm:my-8 px-8 py-4 sm:p-0">
 
-        <div class="search-container">
-            <button class="sidebar-toggle">&#9776;</button>
 
-            <form action="/menu" method="GET">
-                   <div class="search-input-container">
+
+        <div class="flex flex-col md:flex-row justify-center  items-center md:justify-between">
+            <div class="flex  justify-between md:justify-start items-center  px-2 w-80 md:w-full">
+
+                <button class="bg-black text-white px-2.5 py-1 rounded-lg my-2 sm:my-0 sidebar-toggle md:mr-4 ">&#9776;</button>
+                <form id="sortForm" action="/menu" method="GET">
+                    <label class="dropdown">
+                        <div class="dd-button">Sort By</div>
+                        <input type="checkbox" class="dd-input" id="test">
+                        <ul  class="dd-menu z-20">
+                            <li id="price-low-to-high" data-value="price-low-to-high">Price, low to high</li>
+                            <li id="price-high-to-low" data-value="price-high-to-low">Price, high to low</li>
+                            <li id="name-a-z" data-value="name-a-z">Alphabetically, A - Z</li>
+                            <li id="name-z-a" data-value="name-z-a">Alphabetically, Z - A</li>
+                        </ul>
+                        
+                        <input type="hidden" name="sort" id="sortInput">
+                    </label>
+                </form>
+                
+        
+            </div>
+             
+                <form action="/menu" method="GET">
+                   <div class=" flex">
                        <input
                            type="text"
                            name="search"
-                           class="search-input"
+                           class="w-64 sm:w-72 p-2 border rounded-lg mx-1"
                            placeholder="Suchen"
                        />
-                       <button type="submit" class="search-button">
+                       <button type="submit" class="bg-black text-white px-3 py-1.5 rounded-lg">
                            <i class="fas fa-search"></i>
                        </button>
                    </div>
                </form>
            </div>
-
-       </div>    
-
-    </div>
-
-    <div class="row">
+ 
+    <div class=" flex justify-around  flex-wrap  gap-y-5  items-center my-5">
         <% pizzas.forEach(function(pizza) { %>
             <% if (pizza.availability !== 'HIDDEN') { %>
-                <div class="col-md-3">
+                <div class=" w-72 sm:w-64">
                     <a href="/product/<%= pizza._id %>" class="card-link">
                         <div class="card product-card">
                             <% if (Array.isArray(pizza.image) && pizza.image.length > 0) { %>
-                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image[0] %>.jpg" class=" " alt="<%= pizza.name %>">
                             <% } else if (typeof pizza.image === 'string' && pizza.image.length > 0) { %>
-                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
+                                <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.image %>.jpg" class=" " alt="<%= pizza.name %>">
                             <% } else { %>
                                 <!-- Provide a placeholder image or text if no image is available -->
                                 <div class="placeholder-image">No Image Available</div>
                             <% } %>
                             
                             <div class="card-body">
-                                <h5 class="card-title"><%= pizza.name %></h5>
+                                <h5 class="  "><%= pizza.name %></h5>
                                 <p class="card-text"><%= pizza.price %>€</p>
                             </div>
                         </div>
@@ -59,12 +170,12 @@
         <% }) %>        
     </div>
     
-
+</div>
 </section>
 
 
 <div class="pagination-container">
-    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
+    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}${sort ? '&sort=' + sort : ''}` : '#' %>" class="pagination-prev">&#10094;</a>
 
     <%
         let pageStart = Math.max(currentPage - 2, 1);
@@ -72,14 +183,14 @@
 
         // Show the first page and ellipsis if necessary
         if (pageStart > 1) { %>
-            <a href="/menu/?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number">1</a>
+            <a href="/menu/?page=1<%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" class="page-number">1</a>
             <% if (pageStart > 2) { %>
                 <span class="ellipsis">...</span>
             <% } %>
     <% }
 
         for(let i = pageStart; i <= pageEnd; i++) { %>
-            <a href="/menu/?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" 
+            <a href="/menu/?page=<%= i %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" 
                class="page-number <%= i === currentPage ? 'active' : '' %>"> 
                <%= i %> 
             </a>
@@ -89,10 +200,10 @@
             if (pageEnd < totalPages - 1) { %>
                 <span class="ellipsis">...</span>
             <% } %>
-            <a href="/menu/?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %>" class="page-number"><%= totalPages %></a>
+            <a href="/menu/?page=<%= totalPages %><%= searchQuery ? '&search=' + searchQuery : '' %><%= category ? '&category=' + category : '' %><%= sort ? '&sort=' + sort : '' %>" class="page-number"><%= totalPages %></a>
     <% } %>
 
-    <a href="<%= currentPage < totalPages ? `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}` : '#' %>" class="pagination-next">&#10095;</a>
+    <a href="<%= currentPage < totalPages ? `/menu?page=${currentPage + 1}${searchQuery ? '&search=' + searchQuery : ''}${category ? '&category=' + category : ''}${sort ? '&sort=' + sort : ''}` : '#' %>" class="pagination-next">&#10095;</a>
 </div>
 
 
@@ -165,14 +276,13 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
     }
 
     .product-card:hover {
-        transform: scale(1.03); /* Slightly enlarges the card on hover */
-        background-color: black; /* Changes background to black on hover */
-        color: white; /* Changes text color to white for readability */
+        transform: scale(1.05); /* Slightly enlarges the card on hover */
+        /* background-color: black; Changes background to black on hover */
+        /* color: white; Changes text color to white for readability */
     }
 
-    .product-card:hover .product-image {
-        transform: scale(1.05); /* Slightly enlarges the image on hover */
-    }
+    /* .prnsform: scale(1.03); /* Slightly enlarges the image on hover */
+    /* } */ */
 
     .card-body {
         display: flex;
@@ -200,7 +310,7 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
     width: 280px;
     height: 100%;
     overflow-y: auto;
-    background-color: #333;
+    /* background-color: #333; */
     transition: left 0.3s ease; /* Smooth transition for sliding animation */
     z-index: 1000; /* Ensure sidebar is above other content */
     }
@@ -220,7 +330,7 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
 }
 
 /* Position sidebar toggle on the left */
-.sidebar-toggle {
+.ssidebar-toggle {
     margin-right: 800px;
     background-color: black; /* Set background color to black */
     border: none; /* Remove border */
@@ -230,7 +340,7 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
 }
 
 /* Add stripes to the toggle button */
-.sidebar-toggle::before, .sidebar-toggle::after {
+/* .sidebar-toggle::before, .sidebar-toggle::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -238,16 +348,16 @@ document.querySelector('.pagination-next').addEventListener('click', function(e)
     width: 2px;
     height: 20px;
     background-color: white;
-}
+} */
 
 /* Position the stripes */
-.sidebar-toggle::before {
+/* .sidebar-toggle::before {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .sidebar-toggle::after {
     transform: translate(-50%, -50%) rotate(-45deg);
-}
+} */
 
 
     
@@ -293,7 +403,7 @@ function renderSidebar(categories) {
         arrow.classList.add('arrow'); // Add a class for styling
 
         link.textContent = category.Parent_Category;
-        link.classList.add('text-white', 'sidebar-link');
+        link.classList.add('text-black', 'sidebar-link');
 
         // Check if the category has subcategories
         if (category.subcategories && category.subcategories.length > 0) {
@@ -321,7 +431,7 @@ function renderSidebar(categories) {
                 const subLink = document.createElement('a');
                 subLink.textContent = subcategory.name;
                 subLink.href = `products?category=${subcategory.No}`; // Add a dummy href
-                subLink.classList.add('text-white');
+                subLink.classList.add('text-black');
                 subItem.appendChild(subLink);
                 subList.appendChild(subItem);
 
@@ -353,21 +463,113 @@ function renderSidebar(categories) {
     });
 }
 
+ 
 
 
     // Function to fetch products based on category or subcategory ID
-    function fetchProducts(categoryId) {
-        fetch(`/products?category=${categoryId}`, {
-            method: 'GET',
-        })
-        .catch(error => console.error('Error fetching products:', error));
-    }
+    // function fetchProducts(categoryId,sortBy) {
+    //     console.log("FETCHER")
+    //     fetch(`/products?category=${categoryId}?sort=${sortBy}`, {
+    //         method: 'GET',
+    //     })
+    //     .catch(error => console.error('Error fetching products:', error));
+    // }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+document.getElementById('price-low-to-high').addEventListener('click', () => {
+    window.location.href = `/menu?sort=price-low-to-high`;
+});
+
+document.getElementById('price-high-to-low').addEventListener('click', () => {
+    window.location.href = `/menu?sort=price-high-to-low`;
+});
+
+document.getElementById('name-a-z').addEventListener('click', () => {
+    window.location.href = `/menu?sort=name-a-z`;
+});
+
+document.getElementById('name-z-a').addEventListener('click', () => {
+    window.location.href = `/menu?sort=name-z-a`;
+});
 });
 
 
 
-
 </script>
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortItems = document.querySelectorAll('.dd-menu li');
+
+        sortItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const sortBy = item.getAttribute('data-value');
+                fetchSortedProducts(sortBy);
+            });
+        });
+    });
+
+    function fetchSortedProducts(sortBy) {
+        fetch(`/products?sort=${sortBy}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(products => {
+            renderProducts(products);
+        })
+        .catch(error => console.error('Error fetching sorted products:', error));
+    }
+
+    function renderProducts(products) {
+        const productsContainer = document.querySelector('.flex.justify-around.flex-wrap.gap-y-5.items-center.my-5');
+        productsContainer.innerHTML = ''; // Clear current products
+
+        products.forEach(pizza => {
+            if (pizza.availability !== 'HIDDEN') {
+                const productCard = document.createElement('div');
+                productCard.classList.add('w-72', 'sm:w-64');
+
+                productCard.innerHTML = `
+                    <a href="/product/${pizza._id}" class="card-link">
+                        <div class="card product-card">
+                            ${Array.isArray(pizza.image) && pizza.image.length > 0 
+                                ? `<img src="https://bahl.fra1.digitaloceanspaces.com${pizza.image[0]}.jpg" alt="${pizza.name}">` 
+                                : (typeof pizza.image === 'string' && pizza.image.length > 0 
+                                    ? `<img src="https://bahl.fra1.digitaloceanspaces.com${pizza.image}.jpg" alt="${pizza.name}">` 
+                                    : '<div class="placeholder-image">No Image Available</div>')}
+                            <div class="card-body">
+                                <h5>${pizza.name}</h5>
+                                <p class="card-text">${pizza.price}€</p>
+                            </div>
+                        </div>
+                    </a>
+                `;
+
+                productsContainer.appendChild(productCard);
+            }
+        });
+    }
+</script> -->
+
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortForm = document.getElementById('sortForm');
+        const sortInput = document.getElementById('sortInput');
+        const sortItems = document.querySelectorAll('.dd-menu li');
+
+        sortItems.forEach(item => {
+            item.addEventListener('click', () => {
+                sortInput.value = item.getAttribute('data-value');
+                sortForm.submit();
+            });
+        });
+    });
+</script> -->
+
 
 
 

@@ -65,7 +65,7 @@ nav {
 .size {
     background: $secondary;
 }
-.add-to-cart-button {
+.update-cart-button {
     border: 2px solid $primary;
     color: $primary;
     transition: $smooth;
@@ -431,7 +431,7 @@ section.status {
 
 
 .text {
-  color: #f2f2f2;
+//   color: #f2f2f2;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;

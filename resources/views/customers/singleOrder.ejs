@@ -1,4 +1,4 @@
-<section class="status py-5">
+<!-- <section class="status py-5">
   <div class="container">
       <div class="status-box mx-auto" style="max-width: 75%;">
           <div class="card shadow-sm">
@@ -8,20 +8,20 @@
               </div>
               <div class="card-body">
                   <dl class="row">
-                      <dt class="col-sm-3">Full Name</dt>
-                      <dd class="col-sm-9"><%= order.name %></dd>
+                      <dt class="col-sm-3 mb-2 text-nowrap">Full Name</dt>
+                      <dd class="col-sm-9 mb-2"><%= order.name %></dd>
 
-                      <dt class="col-sm-3">Address</dt>
-                      <dd class="col-sm-9"><%= order.address %></dd>
+                      <dt class="col-sm-3 mb-2 text-nowrap">Address</dt>
+                      <dd class="col-sm-9 mb-2"><%= order.address %></dd>
 
-                      <dt class="col-sm-3">Telefonnummer</dt>
-                      <dd class="col-sm-9"><%= order.phone %></dd>
+                      <dt class="col-sm-3 mb-2 text-nowrap">Telefonnummer</dt>
+                      <dd class="col-sm-9 mb-2"><%= order.phone %></dd>
 
-                      <dt class="col-sm-3">Total</dt>
-                      <dd class="col-sm-9"><%= order.totalPrice %></dd>
+                      <dt class="col-sm-3 mb-2 text-nowrap">Total</dt>
+                      <dd class="col-sm-9 mb-2"><%= order.totalPrice %></dd>
 
-                      <dt class="col-sm-3">Items</dt>
-                      <dd class="col-sm-9">
+                      <dt class="col-sm-3 mb-2 text-nowrap">Items</dt>
+                      <dd class="col-sm-9 mb-2">
                           <% for(let pizza of Object.values(order.items)) { %>
                           <div class="card mb-3" style="max-width: 540px;">
                               <div class="row g-0">
@@ -31,7 +31,7 @@
                                     <% } else if (typeof pizza.item.image === 'string' && pizza.item.image.length > 0) { %>
                                         <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image %>.jpg" class="card-img-top product-image" alt="<%= pizza.name %>">
                                     <% } else { %>
-                                        <!-- Provide a placeholder image or text if no image is available -->
+                               
                                         <div class="placeholder-image">No Image Available</div>
                                     <% } %>
                                   </div>
@@ -53,14 +53,77 @@
           </div>
       </div>
   </div>
-</section>
+</section> -->
 
+
+<section class="w-screen flex justify-center py-5">
+    <div class="w-5/6 flex justify-center">
+        <div class="w-full sm:w-2/3 flex flex-col shadow-lg rounded-lg border border-black"  >
+                <div class="card-header">
+                    <h3 class="card-title">Ihre <%= order.lieferType %></h3>
+                    <p class="card-subtitle text-muted"><%= order._id %></p>
+                </div>
+                <div class="p-3">
+                    <div class="flex mb-3">
+                        <p class="font-bold mr-6">Full Name</p>
+                        <p><%= order.name %></p>
+                    </div>
+                    <div class="flex mb-3">
+                        <p class="font-bold mr-6">Address</p>
+                        <p class="overflow-auto"><%= order.address %></p>
+                    </div><div class="flex mb-3">
+                        <p class="font-bold mr-6">Telefonnummer</p>
+                        <p><%= order.phone %></p>
+                    </div><div class="flex mb-3">
+                        <p class="font-bold mr-6">Total</p>
+                        <p><%= order.totalPrice %></p>
+                    </div><div class="flex flex-col xl:flex-row mb-3">
+                        <p class="font-bold mr-6">Items</p>
+                        <div class="flex flex-col">
+
+                        <% for(let pizza of Object.values(order.items)) { %>
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="flex flex-col lg:flex-row">
+                                    <div class=" flex justify-center">
+                                        <!-- <img src="/img/b.png" class=" w-64 h-44  rounded-start" alt="<%= pizza.item.name %>"> -->
+                                        <% if (Array.isArray(pizza.item.image) && pizza.item.image.length > 0) { %>
+                                            <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image[0]%>.jpg" class=" w-64 h-44  rounded-start" alt="<%= pizza.item.name %>">
+                                        <% } else if (typeof pizza.item.image === 'string' && pizza.item.image.length > 0) { %>
+                                            <img src="https://bahl.fra1.digitaloceanspaces.com<%= pizza.item.image %>.jpg" class=" w-64 h-44  rounded-start card-img-top product-image" alt="<%= pizza.name %>">
+                                        <% } else { %>
+                                   
+                                            <div class="placeholder-image">No Image Available</div>
+                                        <% } %>
+                                    </div>
+                                    <div class="">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><%= pizza.item.name %></h5>
+                                            <p class="card-text">Quantity: <%= pizza.qty %></p>
+                                            <button class="update-cart-button" data-pizza='<%= JSON.stringify(pizza) %>'>
+                                              Produkt hinzufügen
+                                          </button>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                              
+                            </div>
+                            <% } %>
+                        </div>
+
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+  </section>
+  
 
 <script>
   function handleSizeClick(element) {
-    const productData = JSON.parse(document.querySelector('.add-to-cart-button').getAttribute('data-pizza'));
+    const productData = JSON.parse(document.querySelector('.update-cart-button').getAttribute('data-pizza'));
     
 
-    document.querySelector('.add-to-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
+    document.querySelector('.update-cart-button').setAttribute('data-pizza', JSON.stringify(productData));
   }
 </script>   
