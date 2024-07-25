@@ -34,21 +34,24 @@
 <%- include('../components/sidebar') %>
 
 <section class="orders lg:ml-72 light-section">
-    <div class="container mx-auto pt-12 pb-2 overflow-auto" >
+    <div class="w-11/12 xl:w-5/6  mx-auto pt-12 pb-2  " >
         <h1 class="font-bold text-2xl mb-4">Alle Verschickten Aufträge</h1>
-        <table class="w-full table-auto bg-white">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 text-left">ID</th>
-                    <th class="px-4 py-2 text-left">Email</th>
-                    <th class="px-4 py-2 text-left">Preis</th>
-                    <th class="px-4 py-2 text-left">status</th>
-                    <th class="px-4 py-2 text-left">Placed at</th>
-                </tr>
-            </thead>
-            <tbody id="totalBody">
-            </tbody>
-        </table>
+        <div class="overflow-auto">
+
+            <table class="w-full table-auto bg-white">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 text-left">ID</th>
+                        <th class="px-4 py-2 text-left">Email</th>
+                        <th class="px-4 py-2 text-left">Preis</th>
+                        <th class="px-4 py-2 text-left">status</th>
+                        <th class="px-4 py-2 text-left">Placed at</th>
+                    </tr>
+                </thead>
+                <tbody id="totalBody">
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 

@@ -712,7 +712,7 @@ section.status {
 
 .search-input {
   padding: 8px;
-  width: 300px;
+  /* width: 300px; */
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 8px;

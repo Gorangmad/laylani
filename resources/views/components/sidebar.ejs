@@ -411,13 +411,13 @@ a {
             <div class="s-layout__sidebar ">
               <a class="s-sidebar__trigger bg-dark flex justify-between " href="#0">
                  <i class="fa fa-bars"></i>
-                 <!-- <a href="/" class="ms-6 lg:ms-0 p-2 lg:p-3 mb-2  text-lg text-decoration-none text-white font-bold" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-                
-                    BAHL COLLECTION
-                </a> -->
+              
               </a>
             
-              <nav class="s-sidebar__nav z-20 bg-dark mt-16 lg:mt-0 lg:pt-10 px-2">
+              <nav class="s-sidebar__nav z-20 bg-dark mt-16 lg:mt-0 lg:pt-10 px-2 flex flex-col justify-between">
+                <div>
+
+                
                 <a href="/" class="   p-2   text-xl  text-decoration-none text-white font-bold" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
                 
                     BAHL COLLECTION
@@ -439,9 +439,9 @@ a {
                             </div>
                         <input type="checkbox" class="dd-input" id="test">
                         <ul  class="dd-menu-sidebar font-normal text-base z-20">
-                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/orders">Orders</a></li>
-                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/delivery">Orders out for delivery</a></li>
-                            <li class="" ><a class=" text-white" href="/admin/archiv">Orders finished</a></li>
+                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/orders/">Orders</a></li>
+                            <li class="border-b border-white"  ><a class=" text-white" href="/admin/delivery/">Orders out for delivery</a></li>
+                            <li class="" ><a class=" text-white" href="/admin/archiv/">Orders finished</a></li>
                 
                         </ul>
                         
@@ -474,14 +474,25 @@ a {
                   
                     <li class="nav-item  flex items-center border-b border-white w-full">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,1)"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z"></path></svg>
-                          <a href="/admin" class="nav-link ml-3 text-white p-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                          <a href="/admin/changes" class="nav-link ml-3 text-white p-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                               Changes
                           </a>
                       </li>
                     
                      
                 </ul>
+            </div>
                 
+            <ul>
+                
+                <li class="nav-item  flex items-center   border-t-2 border-white w-full">
+                    
+                    <form id="logout" action="/logout" method="POST" class="flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="rgba(255,255,255,1)"><path d="M5 22C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V6H18V4H6V20H18V18H20V21C20 21.5523 19.5523 22 19 22H5ZM18 16V13H11V11H18V8L23 12L18 16Z"></path></svg>
+                        <a  onclick="document.getElementById('logout').submit()" href="#"  class="text-base nav-link ml-3 text-white p-2 font-bold" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">Logout</a>
+                    </form>
+                  </li>
+            </ul>
               </nav>
             </div>
             

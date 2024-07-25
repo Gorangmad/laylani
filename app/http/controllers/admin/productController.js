@@ -9,53 +9,172 @@ const ChangeLog = require("../../../models/change");
 
 function productController() {
     return {
+        // async index(req, res) {
+        //     try {
+        //         let query = {}; // Initial query to fetch all products
+        //         const { sort } = req.query;
+        //         console.log(sort);
+        
+        //         let sortOrder;
+        //         switch (sort) {
+        //             case 'price-high-to-low':
+        //                 sortOrder = { price: -1 };
+        //                 break;
+        //             case 'price-low-to-high':
+        //                 sortOrder = { price: 1 };
+        //                 break;
+        //             case 'name-a-z':
+        //                 sortOrder = { name: 1 };
+        //                 break;
+        //             case 'name-z-a':
+        //                 sortOrder = { name: -1 };
+        //                 break;
+        //             default:
+        //                 sortOrder = { hasTimestamp: -1,createdAt: -1 };
+        //         }
+        
+        
+        //         // Pagination parameters
+        //         const pageSize = 50; // Number of products per page
+        //         const page = req.query.page ? parseInt(req.query.page) : 1; // Current page number, default to 1 if not specified
+        
+        //         // Find the total number of products to calculate total pages
+        //         const totalProducts = await Menu.countDocuments(query);
+        
+        //         // Aggregation pipeline to sort products with timestamps first
+        //         const aggregationPipeline = [
+        //             {
+        //                 $addFields: {
+        //                     hasTimestamp: {
+        //                         $cond: {
+        //                             if: { $or: [{ $ifNull: ["$createdAt", false] }] },
+        //                             then: true,
+        //                             else: false
+        //                         }
+        //                     }
+        //                 }
+        //             },
+        //             // { $sort: { hasTimestamp: -1, createdAt: -1 } }, // Sorting by hasTimestamp then by createdAt and updatedAt
+        //             { $sort: sortOrder },
+        //             { $skip: (page - 1) * pageSize },
+        //             { $limit: pageSize }
+        //         ];
+        
+        //         // Execute the aggregation pipeline
+        //         const updatedProducts = await Menu.aggregate(aggregationPipeline).exec();
+        
+        //         const totalPages = Math.ceil(totalProducts / pageSize); // Calculate total pages
+        
+        //         // Render the EJS template and pass the 'products' array and pagination data
+        //         res.render('admin/products', {
+        //             products: updatedProducts,
+        //             showNavbar: false,
+        //             currentPage: page,
+        //             totalPages: totalPages
+        //         });
+        //     } catch (error) {
+        //         console.error('Error updating availability:', error);
+        //         res.status(500).json({ error: 'Internal Server Error' });
+        //     }
+        // },
         async index(req, res) {
             try {
-                let query = {}; // Initial query to fetch all products
+                const { sort } = req.query;
+                console.log(sort);
         
-                // Pagination parameters
-                const pageSize = 50; // Number of products per page
-                const page = req.query.page ? parseInt(req.query.page) : 1; // Current page number, default to 1 if not specified
+                let sortOrder;
+                switch (sort) {
+                    case 'price-high-to-low':
+                        sortOrder = 'desc';
+                        break;
+                    case 'price-low-to-high':
+                        sortOrder = 'asc';
+                        break;
+                    case 'name-a-z':
+                        sortOrder = 'name-asc';
+                        break;
+                    case 'name-z-a':
+                        sortOrder = 'name-desc';
+                        break;
+                    default:
+                        sortOrder = 'createdAt-desc';
+                }
         
-                // Find the total number of products to calculate total pages
-                const totalProducts = await Menu.countDocuments(query);
+                const page = parseInt(req.query.page) || 1;
+                const limit = 50; // Number of items per page
+                const skip = (page - 1) * limit;
         
-                // Aggregation pipeline to sort products with timestamps first
-                const aggregationPipeline = [
-                    {
-                        $addFields: {
-                            hasTimestamp: {
-                                $cond: {
-                                    if: { $or: [{ $ifNull: ["$createdAt", false] }] },
-                                    then: true,
-                                    else: false
-                                }
-                            }
+                // Base query for filtering
+                let query = {};
+        
+                if (req.query.search) {
+                    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+                    query = {
+                        $or: [
+                            { name: regex },
+                            { comment: regex }
+                        ]
+                    };
+                }
+        
+                // Fetch data without sorting
+                const pizzas = await Menu.find(query).exec();
+        
+                // Convert prices to numbers if they are not already
+                pizzas.forEach(pizza => {
+                    // Handle cases where the price might be in different formats
+                    if (typeof pizza.price === 'string') {
+                        // Remove non-numeric characters except for the decimal point
+                        pizza.price = parseFloat(pizza.price.replace(/[^0-9.]/g, ''));
+                    } else {
+                        pizza.price = parseFloat(pizza.price);
+                    }
+                });
+        
+                // Sort the pizzas array based on sortOrder
+                pizzas.sort((a, b) => {
+                    if (sortOrder === 'desc' || sortOrder === 'asc') {
+                        if (sortOrder === 'desc') {
+                            return b.price - a.price; // price-high-to-low
+                        } else {
+                            return a.price - b.price; // price-low-to-high
                         }
-                    },
-                    { $sort: { hasTimestamp: -1, createdAt: -1 } }, // Sorting by hasTimestamp then by createdAt and updatedAt
-                    { $skip: (page - 1) * pageSize },
-                    { $limit: pageSize }
-                ];
+                    } else if (sortOrder === 'name-asc' || sortOrder === 'name-desc') {
+                        if (sortOrder === 'name-asc') {
+                            return a.name.localeCompare(b.name); // name-a-z
+                        } else {
+                            return b.name.localeCompare(a.name); // name-z-a
+                        }
+                    } else if (sortOrder === 'createdAt-desc' || sortOrder === 'createdAt-asc') {
+                        if (sortOrder === 'createdAt-desc') {
+                            return new Date(b.createdAt) - new Date(a.createdAt); // createdAt-desc
+                        } else {
+                            return new Date(a.createdAt) - new Date(b.createdAt); // createdAt-asc
+                        }
+                    }
+                });
         
-                // Execute the aggregation pipeline
-                const updatedProducts = await Menu.aggregate(aggregationPipeline).exec();
+                // Paginate the sorted results
+                const paginatedPizzas = pizzas.slice(skip, skip + limit);
         
-                const totalPages = Math.ceil(totalProducts / pageSize); // Calculate total pages
+                const totalPizzas = pizzas.length;
         
-                // Render the EJS template and pass the 'products' array and pagination data
-                res.render('admin/products', {
-                    products: updatedProducts,
+                return res.render('admin/products', {
+                    products: paginatedPizzas,
                     showNavbar: false,
                     currentPage: page,
-                    totalPages: totalPages
+                    totalPages: Math.ceil(totalPizzas / limit),
+                    searchQuery: req.query.search || '',
+                    sort
                 });
             } catch (error) {
                 console.error('Error updating availability:', error);
-                res.status(500).json({ error: 'Internal Server Error' });
+                res.status(500).send('Internal Server Error');
             }
-        },
-
+        }
+        
+        
+,        
         async categories(req, res) {
             try {
                 const categories = await Category.find({});
@@ -154,7 +273,7 @@ function productController() {
         
         async changeTracker(req, res) {
             const totalLogs = await ChangeLog.find();
-            res.render('admin/changeLog', { totalLogs: totalLogs });
+            res.render('admin/changeLog', { totalLogs: totalLogs , showNavbar:false});
         },
 
         async updateCategory(req, res) {
@@ -212,6 +331,7 @@ function productController() {
         
                 // Render the template with all necessary data
                 res.render('admin/singleProdukt', {
+                    showNavbar:false,
                     product: productDetails,
                     categories: categories,
                     productCategoryName: productCategoryNames, // List of parent category names

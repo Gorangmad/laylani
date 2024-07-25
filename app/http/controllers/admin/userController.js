@@ -142,7 +142,7 @@ function userController() {
                 if (!user) {
                     return res.status(404).send('User not found');
                 }
-                res.render('admin/singleUser', { user }); // Render a user detail page
+                res.render('admin/singleUser', { user, showNavbar:false }); // Render a user detail page
             } catch (error) {
                 res.status(500).send('Server error');
             }
