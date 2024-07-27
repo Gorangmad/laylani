@@ -27,6 +27,87 @@
         padding: 8px;
     }
 
+    /* Dropdown */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-button:hover {
+  background-color: #eeeeee;
+}
+
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  left: -80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  list-style-type: none;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+} 
+
+.dd-input:checked + .dd-menu {
+  display: block;
+} 
+
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color: #f6f6f6;
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
+}
+
 </style>
 
 <%- include('../components/sidebar') %>
@@ -42,6 +123,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+           
             <div class="modal-body">
                 <form id="addProductForm" enctype="multipart/form-data">
                     <div class="form-group">
@@ -81,9 +163,9 @@
                             <option value="wsl">WSL</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label for="productImages">Bilder</label>
-                        <input type="file" class="form-control" id="productImages" name="image" multiple required>
+                        <input type="file" class="form-control " id="productImages" name="image" multiple required>
                     </div>
                 </form>
             </div>
@@ -109,32 +191,69 @@ function toggleMultiplePrices(value) {
 
 
 
-<section class="orders light-section">
+<section class="lg:ml-80 light-section   mt-12  lg:mr-8">
     
-    <div class="container mx-auto pt-12 pb-2 table-container">
-        <h1 class="font-bold text-lg mb-4 margin align-center">All Products</h1>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
-            Add Product
-        </button>
-        <div class="search-container">
-            <form action="/admin/products/search" method="GET">
+    <div class=" mx-auto pt-10 pb-2 table-container px-3 w-11/12">
+        <h1 class="font-bold text-2xl mb-4 margin align-center">All Products</h1>
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-1.5">
+
+            <div class="flex justify-between items-center w-full">
+
+                <button type="button" class="btn btn-primary mb-4 md:mb-0" data-toggle="modal" data-target="#addProductModal">
+                    Add Product
+                </button>
+                <form id="sortForm" action="/admin/products" method="GET" class="sm:hidden">
+                    <label class="dropdown">
+                        <div class="dd-button">Sort By</div>
+                        <input type="checkbox" class="dd-input" id="test">
+                        <ul  class="dd-menu z-20">
+                            <li id="price-low-to-high1" data-value="price-low-to-high1">Price, low to high</li>
+                            <li id="price-high-to-low1" data-value="price-high-to-low1">Price, high to low</li>
+                            <li id="name-a-z1" data-value="name-a-z1">Alphabetically, A - Z</li>
+                            <li id="name-z-a1" data-value="name-z-a1">Alphabetically, Z - A</li>
+                        </ul>
+                        
+                        <input type="hidden" name="sort" id="sortInput">
+                    </label>
+                </form>
+            </div>
+        <div class="search-container mb-4 ">
+            <form action="/admin/products/search" method="GET" class="flex">
                 <input
                     type="text"
                     name="name"
                     comment="comment"
                     id="search-input"
-                    class="search-input"
+                    class="search-input w-64 sm:w-72"
                     placeholder="Search products"
                 />
-                <button type="submit" class="search-button">
+                <button type="submit" class="search-button  ">
                     <span>&#128269;</span>
                 </button>
             </form>
         </div>
         
-        
-        <table class="w-full table-auto bg-white">
-            <thead>
+    </div>
+    <div  class="hidden sm:flex justify-end items-center mb-3">
+        <form id="sortForm" action="/admin/products" method="GET">
+            <label class="dropdown">
+                <div class="dd-button">Sort By</div>
+                <input type="checkbox" class="dd-input" id="test">
+                <ul  class="dd-menu z-20">
+                    <li id="price-low-to-high" data-value="price-low-to-high">Price, low to high</li>
+                    <li id="price-high-to-low" data-value="price-high-to-low">Price, high to low</li>
+                    <li id="name-a-z" data-value="name-a-z">Alphabetically, A - Z</li>
+                    <li id="name-z-a" data-value="name-z-a">Alphabetically, Z - A</li>
+                </ul>
+                
+                <input type="hidden" name="sort" id="sortInput">
+            </label>
+        </form>
+    </div>
+        <div class="overflow-auto">
+
+            <table class="w-full table-auto bg-white">
+                <thead>
                 <tr>
                     <th class="px-4 py-2">Name</th>
                     <th class="px-4 py-2">Comment</th>
@@ -143,6 +262,7 @@ function toggleMultiplePrices(value) {
                     <th class="px-4 py-2">Label</th>
                     <th class="px-4 py-2">Label expiry</th>
                     <th class="px-4 py-2">Checked</th>
+                    <th class="px-4 py-2">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -165,19 +285,23 @@ function toggleMultiplePrices(value) {
                             </select>
                         </td>
                         <td class="editable" contenteditable="false" data-product-id="<%= product._id %>">    <%= product.expiry %></td>
-                        <td>
-                            <input type="checkbox" class="product-checkbox" data-product-id="<%= product._id %>" <%= product.isChecked ? 'checked' : '' %> onchange="toggleChecked(this)">
+                        <td class="">
+                            <div class="flex justify-center items-center">
+
+                                <input type="checkbox" class="product-checkbox" data-product-id="<%= product._id %>" <%= product.isChecked ? 'checked' : '' %> onchange="toggleChecked(this)">
+                            </div>
                         </td>
-                        <td>
-                            <button class="edit-button" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Edit</button>
-                            <button class="delete-button" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
+                        <td class="">
+                            <button class="edit-button w-full mb-1" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Edit</button>
+                            <button class="delete-button  w-full" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
                         </td>
                     </tr>
-                <% }); %>
-            </tbody>
+                    <% }); %>
+                </tbody>
+                
+            </table>
+        </div>
             
-        </table>
-
     </div>
     <% 
     // Calculate the starting and ending page numbers for the pagination
@@ -187,14 +311,14 @@ function toggleMultiplePrices(value) {
 
 <div class="pagination-container">
     <!-- Previous Page Link -->
-    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}` : '#' %>"
+    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${sort ? '&sort=' + sort : ''}` : '#' %>"
        class="pagination-button <%= currentPage === 1 ? 'disabled' : '' %>">
         &#10094;
     </a>
 
     <!-- First Page and Ellipsis if necessary -->
     <% if (pageStart > 1) { %>
-        <a href="/admin/products?page=1" class="pagination-button">1</a>
+        <a href="/admin/products?page=1<%= sort ? '&sort=' + sort : '' %>" class="pagination-button">1</a>
         <% if (pageStart > 2) { %>
             <span class="pagination-ellipsis">...</span>
         <% } %>
@@ -202,7 +326,7 @@ function toggleMultiplePrices(value) {
 
     <!-- Page Numbers -->
     <% for(let i = pageStart; i <= pageEnd; i++) { %>
-        <a href="/admin/products?page=<%= i %>"
+        <a href="/admin/products?page=<%= i %><%= sort ? '&sort=' + sort : '' %>"
            class="pagination-button <%= i === currentPage ? 'active' : '' %>">
             <%= i %>
         </a>
@@ -213,11 +337,11 @@ function toggleMultiplePrices(value) {
         <% if (pageEnd < totalPages - 1) { %>
             <span class="pagination-ellipsis">...</span>
         <% } %>
-        <a href="/admin/products?page=<%= totalPages %>" class="pagination-button"><%= totalPages %></a>
+        <a href="/admin/products?page=<%= totalPages %><%= sort ? '&sort=' + sort : '' %>" class="pagination-button"><%= totalPages %></a>
     <% } %>
 
     <!-- Next Page Link -->
-    <a href="<%= currentPage < totalPages ? `/admin/products?page=${currentPage + 1}` : '#' %>"
+    <a href="<%= currentPage < totalPages ? `/admin/products?page=${currentPage + 1}${sort ? '&sort=' + sort : ''}` : '#' %>"
        class="pagination-button <%= currentPage === totalPages ? 'disabled' : '' %>">
         &#10095;
     </a>
@@ -276,11 +400,13 @@ function toggleMultiplePrices(value) {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    /* width: 100; */
 }
 
 .edit-button {
     background-color: #4CAF50; /* Green */
     color: white;
+    
 }
 
 .delete-button {
@@ -626,5 +752,42 @@ function toggleChecked(checkbox) {
 }
 
 
+document.addEventListener('DOMContentLoaded', () => {
+
+document.getElementById('price-low-to-high').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=price-low-to-high`;
+});
+
+document.getElementById('price-high-to-low').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=price-high-to-low`;
+});
+
+document.getElementById('name-a-z').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=name-a-z`;
+});
+
+document.getElementById('name-z-a').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=name-z-a`;
+});
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+document.getElementById('price-low-to-high1').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=price-low-to-high`;
+});
+
+document.getElementById('price-high-to-low1').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=price-high-to-low`;
+});
+
+document.getElementById('name-a-z1').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=name-a-z`;
+});
+
+document.getElementById('name-z-a1').addEventListener('click', () => {
+    window.location.href = `/admin/products?sort=name-z-a`;
+});
+});
     </script>
     

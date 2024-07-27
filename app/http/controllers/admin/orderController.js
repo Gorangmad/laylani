@@ -13,7 +13,7 @@ function orderController() {
         },
         async show(req, res) {
             const order = await Order.findById(req.params.id)
-            return res.render('admin/singleOrders', { order })
+            return res.render('admin/singleOrders', { order , showNavbar: false})
         },
 
         async twodex(req, res) {

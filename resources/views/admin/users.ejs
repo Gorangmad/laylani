@@ -27,7 +27,7 @@
     .search-input {
         width: 100%;
         padding: 8px;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
         border: 1px solid #ddd;
         border-radius: 4px;
     }
@@ -45,15 +45,17 @@
 
 <%- include('../components/sidebar') %>
 
-<section class="orders light-section">
-    <div class="container mx-auto pt-12 pb-2 table-container">
+<section class="lg:ml-80 light-section   mt-12  lg:mr-8">
+    <div class="w-11/12 xl:w-5/6 mx-auto  pt-10 pb-2 table-container px-2.5 md:px-4">
         <h1 class="font-bold text-2xl mb-4">All Users</h1>
-        <div class="search-bar">
-            <form action="/user-search" method="GET">
-                <input type="text" name="searchTerm" placeholder="Search by name or email" class="search-input" id="searchInput">
-                <button type="submit" class="search-button">Search</button>
+        <div class="search-bar  mb-4">
+            <form action="/user-search" method="GET" class="flex items-center mb-6">
+                <input type="text" name="searchTerm" placeholder="Search by name or email" class="search-input " id="searchInput">
+                <button type="submit" class="search-button ml-2  ">Search</button>
             </form>
-        </div>        
+        </div> 
+        <div class="overflow-auto">
+
         <table class="w-full table-auto bg-white">
             <thead>
                 <tr>
@@ -86,7 +88,7 @@
                             </form>
                         </td>
                         <td>
-                            <form action="/delete-user" method="POST">
+                            <form action="/delete-user" method="POST" class="flex justify-center items-center">
                                 <input type="hidden" name="userId" value="<%= user._id %>">
                                 <button type="submit" class="delete-button">
                                     <i class="fas fa-trash-alt"></i>
@@ -97,6 +99,8 @@
                 <% }); %>
             </tbody>
         </table>
+    </div>       
+
     </div>
 </section>
 

@@ -27,7 +27,7 @@
     .search-input {
         width: 100%;
         padding: 8px;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
         border: 1px solid #ddd;
         border-radius: 4px;
     }
@@ -35,17 +35,19 @@
     
     <%- include('../components/sidebar') %>
     
-    <section class="orders light-section">
-    <div class="container mx-auto pt-12 pb-2 table-container">
+    <section class="lg:ml-80 light-section   mt-12  lg:mr-8">
+    <div class="w-11/12 xl:w-5/6 mx-auto  pt-10 pb-2 table-container px-2.5 md:px-4">
         <h1 class="font-bold text-2xl mb-4">All Users</h1>
-        <div class="search-bar">
-            <form action="/user-search" method="GET">
+        <div class="search-bar mb-4">
+            <form action="/user-search" method="GET" class="flex items-center mb-6">
                 <input type="text" name="searchTerm" placeholder="Search by name or email" class="search-input" id="searchInput">
-                <button type="submit" class="search-button">Search</button>
+                <button type="submit"  class="search-button ml-2  ">Search</button>
             </form>
-        </div>        
-        <table class="w-full table-auto bg-white">
-            <thead>
+        </div>    
+        <div class="overflow-auto">
+
+            <table class="w-full table-auto bg-white">
+                <thead>
                 <tr>
                     <th class="px-4 py-2">ID</th>
                     <th class="px-4 py-2">Name</th>
@@ -69,25 +71,26 @@
                             <form action="/change-user-status" method="POST">
                                 <input type="hidden" name="userId" value="<%= user._id %>">
                                 <select name="status" onchange="this.form.submit()"
-                                    class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                                    <option value="angefragt" <%= user.isUser === 'angefragt' ? 'selected' : '' %>>Angefragt</option>
-                                    <option value="bearbeitet" <%= user.isUser === 'bearbeitet' ? 'selected' : '' %>>Bearbeitet</option>
-                                    <option value="angenommen" <%= user.isUser === 'angenommen' ? 'selected' : '' %>>Angenommen</option>
-                                </select>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/delete-user" method="POST">
-                                <input type="hidden" name="userId" value="<%= user._id %>">
-                                <button type="submit" class="delete-button">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
+                                class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="angefragt" <%= user.isUser === 'angefragt' ? 'selected' : '' %>>Angefragt</option>
+                                <option value="bearbeitet" <%= user.isUser === 'bearbeitet' ? 'selected' : '' %>>Bearbeitet</option>
+                                <option value="angenommen" <%= user.isUser === 'angenommen' ? 'selected' : '' %>>Angenommen</option>
+                            </select>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/delete-user" method="POST" class="flex justify-center items-center">
+                            <input type="hidden" name="userId" value="<%= user._id %>">
+                            <button type="submit" class="delete-button">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
                 <% }}); %>
             </tbody>
         </table>
+    </div>    
     </div>
     </section>
     

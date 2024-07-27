@@ -48,24 +48,26 @@
 
 <%- include('../components/sidebar') %>
 
-<section class="orders light-section">
-    <div class="container mx-auto pt-12 pb-2">
-        <h1 class="font-bold text-lg mb-4">All orders</h1>
-        <table class="w-full table-auto bg-white">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 text-left">user</th>
-                    <th class="px-4 py-2 text-left">Änderung</th>
-                    <th class="px-4 py-2 text-left">Änderungsart</th>
-                </tr>
-            </thead>
-            <tbody>
+<section class="lg:ml-72 light-section">
+    <div class="w-11/12 xl:w-5/6 mx-auto pt-12 pb-2 ">
+        <h1 class="font-bold text-3xl mb-4">All Orders</h1>
+        <div class="overflow-auto">
+
+            <table class="w-full table-auto bg-white">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 text-left">user</th>
+                        <th class="px-4 py-2 text-left">Änderung</th>
+                        <th class="px-4 py-2 text-left">Änderungsart</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <%totalLogs.forEach((totalLog, index) => { %>
-                <tr class="row-<%= index %>">
-                   <td><%= totalLog.user %></td>
-                   <td><%= totalLog.operationType %></td>
-                   <td>
-                       <p><%= totalLog.updateDescription.updatedFields.name %></p>
+                    <tr class="row-<%= index %>">
+                        <td><%= totalLog.user %></td>
+                        <td><%= totalLog.operationType %></td>
+                        <td>
+                            <p><%= totalLog.updateDescription.updatedFields.name %></p>
                        <p><%= totalLog.updateDescription.updatedFields.sizes %></p>
                        <p><%= totalLog.updateDescription.updatedFields.price %></p>
                        <p><%= totalLog.updateDescription.removedFields.price %></p>
@@ -75,6 +77,7 @@
 
             </tbody>
         </table>
+    </div>
     </div>
 </section>
 

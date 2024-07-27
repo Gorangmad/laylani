@@ -3,16 +3,16 @@
         display: flex;
         justify-content: space-between;
     }
-    .product-info {
+    /* .product-info {
         margin-top: 10%;
         margin-right: 20%;
         width: 50%;
-    }
-    .categorien {
+    } */
+    /* .categorien {
         margin-top: 5%;
         width: 100%;
 
-    }
+    } */
 </style>
 
 <script>
@@ -186,11 +186,14 @@
                     // Create HTML for each product
                     const productElement = document.createElement('div');
                     productElement.classList.add('product-result');
+                    productElement.style.paddingTop = '4px';
+                    productElement.style.paddingBottom = '4px';
+                    productElement.style.borderBottom = '1px solid black';
                     productElement.innerHTML = `
-                        <div class="product-photo">
+                        <div class="product-photo ">
                             <h5>${product.name}</h5>
                             <img src="https://bahl.fra1.digitaloceanspaces.com${product.image}.jpg" alt="${product.name}" style="width: 100px; height: auto;">
-                            <button type="button" class="btn btn-primary add-btn" data-product-id="${product._id}">Produkt Verknüpfen</button>
+                            <button type="button" class="btn btn-primary add-btn my-1" data-product-id="${product._id}">Produkt Verknüpfen</button>
                             </div>
                     `;
     
@@ -240,18 +243,21 @@
     </script>
     
     
+    <%- include('../components/sidebar') %>
     
 
+ <div class="lg:ml-72">
 
-<div class="container">
-    <div class="product-info">
-        <button id="addMorePicturesBtn" class="btn btn-primary mb-5 ml-5">Add More Pictures</button>
+
+<div class=" w-11/12 mx-auto   grid xl:grid-cols-2 gap-8 py-5">
+    <div class="product-info flex flex-col justify-center items-center lg:mr-4 px-4  rounded-lg border-2 shadow-lg  col-span-1 " style="border-color: black;">
+        <button id="addMorePicturesBtn" class="btn btn-primary my-4 w-fit mx-auto">Add More Pictures</button>
         <% if (product.image && product.image.length > 0) { %>
-            <div id="productCarousel" class="carousel slide" data-ride="carousel">
+            <div id="productCarousel" class="carousel slide w-72 sm:w-80 md:w-96 " data-ride="carousel">
               <div class="carousel-inner">
                 <% product.image.forEach(function(image, index) { %>
                   <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                    <img src="https://bahl.fra1.digitaloceanspaces.com<%= image %>.jpg" class="d-block w-100" alt="<%= product.name %> Image <%= index + 1 %>">
+                    <img src="https://bahl.fra1.digitaloceanspaces.com<%= image %>.jpg" class="  w-72 sm:w-80 md:w-96 " alt="<%= product.name %> Image <%= index + 1 %>">
                   </div>
                 <% }); %>
               </div>
@@ -266,26 +272,29 @@
                 </a>
               <% } %>
             </div>
-        <% } %>                 
-        <h1><%= product.name %></h1>
-        <p><%= product.description %></p>
-        <p>Preis: <%= product.price %></p>
-        <p>Görßen: <%= product.sizes %></p>
-        <p>Verfügbarkeit: <%= product.availability %></p>
-        <p>Ablauf Datum: <%= product.expiry ? product.expiry.toLocaleDateString('en-GB') : 'N/A' %></p>
-        <p>Categorien: <%= productCategoryName %></p>
+        <% } %>    
+        <p class="font-semibold text-2xl sm:text-3xl md:text-4xl text-center"><%= product.name %></p>
+        <div class=" w-full flex  items-start flex-col">
 
-        <p>Ähnliche Produkte:<%relatedMenuNames.forEach(function(name) { %>
-            <div>
-                <p><%= name.name %></p>
-            <button type="button" class="btn btn-danger delete-similiar-btn" data-product-name="<%= name %>" data-product-id="<%= name._id%>">X</button>
-            </div>
-        <% }); %></p>
+            <p><%= product.description %></p>
+            <p>Preis: <%= product.price %></p>
+            <p>Görßen: <%= product.sizes %></p>
+            <p>Verfügbarkeit: <%= product.availability %></p>
+            <p>Ablauf Datum: <%= product.expiry ? product.expiry.toLocaleDateString('en-GB') : 'N/A' %></p>
+            <p>Categorien: <%= productCategoryName %></p>
+            
+            <p>Ähnliche Produkte:<%relatedMenuNames.forEach(function(name) { %>
+                <div>
+                    <p><%= name.name %></p>
+                    <button type="button" class="btn btn-danger delete-similiar-btn" data-product-name="<%= name %>" data-product-id="<%= name._id%>">X</button>
+                </div>
+                <% }); %></p>
+            </div>             
     </div>
 
 
-    <div class="categorien overflow-auto p-3 mb-3 border rounded" style="max-height: 800px;">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <div class="categorien overflow-auto p-3 mb-3 border rounded mt-4 col-span-1 " style="max-height: 800px; min-width: 320px;">
+    <ul class="nav nav-tabs " id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="form1-tab" data-bs-toggle="tab" data-bs-target="#form1" type="button" role="tab" aria-controls="form1" aria-selected="true">Categories</button>
         </li>
@@ -296,16 +305,17 @@
     
     <!-- Tab content for Categories -->
     <div class="tab-content" id="form1">
-        <form class="bg-light">
+        <form class="bg-light p-1">
             <% categories.forEach(function(category) { %>
-                <div class="form-check">
+                <div class="form-check border-b py-1 border-gray-500">
                   
                   <input class="form-check-input category-checkbox" type="checkbox" id="category-<%= category.No %>" name="categories" value="<%= category.No %>" <%= productCategoryName.includes(category.Parent_Category) ? 'checked' : '' %>>
                   <label class="form-check-label" for="category-<%= category.No %>"><%= category.Parent_Category %></label>
                 </div>
+                
                 <% if(category.subcategories && category.subcategories.length > 0) { %>
                   <% category.subcategories.forEach(function(subcategory) { %>
-                    <div class="form-check ml-3">
+                    <div class="form-check ml-3 py-0.5 border-b  border-gray-300">
                       <input class="form-check-input subcategory-checkbox" type="checkbox" id="subcategory-<%= subcategory.No %>" name="subcategories" value="<%= subcategory.No %>" <%= productCategoryName.includes(subcategory.name) ? 'checked' : '' %>>
                       <label class="form-check-label" for="subcategory-<%= subcategory.No %>"><%= subcategory.name %></label>
                     </div>
@@ -313,14 +323,14 @@
                 <% } %>
               <% }); %>              
         </form>
-        <button type="button" id="saveCategories" class="btn btn-success">Save Categories</button>
+        <button type="button" id="saveCategories" class="btn btn-success mt-2">Save Categories</button>
     </div>
     
     <!-- Tab content for Ähnliche Produkte -->
     <div class="tab-content" id="form2" style="display: none;">
         <form class="bg-light">
-            <div class="form-group">
-                <input type="text" class="form-control" id="searchSimilarProducts" placeholder="Produkt suchen...">
+            <div class="form-group flex my-3">
+                <input type="text" class="form-control mr-2" id="searchSimilarProducts" placeholder="Produkt suchen...">
                 <button type="button" id="searchButton" class="btn btn-primary">Suchen</button> <!-- Search button -->
             </div>
             <div id="similarProductsResults" class="results">
@@ -329,4 +339,5 @@
     </div>
 
 
+</div>
 </div>

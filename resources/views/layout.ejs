@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/img/images/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#317EFB"/>
     <title>Bahl Collection</title>
-       <!-- Other head elements -->
+    <!-- Other head elements -->
       
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap' rel="stylesheet">
@@ -47,10 +48,10 @@
 
 <body>
         <div class="bg-dark w-full">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="container mx-auto flex  items-center justify-end">
 
-            <div>
-                <ul class="flex items-center space-x-2 text-xs">
+            <!-- <div class=" h-full"> -->
+                <ul class="flex items-center space-x-2  py-0.5 text-sm">
                     <li><a href="/register">Registrieren</a></li>
                     <% if(user) { %>
                     <li>
@@ -62,7 +63,7 @@
                     <li><a href="/login">Anmelden</a></li>
                     <% } %>
                 </ul>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
     <% if (typeof showNavbar === 'undefined' || showNavbar) { %>
@@ -77,6 +78,7 @@
             <div class="collapse navbar-collapse px-2" id="navbarNav">
                 <!-- <ul class="navbar-nav mr-auto"> -->
                     <ul class="navbar-nav ml-auto">
+                      
                     <% if (user && user.role === 'admin') { %>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin">Admin</a>
