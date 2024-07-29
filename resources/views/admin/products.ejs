@@ -202,8 +202,10 @@ function toggleMultiplePrices(value) {
                 <button type="button" class="btn btn-primary mb-4 md:mb-0" data-toggle="modal" data-target="#addProductModal">
                     Add Product
                 </button>
-                <form id="sortForm" action="/admin/products" method="GET" class="sm:hidden">
-                    <label class="dropdown">
+                <% if (!searchQuery) { %>
+                    
+                    <form id="sortForm" action="/admin/products" method="GET" class="sm:hidden">
+                        <label class="dropdown">
                         <div class="dd-button">Sort By</div>
                         <input type="checkbox" class="dd-input" id="test">
                         <ul  class="dd-menu z-20">
@@ -216,8 +218,10 @@ function toggleMultiplePrices(value) {
                         <input type="hidden" name="sort" id="sortInput">
                     </label>
                 </form>
+                <% } %>
             </div>
         <div class="search-container mb-4 ">
+           
             <form action="/admin/products/search" method="GET" class="flex">
                 <input
                     type="text"
@@ -234,8 +238,9 @@ function toggleMultiplePrices(value) {
         </div>
         
     </div>
-    <div  class="hidden sm:flex justify-end items-center mb-3">
-        <form id="sortForm" action="/admin/products" method="GET">
+    <% if (!searchQuery) { %>
+        <div  class="hidden sm:flex justify-end items-center mb-3">
+            <form id="sortForm" action="/admin/products" method="GET">
             <label class="dropdown">
                 <div class="dd-button">Sort By</div>
                 <input type="checkbox" class="dd-input" id="test">
@@ -250,6 +255,7 @@ function toggleMultiplePrices(value) {
             </label>
         </form>
     </div>
+    <% } %>
         <div class="overflow-auto">
 
             <table class="w-full table-auto bg-white">
@@ -292,8 +298,8 @@ function toggleMultiplePrices(value) {
                             </div>
                         </td>
                         <td class="">
-                            <button class="edit-button w-full mb-1" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Edit</button>
-                            <button class="delete-button  w-full" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
+                            <button class="edit-button w-full mb-1 block" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Edit</button>
+                            <button class="delete-button  w-full block" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
                         </td>
                     </tr>
                     <% }); %>
@@ -311,14 +317,14 @@ function toggleMultiplePrices(value) {
 
 <div class="pagination-container">
     <!-- Previous Page Link -->
-    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${sort ? '&sort=' + sort : ''}` : '#' %>"
+    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${!searchQuery ?  sort ? '&sort=' + sort : '' : ''}` : '#' %>"
        class="pagination-button <%= currentPage === 1 ? 'disabled' : '' %>">
         &#10094;
     </a>
 
     <!-- First Page and Ellipsis if necessary -->
     <% if (pageStart > 1) { %>
-        <a href="/admin/products?page=1<%= sort ? '&sort=' + sort : '' %>" class="pagination-button">1</a>
+        <a href="/admin/products?page=1<%= !searchQuery ?  sort ? '&sort=' + sort : '' : '' %>" class="pagination-button">1</a>
         <% if (pageStart > 2) { %>
             <span class="pagination-ellipsis">...</span>
         <% } %>
@@ -326,22 +332,23 @@ function toggleMultiplePrices(value) {
 
     <!-- Page Numbers -->
     <% for(let i = pageStart; i <= pageEnd; i++) { %>
-        <a href="/admin/products?page=<%= i %><%= sort ? '&sort=' + sort : '' %>"
+        <a href="/admin/products?page=<%= i %><%= !searchQuery ?  sort ? '&sort=' + sort : '' : '' %>"
            class="pagination-button <%= i === currentPage ? 'active' : '' %>">
             <%= i %>
         </a>
     <% } %>
+
 
     <!-- Ellipsis and Last Page -->
     <% if (pageEnd < totalPages) { %>
         <% if (pageEnd < totalPages - 1) { %>
             <span class="pagination-ellipsis">...</span>
         <% } %>
-        <a href="/admin/products?page=<%= totalPages %><%= sort ? '&sort=' + sort : '' %>" class="pagination-button"><%= totalPages %></a>
+        <a href="/admin/products?page=<%= totalPages %><%= !searchQuery ?  sort ? '&sort=' + sort : '' : '' %>" class="pagination-button"><%= totalPages %></a>
     <% } %>
 
     <!-- Next Page Link -->
-    <a href="<%= currentPage < totalPages ? `/admin/products?page=${currentPage + 1}${sort ? '&sort=' + sort : ''}` : '#' %>"
+    <a href="<%= currentPage < totalPages ? `/admin/products?page=${currentPage + 1}${!searchQuery ?  sort ? '&sort=' + sort : '' : ''}` : '#' %>"
        class="pagination-button <%= currentPage === totalPages ? 'disabled' : '' %>">
         &#10095;
     </a>
