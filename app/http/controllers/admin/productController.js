@@ -9,29 +9,31 @@ const ChangeLog = require("../../../models/change");
 
 function productController() {
     return {
+       
+        
         // async index(req, res) {
         //     try {
         //         let query = {}; // Initial query to fetch all products
         //         const { sort } = req.query;
-        //         console.log(sort);
+        //         // console.log(sort);
         
-        //         let sortOrder;
-        //         switch (sort) {
-        //             case 'price-high-to-low':
-        //                 sortOrder = { price: -1 };
-        //                 break;
-        //             case 'price-low-to-high':
-        //                 sortOrder = { price: 1 };
-        //                 break;
-        //             case 'name-a-z':
-        //                 sortOrder = { name: 1 };
-        //                 break;
-        //             case 'name-z-a':
-        //                 sortOrder = { name: -1 };
-        //                 break;
-        //             default:
-        //                 sortOrder = { hasTimestamp: -1,createdAt: -1 };
-        //         }
+        //         // let sortOrder;
+        //         // switch (sort) {
+        //         //     case 'price-high-to-low':
+        //         //         sortOrder = { price: -1 };
+        //         //         break;
+        //         //     case 'price-low-to-high':
+        //         //         sortOrder = { price: 1 };
+        //         //         break;
+        //         //     case 'name-a-z':
+        //         //         sortOrder = { name: 1 };
+        //         //         break;
+        //         //     case 'name-z-a':
+        //         //         sortOrder = { name: -1 };
+        //         //         break;
+        //         //     default:
+        //         //         sortOrder = { hasTimestamp: -1,createdAt: -1 };
+        //         // }
         
         
         //         // Pagination parameters
@@ -55,7 +57,7 @@ function productController() {
         //                 }
         //             },
         //             // { $sort: { hasTimestamp: -1, createdAt: -1 } }, // Sorting by hasTimestamp then by createdAt and updatedAt
-        //             { $sort: sortOrder },
+        //             { $sort:  { hasTimestamp: -1,createdAt: -1 } },
         //             { $skip: (page - 1) * pageSize },
         //             { $limit: pageSize }
         //         ];
@@ -70,13 +72,14 @@ function productController() {
         //             products: updatedProducts,
         //             showNavbar: false,
         //             currentPage: page,
-        //             totalPages: totalPages
+        //             totalPages: totalPages,
+        //             sort
         //         });
         //     } catch (error) {
         //         console.error('Error updating availability:', error);
         //         res.status(500).json({ error: 'Internal Server Error' });
         //     }
-        // },
+        // }
         async index(req, res) {
             try {
                 const { sort } = req.query;
@@ -173,8 +176,7 @@ function productController() {
             }
         }
         
-        
-,        
+        ,
         async categories(req, res) {
             try {
                 const categories = await Category.find({});
@@ -457,13 +459,16 @@ function productController() {
                 res.render('admin/products', {
                     products: searchResult,
                     currentPage: currentPage,
-                    totalPages: totalPages
+                    totalPages: totalPages,
+                    showNavbar:false,
+                    searchQuery
                 });
             } catch (error) {
                 console.error('Search error:', error);
                 res.status(500).send('Error performing product search');
             }
         },
+        
         
         async productAdminSearch(req, res) {
             try {
