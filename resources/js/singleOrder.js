@@ -178,7 +178,6 @@ export function initSingleOrder() {
     }
 
     function renderItemsPDF(items) {
-      // Filter out undefined items
       let parsedItems = Object.values(items).filter(item => item !== undefined);
       const body = parsedItems.map((menuItem, index) => [
         menuItem.item.name,
@@ -187,7 +186,10 @@ export function initSingleOrder() {
         menuItem.qty,
         menuItem.item.price,
       ]);
-
+    
+      // Calculate total price
+      let totalPrice = parsedItems.reduce((sum, item) => sum + (item.qty * item.item.price), 0);
+    
       const table = {
         table: {
           headerRows: 1,
@@ -201,6 +203,13 @@ export function initSingleOrder() {
               'Preis',
             ],
             ...body,
+            [
+              { text: 'Total Price:', colSpan: 4, alignment: 'right', bold: true },
+              {},
+              {},
+              {},
+              { text: totalPrice.toFixed(2), bold: true },
+            ],
           ],
         },
         layout: {
@@ -209,9 +218,10 @@ export function initSingleOrder() {
           },
         },
       };
-
+    
       return table;
     }
+    
 
     function getOrderDetails() {
       // Find the order with the specified orderId

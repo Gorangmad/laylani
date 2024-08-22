@@ -100,7 +100,7 @@ function homeController() {
                         sortOrder = { name: -1 };
                         break;
                     default:
-                        sortOrder = { createdAt: -1 };
+                        sortOrder = { createdAt: -1 }; // Default to sorting by newest products
                 }
         
                 const page = parseInt(req.query.page) || 1;
@@ -135,7 +135,17 @@ function homeController() {
                     } else if (sortOrder.name) {
                         return sortOrder.name * a.name.localeCompare(b.name);
                     } else {
-                        return sortOrder.createdAt * (new Date(a.createdAt) - new Date(b.createdAt));
+                        // Handle sorting by createdAt with special handling for missing dates
+                        if (a.createdAt && b.createdAt) {
+                            // Sort by createdAt in descending order (newest first)
+                            return new Date(b.createdAt) - new Date(a.createdAt);
+                        } else if (a.createdAt && !b.createdAt) {
+                            return -1; // a comes before b
+                        } else if (!a.createdAt && b.createdAt) {
+                            return 1; // b comes before a
+                        } else {
+                            return 0; // If both don't have createdAt, maintain their relative order
+                        }
                     }
                 });
         
@@ -157,6 +167,8 @@ function homeController() {
                 res.status(500).send('Internal Server Error');
             }
         },
+        
+        
         
         async filter(req, res) {
             // Route to fetch categories

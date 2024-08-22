@@ -657,10 +657,7 @@ input:checked + .slider:before {
     background-color: #fefde5 !important;
   }
 
-
-//   print element
-
-
+//   print eleme
 @media print{
     nav{
         visibility: hidden;
