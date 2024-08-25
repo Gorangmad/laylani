@@ -90,7 +90,7 @@ function productController() {
                     case 'price-high-to-low':
                         sortOrder = 'desc';
                         break;
-                    case 'price-low-to-high':
+                    case 'price-low-to-high':   
                         sortOrder = 'asc';
                         break;
                     case 'name-a-z':
@@ -121,21 +121,30 @@ function productController() {
                 }
         
                 // Fetch data without sorting
-                const pizzas = await Menu.find(query).exec();
+                const products = await Menu.find(query).exec();
         
                 // Convert prices to numbers if they are not already
-                pizzas.forEach(pizza => {
+                products.forEach(product => {
                     // Handle cases where the price might be in different formats
-                    if (typeof pizza.price === 'string') {
+                    if (typeof product.price === 'string') {
                         // Remove non-numeric characters except for the decimal point
-                        pizza.price = parseFloat(pizza.price.replace(/[^0-9.]/g, ''));
+                        product.price = parseFloat(product.price.replace(/[^0-9.]/g, ''));
                     } else {
-                        pizza.price = parseFloat(pizza.price);
+                        product.price = parseFloat(product.price);
                     }
                 });
         
-                // Sort the pizzas array based on sortOrder
-                pizzas.sort((a, b) => {
+                // Sort the products array based on sortOrder and handling missing createdAt
+                products.sort((a, b) => {
+                    if (!a.createdAt && b.createdAt) {
+                        return 1; // a should come after b
+                    } else if (a.createdAt && !b.createdAt) {
+                        return -1; // a should come before b
+                    } else if (!a.createdAt && !b.createdAt) {
+                        return 0; // both are equal in terms of createdAt
+                    }
+        
+                    // Now compare based on the selected sortOrder
                     if (sortOrder === 'desc' || sortOrder === 'asc') {
                         if (sortOrder === 'desc') {
                             return b.price - a.price; // price-high-to-low
@@ -158,15 +167,15 @@ function productController() {
                 });
         
                 // Paginate the sorted results
-                const paginatedPizzas = pizzas.slice(skip, skip + limit);
+                const paginatedProducts = products.slice(skip, skip + limit);
         
-                const totalPizzas = pizzas.length;
+                const totalProducts = products.length;
         
                 return res.render('admin/products', {
-                    products: paginatedPizzas,
+                    products: paginatedProducts,
                     showNavbar: false,
                     currentPage: page,
-                    totalPages: Math.ceil(totalPizzas / limit),
+                    totalPages: Math.ceil(totalProducts / limit),
                     searchQuery: req.query.search || '',
                     sort
                 });
@@ -175,6 +184,7 @@ function productController() {
                 res.status(500).send('Internal Server Error');
             }
         }
+        
         
         ,
         async categories(req, res) {
