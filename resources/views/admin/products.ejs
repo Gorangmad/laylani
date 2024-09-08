@@ -107,6 +107,41 @@
   padding: 0;
   border-bottom: 1px solid #cccccc;
 }
+/* Set a maximum width for the headers */
+thead th {
+    max-width: 150px; /* You can adjust this value as per your need */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowed content */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed content */
+}
+
+/* Optional: Set a smaller width for specific headers */
+thead th:nth-child(1) {
+    max-width: 100px; /* Adjust this value for the first header */
+}
+
+thead th:nth-child(2) {
+    max-width: 120px; /* Adjust this value for the second header */
+}
+
+/* Ensure input fields are still aligned with headers */
+thead input {
+    width: 100%; /* Input fields take full width of their container */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.search-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
 
 </style>
 
@@ -220,22 +255,6 @@ function toggleMultiplePrices(value) {
                 </form>
                 <% } %>
             </div>
-        <div class="search-container mb-4 ">
-           
-            <form action="/admin/products/search" method="GET" class="flex">
-                <input
-                    type="text"
-                    name="name"
-                    comment="comment"
-                    id="search-input"
-                    class="search-input w-64 sm:w-72"
-                    placeholder="Search products"
-                />
-                <button type="submit" class="search-button  ">
-                    <span>&#128269;</span>
-                </button>
-            </form>
-        </div>
         
     </div>
     <% if (!searchQuery) { %>
@@ -270,6 +289,41 @@ function toggleMultiplePrices(value) {
                     <th class="px-4 py-2">Checked</th>
                     <th class="px-4 py-2">Actions</th>
                 </tr>
+                <tr>
+                    <th class="px-3 py-2"><input type="text" id="filter-name" placeholder="Filter by Name"></th>
+                    <th class="px-3 py-2"><input type="text" id="filter-comment" placeholder="Filter by Comment"></th>
+                    <th class="px-3 py-2"><input type="number" id="filter-price" placeholder="Filter by Price"></th>
+                    <th class="px-3 py-2"><input type="text" id="filter-sizes" placeholder="Filter by Sizes"></th>
+                    
+                    <!-- Label Filter Dropdown -->
+                    <th class="px-3 py-2">
+                        <select id="filter-label">
+                            <option value="">All</option>
+                            <option value="available">available</option>
+                            <option value="sold out">sold out</option>
+                            <option value="new">new</option>
+                            <option value="back in">back in</option>
+                            <option value="wsl">wsl</option>
+                        </select>
+                    </th>
+                    
+                    <th class="px-3 py-2"><input type="text" id="filter-expiry" placeholder="Filter by Expiry"></th>
+                    
+                    <!-- Checked Filter Dropdown -->
+                    <th class="px-3 py-2">
+                        <select id="filter-checked">
+                            <option value="">All</option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </th>
+                    
+                    <th class="px-3 py-2">
+                        <!-- Search button in the Actions column -->
+                        <button id="search-button" class="search-button">🔍 Search</button>
+                    </th>
+                </tr>                
+                
             </thead>
             <tbody>
                 <%products.forEach((product, index) => { %>
@@ -317,14 +371,14 @@ function toggleMultiplePrices(value) {
 
 <div class="pagination-container">
     <!-- Previous Page Link -->
-    <a href="<%= currentPage > 1 ? `/menu?page=${currentPage - 1}${!searchQuery ?  sort ? '&sort=' + sort : '' : ''}` : '#' %>"
+    <a href="<%= currentPage > 1 ? `/admin/products?page=${currentPage - 1}&${queryString}` : '#' %>"
        class="pagination-button <%= currentPage === 1 ? 'disabled' : '' %>">
         &#10094;
     </a>
 
     <!-- First Page and Ellipsis if necessary -->
     <% if (pageStart > 1) { %>
-        <a href="/admin/products?page=1<%= !searchQuery ?  sort ? '&sort=' + sort : '' : '' %>" class="pagination-button">1</a>
+        <a href="/admin/products?page=1&<%= queryString %>" class="pagination-button">1</a>
         <% if (pageStart > 2) { %>
             <span class="pagination-ellipsis">...</span>
         <% } %>
@@ -332,27 +386,28 @@ function toggleMultiplePrices(value) {
 
     <!-- Page Numbers -->
     <% for(let i = pageStart; i <= pageEnd; i++) { %>
-        <a href="/admin/products?page=<%= i %><%= !searchQuery ?  sort ? '&sort=' + sort : '' : '' %>"
+        <a href="/admin/products?page=<%= i %>&<%= queryString %>"
            class="pagination-button <%= i === currentPage ? 'active' : '' %>">
             <%= i %>
         </a>
     <% } %>
-
 
     <!-- Ellipsis and Last Page -->
     <% if (pageEnd < totalPages) { %>
         <% if (pageEnd < totalPages - 1) { %>
             <span class="pagination-ellipsis">...</span>
         <% } %>
-        <a href="/admin/products?page=<%= totalPages %><%= !searchQuery ?  sort ? '&sort=' + sort : '' : '' %>" class="pagination-button"><%= totalPages %></a>
+        <a href="/admin/products?page=<%= totalPages %>&<%= queryString %>" class="pagination-button"><%= totalPages %></a>
     <% } %>
 
     <!-- Next Page Link -->
-    <a href="<%= currentPage < totalPages ? `/admin/products?page=${currentPage + 1}${!searchQuery ?  sort ? '&sort=' + sort : '' : ''}` : '#' %>"
+    <a href="<%= currentPage < totalPages ? `/admin/products?page=${currentPage + 1}&${queryString}` : '#' %>"
        class="pagination-button <%= currentPage === totalPages ? 'disabled' : '' %>">
         &#10095;
     </a>
 </div>
+
+
 
 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -755,6 +810,59 @@ function toggleChecked(checkbox) {
     })
     .catch((error) => {
         console.error('Error:', error);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const searchButton = document.getElementById('search-button');
+
+    searchButton.addEventListener('click', function () {
+        // Get the values from all filter inputs
+        const filters = {
+            name: document.getElementById('filter-name').value.trim(),
+            comment: document.getElementById('filter-comment').value.trim(),
+            price: document.getElementById('filter-price').value.trim(),
+            sizes: document.getElementById('filter-sizes').value.trim(),
+            label: document.getElementById('filter-label').value.trim(),
+            expiry: document.getElementById('filter-expiry').value.trim(),
+            checked: document.getElementById('filter-checked').value.trim(),
+        };
+
+        // Convert the filters to query parameters
+        const queryParams = new URLSearchParams(filters).toString();
+
+        // Redirect to the filtered URL with pagination reset to page 1
+        window.location.href = `/admin/products?page=1&${queryParams}`;
+    });
+});
+
+
+
+
+// Function to update the product table with new data
+function updateProductTable(products) {
+    const tbody = document.querySelector('table tbody');
+    tbody.innerHTML = ''; // Clear existing rows
+
+    products.forEach((product, index) => {
+        const row = `
+        <tr class="row-${index}">
+            <td class="editable">${product.name}</td>
+            <td class="editable">${product.comment}</td>
+            <td class="editable">${product.price}</td>
+            <td class="editable">${product.sizes}</td>
+            <td class="editable">${product.label}</td>
+            <td class="editable">${product.expiry}</td>
+            <td class="">
+                <input type="checkbox" class="product-checkbox" ${product.checked ? 'checked' : ''}>
+            </td>
+            <td class="">
+                <button class="edit-button">Edit</button>
+                <button class="delete-button">Delete</button>
+            </td>
+        </tr>
+        `;
+        tbody.insertAdjacentHTML('beforeend', row);
     });
 }
 

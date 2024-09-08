@@ -82,111 +82,108 @@ function productController() {
         // }
         async index(req, res) {
             try {
-                const { sort } = req.query;
-                console.log(sort);
-        
+                const { sort, page, name, comment, price, sizes, label, expiry, checked } = req.query;
+                const query = {}; // Base query object
+                
+                // Build dynamic query based on user inputs in the thead filters
+                if (name) {
+                    query.name = { $regex: new RegExp(name, 'i') }; // Case-insensitive regex search
+                }
+                if (comment) {
+                    query.comment = { $regex: new RegExp(comment, 'i') };
+                }
+                if (price) {
+                    if (Array.isArray(price)) {
+                        // If price is an array from the user input, match any of the values in the database
+                        query.$or = [
+                            // Match if the price in the database is a string and equals any of the input prices
+                            { price: { $in: price.map(p => parseFloat(p)) } },
+                            // Match if the price in the database is an array and contains any of the input prices
+                            { price: { $elemMatch: { $in: price.map(p => parseFloat(p)) } } }
+                        ];
+                    } else {
+                        // If price is a single value (string), match it as a string or part of an array in the database
+                        const parsedPrice = price;
+                        query.$or = [
+                            // Match if the price is a string and equals the given price
+                            { price: parsedPrice },
+                            // Match if the price is an array and contains the given price
+                            { price: { $elemMatch: { $eq: parsedPrice } } }
+                        ];
+                    }
+                }                
+                if (sizes) {
+                    query.sizes = { $regex: new RegExp(sizes, 'i') };
+                }
+                if (label) {
+                    console.log(label)
+                    query.availability = { $regex: new RegExp(label, 'i') };
+                }
+                if (expiry) {
+                    query.expiry = expiry; // Assuming expiry is a date string, adjust based on your data format
+                }
+                if (checked) {
+                    query.isChecked = checked === 'true'; // Convert checked value to boolean
+                }
+                
+                // Sorting logic
                 let sortOrder;
                 switch (sort) {
                     case 'price-high-to-low':
-                        sortOrder = 'desc';
+                        sortOrder = { price: -1 };
                         break;
-                    case 'price-low-to-high':   
-                        sortOrder = 'asc';
+                    case 'price-low-to-high':
+                        sortOrder = { price: 1 };
                         break;
                     case 'name-a-z':
-                        sortOrder = 'name-asc';
+                        sortOrder = { name: 1 };
                         break;
                     case 'name-z-a':
-                        sortOrder = 'name-desc';
+                        sortOrder = { name: -1 };
                         break;
                     default:
-                        sortOrder = 'createdAt-desc';
+                        sortOrder = { createdAt: -1 }; // Default to sorting by creation date
                 }
         
-                const page = parseInt(req.query.page) || 1;
-                const limit = 50; // Number of items per page
-                const skip = (page - 1) * limit;
+                // Pagination parameters
+                const pageSize = 50;
+                const currentPage = parseInt(page) || 1;
+                const skip = (currentPage - 1) * pageSize;
+                
+                // Fetch filtered and sorted data
+                const totalProducts = await Menu.countDocuments(query);
+                const products = await Menu.find(query)
+                    .sort(sortOrder)
+                    .skip(skip)
+                    .limit(pageSize)
+                    .exec();
         
-                // Base query for filtering
-                let query = {};
+                const totalPages = Math.ceil(totalProducts / pageSize);
+
+                // Generate query string to preserve filter values in pagination
+                const queryString = Object.keys(req.query)
+                .filter(key => req.query[key] && key !== 'page') // Exclude page from queryString
+                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(req.query[key])}`)
+                .join('&');
         
-                if (req.query.search) {
-                    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-                    query = {
-                        $or: [
-                            { name: regex },
-                            { comment: regex }
-                        ]
-                    };
-                }
-        
-                // Fetch data without sorting
-                const products = await Menu.find(query).exec();
-        
-                // Convert prices to numbers if they are not already
-                products.forEach(product => {
-                    // Handle cases where the price might be in different formats
-                    if (typeof product.price === 'string') {
-                        // Remove non-numeric characters except for the decimal point
-                        product.price = parseFloat(product.price.replace(/[^0-9.]/g, ''));
-                    } else {
-                        product.price = parseFloat(product.price);
-                    }
-                });
-        
-                // Sort the products array based on sortOrder and handling missing createdAt
-                products.sort((a, b) => {
-                    if (!a.createdAt && b.createdAt) {
-                        return 1; // a should come after b
-                    } else if (a.createdAt && !b.createdAt) {
-                        return -1; // a should come before b
-                    } else if (!a.createdAt && !b.createdAt) {
-                        return 0; // both are equal in terms of createdAt
-                    }
-        
-                    // Now compare based on the selected sortOrder
-                    if (sortOrder === 'desc' || sortOrder === 'asc') {
-                        if (sortOrder === 'desc') {
-                            return b.price - a.price; // price-high-to-low
-                        } else {
-                            return a.price - b.price; // price-low-to-high
-                        }
-                    } else if (sortOrder === 'name-asc' || sortOrder === 'name-desc') {
-                        if (sortOrder === 'name-asc') {
-                            return a.name.localeCompare(b.name); // name-a-z
-                        } else {
-                            return b.name.localeCompare(a.name); // name-z-a
-                        }
-                    } else if (sortOrder === 'createdAt-desc' || sortOrder === 'createdAt-asc') {
-                        if (sortOrder === 'createdAt-desc') {
-                            return new Date(b.createdAt) - new Date(a.createdAt); // createdAt-desc
-                        } else {
-                            return new Date(a.createdAt) - new Date(b.createdAt); // createdAt-asc
-                        }
-                    }
-                });
-        
-                // Paginate the sorted results
-                const paginatedProducts = products.slice(skip, skip + limit);
-        
-                const totalProducts = products.length;
-        
-                return res.render('admin/products', {
-                    products: paginatedProducts,
+                // Render the products page with the filtered products and pagination info
+                res.render('admin/products', {
+                    products,
                     showNavbar: false,
-                    currentPage: page,
-                    totalPages: Math.ceil(totalProducts / limit),
+                    currentPage,
+                    totalPages,
                     searchQuery: req.query.search || '',
+                    queryString,  // Pass queryString for pagination links
                     sort
                 });
             } catch (error) {
-                console.error('Error updating availability:', error);
+                console.error('Error fetching products:', error);
                 res.status(500).send('Internal Server Error');
             }
-        }
+        },        
         
         
-        ,
+        
         async categories(req, res) {
             try {
                 const categories = await Category.find({});

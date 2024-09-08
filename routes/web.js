@@ -104,6 +104,9 @@ function initRoutes(app) {
     app.get('/admin/delivery',admin , adminOrderController().twodex)
     app.get('/admin/archiv',admin , adminOrderController().threedex)
 
+    app.get('/admin/orders/search',admin , adminOrderController().searchOrders)
+
+
     app.get('/admin/products', admin, adminProductController().index)
     
     app.get('/admin/categories', admin, adminProductController().categories)

@@ -606,7 +606,6 @@ input:checked + .slider:before {
 
 
 
-
 @media(max-width:1060px) {
     .container {
         max-width: 90%;
@@ -623,6 +622,7 @@ input:checked + .slider:before {
         font-size: 34px;
     }
 }
+
 
 
   .total-quantity-cell {
@@ -656,6 +656,8 @@ input:checked + .slider:before {
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
   }
+
+
 
 //   print eleme
 @media print{

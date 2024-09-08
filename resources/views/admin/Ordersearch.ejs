@@ -53,6 +53,21 @@
 <section class="orders lg:ml-72  light-section ">
     <div class="w-11/12 xl:w-5/6 mx-auto pt-12 pb-2 ">
         <h1 class="font-bold text-3xl mb-4">All Orders</h1>
+        <div class="search-container mb-4 ">
+           
+            <form action="/admin/orders/search" method="GET" class="flex">
+                <input
+                    type="text"
+                    id="search-input"
+                    name="name"
+                    class="search-input w-64 sm:w-72"
+                    placeholder="Search orders"
+                />
+                <button type="submit" class="search-button">
+                    <span>&#128269;</span>
+                </button>
+            </form>            
+        </div>
         <div class="overflow-auto">
 
             <table class="w-full table-auto bg-white">
