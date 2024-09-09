@@ -401,14 +401,22 @@ function renderSidebar(categories) {
         const link = document.createElement('a');
         const arrow = document.createElement('span'); // Create a span for the arrow
         arrow.classList.add('arrow'); // Add a class for styling
+        
 
         link.textContent = category.Parent_Category;
         link.classList.add('text-black', 'sidebar-link');
+
+        // Apply flexbox styles
+link.style.display = 'flex';
+link.style.justifyContent = 'space-between';
+link.style.alignItems = 'center'; // Center items vertically
+
 
         // Check if the category has subcategories
         if (category.subcategories && category.subcategories.length > 0) {
             // Set an empty href for parent categories with subcategories
             link.href = '#';
+            link.innerHTML = `${category.Parent_Category} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 16L6 10H18L12 16Z"></path></svg>`
         } else {
             // Set the href for categories without subcategories
             link.href = `/products?category=${category.No}`;
