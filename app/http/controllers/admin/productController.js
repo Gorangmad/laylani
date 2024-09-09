@@ -187,7 +187,7 @@ function productController() {
         async categories(req, res) {
             try {
                 const categories = await Category.find({});
-                res.render('admin/categories', { categories: categories });
+                res.render('admin/categories', { categories: categories, showNavbar: false});
             } catch (error) {
                 console.error('Error fetching categories:', error);
                 res.status(500).json({ error: 'Internal Server Error' });

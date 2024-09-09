@@ -353,7 +353,7 @@ function toggleMultiplePrices(value) {
                         </td>
                         <td class="">
                             <button class="edit-button w-full mb-1 block" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Edit</button>
-                            <button class="delete-button  w-full block" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
+                            <button class="delete-button w-full block" data-product-id="<%= product._id %>" data-row-index="<%= index %>">Delete</button>
                         </td>
                     </tr>
                     <% }); %>
@@ -608,30 +608,19 @@ function toggleMultiplePrices(value) {
         });
     });
 
-    searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-
-        // Replace 'products' with 'productsData'
-        productsData.forEach(function (product, index) {
-            const productName = product.name.toLowerCase();
-            const productComment = product.comment.toLowerCase();
-
-            const productRow = document.querySelector(`table tbody tr:nth-child(${index + 1})`);
-            if (productName.includes(searchTerm) || productComment.includes(searchTerm)) {
-                productRow.style.display = ''; // Show the row
-            } else {
-                productRow.style.display = 'none'; // Hide the row
-            }
-        });
-    });
 
     let currentProductId = null; // Temporary storage for the product ID to be deleted
 
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('delete-button')) {
+    // Attach event listeners to all delete buttons
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    console.log("hallo")
+    
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            console.log("clicked button"); // This will log when the delete button is clicked
             currentProductId = event.target.getAttribute('data-product-id'); // Store the product ID
             $('#confirmationModal').modal('show'); // Show the confirmation modal
-        }
+        });
     });
 
     // Confirm deletion
