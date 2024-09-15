@@ -125,28 +125,32 @@
                 <tr>
                     <th class="px-4 py-2">ID</th>
                     <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Visibility</th>
                     <th class="px-4 py-2">Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <% categories.forEach(categorie => { %>
-                    <tr>
-                        <td>
-                            <p class="text-blue-500 hover:text-blue-800">
-                                <%= categorie._id %>
-                            </p>
-                        </td>
-                        <td><%= categorie.Parent_Category %></td>
-                        <td>
-                            <form action="/delete-categorie" method="POST">
-                                <input type="hidden" name="userId" value="<%= categorie._id %>">
-                                <button type="submit" class="delete-button">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                <% }); %>
+                <tbody>
+                    <% categories.forEach(categorie => { %>
+                        <tr>
+                            <td>
+                                <p class="text-blue-500 hover:text-blue-800">
+                                    <%= categorie._id %>
+                                </p>
+                            </td>
+                            <td><%= categorie.Parent_Category %></td>
+                            <td>
+                                <input type="number" class="visibility-input" data-id="<%= categorie._id %>" value="<%= categorie.Visibility %>" min="0" max="1">
+                            </td>
+                            <td>
+                                <form action="/delete-categorie" method="POST">
+                                    <input type="hidden" name="userId" value="<%= categorie._id %>">
+                                    <button type="submit" class="delete-button">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>                    
             </tbody>
         </table>
     </div>
@@ -198,6 +202,37 @@
         modal.style.display = "none";
       }
     }
+
+    document.querySelectorAll('.visibility-input').forEach(function(input) {
+        input.addEventListener('change', function() {
+            var categoryId = this.dataset.id;
+            var newVisibility = this.value;
+
+            // Send an AJAX request to update visibility
+            fetch('/admin/update-category-visibility', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: categoryId,
+                    visibility: newVisibility
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Visibility updated successfully');
+                } else {
+                    alert('Failed to update visibility: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating visibility:', error);
+            });
+        });
+    });
+
 </script>
 
 </body>

@@ -110,6 +110,7 @@ function initRoutes(app) {
     app.get('/admin/products', admin, adminProductController().index)
     
     app.get('/admin/categories', admin, adminProductController().categories)
+    app.post('/admin/update-category-visibility', admin, adminController().index)
   
     app.post('/delete-categorie', admin, adminProductController().deleteCategories)
     app.post('/admin/add-categories', admin, adminProductController().AddCategories)
